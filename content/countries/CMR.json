@@ -1,0 +1,127 @@
+{
+  "iso3": "CMR",
+  "name": "Cameroon",
+  "status": "preparing",
+  "project_count": 0,
+  "region": "africa",
+  "thematics": [
+    "tenure-security",
+    "territorial-governance"
+  ],
+  "summary": "Cameroon received a project preparation grant in 2024 and is part of the next-wave pipeline.",
+  "metrics": {
+    "project_count": 0,
+    "project_preparation": true,
+    "source_page": 25
+  },
+  "partners": [
+    "Project preparation partners"
+  ],
+  "featured_achievements": [
+    "Project preparation grant awarded as part of pipeline development."
+  ],
+  "stories": [
+    {
+      "title": "Pipeline development",
+      "summary": "Cameroon appears in countries where projects are being prepared.",
+      "source_page": 25,
+      "source_refs": [
+        {
+          "source_page": 25,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "Scaling requires continued, predictable funding flows to organisations on the ground.",
+    "attribution": "Scaling rights as a solution",
+    "source_page": 23
+  },
+  "media": {
+    "photos": [
+      "report-page-23.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "preparing",
+  "status_tags": [
+    "preparing"
+  ],
+  "status_timeline": [
+    {
+      "status": "preparing",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'preparing'.",
+      "source_page": 25
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 23,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 25,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "CMR-PIPE-001",
+      "project_name": "Cameroon Preparation Grant and Pipeline Development",
+      "lifecycle_status": "preparation",
+      "implementation_status": "pipeline",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "territorial-governance"
+      ],
+      "partners": [
+        "Project preparation partners"
+      ],
+      "summary": "Report-derived pipeline record for Cameroon connected to expansion or assessment pathways.",
+      "metrics": {
+        "project_preparation": true,
+        "project_count_country": 0
+      },
+      "source_refs": [
+        {
+          "source_page": 25,
+          "source_type": "map",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 80,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.6
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.6
+}

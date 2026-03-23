@@ -1,0 +1,139 @@
+{
+  "iso3": "SUR",
+  "country_name": "Suriname",
+  "region": "Latin America",
+  "map_status": "active_project_country",
+  "project_count": 2,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    25,
+    66
+  ],
+  "summary": "Suriname is listed on the 2024 global footprint map with 2 active projects. Take the Saamaka People, one of six Tribal Peoples in Suriname and descendants of Africans who managed to escape slavery. Saamaka culture is deeply connected to the Amazon.",
+  "map_entry": {
+    "status": "active_project_country",
+    "project_count": 2,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "SUR_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 2,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Suriname has 2 active projects on the map."
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "SUR_PRJ_001",
+      "title": "STARTING THE JOURNEY: HOW SAAMAKA YOUTH CRAFTED A PROJECT PROPOSAL IN SURINAME",
+      "description": "Take the Saamaka People, one of six Tribal Peoples in Suriname and descendants of Africans who managed to escape slavery. Saamaka culture is deeply connected to the Amazon rainforest.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "saamaka_youth_project_development",
+        "display_name": "Saamaka Youth Project Development"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "women_gender_leadership"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 66,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    }
+  ],
+  "qualitative_highlights": [],
+  "organization_mentions": [],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "SUR_KPI_001"
+      ]
+    },
+    "available_metric_families": [
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Suriname appears on Tenure Facility's 2024 global footprint map with status 'active_project_country' and project count 2."
+    },
+    {
+      "source_page": 25,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "2 SURINAME"
+    },
+    {
+      "source_page": 66,
+      "source_heading": "STARTING THE JOURNEY: HOW SAAMAKA YOUTH CRAFTED A PROJECT PROPOSAL IN SURINAME",
+      "content_type": "project_description",
+      "text": "Take the Saamaka People, one of six Tribal Peoples in Suriname and descendants of Africans who managed to escape slavery. Saamaka culture is deeply connected to the Amazon rainforest."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "saamaka_youth_project_development",
+      "display_name": "Saamaka Youth Project Development"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

@@ -1,0 +1,84 @@
+field_name,data_type,required,entity_scope,allowed_values_or_example,description
+project_id,string,yes,all rows,rooted_10y,Stable project key used by the generator to group all rows into one site build.
+project_title,string,yes,all rows,Rooted — Tenure Facility Decade Explainer,Human-readable project title.
+scene_id,enum/string,yes,all rows,"S1, S2, S3...",Unique scene identifier; all layers within a scene share this.
+scene_order,integer,yes,all rows,1..N,Scene playback order in the scrollytelling sequence.
+scene_title,string,yes,all rows,Underground Prelude,Display name / editor label for the scene.
+scene_theme,string,yes,all rows,Roots / mycelium / origin before visibility,Art-direction note for the scene.
+scene_scroll_start_vh,number,yes,all rows,"0, 220, 400...",Global scroll offset in viewport heights where the scene begins.
+scene_scroll_length_vh,number,yes,all rows,"180, 220, 280",Pinned scroll duration for the scene in viewport heights.
+scene_pin,boolean,yes,all rows,TRUE/FALSE,Whether the scene is pinned during playback.
+scene_bg_color,color hex,optional,all rows,#120E0A,Fallback color shown before heavy assets load.
+camera_group_id,string,yes,all rows,CAM_S1,Logical camera namespace; lets multiple layers share one virtual camera setup.
+camera_move,enum,yes,all rows,"push_in, crane_up, zoom_to_center, lateral_pan, pull_back",Primary 2.5D camera behavior for the scene.
+camera_notes,string,optional,all rows,Slow 2.5D push through soil layers...,Freeform implementation note for the animation system.
+layer_id,string,yes,layer row,S1_L01,Unique row key for the generator.
+parent_layer_id,string,optional,layer row,S3_L01,Optional parenting target for transform inheritance.
+layer_order,integer,yes,layer row,1..N,Render order within the scene; lower numbers draw first.
+layer_kind,enum,yes,layer row,"image, sequence, text, panel, button",Runtime renderer selection.
+layer_name,string,yes,layer row,Mycelial network growth sequence,Human-readable editor label.
+asset_mode,enum,yes,layer row,"static, sequence, text, html","Defines whether the row points to a file, sequence, or semantic text/html layer."
+asset_path,string,conditional,image/sequence rows,/assets/s1/soil_gradient.avif,Primary source path or folder root.
+asset_format,string,conditional,image/sequence/text rows,"avif, webp, png, svg, html, webp_sequence",Expected file/renderer format.
+asset_role,enum/string,optional,layer row,"background, hero, data-overlay",Design-system role used for defaults and debugging.
+text_content,string,conditional,text/html/button rows,A tree does not begin with its rings.,Inline copy or button label.
+font_family,string,conditional,text/html/button rows,"Fraunces, Inter",Font token for semantic text layers.
+font_weight,integer/string,conditional,text/html/button rows,"400, 600",Font weight token.
+font_size_desktop_px,number,conditional,text/html/button rows,"24, 56",Desktop type size.
+font_size_mobile_px,number,conditional,text/html/button rows,"18, 34",Mobile type size.
+text_align,enum,conditional,text/html/button rows,"left, center, right",Text alignment.
+width_vw,number,yes,all rows,14..130,Layer box width in viewport-width units.
+height_vh,number,yes,all rows,7..130,Layer box height in viewport-height units.
+base_x_pct,number,yes,all rows,0..100,"Base X anchor position within viewport, percent."
+base_y_pct,number,yes,all rows,0..100,"Base Y anchor position within viewport, percent."
+depth_index,integer,yes,all rows,-5..7,Relative z-depth for ordering and parallax defaults.
+parallax_x,number,yes,all rows,0.00..0.10,Multiplier for horizontal camera movement.
+parallax_y,number,yes,all rows,0.00..0.35,Multiplier for vertical camera movement.
+blend_mode,enum/string,optional,all rows,"normal, screen, multiply, overlay, soft-light",Compositing mode.
+mask_shape,enum/string,optional,all rows,"none, circle, gradient-bottom, pill",Mask preset or custom mask name.
+sequence_src_pattern,string,conditional,sequence rows,/assets/s1/seq/mycelium_growth/frame_%04d.webp,Printf-style frame sequence path.
+sequence_frame_count,integer,conditional,sequence rows,"36, 42, 50",Total frames available.
+sequence_fps,integer,conditional,sequence rows,"18, 20",Nominal authored frame rate for preview/export.
+sequence_scrub_mode,enum,conditional,sequence rows,frame-by-scroll,How scroll is mapped to sequence playback.
+ai_start_prompt,string,optional,sequence rows,Dark underground cross section...,Prompt for generating the first key state of an AI-assisted sequence.
+ai_end_prompt,string,optional,sequence rows,Dense glowing mycelial thread network...,Prompt for generating the final key state of an AI-assisted sequence.
+trigger_start,number,yes,all rows,0..1,Normalized local scene progress when this layer starts animating.
+trigger_end,number,yes,all rows,0..1,Normalized local scene progress when this layer ends animating.
+ease,string,yes,all rows,"none, power2.out",Default easing for non-scrub properties.
+kf0_p,number,yes,all rows,0..1,Normalized local progress for keyframe 0.
+kf0_x_pct,number,yes,all rows,0..100,Viewport X position for keyframe 0.
+kf0_y_pct,number,yes,all rows,0..100,Viewport Y position for keyframe 0.
+kf0_scale,number,yes,all rows,0.5..2.0,Scale multiplier for keyframe 0.
+kf0_opacity,number,yes,all rows,0..1,Opacity for keyframe 0.
+kf0_rotate_deg,number,yes,all rows,-180..180,Rotation in degrees for keyframe 0.
+kf0_blur_px,number,yes,all rows,0..20,Blur radius for keyframe 0.
+kf0_frame,integer,conditional,all rows,0..N,Sequence frame index for keyframe 0; 0 for non-sequence layers.
+kf1_p,number,yes,all rows,0..1,Normalized local progress for keyframe 1.
+kf1_x_pct,number,yes,all rows,0..100,Viewport X position for keyframe 1.
+kf1_y_pct,number,yes,all rows,0..100,Viewport Y position for keyframe 1.
+kf1_scale,number,yes,all rows,0.5..2.0,Scale multiplier for keyframe 1.
+kf1_opacity,number,yes,all rows,0..1,Opacity for keyframe 1.
+kf1_rotate_deg,number,yes,all rows,-180..180,Rotation in degrees for keyframe 1.
+kf1_blur_px,number,yes,all rows,0..20,Blur radius for keyframe 1.
+kf1_frame,integer,conditional,all rows,0..N,Sequence frame index for keyframe 1; 0 for non-sequence layers.
+kf2_p,number,yes,all rows,0..1,Normalized local progress for keyframe 2.
+kf2_x_pct,number,yes,all rows,0..100,Viewport X position for keyframe 2.
+kf2_y_pct,number,yes,all rows,0..100,Viewport Y position for keyframe 2.
+kf2_scale,number,yes,all rows,0.5..2.0,Scale multiplier for keyframe 2.
+kf2_opacity,number,yes,all rows,0..1,Opacity for keyframe 2.
+kf2_rotate_deg,number,yes,all rows,-180..180,Rotation in degrees for keyframe 2.
+kf2_blur_px,number,yes,all rows,0..20,Blur radius for keyframe 2.
+kf2_frame,integer,conditional,all rows,0..N,Sequence frame index for keyframe 2; 0 for non-sequence layers.
+kf3_p,number,yes,all rows,0..1,Normalized local progress for keyframe 3.
+kf3_x_pct,number,yes,all rows,0..100,Viewport X position for keyframe 3.
+kf3_y_pct,number,yes,all rows,0..100,Viewport Y position for keyframe 3.
+kf3_scale,number,yes,all rows,0.5..2.0,Scale multiplier for keyframe 3.
+kf3_opacity,number,yes,all rows,0..1,Opacity for keyframe 3.
+kf3_rotate_deg,number,yes,all rows,-180..180,Rotation in degrees for keyframe 3.
+kf3_blur_px,number,yes,all rows,0..20,Blur radius for keyframe 3.
+kf3_frame,integer,conditional,all rows,0..N,Sequence frame index for keyframe 3; 0 for non-sequence layers.
+reduced_motion_mode,enum,yes,all rows,"static, fade-only, first-frame, hide",How the layer behaves when prefers-reduced-motion is enabled.
+reduced_motion_asset,string,optional,all rows,/assets/s1/seq/.../frame_0001.webp,Fallback asset to use for reduced-motion mode if needed.
+mobile_behavior,enum,yes,all rows,"keep, simplify, hide",Mobile optimization directive.
+preload_priority,enum,yes,all rows,"high, medium, low",Asset loading priority.
+notes,string,optional,all rows,Primary AI-generated image sequence...,Implementation / editorial note.

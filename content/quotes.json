@@ -1,0 +1,88 @@
+{
+  "quotes": [
+    {
+      "id": "nonette-trust-buttress-roots",
+      "text": "Trust forms the buttress roots that enable community tenure, governance, and stewardship to flourish.",
+      "attribution": "Nonette Royo, Executive Director, Tenure Facility",
+      "source_page": 17,
+      "theme": "tenure-security"
+    },
+    {
+      "id": "nonette-royo",
+      "text": "Tenure is not a gift for governments to bestow; it is a fundamental right, and one that benefits us all.",
+      "attribution": "Nonette Royo, Executive Director, Tenure Facility",
+      "source_page": 18,
+      "theme": "tenure-security"
+    },
+    {
+      "id": "lemmel-thomas",
+      "text": "Before, Indigenous Peoples protected nature without government processes. The climate is changing; we need to act fast.",
+      "attribution": "Lemmel Benson Thomas, Vice President, Amerindian Peoples Association in Guyana",
+      "source_page": 23,
+      "theme": "climate-biodiversity"
+    },
+    {
+      "id": "ana-kahyana",
+      "text": "With access to technology and the internet, we can maintain our identity and live in both the Indigenous and non-Indigenous worlds.",
+      "attribution": "Ana Kahyana, AIKATUK",
+      "source_page": 45,
+      "theme": "women-youth-leadership"
+    },
+    {
+      "id": "viviana-women-land-governance",
+      "text": "It is vital women are empowered to participate in decision making and planning of the use and management of community land and territories.",
+      "attribution": "Viviana Figueroa, Omaguaca Indigenous Woman and Tenure Facility Board Member",
+      "source_page": 46,
+      "theme": "women-youth-leadership"
+    },
+    {
+      "id": "barume-risk",
+      "text": "You can't provide someone with the right to self-determination unless you take a risk.",
+      "attribution": "Dr. Albert Barume",
+      "source_page": 62,
+      "theme": "community-led-finance"
+    },
+    {
+      "id": "learning-measure-success",
+      "text": "Tracking project results helps us capture and share knowledge on the tools, methods, and approaches partners use to secure tenure.",
+      "attribution": "Tenure Facility Annual Report 2024",
+      "source_page": 31,
+      "theme": "learning-exchange"
+    },
+    {
+      "id": "mapping-knowledge-and-stories",
+      "text": "Indigenous Peoples' maps are not only of territories, but of knowledge and stories.",
+      "attribution": "Tenure Facility Annual Report 2024",
+      "source_page": 43,
+      "theme": "technology-mapping"
+    },
+    {
+      "id": "cop16-policy-impetus",
+      "text": "COP16 provided the impetus for Colombia to adopt a decree recognising Indigenous and Afro-descendant territorial rights.",
+      "attribution": "Tenure Facility Annual Report 2024",
+      "source_page": 57,
+      "theme": "policy-advocacy"
+    },
+    {
+      "id": "outlook-2025-tenure",
+      "text": "Secure tenure is more critical than ever for global conservation and climate action.",
+      "attribution": "Tenure Facility Outlook for 2025",
+      "source_page": 79,
+      "theme": "climate-biodiversity"
+    },
+    {
+      "id": "myrna-farewell-trajectory",
+      "text": "As we look to the future, let us not forget to celebrate how far we have come.",
+      "attribution": "Myrna Cunningham, Founding Board Member",
+      "source_page": 81,
+      "theme": "territorial-governance"
+    },
+    {
+      "id": "myrna-success-definition",
+      "text": "True success means writing ourselves out of the story.",
+      "attribution": "Myrna Cunningham, Founding Board Member",
+      "source_page": 82,
+      "theme": "tenure-security"
+    }
+  ]
+}

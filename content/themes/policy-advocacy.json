@@ -1,0 +1,106 @@
+{
+  "slug": "policy-advocacy",
+  "name": "Policy and Advocacy",
+  "description": "Legal victories and multilevel advocacy from community organisations to regional and international governance forums.",
+  "source_pages": [
+    13,
+    18,
+    53,
+    56,
+    57,
+    58,
+    76,
+    81
+  ],
+  "kpis": [
+    {
+      "id": "interamerican_rulings",
+      "label": "Landmark Inter-American Court Rulings Supported",
+      "value": 1,
+      "unit": "ruling",
+      "source_page": 13
+    },
+    {
+      "id": "cop16_adp_recognition",
+      "label": "COP16 Recognition Milestones for Afro-descendant Peoples",
+      "value": 1,
+      "unit": "milestone",
+      "source_page": 18
+    },
+    {
+      "id": "uk_pledge_gbp",
+      "label": "UK Amazon Basin Commitment",
+      "value": 94000000,
+      "unit": "GBP",
+      "source_page": 24
+    },
+    {
+      "id": "learning_exchanges_policy",
+      "label": "Learning Exchanges Feeding Policy Pathways",
+      "value": 16,
+      "unit": "exchanges",
+      "source_page": 10
+    }
+  ],
+  "related_countries": [
+    "COL",
+    "BOL",
+    "PAN",
+    "IDN",
+    "BRA",
+    "ECU"
+  ],
+  "related_stories": [
+    "U\u2019wa win at the Inter-American Court",
+    "Colombia judiciary dialogue on territorial restitution",
+    "COP16 and COP29 influence outcomes",
+    "COP16 advocacy outcomes and decree pathways",
+    "COP30 preparation and cross-regional policy positioning",
+    "Institutional legacy and movement-level advocacy continuity"
+  ],
+  "related_charts": [
+    "policy-and-advocacy-highlights-2024"
+  ],
+  "source_refs": [
+    {
+      "source_page": 13,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 18,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 53,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 56,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 57,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 58,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 76,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 81,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

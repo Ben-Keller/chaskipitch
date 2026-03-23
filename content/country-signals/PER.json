@@ -1,0 +1,492 @@
+{
+  "iso3": "PER",
+  "country_name": "Peru",
+  "region": "latin_america",
+  "map_status": "additional_projects_began_implementation_in_2024",
+  "mapped_status": "additional_2024",
+  "live_status": "additional_2024",
+  "status_mismatch": false,
+  "project_count": 2,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    33,
+    34,
+    69
+  ],
+  "canonical_projects": [
+    {
+      "slug": "autonomous_indigenous_territorial_governments",
+      "display_name": "Autonomous Indigenous Territorial Governments"
+    },
+    {
+      "slug": "fenamad_madre_de_dios_territorial_autonomy",
+      "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+    },
+    {
+      "slug": "sierra_del_divisor_occidental_reserve",
+      "display_name": "Sierra del Divisor Occidental Reserve"
+    }
+  ],
+  "organizations": [
+    "APA",
+    "FENAMAD"
+  ],
+  "kpis": [
+    {
+      "id": "PER_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 2,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Peru has 2 active projects on the map."
+    },
+    {
+      "id": "PER_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 4300000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "secure",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "autonomous_indigenous_territorial_governments",
+        "display_name": "Autonomous Indigenous Territorial Governments"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 33,
+      "source_heading": null,
+      "source_text": "In the remote northeastern and central Amazon regions of Peru, where government presence is almost absent and illegal logging and mining rife, the Awajún Autonomous Territorial Government and Wampís Nation’s Autonomous Territorial Government are working to strengthen governance over their territories, which span an area of tropical forest larger than Switzerland (4.3 million hectares). In 2024, the Wampís Indigenous Guard took action to evict illegal miners, and secured recognition from the Peruvian state as an official ‘self-defence’ body."
+    },
+    {
+      "id": "PER_KPI_003",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 1600000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 33,
+      "source_heading": null,
+      "source_text": "The Native Federation of the Madre de Dios River and Tributaries (FENAMAD) supported the Matsigenka Nation in Peru in preparing a preliminary map of its ancestral territory, spanning 1.6 million hectares, marking an important step for enabling it to defend its territory and preserve its cultural heritage. FENEMAD also supported 12 communities of the Harakbut Nation in Peru to develop a self-governance plan and refine the map of their 2.7 million hectares of ancestral land, with 182 Harakbut leaders, elders, youth, and women contributing to the process. These efforts have bolstered their position in negotiations with protected area authorities and others who previously acted without their Free, Prior and Informed Consent."
+    },
+    {
+      "id": "PER_KPI_004",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 2700000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 33,
+      "source_heading": null,
+      "source_text": "The Native Federation of the Madre de Dios River and Tributaries (FENAMAD) supported the Matsigenka Nation in Peru in preparing a preliminary map of its ancestral territory, spanning 1.6 million hectares, marking an important step for enabling it to defend its territory and preserve its cultural heritage. FENEMAD also supported 12 communities of the Harakbut Nation in Peru to develop a self-governance plan and refine the map of their 2.7 million hectares of ancestral land, with 182 Harakbut leaders, elders, youth, and women contributing to the process. These efforts have bolstered their position in negotiations with protected area authorities and others who previously acted without their Free, Prior and Informed Consent."
+    },
+    {
+      "id": "PER_KPI_005",
+      "metric": "communities",
+      "label": "communities",
+      "value": 12,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "Women",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 33,
+      "source_heading": null,
+      "source_text": "The Native Federation of the Madre de Dios River and Tributaries (FENAMAD) supported the Matsigenka Nation in Peru in preparing a preliminary map of its ancestral territory, spanning 1.6 million hectares, marking an important step for enabling it to defend its territory and preserve its cultural heritage. FENEMAD also supported 12 communities of the Harakbut Nation in Peru to develop a self-governance plan and refine the map of their 2.7 million hectares of ancestral land, with 182 Harakbut leaders, elders, youth, and women contributing to the process. These efforts have bolstered their position in negotiations with protected area authorities and others who previously acted without their Free, Prior and Informed Consent."
+    },
+    {
+      "id": "PER_KPI_006",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 515114,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "sierra_del_divisor_occidental_reserve",
+        "display_name": "Sierra del Divisor Occidental Reserve"
+      },
+      "theme_tags": [
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 34,
+      "source_heading": null,
+      "source_text": "Following years of advocacy by multiple Tenure Facility partners, Peru’s government officially established the Sierra del Divisor Occidental Indigenous Reserve. Spanning 515,114 hectares, this protected area will serve as a refuge for three PIACI groups in the Amazon. This achievement is particularly remarkable given Peru’s current political turbulence."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "PER_PRJ_001",
+      "kind": "project_description",
+      "title": "In the remote northeastern and central Amazon regions of Peru, where government presence is almost absent and illegal…",
+      "body": "In the remote northeastern and central Amazon regions of Peru, where government presence is almost absent and illegal logging and mining rife, the Awajún Autonomous Territorial Government and Wampís Nation’s Autonomous Territorial Government are working to strengthen governance over their territories, which span an area of tropical forest larger than Switzerland (4.3 million hectares). In 2024, the Wampís Indigenous Guard took action to evict illegal miners, and secured recognition from the Peruvian state as an official ‘self-defence’ body.",
+      "narrative_type": "milestone",
+      "project_or_initiative": {
+        "slug": "autonomous_indigenous_territorial_governments",
+        "display_name": "Autonomous Indigenous Territorial Governments"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "PER_KPI_002",
+        "PER_KPI_003",
+        "PER_KPI_004",
+        "PER_KPI_005"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 33
+    },
+    {
+      "id": "PER_PRJ_002",
+      "kind": "project_description",
+      "title": "The Native Federation of the Madre de Dios River and Tributaries (FENAMAD) supported the Matsigenka Nation in Peru in…",
+      "body": "The Native Federation of the Madre de Dios River and Tributaries (FENAMAD) supported the Matsigenka Nation in Peru in preparing a preliminary map of its ancestral territory, spanning 1.6 million hectares, marking an important step for enabling it to defend its territory and preserve its cultural heritage. FENEMAD also supported 12 communities of the Harakbut Nation in Peru to develop a self-governance plan and refine the map of their 2.7 million hectares of ancestral land, with 182 Harakbut leaders, elders, youth, and women contributing to the process. These efforts have bolstered their position in negotiations with protected area authorities and others who previously acted without their Free, Prior and Informed Consent.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "technology-mapping"
+      ],
+      "organizations_mentioned": [
+        "FENAMAD"
+      ],
+      "related_kpi_ids": [
+        "PER_KPI_002",
+        "PER_KPI_003",
+        "PER_KPI_004",
+        "PER_KPI_005"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 33
+    },
+    {
+      "id": "PER_PRJ_003",
+      "kind": "project_description",
+      "title": "4.3 MILLION HECTARES: Area over which the Matsigenka and Harakbut Nations in Peru advanced their territorial autonomy.",
+      "body": "4.3 MILLION HECTARES: Area over which the Matsigenka and Harakbut Nations in Peru advanced their territorial autonomy.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "PER_KPI_002",
+        "PER_KPI_003",
+        "PER_KPI_004",
+        "PER_KPI_005"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 33
+    },
+    {
+      "id": "PER_PRJ_004",
+      "kind": "project_description",
+      "title": "The Mashco Piro — believed to be the largest PIACI group on Earth — live unprotected in the Madre de Dios rainforests…",
+      "body": "The Mashco Piro — believed to be the largest PIACI group on Earth — live unprotected in the Madre de Dios rainforests, despite a 2023 ruling by the Inter-American Commission on Human Rights ordering Peru to safeguard their territory. In late 2024, the Native Federation of the Madre de Dios River and Tributaries",
+      "narrative_type": "milestone",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "PER_KPI_006"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 34
+    },
+    {
+      "id": "PER_PRJ_005",
+      "kind": "project_description",
+      "title": "While Tenure Facility has been working with FENAMAD since 2015, funding was previously directed via an NGO, with FENA…",
+      "body": "While Tenure Facility has been working with FENAMAD since 2015, funding was previously directed via an NGO, with FENAMAD as a sub-grantee. In 2024, Tenure Facility and FENAMAD shifted to a direct finance model, allowing the organisation to broaden their work with their constituents — but taking on significant funding also had implications for the advocacy landscape in the region.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "policy-advocacy",
+        "community-led-finance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "FENAMAD"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 69
+    },
+    {
+      "id": "PER_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "Following years of advocacy by multiple Tenure Facility partners, Peru’s government officially established the Sierra…",
+      "body": "Following years of advocacy by multiple Tenure Facility partners, Peru’s government officially established the Sierra del Divisor Occidental Indigenous Reserve. Spanning 515,114 hectares, this protected area will serve as a refuge for three PIACI groups in the Amazon. This achievement is particularly remarkable given Peru’s current political turbulence.",
+      "narrative_type": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "sierra_del_divisor_occidental_reserve",
+        "display_name": "Sierra del Divisor Occidental Reserve"
+      },
+      "theme_tags": [
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "source_page": 34
+    },
+    {
+      "id": "PER_QLT_002",
+      "kind": "qualitative_highlight",
+      "title": "(FENAMAD) escalated the case to the Inter- American Court of Human Rights",
+      "body": "(FENAMAD) escalated the case to the Inter- American Court of Human Rights. If the Court rules in favour of the Mashco Piro, it will become a binding decision, putting pressure on the Peruvian Government to comply.",
+      "narrative_type": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "FENAMAD"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "source_page": 34
+    },
+    {
+      "id": "PER_QLT_003",
+      "kind": "qualitative_highlight",
+      "title": "One of the most biodiverse places in the world, the Madre de Dios region in Peru is home to 38 Indigenous communities",
+      "body": "One of the most biodiverse places in the world, the Madre de Dios region in Peru is home to 38 Indigenous communities. They are represented by the Native Federation of the Madre de Dios River and Tributaries (FENAMAD), a pioneering Indigenous organisation dedicated to defending the rights and promoting the wellbeing of the region’s first inhabitants.",
+      "narrative_type": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [
+        "FENAMAD"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "context",
+      "highlight_category": "context_or_milestone",
+      "source_page": 69
+    },
+    {
+      "id": "PER_QLT_004",
+      "kind": "qualitative_highlight",
+      "title": "As Tenure Facility navigates situations such as these, our role is to be a bridge between our partners and other alli…",
+      "body": "As Tenure Facility navigates situations such as these, our role is to be a bridge between our partners and other allies as they work with communities on the ground to find a solution. We try to lead with trust and respect, while giving voice to our partners’ perspectives (particularly in situations when Indigenous rights and authority have not been historically and systemically respected). In this case, the communities decided to continue working with the NGO on certain challenges, while also asking FENAMAD to increase its presence across the region.",
+      "narrative_type": "challenge",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "FENAMAD"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "context",
+      "highlight_category": "challenge",
+      "source_page": 69
+    },
+    {
+      "id": "PER_QLT_005",
+      "kind": "qualitative_highlight",
+      "title": "A national NGO had been working closely with the communities in Madre de Dios for decades and was not convinced that …",
+      "body": "A national NGO had been working closely with the communities in Madre de Dios for decades and was not convinced that FENAMAD had the capacity to take over its work in the region. The situation threatened",
+      "narrative_type": "organizational_strengthening",
+      "project_or_initiative": {
+        "slug": "fenamad_madre_de_dios_territorial_autonomy",
+        "display_name": "FENAMAD Madre de Dios Territorial Autonomy"
+      },
+      "theme_tags": [
+        "territorial-governance"
+      ],
+      "organizations_mentioned": [
+        "APA",
+        "FENAMAD"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "context",
+      "highlight_category": "organizational_strengthening",
+      "source_page": 69
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'PER_PRJ_001' title required cleanup.",
+      "entity_id": "PER_PRJ_001",
+      "source_page": 33
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'PER_PRJ_002' title required cleanup.",
+      "entity_id": "PER_PRJ_002",
+      "source_page": 33
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'PER_PRJ_004' title required cleanup.",
+      "entity_id": "PER_PRJ_004",
+      "source_page": 34
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'PER_PRJ_005' title required cleanup.",
+      "entity_id": "PER_PRJ_005",
+      "source_page": 69
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'PER_QLT_001' title required cleanup.",
+      "entity_id": "PER_QLT_001",
+      "source_page": 34
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'PER_QLT_004' title required cleanup.",
+      "entity_id": "PER_QLT_004",
+      "source_page": 69
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'PER_QLT_005' title required cleanup.",
+      "entity_id": "PER_QLT_005",
+      "source_page": 69
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 6,
+    "narrative_count": 10,
+    "project_description_count": 5,
+    "qualitative_highlight_count": 5
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "PER.json"
+  }
+}

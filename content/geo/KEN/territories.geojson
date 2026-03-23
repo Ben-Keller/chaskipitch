@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "KEN Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              36.0,
+              -0.8
+            ],
+            [
+              37.9,
+              -0.8
+            ],
+            [
+              37.9,
+              0.9
+            ],
+            [
+              36.0,
+              0.9
+            ],
+            [
+              36.0,
+              -0.8
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

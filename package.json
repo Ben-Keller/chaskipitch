@@ -1,0 +1,38 @@
+{
+  "name": "tenure-facility-annual-report-platform",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.16.1",
+    "npm": ">=9.5.1"
+  },
+  "scripts": {
+    "predev": "node scripts/sync-public-content.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/sync-public-content.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "build:geo": "node scripts/build-authoritative-geo.mjs",
+    "build:signals": "node scripts/build-country-signals.mjs",
+    "enrich:phase5": "node scripts/enrich-phase5-content.mjs",
+    "validate:data": "node scripts/validate-content.mjs",
+    "validate:geo": "node scripts/validate-geospatial.mjs",
+    "validate:signals": "node scripts/validate-country-signals.mjs",
+    "validate:qa": "node scripts/validate-phase6-qa.mjs",
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "perf:budget": "node scripts/check-performance-budget.mjs",
+    "build:videos": "node scripts/build-country-videos.mjs",
+    "audit:v4": "node scripts/audit-v4-country-pack.mjs",
+    "build:photo-assignments": "node scripts/build-photo-assignments.mjs"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.2"
+  }
+}

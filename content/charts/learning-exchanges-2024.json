@@ -1,0 +1,84 @@
+{
+  "slug": "learning-exchanges-2024",
+  "title": "Learning Exchanges in 2024",
+  "source_page": 10,
+  "chart_type": "metric_cards",
+  "units": "count",
+  "data_points": [
+    {
+      "label": "Total exchanges",
+      "value": 16,
+      "unit": "exchanges"
+    },
+    {
+      "label": "Exchange types",
+      "value": 3,
+      "unit": "types"
+    },
+    {
+      "label": "Esperantina countries",
+      "value": 3,
+      "unit": "countries"
+    },
+    {
+      "label": "Women governance exchange participants",
+      "value": 50,
+      "unit": "leaders"
+    }
+  ],
+  "footnotes": [
+    "Total exchanges from page 10 summary.",
+    "Participant value for women governance exchange is reported as around 50 on page 54."
+  ],
+  "source_refs": [
+    {
+      "source_page": 10,
+      "source_type": "figure",
+      "note": "Report figure source reference.",
+      "source_id": "Figure 5"
+    }
+  ],
+  "confidence": 0.78,
+  "chart_config": {
+    "figure_id": "Figure 5",
+    "figure_title": "Learning and Exchange Signals",
+    "x_key": "label",
+    "x_label": "Indicator",
+    "y_left_label": "Count",
+    "y_left_unit": "count",
+    "series": [
+      {
+        "key": "value",
+        "label": "Count",
+        "type": "bar",
+        "axis": "left",
+        "color": "#2f7f73",
+        "unit": "count"
+      }
+    ]
+  },
+  "raw_table": {
+    "columns": [
+      {
+        "key": "label",
+        "label": "Indicator"
+      },
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "count"
+      },
+      {
+        "key": "unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  "provenance": {
+    "extraction_method": "mixed",
+    "source_note": "Learning exchange metrics combine report summary values (page 10) and figure-linked indicators from section pages. Presented as report-style metric callouts rather than axis bars.",
+    "assumptions": [
+      "Women governance exchange participant value is approximate as reported narrative text."
+    ]
+  }
+}

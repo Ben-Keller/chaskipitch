@@ -1,0 +1,119 @@
+{
+  "slug": "climate-biodiversity",
+  "name": "Climate and Biodiversity",
+  "description": "Land and forest tenure as a systems solution to carbon storage, biodiversity protection, and climate resilience.",
+  "source_pages": [
+    21,
+    22,
+    23,
+    30,
+    34,
+    56,
+    58,
+    79,
+    80,
+    82
+  ],
+  "kpis": [
+    {
+      "id": "hectares_positively_impacted",
+      "label": "Hectares Positively Impacted",
+      "value": 33679926,
+      "unit": "ha",
+      "source_page": 9
+    },
+    {
+      "id": "hectares_secured",
+      "label": "Hectares with Rights Secured",
+      "value": 4376542,
+      "unit": "ha",
+      "source_page": 9
+    },
+    {
+      "id": "tropical_forest_loss",
+      "label": "Primary Tropical Forest Lost in 2024",
+      "value": 6700000,
+      "unit": "ha",
+      "source_page": 22
+    },
+    {
+      "id": "intact_forest_indigenous_share",
+      "label": "Intact Forest Landscapes in Indigenous Lands",
+      "value": 33,
+      "unit": "%+",
+      "source_page": 23
+    }
+  ],
+  "related_countries": [
+    "BRA",
+    "COD",
+    "COL",
+    "PER",
+    "IDN",
+    "GTM"
+  ],
+  "related_stories": [
+    "Stewarding the Earth for our shared future",
+    "Scaling land and forest rights as a solution",
+    "Congo Basin rights and conservation dialogue",
+    "COP16-COP30 biodiversity and tenure rights agenda building",
+    "Carbon and biodiversity finance pathways for communities",
+    "Outlook framing tenure as a cross-ecosystem climate solution"
+  ],
+  "related_charts": [
+    "tenure-footprint-regional",
+    "evolution-grants-projects"
+  ],
+  "source_refs": [
+    {
+      "source_page": 21,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 22,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 23,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 30,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 34,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 56,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 58,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 79,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 80,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 82,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "slug": "territorial-governance",
+  "name": "Territorial Governance",
+  "description": "Community-led governance systems that anchor tenure defence, collective decision-making, and long-term resilience.",
+  "source_pages": [
+    9,
+    22,
+    32,
+    33,
+    35,
+    66,
+    67,
+    79
+  ],
+  "kpis": [
+    {
+      "id": "active_projects",
+      "label": "Active Projects",
+      "value": 35,
+      "unit": "projects",
+      "source_page": 9
+    },
+    {
+      "id": "countries",
+      "label": "Countries",
+      "value": 18,
+      "unit": "countries",
+      "source_page": 9
+    },
+    {
+      "id": "communities_positively_impacted",
+      "label": "Communities Positively Impacted",
+      "value": 10345,
+      "unit": "communities",
+      "source_page": 9
+    },
+    {
+      "id": "communities_in_secured_areas",
+      "label": "Communities in Secured-Tenure Areas",
+      "value": 1622,
+      "unit": "communities",
+      "source_page": 9
+    }
+  ],
+  "related_countries": [
+    "COD",
+    "COL",
+    "PER",
+    "KEN",
+    "SUR",
+    "BRA",
+    "BOL",
+    "IND",
+    "IDN"
+  ],
+  "related_stories": [
+    "CLAN! governance strengthening in Kenya",
+    "Matan\u00ed governance recognition in Colombia",
+    "Wampis self-defence governance recognition in Peru",
+    "Autonomous government pathways in Amazonian territories",
+    "Community-led governance reform and constitutional processes",
+    "Outlook on long-term territorial governance capacity"
+  ],
+  "related_charts": [
+    "territorial-governance-kpis-2024"
+  ],
+  "source_refs": [
+    {
+      "source_page": 9,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 22,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 32,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 33,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 35,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 66,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 67,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 79,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

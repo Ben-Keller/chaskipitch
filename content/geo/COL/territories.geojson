@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "COL Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -73.8,
+              -1.2
+            ],
+            [
+              -71.6,
+              -1.2
+            ],
+            [
+              -71.6,
+              0.8
+            ],
+            [
+              -73.8,
+              0.8
+            ],
+            [
+              -73.8,
+              -1.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "COL Territory 2",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -70.8,
+              1.0
+            ],
+            [
+              -69.2,
+              1.0
+            ],
+            [
+              -69.2,
+              2.3
+            ],
+            [
+              -70.8,
+              2.3
+            ],
+            [
+              -70.8,
+              1.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "slug": "women-youth-leadership",
+  "name": "Women & Youth Leadership",
+  "description": "Inclusive leadership pathways that shift governance power and strengthen territorial outcomes.",
+  "source_pages": [
+    15,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    54,
+    72,
+    73,
+    81,
+    82
+  ],
+  "kpis": [
+    {
+      "id": "new_women_leaders",
+      "label": "New Women Leaders Identified",
+      "value": 289,
+      "unit": "leaders",
+      "source_page": 47
+    },
+    {
+      "id": "women_led_village_growth",
+      "label": "Increase in Women-led Villages",
+      "value": 400,
+      "unit": "%",
+      "source_page": 47
+    },
+    {
+      "id": "cedaw_women_leaders",
+      "label": "Indigenous Women Leaders in CEDAW Report",
+      "value": 128,
+      "unit": "leaders",
+      "source_page": 47
+    },
+    {
+      "id": "women_mobilised_fospa",
+      "label": "Women Mobilised for XI FOSPA",
+      "value": 140,
+      "unit": "leaders",
+      "source_page": 47
+    },
+    {
+      "id": "women_producer_groups",
+      "label": "Women-led Producer Groups Registered",
+      "value": 24,
+      "unit": "groups",
+      "source_page": 47
+    },
+    {
+      "id": "indigenous_women_board_members_2024",
+      "label": "New Indigenous Women Board Members",
+      "value": 3,
+      "unit": "leaders",
+      "source_page": 72
+    }
+  ],
+  "related_countries": [
+    "GUY",
+    "BOL",
+    "COD",
+    "IND",
+    "ECU",
+    "KEN",
+    "LBR",
+    "BRA",
+    "BFA"
+  ],
+  "related_stories": [
+    "Ana Kahyana’s election as AIKATUK president",
+    "Guyana women-led village leadership gains",
+    "UEFA women and youth governance work in DRC",
+    "Young Indigenous leadership transitions in community governance",
+    "Intergenerational leadership and movement continuity",
+    "Board and institutional transitions centering Indigenous women leaders",
+    "Inclusive leadership framing links women’s participation to stronger governance outcomes",
+    "Three Indigenous women joined Tenure Facility’s Board in 2024"
+  ],
+  "related_charts": [
+    "womens-leadership-highlights-2024",
+    "institutional-development-2024"
+  ],
+  "source_refs": [
+    {
+      "source_page": 15,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 45,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 46,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 48,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 49,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 50,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 51,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 54,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 72,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 73,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 81,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 82,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

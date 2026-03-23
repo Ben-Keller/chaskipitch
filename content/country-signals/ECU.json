@@ -1,0 +1,80 @@
+{
+  "iso3": "ECU",
+  "country_name": "Ecuador",
+  "region": "latin_america",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    47
+  ],
+  "canonical_projects": [],
+  "organizations": [],
+  "kpis": [
+    {
+      "id": "ECU_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Ecuador has 1 active projects on the map."
+    },
+    {
+      "id": "ECU_KPI_002",
+      "metric": "indigenous_women_leaders",
+      "label": "Indigenous women leaders",
+      "value": 128,
+      "unit": "indigenous women leaders",
+      "metric_family": "leadership",
+      "direction": "report",
+      "beneficiary_group": "Indigenous women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "ECUADOR 128 Indigenous women leaders"
+    }
+  ],
+  "narratives": [],
+  "quality_flags": [],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 2,
+    "narrative_count": 0,
+    "project_description_count": 0,
+    "qualitative_highlight_count": 0
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "ECU.json"
+  }
+}

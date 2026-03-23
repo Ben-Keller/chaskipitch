@@ -1,0 +1,73 @@
+{
+  "slug": "technology-mapping",
+  "name": "Technology and Mapping",
+  "description": "Community-controlled data systems, participatory mapping, and digital tools that support recognition, monitoring, and accountability.",
+  "source_pages": [
+    43,
+    44,
+    47
+  ],
+  "kpis": [
+    {
+      "id": "odti_platforms",
+      "label": "Indigenous-led Official Geospatial Platforms",
+      "value": 1,
+      "unit": "platform",
+      "source_page": 44
+    },
+    {
+      "id": "jharfra_claim_target",
+      "label": "JharFRA Community Forest Rights Claim Target",
+      "value": 10000,
+      "unit": "claims",
+      "source_page": 44
+    },
+    {
+      "id": "drc_mapping_hectares",
+      "label": "Mapped in DRC Tenure Work",
+      "value": 762329,
+      "unit": "ha",
+      "source_page": 39
+    },
+    {
+      "id": "gender_mapped_hectares",
+      "label": "Gender-responsive Mapping in Indonesia",
+      "value": 50268,
+      "unit": "ha",
+      "source_page": 47
+    }
+  ],
+  "related_countries": [
+    "IND",
+    "IDN",
+    "COD",
+    "COL"
+  ],
+  "related_stories": [
+    "ODTI recognised as official geospatial source",
+    "JharFRA app digitising claims pathways",
+    "Participatory mapping and FPIC safeguards",
+    "Data sovereignty and Indigenous mapping systems as governance infrastructure",
+    "Ground-up technology use under FPIC principles"
+  ],
+  "related_charts": [
+    "mapping-and-tech-kpis-2024"
+  ],
+  "source_refs": [
+    {
+      "source_page": 43,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 44,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

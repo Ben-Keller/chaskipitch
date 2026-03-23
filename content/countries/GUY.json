@@ -1,0 +1,138 @@
+{
+  "iso3": "GUY",
+  "name": "Guyana",
+  "status": "active",
+  "project_count": 1,
+  "region": "latin_america",
+  "thematics": [
+    "women-youth-leadership",
+    "territorial-governance",
+    "learning-exchange"
+  ],
+  "summary": "In Guyana, leadership training translated into rapid gains in women and youth representation in village governance.",
+  "metrics": {
+    "project_count": 1,
+    "women_led_village_growth_percent": 400,
+    "upper_mazaruni_women_leadership_percent_before": 12.5,
+    "upper_mazaruni_women_leadership_percent_after": 50,
+    "north_pakaraimas_women_led_villages_before": 1,
+    "north_pakaraimas_women_led_villages_after": 5,
+    "source_page": [
+      47,
+      48
+    ]
+  },
+  "partners": [
+    "Amerindian Peoples Association (APA)"
+  ],
+  "featured_achievements": [
+    "Women-led villages in Upper Mazaruni rose from 12.5 percent to 50 percent.",
+    "North Pakaraimas women-led villages increased from one to five out of sixteen."
+  ],
+  "stories": [
+    {
+      "title": "Leadership platform for women and youth",
+      "summary": "APA linked rights awareness, public speaking, and leadership structures to election cycles for stronger inclusion outcomes.",
+      "source_page": 48,
+      "source_refs": [
+        {
+          "source_page": 48,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "The communities are already seeing the impact of having fresh voices in their leadership.",
+    "attribution": "APA field account",
+    "source_page": 48
+  },
+  "media": {
+    "photos": [
+      "report-page-48.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 47
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 48,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "GUY-IMP-001",
+      "project_name": "Guyana APA Women and Youth Leadership Acceleration",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "women-youth-leadership",
+        "territorial-governance",
+        "learning-exchange"
+      ],
+      "partners": [
+        "Amerindian Peoples Association (APA)"
+      ],
+      "summary": "Report-derived project record for Guyana: guyana apa women and youth leadership acceleration aligned with documented outcomes in pages 47, 48.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 1,
+        "women_led_village_growth_percent": 400
+      },
+      "source_refs": [
+        {
+          "source_page": 47,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 48,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

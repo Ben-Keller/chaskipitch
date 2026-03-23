@@ -1,0 +1,84 @@
+{
+  "slug": "policy-and-advocacy-highlights-2024",
+  "title": "Policy and Advocacy Highlights",
+  "source_page": 13,
+  "chart_type": "metric_cards",
+  "units": "mixed",
+  "data_points": [
+    {
+      "label": "Inter-American Court rulings supported",
+      "value": 1,
+      "unit": "ruling"
+    },
+    {
+      "label": "COP16 recognition milestones",
+      "value": 1,
+      "unit": "milestone"
+    },
+    {
+      "label": "UK Amazon commitment (GBP million)",
+      "value": 94,
+      "unit": "GBP_million"
+    },
+    {
+      "label": "Learning exchanges with policy relevance",
+      "value": 16,
+      "unit": "exchanges"
+    }
+  ],
+  "footnotes": [
+    "Includes legal and policy markers from pages 13, 18, and 24.",
+    "Financial commitment shown in GBP million as stated in the report."
+  ],
+  "source_refs": [
+    {
+      "source_page": 13,
+      "source_type": "figure",
+      "note": "Report figure source reference.",
+      "source_id": "Policy Synthesis"
+    }
+  ],
+  "confidence": 0.78,
+  "chart_config": {
+    "figure_id": "Policy Chapter Synthesis",
+    "figure_title": "Policy and Advocacy Highlights",
+    "x_key": "label",
+    "x_label": "Indicator",
+    "y_left_label": "Value",
+    "y_left_unit": "count",
+    "series": [
+      {
+        "key": "value",
+        "label": "Indicator value",
+        "type": "bar",
+        "axis": "left",
+        "color": "#a74d3f",
+        "unit": "count"
+      }
+    ]
+  },
+  "raw_table": {
+    "columns": [
+      {
+        "key": "label",
+        "label": "Indicator"
+      },
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "count"
+      },
+      {
+        "key": "unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  "provenance": {
+    "extraction_method": "mixed",
+    "source_note": "Policy chart combines legal and advocacy markers across pages 13, 18, 24, and financing references. Presented as report-style metric callouts rather than axis bars.",
+    "assumptions": [
+      "UK Amazon commitment is expressed in GBP million in this chart for report fidelity."
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+# OS / editor noise
+.DS_Store
+**/.DS_Store
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Dependencies / build outputs
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+public/content/
+public/creative-pitch/assets
+public/photos
+public/photos/
+
+# Runtime env files
+.env
+.env.local
+.env.*.local
+
+# Legacy scrollytelling workspace (runtime is now under creative-pitch/)
+Tenure Scrollytelling/
+
+# Creative pitch pipeline/runtime scratch artifacts
+creative-pitch/pipeline/output/
+creative-pitch/pipeline/runs/
+creative-pitch/pipeline/scripts/__pycache__/
+.next/
+
+# Local duplicate input PDFs (keep only public/report copy in repo)
+input.pdf
+The Tenure Facility - Tenure Facility Annual Report 2024.pdf
+
+# Large binary media files (source videos should live outside git)
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.mkv
+*.webm
+*.wmv
+*.mpeg
+*.mpg
+*.flv
+*.3gp
+*.ogv
+**/*.mp4
+**/*.mov
+**/*.m4v
+**/*.avi
+**/*.mkv
+**/*.webm
+**/*.wmv
+**/*.mpeg
+**/*.mpg
+**/*.flv
+**/*.3gp
+**/*.ogv

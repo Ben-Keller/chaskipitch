@@ -1,0 +1,199 @@
+{
+  "iso3": "BFA",
+  "country_name": "Burkina Faso",
+  "region": "africa",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    39
+  ],
+  "canonical_projects": [
+    {
+      "slug": "local_land_charters",
+      "display_name": "Local Land Charters"
+    }
+  ],
+  "organizations": [],
+  "kpis": [
+    {
+      "id": "BFA_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Burkina Faso has 1 active projects on the map."
+    },
+    {
+      "id": "BFA_KPI_002",
+      "metric": "hectares_covered",
+      "label": "hectares covered",
+      "value": 367100,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "benefit",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "local_land_charters",
+        "display_name": "Local Land Charters"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and benefitting 101 communities and almost 272,000 people. These Local Land Charters help to ensure that women’s voices are heard and their rights to manage communal resources are protected."
+    },
+    {
+      "id": "BFA_KPI_003",
+      "metric": "communities_benefiting",
+      "label": "communities benefiting",
+      "value": 101,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "benefit",
+      "beneficiary_group": "Women",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "local_land_charters",
+        "display_name": "Local Land Charters"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and benefitting 101 communities and almost 272,000 people. These Local Land Charters help to ensure that women’s voices are heard and their rights to manage communal resources are protected."
+    },
+    {
+      "id": "BFA_KPI_004",
+      "metric": "people_benefiting",
+      "label": "people benefiting",
+      "value": 272000,
+      "unit": "people",
+      "metric_family": "land_area",
+      "direction": "benefit",
+      "beneficiary_group": "Women",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "local_land_charters",
+        "display_name": "Local Land Charters"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and benefitting 101 communities and almost 272,000 people. These Local Land Charters help to ensure that women’s voices are heard and their rights to manage communal resources are protected."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "BFA_PRJ_001",
+      "kind": "project_description",
+      "title": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and …",
+      "body": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and benefitting 101 communities and almost 272,000 people. These Local Land Charters help to ensure that women’s voices are heard and their rights to manage communal resources are protected.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "local_land_charters",
+        "display_name": "Local Land Charters"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "BFA_KPI_002",
+        "BFA_KPI_003",
+        "BFA_KPI_004"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 39
+    },
+    {
+      "id": "BFA_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and …",
+      "body": "Four communes in Burkina Faso adopted gender-sensitive Local Land Charters, covering a total of 367,100 hectares and benefitting 101 communities and almost 272,000 people. These Local Land Charters help to ensure that women’s voices are heard and their rights to manage communal resources are protected.",
+      "narrative_type": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "local_land_charters",
+        "display_name": "Local Land Charters"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "signal_type": "milestone",
+      "highlight_category": "context_or_milestone",
+      "source_page": 39
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BFA_PRJ_001' title required cleanup.",
+      "entity_id": "BFA_PRJ_001",
+      "source_page": 39
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'BFA_QLT_001' title required cleanup.",
+      "entity_id": "BFA_QLT_001",
+      "source_page": 39
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 4,
+    "narrative_count": 2,
+    "project_description_count": 1,
+    "qualitative_highlight_count": 1
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "BFA.json"
+  }
+}

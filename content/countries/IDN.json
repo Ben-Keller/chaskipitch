@@ -1,0 +1,249 @@
+{
+  "iso3": "IDN",
+  "name": "Indonesia",
+  "status": "active",
+  "project_count": 3,
+  "region": "asia",
+  "thematics": [
+    "tenure-security",
+    "technology-mapping",
+    "territorial-governance",
+    "policy-advocacy"
+  ],
+  "summary": "Indonesia’s work in Papua links legal recognition, participatory mapping, and Indigenous governance against mounting extractive pressure.",
+  "metrics": {
+    "project_count": 3,
+    "yei_recognised_hectares": 445255,
+    "transboundary_mapping_hectares": 278106,
+    "gender_responsive_mapping_hectares": 50268,
+    "households_benefited": 28334,
+    "source_page": [
+      12,
+      22,
+      47
+    ]
+  },
+  "partners": [
+    "FOKER",
+    "AMAN",
+    "BRWA",
+    "KPA"
+  ],
+  "featured_achievements": [
+    "Historic recognition of 445,255 hectares for Yei territory in Indonesian Papua.",
+    "Participatory transboundary mapping covered 278,106 hectares into Papua New Guinea.",
+    "Gender-responsive mapping reached 50,268 hectares and 28,334 households."
+  ],
+  "stories": [
+    {
+      "title": "Yei territory recognition",
+      "summary": "FOKER supported recognition of the largest Indigenous land area acknowledged in Indonesian Papua to date.",
+      "source_page": 12,
+      "source_refs": [
+        {
+          "source_page": 12,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "Navigating post-election tenure uncertainty",
+      "summary": "Partners sustained reform momentum by building ties with state institutions through election transitions.",
+      "source_page": 59,
+      "source_refs": [
+        {
+          "source_page": 59,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "Communities are the best protectors of their territories, and the ecosystems our future depends on.",
+    "attribution": "Tenure Facility narrative",
+    "source_page": 22
+  },
+  "media": {
+    "photos": [
+      "report-page-22.jpg",
+      "report-page-45.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 12
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 12,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 22,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 59,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "IDN-IMP-001",
+      "project_name": "Indonesia Yei Territory Recognition in Papua",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "technology-mapping",
+        "territorial-governance"
+      ],
+      "partners": [
+        "FOKER",
+        "AMAN",
+        "BRWA"
+      ],
+      "summary": "Report-derived project record for Indonesia: indonesia yei territory recognition in papua aligned with documented outcomes in pages 12.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 3,
+        "yei_recognised_hectares": 445255
+      },
+      "source_refs": [
+        {
+          "source_page": 12,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "IDN-IMP-002",
+      "project_name": "Indonesia Participatory Mapping and FPIC Implementation",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "technology-mapping",
+        "territorial-governance"
+      ],
+      "partners": [
+        "FOKER",
+        "AMAN",
+        "BRWA"
+      ],
+      "summary": "Report-derived project record for Indonesia: indonesia participatory mapping and fpic implementation aligned with documented outcomes in pages 44, 47.",
+      "metrics": {
+        "project_sequence": 2,
+        "project_count_country": 3,
+        "yei_recognised_hectares": 445255
+      },
+      "source_refs": [
+        {
+          "source_page": 44,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 47,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "IDN-IMP-003",
+      "project_name": "Indonesia Electoral-Period Tenure Advocacy Continuity",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "technology-mapping",
+        "territorial-governance"
+      ],
+      "partners": [
+        "FOKER",
+        "AMAN",
+        "BRWA"
+      ],
+      "summary": "Report-derived project record for Indonesia: indonesia electoral-period tenure advocacy continuity aligned with documented outcomes in pages 59, 80.",
+      "metrics": {
+        "project_sequence": 3,
+        "project_count_country": 3,
+        "yei_recognised_hectares": 445255
+      },
+      "source_refs": [
+        {
+          "source_page": 59,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 80,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

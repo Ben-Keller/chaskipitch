@@ -1,0 +1,92 @@
+{
+  "slug": "impact-growth-2023-2024",
+  "title": "Figure 1 Growth Comparison (2023 vs 2024)",
+  "source_page": 9,
+  "chart_type": "paired_metric",
+  "units": "ha",
+  "data_points": [
+    {
+      "metric": "Progress toward securing land tenure rights",
+      "value_2023": 21728985,
+      "value_2024": 33679926,
+      "growth_pct": 55,
+      "unit": "ha"
+    },
+    {
+      "metric": "Hectares with tenure rights secured",
+      "value_2023": 2045113,
+      "value_2024": 4376542,
+      "growth_pct": 114,
+      "unit": "ha"
+    }
+  ],
+  "footnotes": [
+    "Growth percentages and 2024 values are shown in Figure 1.",
+    "2023 baseline values are computed from Figure 1 growth percentages (2024/(1+growth))."
+  ],
+  "source_refs": [
+    {
+      "source_page": 9,
+      "source_type": "figure",
+      "note": "Report figure source reference.",
+      "source_id": "Figure 1"
+    }
+  ],
+  "confidence": 0.78,
+  "chart_config": {
+    "figure_id": "Figure 1",
+    "figure_title": "A Landmark Year. A Lasting Impact",
+    "x_key": "metric",
+    "x_label": "Growth area",
+    "y_left_label": "Hectares",
+    "y_left_unit": "ha",
+    "series": [
+      {
+        "key": "value_2023",
+        "label": "2023",
+        "type": "bar",
+        "axis": "left",
+        "color": "#044a5a",
+        "unit": "ha"
+      },
+      {
+        "key": "value_2024",
+        "label": "2024",
+        "type": "bar",
+        "axis": "left",
+        "color": "#118c8f",
+        "unit": "ha"
+      }
+    ]
+  },
+  "raw_table": {
+    "columns": [
+      {
+        "key": "metric",
+        "label": "Metric"
+      },
+      {
+        "key": "value_2023",
+        "label": "2023",
+        "unit": "ha"
+      },
+      {
+        "key": "value_2024",
+        "label": "2024",
+        "unit": "ha"
+      },
+      {
+        "key": "growth_pct",
+        "label": "Growth",
+        "unit": "%"
+      }
+    ]
+  },
+  "provenance": {
+    "extraction_method": "transcribed_from_figure",
+    "source_note": "Figure 1 grouped-bar values reconstructed from displayed 2024 values and growth percentages.",
+    "assumptions": [
+      "2023 baseline values are derived from 2024 values and growth percentages shown in Figure 1."
+    ]
+  }
+}

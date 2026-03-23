@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BOL Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -66.5,
+              -14.8
+            ],
+            [
+              -64.2,
+              -14.8
+            ],
+            [
+              -64.2,
+              -12.6
+            ],
+            [
+              -66.5,
+              -12.6
+            ],
+            [
+              -66.5,
+              -14.8
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

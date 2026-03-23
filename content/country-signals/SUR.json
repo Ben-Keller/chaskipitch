@@ -1,0 +1,87 @@
+{
+  "iso3": "SUR",
+  "country_name": "Suriname",
+  "region": "latin_america",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 2,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    66
+  ],
+  "canonical_projects": [
+    {
+      "slug": "saamaka_youth_project_development",
+      "display_name": "Saamaka Youth Project Development"
+    }
+  ],
+  "organizations": [],
+  "kpis": [
+    {
+      "id": "SUR_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 2,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Suriname has 2 active projects on the map."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "SUR_PRJ_001",
+      "kind": "project_description",
+      "title": "STARTING THE JOURNEY: HOW SAAMAKA YOUTH CRAFTED A PROJECT PROPOSAL IN SURINAME",
+      "body": "Take the Saamaka People, one of six Tribal Peoples in Suriname and descendants of Africans who managed to escape slavery. Saamaka culture is deeply connected to the Amazon rainforest.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "saamaka_youth_project_development",
+        "display_name": "Saamaka Youth Project Development"
+      },
+      "theme_tags": [
+        "climate-biodiversity",
+        "women-youth-leadership"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 66
+    }
+  ],
+  "quality_flags": [],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 1,
+    "narrative_count": 1,
+    "project_description_count": 1,
+    "qualitative_highlight_count": 0
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "SUR.json"
+  }
+}

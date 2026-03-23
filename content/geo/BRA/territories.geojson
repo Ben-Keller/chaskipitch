@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BRA Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -54.5,
+              -5.8
+            ],
+            [
+              -51.1,
+              -5.8
+            ],
+            [
+              -51.1,
+              -2.7
+            ],
+            [
+              -54.5,
+              -2.7
+            ],
+            [
+              -54.5,
+              -5.8
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "BRA Territory 2",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -57.6,
+              -8.8
+            ],
+            [
+              -55.2,
+              -8.8
+            ],
+            [
+              -55.2,
+              -6.9
+            ],
+            [
+              -57.6,
+              -6.9
+            ],
+            [
+              -57.6,
+              -8.8
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

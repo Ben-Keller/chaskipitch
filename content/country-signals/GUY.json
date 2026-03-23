@@ -1,0 +1,335 @@
+{
+  "iso3": "GUY",
+  "country_name": "Guyana",
+  "region": "latin_america",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    47,
+    48
+  ],
+  "canonical_projects": [
+    {
+      "slug": "guyana_women_youth_leadership",
+      "display_name": "Guyana Women and Youth Leadership"
+    }
+  ],
+  "organizations": [
+    "APA"
+  ],
+  "kpis": [
+    {
+      "id": "GUY_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Guyana has 1 active projects on the map."
+    },
+    {
+      "id": "GUY_KPI_002",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 12.5,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages."
+    },
+    {
+      "id": "GUY_KPI_003",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 50,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages."
+    },
+    {
+      "id": "GUY_KPI_004",
+      "metric": "women_led_villages_share_before",
+      "label": "women-led villages share before",
+      "value": 12.5,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share_baseline",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages."
+    },
+    {
+      "id": "GUY_KPI_005",
+      "metric": "women_led_villages_share_after",
+      "label": "women-led villages share after",
+      "value": 50,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share_result",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages."
+    },
+    {
+      "id": "GUY_KPI_006",
+      "metric": "north_pakaraimas_women_led_villages_before",
+      "label": "women-led villages before in North Pakaraimas",
+      "value": 1,
+      "unit": "villages",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages."
+    },
+    {
+      "id": "GUY_KPI_007",
+      "metric": "north_pakaraimas_women_led_villages_after",
+      "label": "women-led villages after in North Pakaraimas",
+      "value": 5,
+      "unit": "villages",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages."
+    },
+    {
+      "id": "GUY_KPI_008",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 400,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "GUYANA 400% Increase in women- led vilages"
+    },
+    {
+      "id": "GUY_KPI_009",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 12.5,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "geography_scope": "country",
+      "source_page": 48,
+      "source_heading": "A PLATFORM EQUIPPING WOMEN AND YOUTH TO SPEAK UP IN GUYANA",
+      "source_text": "Elections for village Toshaos (leaders) began in May 2024, shortly after APA’s leadership workshops had taken place and the training contributed to a notable uptick in women and youth leaders across regions. In Upper Mazaruni, the percentage of village led by woman Toshaos rose fourfold from 12.5 percent to 50 percent, while in North Pakaraimas the number of woman-led villages jumped from one to five (out of 16). Youth representation among village counsellors and among male Toshaos also rose in both districts."
+    },
+    {
+      "id": "GUY_KPI_010",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 50,
+      "unit": "%",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "geography_scope": "country",
+      "source_page": 48,
+      "source_heading": "A PLATFORM EQUIPPING WOMEN AND YOUTH TO SPEAK UP IN GUYANA",
+      "source_text": "Elections for village Toshaos (leaders) began in May 2024, shortly after APA’s leadership workshops had taken place and the training contributed to a notable uptick in women and youth leaders across regions. In Upper Mazaruni, the percentage of village led by woman Toshaos rose fourfold from 12.5 percent to 50 percent, while in North Pakaraimas the number of woman-led villages jumped from one to five (out of 16). Youth representation among village counsellors and among male Toshaos also rose in both districts."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "GUY_PRJ_001",
+      "kind": "project_description",
+      "title": "APA’s advocacy and training led to a rise in female village leadership",
+      "body": "APA’s advocacy and training led to a rise in female village leadership. In Upper Mazaruni, women-led villages increased fourfold from 12.5% to 50%, and in North Pakaraimas from one to five villages.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "related_kpi_ids": [
+        "GUY_KPI_002",
+        "GUY_KPI_003",
+        "GUY_KPI_004",
+        "GUY_KPI_005",
+        "GUY_KPI_006",
+        "GUY_KPI_007",
+        "GUY_KPI_008"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 47
+    },
+    {
+      "id": "GUY_PRJ_002",
+      "kind": "project_description",
+      "title": "A PLATFORM EQUIPPING WOMEN AND YOUTH TO SPEAK UP IN GUYANA",
+      "body": "Elections for village Toshaos (leaders) began in May 2024, shortly after APA’s leadership workshops had taken place and the training contributed to a notable uptick in women and youth leaders across regions. In Upper Mazaruni, the percentage of village led by woman Toshaos rose fourfold from 12.5 percent to 50 percent, while in North Pakaraimas the number of woman-led villages jumped from one to five (out of 16). Youth representation among village counsellors and among male Toshaos also rose in both districts.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "related_kpi_ids": [
+        "GUY_KPI_009",
+        "GUY_KPI_010"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 48
+    }
+  ],
+  "quality_flags": [],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 10,
+    "narrative_count": 2,
+    "project_description_count": 2,
+    "qualitative_highlight_count": 0
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "GUY.json"
+  }
+}

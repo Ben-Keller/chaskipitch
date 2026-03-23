@@ -1,0 +1,629 @@
+{
+  "iso3": "IDN",
+  "country_name": "Indonesia",
+  "region": "Asia",
+  "map_status": "active_project_country",
+  "project_count": 3,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    12,
+    21,
+    22,
+    25,
+    41,
+    44,
+    47,
+    59
+  ],
+  "summary": "Indonesia is listed on the 2024 global footprint map with 3 active projects. In 2024, the Papuan NGO Cooperation Forum (FOKER LSM Papua, also simply known as FOKER) made historic progress when the government formally recognised territory of the Yei Tribe. At 445,255 hectares, this is the largest.",
+  "map_entry": {
+    "status": "active_project_country",
+    "project_count": 3,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "IDN_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 3,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Indonesia has 3 active projects on the map."
+    },
+    {
+      "id": "IDN_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 445255,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "yei_tribe_territory_recognition",
+        "display_name": "Yei Tribe Territory Recognition"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 12,
+      "source_heading": "HISTORIC RECOGNITION OF YEI TRIBE TERRITORY IN PAPUA:",
+      "source_text": "In 2024, the Papuan NGO Cooperation Forum (FOKER LSM Papua, also simply known as FOKER) made historic progress when the government formally recognised territory of the Yei Tribe. At 445,255 hectares, this is the largest area of Indigenous lands to have been recognised in Indonesian Papua to date. FOKER also supported the Yei Tribe to map their transboundary customary territory of 278,106 hectares within neighbouring Papua New Guinea, ensuring clearer land boundaries through a participatory process."
+    },
+    {
+      "id": "IDN_KPI_003",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 278106,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "yei_tribe_territory_recognition",
+        "display_name": "Yei Tribe Territory Recognition"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 12,
+      "source_heading": "HISTORIC RECOGNITION OF YEI TRIBE TERRITORY IN PAPUA:",
+      "source_text": "In 2024, the Papuan NGO Cooperation Forum (FOKER LSM Papua, also simply known as FOKER) made historic progress when the government formally recognised territory of the Yei Tribe. At 445,255 hectares, this is the largest area of Indigenous lands to have been recognised in Indonesian Papua to date. FOKER also supported the Yei Tribe to map their transboundary customary territory of 278,106 hectares within neighbouring Papua New Guinea, ensuring clearer land boundaries through a participatory process."
+    },
+    {
+      "id": "IDN_KPI_004",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 500000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "papua_indigenous_land_recognition",
+        "display_name": "Papua Indigenous Land Recognition"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 22,
+      "source_heading": null,
+      "source_text": "But while threats exist, so does collective action to combat them — something we are seeing in Papua, where Indigenous leaders from across Indonesia are coming together to push for change. In 2024, Tenure Facility’s partners in Papua achieved governmental recognition of over 500,000 hectares of Indigenous land. Similar projects are taking place across the world, led by Indigenous Peoples and other traditional peoples and communities — the best protectors of their own territories, and the ecosystems whole health our future depends on."
+    },
+    {
+      "id": "IDN_KPI_005",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 1051844,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "ancestral_domain_verification",
+        "display_name": "Ancestral Domain Verification"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 41,
+      "source_heading": "VERIFYING ANCESTRAL LANDS AND SCALING RECOGNITION ACROSS INDONESIA",
+      "source_text": "The Ancestral Domain Registration Agency (BRWA) in Indonesia verified 1,051,844 hectares – an area roughly the size of Jamaica – across 53 communities using its verification system. This verification provides an important basis for enabling these territories to achieve formal recognition."
+    },
+    {
+      "id": "IDN_KPI_006",
+      "metric": "communities",
+      "label": "communities",
+      "value": 53,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "ancestral_domain_verification",
+        "display_name": "Ancestral Domain Verification"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 41,
+      "source_heading": "VERIFYING ANCESTRAL LANDS AND SCALING RECOGNITION ACROSS INDONESIA",
+      "source_text": "The Ancestral Domain Registration Agency (BRWA) in Indonesia verified 1,051,844 hectares – an area roughly the size of Jamaica – across 53 communities using its verification system. This verification provides an important basis for enabling these territories to achieve formal recognition."
+    },
+    {
+      "id": "IDN_KPI_007",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 50000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "INDONESIA 50K Hectares mapped using a gender- responsive method"
+    },
+    {
+      "id": "IDN_KPI_008",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 50268,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "KPA mapped 50,268 hectares using a gender- responsive method in 34 areas. The initiative benefited 28,334 households and prioritized women in land use planning."
+    },
+    {
+      "id": "IDN_KPI_009",
+      "metric": "households_benefiting",
+      "label": "households benefiting",
+      "value": 28334,
+      "unit": "households",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": "Women",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "KPA mapped 50,268 hectares using a gender- responsive method in 34 areas. The initiative benefited 28,334 households and prioritized women in land use planning."
+    },
+    {
+      "id": "IDN_KPI_010",
+      "metric": "areas",
+      "label": "areas",
+      "value": 34,
+      "unit": "areas",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": "Women",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "KPA mapped 50,268 hectares using a gender- responsive method in 34 areas. The initiative benefited 28,334 households and prioritized women in land use planning."
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "IDN_PRJ_001",
+      "title": "HISTORIC RECOGNITION OF YEI TRIBE TERRITORY IN PAPUA:",
+      "description": "In 2024, the Papuan NGO Cooperation Forum (FOKER LSM Papua, also simply known as FOKER) made historic progress when the government formally recognised territory of the Yei Tribe. At 445,255 hectares, this is the largest area of Indigenous lands to have been recognised in Indonesian Papua to date. FOKER also supported the Yei Tribe to map their transboundary customary territory of 278,106 hectares within neighbouring Papua New Guinea, ensuring clearer land boundaries through a participatory process.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "yei_tribe_territory_recognition",
+        "display_name": "Yei Tribe Territory Recognition"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "IDN_KPI_002",
+        "IDN_KPI_003"
+      ],
+      "source_page": 12,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares",
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "IDN_PRJ_002",
+      "title": "Take the region of Papua (also known as Western New Guinea): sharing a huge island with the nation of Papua New Guine…",
+      "description": "Take the region of Papua (also known as Western New Guinea): sharing a huge island with the nation of Papua New Guinea but part of Indonesia since 1962, Papua been both blessed and cursed by its natural riches. Its blessings include not just unique marine ecosystems but also forests that are among the most carbon-rich and biodiverse in the world. Indigenous Peoples, who make up most of Papua’s population, can find everything they need in these forests, from clean water to food to herbal medicines for preventing malaria. They safeguard and manage these resources for future generations with rules that are based on centuries of ancestral wisdom.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "papua_indigenous_land_recognition",
+        "display_name": "Papua Indigenous Land Recognition"
+      },
+      "theme_tags": [
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 21,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "IDN_PRJ_003",
+      "title": "But while threats exist, so does collective action to combat them — something we are seeing in Papua, where Indigenou…",
+      "description": "But while threats exist, so does collective action to combat them — something we are seeing in Papua, where Indigenous leaders from across Indonesia are coming together to push for change. In 2024, Tenure Facility’s partners in Papua achieved governmental recognition of over 500,000 hectares of Indigenous land. Similar projects are taking place across the world, led by Indigenous Peoples and other traditional peoples and communities — the best protectors of their own territories, and the ecosystems whole health our future depends on.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "papua_indigenous_land_recognition",
+        "display_name": "Papua Indigenous Land Recognition"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "IDN_KPI_004"
+      ],
+      "source_page": 22,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "IDN_PRJ_004",
+      "title": "VERIFYING ANCESTRAL LANDS AND SCALING RECOGNITION ACROSS INDONESIA",
+      "description": "The Ancestral Domain Registration Agency (BRWA) in Indonesia verified 1,051,844 hectares – an area roughly the size of Jamaica – across 53 communities using its verification system. This verification provides an important basis for enabling these territories to achieve formal recognition.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "ancestral_domain_verification",
+        "display_name": "Ancestral Domain Verification"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "IDN_KPI_005",
+        "IDN_KPI_006"
+      ],
+      "source_page": 41,
+      "source_trace": {
+        "content_type": "milestone",
+        "kpi_refs_legacy": [
+          "hectares",
+          "communities"
+        ]
+      }
+    },
+    {
+      "id": "IDN_PRJ_005",
+      "title": "To navigate this, partners focused on building relationships with government stakeholders",
+      "description": "To navigate this, partners focused on building relationships with government stakeholders. The Consortium of Agrarian Reform forged several partnerships with key government bodies, including the Ministry of Village Development, the Indonesian Ombudsman, rights institution Komnas HAM, and the General Elections Commission, to keep agrarian reform on the national agenda and protect land rights defenders. The organisation also coordinated with local governments to accelerate land redistribution.",
+      "description_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 59,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "IDN_PRJ_006",
+      "title": "WEAVING NEW TIES FOLLOWING ELECTIONS IN INDONESIA",
+      "description": "Indonesia’s 2024 general elections, including presidential and regional polls, created uncertainties for Indigenous and local community land rights. The lack of progress on the Indigenous Peoples Rights Bill — which seeks to strengthen legal protections for Indigenous communities and territories — left Indigenous groups exposed to land grabs, especially as investments surged under the Omnibus Law on Job Creation, which weakened land and forest protections. Meanwhile, administrative uncertainties caused further delays in land rights recognition efforts.",
+      "description_type": "milestone",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 59,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    }
+  ],
+  "qualitative_highlights": [
+    {
+      "id": "IDN_QLT_001",
+      "title": "VERIFYING ANCESTRAL LANDS AND SCALING RECOGNITION ACROSS INDONESIA",
+      "description": "The Ancestral Domain Registration Agency (BRWA) in Indonesia verified 1,051,844 hectares – an area roughly the size of Jamaica – across 53 communities using its verification system. This verification provides an important basis for enabling these territories to achieve formal recognition.",
+      "signal_type": "milestone",
+      "highlight_category": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "ancestral_domain_verification",
+        "display_name": "Ancestral Domain Verification"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 41
+    },
+    {
+      "id": "IDN_QLT_002",
+      "title": "In Indonesia, maps created by registration agency BRWA and the Alliance of Indigenous Peoples of the Archipelago (AMA…",
+      "description": "In Indonesia, maps created by registration agency BRWA and the Alliance of Indigenous Peoples of the Archipelago (AMAN) also received government recognition in 2024.",
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "ancestral_domain_verification",
+        "display_name": "Ancestral Domain Verification"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 44
+    },
+    {
+      "id": "IDN_QLT_003",
+      "title": "KPA mapped 50,268 hectares using a gender- responsive method in 34 areas",
+      "description": "KPA mapped 50,268 hectares using a gender- responsive method in 34 areas. The initiative benefited 28,334 households and prioritized women in land use planning.",
+      "signal_type": "context",
+      "highlight_category": "context_or_milestone",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership",
+        "mapping_monitoring"
+      ],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "organizations_mentioned": [
+        "KPA"
+      ],
+      "time_period": "2024",
+      "source_page": 47
+    },
+    {
+      "id": "IDN_QLT_004",
+      "title": "The challenges continue into 2025: unresolved issues within Indonesia’s One Map and One Data Policy (an initiative by…",
+      "description": "The challenges continue into 2025: unresolved issues within Indonesia’s One Map and One Data Policy (an initiative by the Government of Indonesia aimed at resolving inconsistencies and overlaps in spatial and statistical data, especially related to land use, development planning and natural resource management) are obstructing Indigenous land recognition. Tenure Facility will continue to support our Indonesian partners as they work to navigate these uncertainties and forge ahead with strengthening tenure protections at both national and regional levels.",
+      "signal_type": "context",
+      "highlight_category": "challenge",
+      "project_or_initiative": {
+        "slug": "one_map_one_data_policy",
+        "display_name": "One Map and One Data Policy"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 59
+    }
+  ],
+  "organization_mentions": [
+    "KPA"
+  ],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "IDN_KPI_001"
+      ],
+      "land_area": [
+        "IDN_KPI_002",
+        "IDN_KPI_003",
+        "IDN_KPI_004",
+        "IDN_KPI_005",
+        "IDN_KPI_006",
+        "IDN_KPI_007",
+        "IDN_KPI_008",
+        "IDN_KPI_009",
+        "IDN_KPI_010"
+      ]
+    },
+    "available_metric_families": [
+      "land_area",
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 12,
+      "source_heading": "HISTORIC RECOGNITION OF YEI TRIBE TERRITORY IN PAPUA:",
+      "content_type": "project_description",
+      "text": "In 2024, the Papuan NGO Cooperation Forum (FOKER LSM Papua, also simply known as FOKER) made historic progress when the government formally recognised territory of the Yei Tribe. At 445,255 hectares, this is the largest area of Indigenous lands to have been recognised in Indonesian Papua to date. FOKER also supported the Yei Tribe to map their transboundary customary territory of 278,106 hectares within neighbouring Papua New Guinea, ensuring clearer land boundaries through a participatory process."
+    },
+    {
+      "source_page": 21,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Take the region of Papua (also known as Western New Guinea): sharing a huge island with the nation of Papua New Guinea but part of Indonesia since 1962, Papua been both blessed and cursed by its natural riches. Its blessings include not just unique marine ecosystems but also forests that are among the most carbon-rich and biodiverse in the world. Indigenous Peoples, who make up most of Papua’s population, can find everything they need in these forests, from clean water to food to herbal medicines for preventing malaria. They safeguard and manage these resources for future generations with rules that are based on centuries of ancestral wisdom."
+    },
+    {
+      "source_page": 22,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "But while threats exist, so does collective action to combat them — something we are seeing in Papua, where Indigenous leaders from across Indonesia are coming together to push for change. In 2024, Tenure Facility’s partners in Papua achieved governmental recognition of over 500,000 hectares of Indigenous land. Similar projects are taking place across the world, led by Indigenous Peoples and other traditional peoples and communities — the best protectors of their own territories, and the ecosystems whole health our future depends on."
+    },
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Indonesia appears on Tenure Facility's 2024 global footprint map with status 'active_project_country' and project count 3."
+    },
+    {
+      "source_page": 25,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "3 INDONESIA"
+    },
+    {
+      "source_page": 41,
+      "source_heading": "VERIFYING ANCESTRAL LANDS AND SCALING RECOGNITION ACROSS INDONESIA",
+      "content_type": "milestone",
+      "text": "The Ancestral Domain Registration Agency (BRWA) in Indonesia verified 1,051,844 hectares – an area roughly the size of Jamaica – across 53 communities using its verification system. This verification provides an important basis for enabling these territories to achieve formal recognition."
+    },
+    {
+      "source_page": 44,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "In Indonesia, maps created by registration agency BRWA and the Alliance of Indigenous Peoples of the Archipelago (AMAN) also received government recognition in 2024."
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "INDONESIA 50K Hectares mapped using a gender- responsive method"
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "KPA mapped 50,268 hectares using a gender- responsive method in 34 areas. The initiative benefited 28,334 households and prioritized women in land use planning."
+    },
+    {
+      "source_page": 59,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "To navigate this, partners focused on building relationships with government stakeholders. The Consortium of Agrarian Reform forged several partnerships with key government bodies, including the Ministry of Village Development, the Indonesian Ombudsman, rights institution Komnas HAM, and the General Elections Commission, to keep agrarian reform on the national agenda and protect land rights defenders. The organisation also coordinated with local governments to accelerate land redistribution."
+    },
+    {
+      "source_page": 59,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "The challenges continue into 2025: unresolved issues within Indonesia’s One Map and One Data Policy (an initiative by the Government of Indonesia aimed at resolving inconsistencies and overlaps in spatial and statistical data, especially related to land use, development planning and natural resource management) are obstructing Indigenous land recognition. Tenure Facility will continue to support our Indonesian partners as they work to navigate these uncertainties and forge ahead with strengthening tenure protections at both national and regional levels."
+    },
+    {
+      "source_page": 59,
+      "source_heading": "WEAVING NEW TIES FOLLOWING ELECTIONS IN INDONESIA",
+      "content_type": "project_description",
+      "text": "Indonesia’s 2024 general elections, including presidential and regional polls, created uncertainties for Indigenous and local community land rights. The lack of progress on the Indigenous Peoples Rights Bill — which seeks to strengthen legal protections for Indigenous communities and territories — left Indigenous groups exposed to land grabs, especially as investments surged under the Omnibus Law on Job Creation, which weakened land and forest protections. Meanwhile, administrative uncertainties caused further delays in land rights recognition efforts."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "yei_tribe_territory_recognition",
+      "display_name": "Yei Tribe Territory Recognition"
+    },
+    {
+      "slug": "papua_indigenous_land_recognition",
+      "display_name": "Papua Indigenous Land Recognition"
+    },
+    {
+      "slug": "ancestral_domain_verification",
+      "display_name": "Ancestral Domain Verification"
+    },
+    {
+      "slug": "one_map_one_data_policy",
+      "display_name": "One Map and One Data Policy"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

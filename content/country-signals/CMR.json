@@ -1,0 +1,59 @@
+{
+  "iso3": "CMR",
+  "country_name": "Cameroon",
+  "region": "africa",
+  "map_status": "projects_being_prepared",
+  "mapped_status": "preparing",
+  "live_status": "preparing",
+  "status_mismatch": false,
+  "project_count": 0,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25
+  ],
+  "canonical_projects": [],
+  "organizations": [],
+  "kpis": [
+    {
+      "id": "CMR_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 0,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Cameroon has 0 active projects on the map."
+    }
+  ],
+  "narratives": [],
+  "quality_flags": [],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 1,
+    "narrative_count": 0,
+    "project_description_count": 0,
+    "qualitative_highlight_count": 0
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "CMR.json"
+  }
+}

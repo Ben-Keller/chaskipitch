@@ -1,0 +1,778 @@
+{
+  "iso3": "BRA",
+  "country_name": "Brazil",
+  "region": "latin_america",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 4,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    15,
+    16,
+    25,
+    34,
+    36,
+    42,
+    45,
+    51,
+    54,
+    58,
+    70,
+    74,
+    80
+  ],
+  "canonical_projects": [
+    {
+      "slug": "brazil_indigenous_and_quilombola_rights",
+      "display_name": "Brazil Indigenous and Quilombola Rights"
+    },
+    {
+      "slug": "territorial_funds",
+      "display_name": "Territorial Funds"
+    },
+    {
+      "slug": "ituna_itata_territory_protection",
+      "display_name": "Ituna-Itatá Territory Protection"
+    },
+    {
+      "slug": "cop16_indigenous_afro_descendant_engagement",
+      "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+    }
+  ],
+  "organizations": [
+    "AIKATUK",
+    "APA",
+    "MIQCB"
+  ],
+  "kpis": [
+    {
+      "id": "BRA_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 4,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Brazil has 4 active projects on the map."
+    },
+    {
+      "id": "BRA_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 542000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "benefit",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 36,
+      "source_heading": null,
+      "source_text": "The Kapira-Kanakury territory, also in Brazil’s Amazon region, is another critical gap in existing mosaics of Indigenous and protected lands. Last year, COIAB worked with FUNAI to make important progress on the demarcation of the territory — which covers approximately 542,000 hectares and benefits three communities — by establishing a Technical Working Group for Demarcation."
+    },
+    {
+      "id": "BRA_KPI_003",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 78100,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "technology-mapping",
+        "climate-biodiversity",
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 36,
+      "source_heading": null,
+      "source_text": "2024 also saw major victories for the Quilombola movement.4 In response to advocacy and international litigation, Brazilian President Luis Inácio Lula da Silva signed a conciliation agreement between Quilombolas and the Brazilian Air Force in Alcântara, just a few hundred kilometres south-east of Belém, host to the upcoming climate COP30. The agreement recognised 78,100 hectares of Quilombola territory, benefitting more than 152 communities and marking an end to a conflict that has spanned 44 years. Meanwhile, some 800 kilometres to the north-west, the Rosa Territory, covering 4,984 hectares, became the first Quilombola territory ever titled in the Brazilian state of Amapa."
+    },
+    {
+      "id": "BRA_KPI_004",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 4984,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "technology-mapping",
+        "climate-biodiversity",
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 36,
+      "source_heading": null,
+      "source_text": "2024 also saw major victories for the Quilombola movement.4 In response to advocacy and international litigation, Brazilian President Luis Inácio Lula da Silva signed a conciliation agreement between Quilombolas and the Brazilian Air Force in Alcântara, just a few hundred kilometres south-east of Belém, host to the upcoming climate COP30. The agreement recognised 78,100 hectares of Quilombola territory, benefitting more than 152 communities and marking an end to a conflict that has spanned 44 years. Meanwhile, some 800 kilometres to the north-west, the Rosa Territory, covering 4,984 hectares, became the first Quilombola territory ever titled in the Brazilian state of Amapa."
+    },
+    {
+      "id": "BRA_KPI_005",
+      "metric": "communities_benefiting",
+      "label": "communities benefiting",
+      "value": 152,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "technology-mapping",
+        "climate-biodiversity",
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 36,
+      "source_heading": null,
+      "source_text": "2024 also saw major victories for the Quilombola movement.4 In response to advocacy and international litigation, Brazilian President Luis Inácio Lula da Silva signed a conciliation agreement between Quilombolas and the Brazilian Air Force in Alcântara, just a few hundred kilometres south-east of Belém, host to the upcoming climate COP30. The agreement recognised 78,100 hectares of Quilombola territory, benefitting more than 152 communities and marking an end to a conflict that has spanned 44 years. Meanwhile, some 800 kilometres to the north-west, the Rosa Territory, covering 4,984 hectares, became the first Quilombola territory ever titled in the Brazilian state of Amapa."
+    },
+    {
+      "id": "BRA_KPI_006",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 2180000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 36,
+      "source_heading": "ADVANCING INDIGENOUS AND QUILOMBOLA RIGHTS IN BRAZIL",
+      "source_text": "The Kaxauyana-Tunayana Indigenous territory in the Brazilian Amazon covers 2.18 million hectares – an area the size of El Salvador. Securing title to this territory is highly strategic for efforts to protect the Amazon, as it represents a crucial gap in the broader"
+    },
+    {
+      "id": "BRA_KPI_007",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 18000000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 42,
+      "source_heading": null,
+      "source_text": "Illegal loggers, miners, and agribusinesses actively resist land tenure recognition, which they see as standing in the way of their continuing to exploit natural resources. For example, in Brazil, agribusiness and mining companies threaten traditional Babassu coconut breakers’ forests. However, in 2024 the Inter-State Movement of Babassu Coconut Breakers (MIQCB) — the biggest traditional peoples’ women movement in Latin America — succeeded in formally designating 18 million hectares of Babassu palm forests as traditional coconut breakers’ forests in the state register. As a result, the extractive actors that pose daily threats to these crucial ecosystems will no longer be able to obtain permits for investments there without first consulting communities."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "BRA_PRJ_001",
+      "kind": "project_description",
+      "title": "We are working with our partners to put funding directly in the hands of those protecting their lands and livelihoods",
+      "body": "We are working with our partners to put funding directly in the hands of those protecting their lands and livelihoods. Territorial funds — financial mechanisms managed by grassroots organisations representing communities — are an essential piece of the puzzle. In 2024, they launched two new territorial funds (the Jaguatá Fund, established by the Articulation of Indigenous Peoples of Brazil, and the Indigenous Peoples of Asia Solidarity Fund in Asia) with our support, while strengthening existing funds in Brazil and contributing to growing global momentum around community-led finance.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "territorial_funds",
+        "display_name": "Territorial Funds"
+      },
+      "theme_tags": [
+        "community-led-finance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 15
+    },
+    {
+      "id": "BRA_PRJ_002",
+      "kind": "project_description",
+      "title": "Quilombolas are Afro-Brazilians that are descended from people who escaped slavery and formed communities known as …",
+      "body": "1 Quilombolas are Afro-Brazilians that are descended from people who escaped slavery and formed communities known as quilombos. Their collective rights to territory are enshrined in Brazil’s constitution.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 15
+    },
+    {
+      "id": "BRA_PRJ_003",
+      "kind": "project_description",
+      "title": "The 30th Conference of the Parties to the United Nations Framework Convention on Climate Change (COP30) takes place i…",
+      "body": "The 30th Conference of the Parties to the United Nations Framework Convention on Climate Change (COP30) takes place in Belém, Brazil, in November 2025. Over the months ahead, we will prioritise supporting strong community-led convenings with government and other national and regional allies. These meetings with amplify their calls for a new funding pledge for to secure their rights (a renewal of the pledge made at climate COP26 in Glasgow, when 22 donors committed a collective US$1.7 billion, from 2021 to 2025, to support forest tenure), for forest tenure to be integrated into national climate action plans, and for Indigenous and community voices to be present and heard in the places where decisions about the future of their homes are made.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 16
+    },
+    {
+      "id": "BRA_PRJ_004",
+      "kind": "project_description",
+      "title": "The protection of the Ituna-Itatá land — home to a voluntarily uncontacted Indigenous People — advanced with the Nati…",
+      "body": "The protection of the Ituna-Itatá land — home to a voluntarily uncontacted Indigenous People — advanced with the National Indigenous Peoples Foundation’s (FUNAI) reissuance of the Use Restriction Ordinance, triggering a coordinated government effort to remove intruders from the 152,000-hectare territory. The Coordination of Indigenous Organisations of the Brazilian Amazon (COIAB) built alliances with civil society and Indigenous groups to support these measures, strengthening the area’s territorial security.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "ituna_itata_territory_protection",
+        "display_name": "Ituna-Itatá Territory Protection"
+      },
+      "theme_tags": [
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 34
+    },
+    {
+      "id": "BRA_PRJ_005",
+      "kind": "project_description",
+      "title": "The Kapira-Kanakury territory, also in Brazil’s Amazon region, is another critical gap in existing mosaics of Indigen…",
+      "body": "The Kapira-Kanakury territory, also in Brazil’s Amazon region, is another critical gap in existing mosaics of Indigenous and protected lands. Last year, COIAB worked with FUNAI to make important progress on the demarcation of the territory — which covers approximately 542,000 hectares and benefits three communities — by establishing a Technical Working Group for Demarcation.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "BRA_KPI_002",
+        "BRA_KPI_003",
+        "BRA_KPI_004",
+        "BRA_KPI_005",
+        "BRA_KPI_006"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 36
+    },
+    {
+      "id": "BRA_PRJ_006",
+      "kind": "project_description",
+      "title": "2024 also saw major victories for the Quilombola movement.4 In response to advocacy and international litigation, Bra…",
+      "body": "2024 also saw major victories for the Quilombola movement.4 In response to advocacy and international litigation, Brazilian President Luis Inácio Lula da Silva signed a conciliation agreement between Quilombolas and the Brazilian Air Force in Alcântara, just a few hundred kilometres south-east of Belém, host to the upcoming climate COP30. The agreement recognised 78,100 hectares of Quilombola territory, benefitting more than 152 communities and marking an end to a conflict that has spanned 44 years. Meanwhile, some 800 kilometres to the north-west, the Rosa Territory, covering 4,984 hectares, became the first Quilombola territory ever titled in the Brazilian state of Amapa.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "technology-mapping",
+        "climate-biodiversity",
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "related_kpi_ids": [
+        "BRA_KPI_002",
+        "BRA_KPI_003",
+        "BRA_KPI_004",
+        "BRA_KPI_005",
+        "BRA_KPI_006"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 36
+    },
+    {
+      "id": "BRA_PRJ_007",
+      "kind": "project_description",
+      "title": "ADVANCING INDIGENOUS AND QUILOMBOLA RIGHTS IN BRAZIL",
+      "body": "The Kaxauyana-Tunayana Indigenous territory in the Brazilian Amazon covers 2.18 million hectares – an area the size of El Salvador. Securing title to this territory is highly strategic for efforts to protect the Amazon, as it represents a crucial gap in the broader",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "BRA_KPI_002",
+        "BRA_KPI_003",
+        "BRA_KPI_004",
+        "BRA_KPI_005",
+        "BRA_KPI_006"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 36
+    },
+    {
+      "id": "BRA_PRJ_008",
+      "kind": "project_description",
+      "title": "mosaics of Indigenous territories and protected areas, providing entry points for land invaders, illegal miners, logg…",
+      "body": "mosaics of Indigenous territories and protected areas, providing entry points for land invaders, illegal miners, loggers, and other external actors. While Brazil’s Indigenous agency FUNAI has committed to physically demarcating the area, activities are yet to begin. In response to",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "territorial-governance",
+        "policy-advocacy",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "BRA_KPI_002",
+        "BRA_KPI_003",
+        "BRA_KPI_004",
+        "BRA_KPI_005",
+        "BRA_KPI_006"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 36
+    },
+    {
+      "id": "BRA_PRJ_009",
+      "kind": "project_description",
+      "title": "Quilombolas are Afro-Brazilians that are descended from people who escaped slavery and formed communities known as …",
+      "body": "4 Quilombolas are Afro-Brazilians that are descended from people who escaped slavery and formed communities known as quilombos. Their collective rights to territory are enshrined in Brazil’s constitution.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "BRA_KPI_002",
+        "BRA_KPI_003",
+        "BRA_KPI_004",
+        "BRA_KPI_005",
+        "BRA_KPI_006"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 36
+    },
+    {
+      "id": "BRA_PRJ_010",
+      "kind": "project_description",
+      "title": "Illegal loggers, miners, and agribusinesses actively resist land tenure recognition, which they see as standing in th…",
+      "body": "Illegal loggers, miners, and agribusinesses actively resist land tenure recognition, which they see as standing in the way of their continuing to exploit natural resources. For example, in Brazil, agribusiness and mining companies threaten traditional Babassu coconut breakers’ forests. However, in 2024 the Inter-State Movement of Babassu Coconut Breakers (MIQCB) — the biggest traditional peoples’ women movement in Latin America — succeeded in formally designating 18 million hectares of Babassu palm forests as traditional coconut breakers’ forests in the state register. As a result, the extractive actors that pose daily threats to these crucial ecosystems will no longer be able to obtain permits for investments there without first consulting communities.",
+      "narrative_type": "milestone",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "MIQCB"
+      ],
+      "related_kpi_ids": [
+        "BRA_KPI_007"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 42
+    },
+    {
+      "id": "BRA_PRJ_011",
+      "kind": "project_description",
+      "title": "Ana Kahyana made history in 2024 when she became the first woman president of AIKATUK (the association for Kaxuyana I…",
+      "body": "Ana Kahyana made history in 2024 when she became the first woman president of AIKATUK (the association for Kaxuyana Indigenous Peoples). At 35 years old, her election represents not just a personal triumph, but a victory for all women in her community in western Pará, Brazil, who have long worked behind the scenes. “I couldn’t stop crying when the election was over,” Ana recalls, her voice filled with emotion.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "organizations_mentioned": [
+        "AIKATUK"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 45
+    },
+    {
+      "id": "BRA_PRJ_012",
+      "kind": "project_description",
+      "title": "When she was barely into her twenties, Erica Thais had already decided to put her energy towards advancing the rights…",
+      "body": "When she was barely into her twenties, Erica Thais had already decided to put her energy towards advancing the rights of her people: the Afro- Brazilian Quilombola community, descendants of Africans who escaped slavery. Although the Quilombola people (around 1.3 million Brazilians) were granted rights to land titles in the 1988 Constitution, the process has been painfully slow and politically fraught.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 51
+    },
+    {
+      "id": "BRA_PRJ_013",
+      "kind": "project_description",
+      "title": "Participants across the programme discussed challenges and opportunities, including strengthening community territori…",
+      "body": "Participants across the programme discussed challenges and opportunities, including strengthening community territorial funds in Brazil, increasing Indigenous women’s role in governance, and consensus-building on biodiversity and climate action.",
+      "narrative_type": "challenge",
+      "project_or_initiative": {
+        "slug": "territorial_funds",
+        "display_name": "Territorial Funds"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "climate-biodiversity",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 54
+    },
+    {
+      "id": "BRA_PRJ_014",
+      "kind": "project_description",
+      "title": "Tenure Facility is supporting its partners in Brazil, which include the most influential territorial movements in the…",
+      "body": "Tenure Facility is supporting its partners in Brazil, which include the most influential territorial movements in the Amazon, as they prepare for COP30. The preparations aim to connect the dots between land tenure and climate action, pushing the Brazilian government and other governments to advance land demarcation efforts while using the climate agenda as a catalyst for domestic policy change.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "policy-advocacy",
+        "climate-biodiversity",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 58
+    },
+    {
+      "id": "BRA_PRJ_015",
+      "kind": "project_description",
+      "title": "Our partners worked tirelessly to shape and influence the decisions at COP16, the ripple effects of which will be fel…",
+      "body": "Our partners worked tirelessly to shape and influence the decisions at COP16, the ripple effects of which will be felt by Indigenous and local community organisations worldwide. Now, all eyes turn to the 30th conference of parties to the UN Climate Convention (COP30) in Belém, Brazil.",
+      "narrative_type": "advocacy_or_exchange",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "policy-advocacy",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 58
+    },
+    {
+      "id": "BRA_PRJ_016",
+      "kind": "project_description",
+      "title": "HOW THE PODÁALI FUND IS CREATING FINANCIAL AUTONOMY IN BRAZIL",
+      "body": "The Podáali Fund is an Indigenous- led fund created by the Coordination of Indigenous Organisations of the Brazilian Amazon (COIAB). It supports It supports Indigenous Peoples, communities, and organisations by creating processes tailored to their specific needs. Much like Tenure Facility, Podáali does not just distribute funds; it also builds the capacity of local organisations by helping them design their own proposals and funding plans. This process requires training, guidance, and hands-on support, not to mention overcoming distance and language",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "territorial_funds",
+        "display_name": "Territorial Funds"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "community-led-finance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 70
+    },
+    {
+      "id": "BRA_PRJ_017",
+      "kind": "project_description",
+      "title": "This year we are prioritising efforts to promote a new funding pledge for Indigenous Peoples’ and local communities’ …",
+      "body": "This year we are prioritising efforts to promote a new funding pledge for Indigenous Peoples’ and local communities’ forest tenure to provide continuity to the historic US$1.7 billion pledge made in Glasgow in 2021, which expires this year. This effort will be integrally linked to broader work to ensure a high profile for Indigenous and community issues and concerns in the lead-up to and during COP30 in Brazil, including promoting our partner activities in the region.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "climate-biodiversity",
+        "policy-advocacy",
+        "community-led-finance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 80
+    },
+    {
+      "id": "BRA_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "Ana Kahyana made history in 2024 when she became the first woman president of AIKATUK (the association for Kaxuyana I…",
+      "body": "Ana Kahyana made history in 2024 when she became the first woman president of AIKATUK (the association for Kaxuyana Indigenous Peoples). At 35 years old, her election represents not just a personal triumph, but a victory for all women in her community in western Pará, Brazil, who have long worked behind the scenes. “I couldn’t stop crying when the election was over,” Ana recalls, her voice filled with emotion.",
+      "narrative_type": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "women-youth-leadership"
+      ],
+      "organizations_mentioned": [
+        "AIKATUK"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "milestone",
+      "highlight_category": "context_or_milestone",
+      "source_page": 45
+    },
+    {
+      "id": "BRA_QLT_002",
+      "kind": "qualitative_highlight",
+      "title": "ERICA THAIS, YOUTH LEADER FOR THE THE AFRO-BRAZILIAN QUILOMBOLA COMMUNITY",
+      "body": "Erica first engaged with Malungu – the Pará affiliate of the National Coordination for the Articulation of Rural Black Quilombola Communities (CONAQ) – in 2022, attending regional meetings and exchanges in her native state of Pará, before becoming a Youth Coordinator and helping to organise Quilombola youth across the state. Erica was elected to the role at the state-level General Assembly – a responsibility she doesn’t take lightly.",
+      "narrative_type": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "brazil_indigenous_and_quilombola_rights",
+        "display_name": "Brazil Indigenous and Quilombola Rights"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "women-youth-leadership"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "context",
+      "highlight_category": "context_or_milestone",
+      "source_page": 51
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_002' title required cleanup.",
+      "entity_id": "BRA_PRJ_002",
+      "source_page": 15
+    },
+    {
+      "type": "footnote_style_title",
+      "message": "Narrative 'BRA_PRJ_002' title required cleanup.",
+      "entity_id": "BRA_PRJ_002",
+      "source_page": 15
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_003' title required cleanup.",
+      "entity_id": "BRA_PRJ_003",
+      "source_page": 16
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_004' title required cleanup.",
+      "entity_id": "BRA_PRJ_004",
+      "source_page": 34
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_005' title required cleanup.",
+      "entity_id": "BRA_PRJ_005",
+      "source_page": 36
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_006' title required cleanup.",
+      "entity_id": "BRA_PRJ_006",
+      "source_page": 36
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_008' title required cleanup.",
+      "entity_id": "BRA_PRJ_008",
+      "source_page": 36
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_009' title required cleanup.",
+      "entity_id": "BRA_PRJ_009",
+      "source_page": 36
+    },
+    {
+      "type": "footnote_style_title",
+      "message": "Narrative 'BRA_PRJ_009' title required cleanup.",
+      "entity_id": "BRA_PRJ_009",
+      "source_page": 36
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_010' title required cleanup.",
+      "entity_id": "BRA_PRJ_010",
+      "source_page": 42
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_011' title required cleanup.",
+      "entity_id": "BRA_PRJ_011",
+      "source_page": 45
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_012' title required cleanup.",
+      "entity_id": "BRA_PRJ_012",
+      "source_page": 51
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_013' title required cleanup.",
+      "entity_id": "BRA_PRJ_013",
+      "source_page": 54
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_014' title required cleanup.",
+      "entity_id": "BRA_PRJ_014",
+      "source_page": 58
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_015' title required cleanup.",
+      "entity_id": "BRA_PRJ_015",
+      "source_page": 58
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BRA_PRJ_017' title required cleanup.",
+      "entity_id": "BRA_PRJ_017",
+      "source_page": 80
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'BRA_QLT_001' title required cleanup.",
+      "entity_id": "BRA_QLT_001",
+      "source_page": 45
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 7,
+    "narrative_count": 19,
+    "project_description_count": 17,
+    "qualitative_highlight_count": 2
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "BRA.json"
+  }
+}

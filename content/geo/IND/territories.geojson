@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "IND Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              84.6,
+              18.7
+            ],
+            [
+              86.8,
+              18.7
+            ],
+            [
+              86.8,
+              21.6
+            ],
+            [
+              84.6,
+              21.6
+            ],
+            [
+              84.6,
+              18.7
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "IND Territory 2",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              84.1,
+              20.2
+            ],
+            [
+              86.1,
+              20.2
+            ],
+            [
+              86.1,
+              22.2
+            ],
+            [
+              84.1,
+              22.2
+            ],
+            [
+              84.1,
+              20.2
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

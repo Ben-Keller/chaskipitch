@@ -1,0 +1,89 @@
+{
+  "slug": "learning-exchange",
+  "name": "Learning and Exchange",
+  "description": "Peer-to-peer learning architecture for governance, legal strategy, finance systems, and movement building.",
+  "source_pages": [
+    10,
+    52,
+    53,
+    54,
+    55
+  ],
+  "kpis": [
+    {
+      "id": "learning_exchanges_total",
+      "label": "Total Learning Exchanges in 2024",
+      "value": 16,
+      "unit": "exchanges",
+      "source_page": 10
+    },
+    {
+      "id": "women_exchange_participants",
+      "label": "Indigenous Leaders in Women Governance Exchange",
+      "value": 50,
+      "unit": "leaders",
+      "source_page": 54
+    },
+    {
+      "id": "exchange_types",
+      "label": "Exchange Formats",
+      "value": 3,
+      "unit": "types",
+      "source_page": 53
+    },
+    {
+      "id": "latin_america_core_countries",
+      "label": "Core Countries in Esperantina Territorial Funds Exchange",
+      "value": 3,
+      "unit": "countries",
+      "source_page": 53
+    }
+  ],
+  "related_countries": [
+    "NPL",
+    "COL",
+    "BRA",
+    "BOL",
+    "PAN",
+    "COG",
+    "GUY",
+    "SUR"
+  ],
+  "related_stories": [
+    "Esperantina territorial funds exchange",
+    "Colombia judiciary dialogue",
+    "Congo Basin learning forum",
+    "Collective wisdom and peer exchange architecture in 2024",
+    "Facilitated dialogues connecting governance practice across regions"
+  ],
+  "related_charts": [
+    "learning-exchanges-2024"
+  ],
+  "source_refs": [
+    {
+      "source_page": 10,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 52,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 53,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 54,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 55,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

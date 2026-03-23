@@ -1,0 +1,166 @@
+{
+  "iso3": "NPL",
+  "country_name": "Nepal",
+  "region": "asia",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "first_time_2024",
+  "status_mismatch": true,
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    41,
+    47
+  ],
+  "canonical_projects": [
+    {
+      "slug": "community_forest_user_groups",
+      "display_name": "Community Forest User Groups"
+    }
+  ],
+  "organizations": [],
+  "kpis": [
+    {
+      "id": "NPL_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Nepal has 1 active projects on the map."
+    },
+    {
+      "id": "NPL_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 53000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Households",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_user_groups",
+        "display_name": "Community Forest User Groups"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "technology-mapping",
+        "climate-biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 41,
+      "source_heading": "MAPPING A FUTURE OF COMMUNITY FORESTS RIGHTS IN NEPAL",
+      "source_text": "In Nepal, Tenure Facility partners helped strengthen community-led forest governance across 32 districts. Community Forest User Groups received formal recognition for their operational plans, securing land rights for tens of thousands of households and mapping more than 53,000 hectares of forest — an area larger than four times the size of San Francisco. Beyond strengthening tenure, the mapping also helped to resolve longstanding boundary conflicts and to identify traditional sites critical to community heritage."
+    },
+    {
+      "id": "NPL_KPI_003",
+      "metric": "women_enterprise_leaders_trained",
+      "label": "women enterprise leaders trained",
+      "value": 16,
+      "unit": "women enterprise leaders trained",
+      "metric_family": "leadership",
+      "direction": "train",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership",
+        "community-led-finance"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "NEPAL 16 Women enterprise leaders trained"
+    }
+  ],
+  "narratives": [
+    {
+      "id": "NPL_PRJ_001",
+      "kind": "project_description",
+      "title": "MAPPING A FUTURE OF COMMUNITY FORESTS RIGHTS IN NEPAL",
+      "body": "In Nepal, Tenure Facility partners helped strengthen community-led forest governance across 32 districts. Community Forest User Groups received formal recognition for their operational plans, securing land rights for tens of thousands of households and mapping more than 53,000 hectares of forest — an area larger than four times the size of San Francisco. Beyond strengthening tenure, the mapping also helped to resolve longstanding boundary conflicts and to identify traditional sites critical to community heritage.",
+      "narrative_type": "milestone",
+      "project_or_initiative": {
+        "slug": "community_forest_user_groups",
+        "display_name": "Community Forest User Groups"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "technology-mapping",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "NPL_KPI_002"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 41
+    },
+    {
+      "id": "NPL_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "MAPPING A FUTURE OF COMMUNITY FORESTS RIGHTS IN NEPAL",
+      "body": "In Nepal, Tenure Facility partners helped strengthen community-led forest governance across 32 districts. Community Forest User Groups received formal recognition for their operational plans, securing land rights for tens of thousands of households and mapping more than 53,000 hectares of forest — an area larger than four times the size of San Francisco. Beyond strengthening tenure, the mapping also helped to resolve longstanding boundary conflicts and to identify traditional sites critical to community heritage.",
+      "narrative_type": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "community_forest_user_groups",
+        "display_name": "Community Forest User Groups"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "technology-mapping",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "signal_type": "milestone",
+      "highlight_category": "context_or_milestone",
+      "source_page": 41
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "status_mismatch_against_live",
+      "message": "Mapped status 'active' differs from live status 'first_time_2024'."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 3,
+    "narrative_count": 2,
+    "project_description_count": 1,
+    "qualitative_highlight_count": 1
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "NPL.json"
+  }
+}

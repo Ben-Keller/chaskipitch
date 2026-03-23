@@ -1,0 +1,167 @@
+{
+  "iso3": "BLZ",
+  "country_name": "Belize",
+  "region": "latin_america",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "first_time_2024",
+  "status_mismatch": true,
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    27,
+    37
+  ],
+  "canonical_projects": [
+    {
+      "slug": "maya_territory_court_compliance_process",
+      "display_name": "Maya Territory Court Compliance Process"
+    }
+  ],
+  "organizations": [
+    "Julian Cho Society",
+    "Maya Land Alliance",
+    "Toledo Alcaldes Association"
+  ],
+  "kpis": [
+    {
+      "id": "BLZ_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Belize has 1 active projects on the map."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "BLZ_PRJ_001",
+      "kind": "project_description",
+      "title": "Climate emergencies require us to be flexible and responsive in our support, rescheduling planned projects and redire…",
+      "body": "Climate emergencies require us to be flexible and responsive in our support, rescheduling planned projects and redirecting funds to where they are most needed. For example, we directed a US$50,000 grant towards supporting fire relief, prevention and restoration in Toledo’s Maya Villages and are collaborating with the Julian Cho Society in Belize to develop a climate adaptation and resilience concept note for the Green Climate Fund (the world’s largest climate fund).",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "maya_territory_court_compliance_process",
+        "display_name": "Maya Territory Court Compliance Process"
+      },
+      "theme_tags": [
+        "climate-biodiversity",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [
+        "Julian Cho Society"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 27
+    },
+    {
+      "id": "BLZ_PRJ_002",
+      "kind": "project_description",
+      "title": "Nearly a decade after the Caribbean Court of Justice’s 2015 ruling that the Belizean state must recognise and title M…",
+      "body": "Nearly a decade after the Caribbean Court of Justice’s 2015 ruling that the Belizean state must recognise and title Maya territories, the government had yet to fully comply. In 2024, the Julian Cho Society, Toledo Alcaldes Association, and Maya Land Alliance, engaged in compliance hearings and negotiations, which led to the government withdrawing a proposal that would have restricted Maya land rights to just one kilometre around villages, excluding much of their ancestral territory. While the battle to ensure government compliance with the court’s decision is far from over, this victory shows how legal rulings combined with persistent follow up by Indigenous organisations can act as an important protection against efforts to limit rights.",
+      "narrative_type": "milestone",
+      "project_or_initiative": {
+        "slug": "maya_territory_court_compliance_process",
+        "display_name": "Maya Territory Court Compliance Process"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "Julian Cho Society",
+        "Maya Land Alliance",
+        "Toledo Alcaldes Association"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 37
+    },
+    {
+      "id": "BLZ_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "Nearly a decade after the Caribbean Court of Justice’s 2015 ruling that the Belizean state must recognise and title M…",
+      "body": "Nearly a decade after the Caribbean Court of Justice’s 2015 ruling that the Belizean state must recognise and title Maya territories, the government had yet to fully comply. In 2024, the Julian Cho Society, Toledo Alcaldes Association, and Maya Land Alliance, engaged in compliance hearings and negotiations, which led to the government withdrawing a proposal that would have restricted Maya land rights to just one kilometre around villages, excluding much of their ancestral territory. While the battle to ensure government compliance with the court’s decision is far from over, this victory shows how legal rulings combined with persistent follow up by Indigenous organisations can act as an important protection against efforts to limit rights.",
+      "narrative_type": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "maya_territory_court_compliance_process",
+        "display_name": "Maya Territory Court Compliance Process"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "Julian Cho Society",
+        "Maya Land Alliance",
+        "Toledo Alcaldes Association"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "milestone",
+      "highlight_category": "policy_or_legal",
+      "source_page": 37
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "status_mismatch_against_live",
+      "message": "Mapped status 'active' differs from live status 'first_time_2024'."
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BLZ_PRJ_001' title required cleanup.",
+      "entity_id": "BLZ_PRJ_001",
+      "source_page": 27
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'BLZ_PRJ_002' title required cleanup.",
+      "entity_id": "BLZ_PRJ_002",
+      "source_page": 37
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'BLZ_QLT_001' title required cleanup.",
+      "entity_id": "BLZ_QLT_001",
+      "source_page": 37
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 1,
+    "narrative_count": 3,
+    "project_description_count": 2,
+    "qualitative_highlight_count": 1
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "BLZ.json"
+  }
+}

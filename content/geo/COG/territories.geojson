@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "COG Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.3,
+              -1.9
+            ],
+            [
+              16.1,
+              -1.9
+            ],
+            [
+              16.1,
+              -0.2
+            ],
+            [
+              14.3,
+              -0.2
+            ],
+            [
+              14.3,
+              -1.9
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

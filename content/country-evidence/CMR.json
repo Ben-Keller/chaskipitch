@@ -1,0 +1,99 @@
+{
+  "iso3": "CMR",
+  "country_name": "Cameroon",
+  "region": "Africa",
+  "map_status": "projects_being_prepared",
+  "project_count": 0,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    25
+  ],
+  "summary": "Cameroon appears on the 2024 Tenure Facility global footprint map with status 'projects_being_prepared' and project count 0.",
+  "map_entry": {
+    "status": "projects_being_prepared",
+    "project_count": 0,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "CMR_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 0,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Cameroon has 0 active projects on the map."
+    }
+  ],
+  "project_descriptions": [],
+  "qualitative_highlights": [],
+  "organization_mentions": [],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "CMR_KPI_001"
+      ]
+    },
+    "available_metric_families": [
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Cameroon appears on Tenure Facility's 2024 global footprint map with status 'projects_being_prepared' and project count 0."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

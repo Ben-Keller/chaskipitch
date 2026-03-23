@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "generated_at": "2026-03-22T22:36:59.091Z",
+    "random_seed": 3959268853,
+    "note": "Random placeholder assignments generated from /photos assets."
+  },
+  "country_photos": {
+    "BFA": {
+      "image": "/photos/picture/tenure-113.webp",
+      "alt": "Placeholder photo assignment for BFA"
+    },
+    "BLZ": {
+      "image": "/photos/picture/tenure-005.webp",
+      "alt": "Placeholder photo assignment for BLZ"
+    },
+    "BOL": {
+      "image": "/photos/picture/tenure-172.webp",
+      "alt": "Placeholder photo assignment for BOL"
+    },
+    "BRA": {
+      "image": "/photos/picture/tenure-137.webp",
+      "alt": "Placeholder photo assignment for BRA"
+    },
+    "CMR": {
+      "image": "/photos/picture/tenure-048.webp",
+      "alt": "Placeholder photo assignment for CMR"
+    },
+    "COD": {
+      "image": "/photos/picture/tenure-080.webp",
+      "alt": "Placeholder photo assignment for COD"
+    },
+    "COG": {
+      "image": "/photos/picture/tenure-035.webp",
+      "alt": "Placeholder photo assignment for COG"
+    },
+    "COL": {
+      "image": "/photos/picture/tenure-102.webp",
+      "alt": "Placeholder photo assignment for COL"
+    },
+    "ECU": {
+      "image": "/photos/picture/tenure-036.webp",
+      "alt": "Placeholder photo assignment for ECU"
+    },
+    "GTM": {
+      "image": "/photos/picture/tenure-088.webp",
+      "alt": "Placeholder photo assignment for GTM"
+    },
+    "GUY": {
+      "image": "/photos/picture/tenure-082.webp",
+      "alt": "Placeholder photo assignment for GUY"
+    },
+    "IDN": {
+      "image": "/photos/picture/tenure-045.webp",
+      "alt": "Placeholder photo assignment for IDN"
+    },
+    "IND": {
+      "image": "/photos/picture/tenure-066.webp",
+      "alt": "Placeholder photo assignment for IND"
+    },
+    "KEN": {
+      "image": "/photos/picture/tenure-063.webp",
+      "alt": "Placeholder photo assignment for KEN"
+    },
+    "KHM": {
+      "image": "/photos/picture/tenure-025.webp",
+      "alt": "Placeholder photo assignment for KHM"
+    },
+    "LBR": {
+      "image": "/photos/picture/tenure-121.webp",
+      "alt": "Placeholder photo assignment for LBR"
+    },
+    "MLI": {
+      "image": "/photos/picture/tenure-058.webp",
+      "alt": "Placeholder photo assignment for MLI"
+    },
+    "MMR": {
+      "image": "/photos/picture/tenure-139.webp",
+      "alt": "Placeholder photo assignment for MMR"
+    },
+    "NPL": {
+      "image": "/photos/picture/tenure-076.webp",
+      "alt": "Placeholder photo assignment for NPL"
+    },
+    "PAN": {
+      "image": "/photos/picture/tenure-026.webp",
+      "alt": "Placeholder photo assignment for PAN"
+    },
+    "PER": {
+      "image": "/photos/picture/tenure-109.webp",
+      "alt": "Placeholder photo assignment for PER"
+    },
+    "SUR": {
+      "image": "/photos/picture/tenure-059.webp",
+      "alt": "Placeholder photo assignment for SUR"
+    }
+  },
+  "theme_media": {
+    "climate-biodiversity": {
+      "image": "/photos/picture/tenure-114.webp",
+      "texture": "/photos/texture/tenure-151.webp",
+      "alt": "Placeholder thematic image for climate biodiversity"
+    },
+    "community-led-finance": {
+      "image": "/photos/picture/tenure-076.webp",
+      "texture": "/photos/texture/tenure-095.webp",
+      "alt": "Placeholder thematic image for community led finance"
+    },
+    "learning-exchange": {
+      "image": "/photos/picture/tenure-178.webp",
+      "texture": "/photos/texture/tenure-038.webp",
+      "alt": "Placeholder thematic image for learning exchange"
+    },
+    "policy-advocacy": {
+      "image": "/photos/picture/tenure-088.webp",
+      "texture": "/photos/texture/tenure-133.webp",
+      "alt": "Placeholder thematic image for policy advocacy"
+    },
+    "technology-mapping": {
+      "image": "/photos/picture/tenure-048.webp",
+      "texture": "/photos/texture/tenure-098.webp",
+      "alt": "Placeholder thematic image for technology mapping"
+    },
+    "tenure-security": {
+      "image": "/photos/picture/tenure-066.webp",
+      "texture": "/photos/texture/tenure-171.webp",
+      "alt": "Placeholder thematic image for tenure security"
+    },
+    "territorial-governance": {
+      "image": "/photos/picture/tenure-080.webp",
+      "texture": "/photos/texture/tenure-123.webp",
+      "alt": "Placeholder thematic image for territorial governance"
+    },
+    "women-youth-leadership": {
+      "image": "/photos/picture/tenure-068.webp",
+      "texture": "/photos/texture/tenure-143.webp",
+      "alt": "Placeholder thematic image for women youth leadership"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "slug": "womens-leadership-highlights-2024",
+  "title": "Highlights: Women’s Leadership Wins Across 2024",
+  "source_page": 47,
+  "chart_type": "metric_cards",
+  "units": "mixed",
+  "data_points": [
+    {
+      "label": "New women leaders (DRC)",
+      "value": 289,
+      "unit": "leaders"
+    },
+    {
+      "label": "Increase in women-led villages (Guyana)",
+      "value": 400,
+      "unit": "%"
+    },
+    {
+      "label": "Indigenous women leaders in CEDAW report (Ecuador)",
+      "value": 128,
+      "unit": "leaders"
+    },
+    {
+      "label": "Women leaders mobilised (Bolivia)",
+      "value": 140,
+      "unit": "leaders"
+    },
+    {
+      "label": "Women-led producer groups (India)",
+      "value": 24,
+      "unit": "groups"
+    },
+    {
+      "label": "Gender-responsive mapped hectares (Indonesia)",
+      "value": 50268,
+      "unit": "ha"
+    }
+  ],
+  "footnotes": [
+    "Figure 4 includes a multi-country set of leadership indicators with different units.",
+    "Tooltips in the platform preserve each metric’s original unit label."
+  ],
+  "source_refs": [
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report figure source reference.",
+      "source_id": "Figure 4"
+    }
+  ],
+  "confidence": 0.78,
+  "chart_config": {
+    "figure_id": "Figure 4",
+    "figure_title": "Women and Youth Leadership Indicators",
+    "x_key": "label",
+    "x_label": "Indicator",
+    "y_left_label": "Value",
+    "y_left_unit": "count",
+    "series": [
+      {
+        "key": "value",
+        "label": "Indicator value",
+        "type": "bar",
+        "axis": "left",
+        "color": "#c35745",
+        "unit": "count"
+      }
+    ]
+  },
+  "raw_table": {
+    "columns": [
+      {
+        "key": "label",
+        "label": "Indicator"
+      },
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "count"
+      },
+      {
+        "key": "unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  "provenance": {
+    "extraction_method": "transcribed_from_figure",
+    "source_note": "Figure 4 values were transcribed and unit-tagged for mixed-indicator comparability. Presented as report-style metric callouts rather than axis bars.",
+    "assumptions": []
+  }
+}

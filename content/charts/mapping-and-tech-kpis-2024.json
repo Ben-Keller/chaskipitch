@@ -1,0 +1,84 @@
+{
+  "slug": "mapping-and-tech-kpis-2024",
+  "title": "Technology and Mapping Indicators",
+  "source_page": 44,
+  "chart_type": "metric_cards",
+  "units": "mixed",
+  "data_points": [
+    {
+      "label": "JharFRA claims target",
+      "value": 10000,
+      "unit": "claims"
+    },
+    {
+      "label": "DRC mapped hectares",
+      "value": 762329,
+      "unit": "ha"
+    },
+    {
+      "label": "Indonesia gender-responsive mapped hectares",
+      "value": 50268,
+      "unit": "ha"
+    },
+    {
+      "label": "Official Indigenous-led geospatial platforms",
+      "value": 1,
+      "unit": "platforms"
+    }
+  ],
+  "footnotes": [
+    "Values are pulled from pages 39, 44, and 47.",
+    "Units are mixed and shown explicitly in labels/tooltips."
+  ],
+  "source_refs": [
+    {
+      "source_page": 44,
+      "source_type": "figure",
+      "note": "Report figure source reference.",
+      "source_id": "Figure 4"
+    }
+  ],
+  "confidence": 0.78,
+  "chart_config": {
+    "figure_id": "Figure 4 / Chapter Synthesis",
+    "figure_title": "Technology and Mapping Indicators",
+    "x_key": "label",
+    "x_label": "Indicator",
+    "y_left_label": "Value",
+    "y_left_unit": "count",
+    "series": [
+      {
+        "key": "value",
+        "label": "Indicator value",
+        "type": "bar",
+        "axis": "left",
+        "color": "#2f7f73",
+        "unit": "count"
+      }
+    ]
+  },
+  "raw_table": {
+    "columns": [
+      {
+        "key": "label",
+        "label": "Indicator"
+      },
+      {
+        "key": "value",
+        "label": "Value",
+        "unit": "count"
+      },
+      {
+        "key": "unit",
+        "label": "Unit"
+      }
+    ]
+  },
+  "provenance": {
+    "extraction_method": "mixed",
+    "source_note": "Technology indicators combine direct chapter extraction (pages 39 and 44) and figure-linked values (page 47). Presented as report-style metric callouts rather than axis bars.",
+    "assumptions": [
+      "This chart combines metrics with different units and scales."
+    ]
+  }
+}

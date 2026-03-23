@@ -1,0 +1,173 @@
+{
+  "iso3": "SUR",
+  "name": "Suriname",
+  "status": "active",
+  "project_count": 2,
+  "region": "latin_america",
+  "thematics": [
+    "territorial-governance",
+    "learning-exchange",
+    "community-led-finance"
+  ],
+  "summary": "Suriname projects focus on consensus governance and legal pathways for territorial self-determination.",
+  "metrics": {
+    "project_count": 2,
+    "community_members_consulted": 375,
+    "villages_engaged": 55,
+    "source_page": 66
+  },
+  "partners": [
+    "VSG",
+    "Saamaka youth governance groups"
+  ],
+  "featured_achievements": [
+    "Consensus-based territorial governance processes reached 55 villages and 375 community members.",
+    "Intergenerational facilitation improved trust and decision-making legitimacy."
+  ],
+  "stories": [
+    {
+      "title": "Community constitutional process",
+      "summary": "A community-led process brought board members, elders, and women together across villages to define governance pathways.",
+      "source_page": 66,
+      "source_refs": [
+        {
+          "source_page": 66,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "Community process design for long-term governance",
+      "summary": "Facilitated village-level processes emphasized legitimacy, participation, and intergenerational leadership.",
+      "source_page": 66,
+      "source_refs": [
+        {
+          "source_page": 66,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "The process ensured broad participation and legitimacy from the start.",
+    "attribution": "VSG process notes",
+    "source_page": 66
+  },
+  "media": {
+    "photos": [
+      "report-page-66.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 66
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 66,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "SUR-IMP-001",
+      "project_name": "Suriname Community Constitutional Governance Facilitation",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "learning-exchange",
+        "community-led-finance"
+      ],
+      "partners": [
+        "VSG",
+        "Saamaka youth governance groups"
+      ],
+      "summary": "Report-derived project record for Suriname: suriname community constitutional governance facilitation aligned with documented outcomes in pages 66.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 2,
+        "community_members_consulted": 375
+      },
+      "source_refs": [
+        {
+          "source_page": 66,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "SUR-IMP-002",
+      "project_name": "Suriname Intergenerational Leadership and Accountability Process",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "learning-exchange",
+        "community-led-finance"
+      ],
+      "partners": [
+        "VSG",
+        "Saamaka youth governance groups"
+      ],
+      "summary": "Report-derived project record for Suriname: suriname intergenerational leadership and accountability process aligned with documented outcomes in pages 66.",
+      "metrics": {
+        "project_sequence": 2,
+        "project_count_country": 2,
+        "community_members_consulted": 375
+      },
+      "source_refs": [
+        {
+          "source_page": 66,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

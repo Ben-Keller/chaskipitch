@@ -1,0 +1,108 @@
+{
+  "slug": "tenure-security",
+  "name": "All Thematics",
+  "description": "Formal and de facto progress toward securing Indigenous, Afro-descendant, and local community tenure rights.",
+  "source_pages": [
+    9,
+    22,
+    31,
+    34,
+    37,
+    57,
+    79
+  ],
+  "kpis": [
+    {
+      "id": "hectares_positively_impacted",
+      "label": "Hectares Positively Impacted",
+      "value": 33679926,
+      "unit": "ha",
+      "source_page": 9
+    },
+    {
+      "id": "hectares_secured",
+      "label": "Hectares with Tenure Rights Secured",
+      "value": 4376542,
+      "unit": "ha",
+      "source_page": 9
+    },
+    {
+      "id": "communities_positively_impacted",
+      "label": "Communities Positively Impacted",
+      "value": 10345,
+      "unit": "communities",
+      "source_page": 9
+    },
+    {
+      "id": "communities_in_secured_areas",
+      "label": "Communities in Secured Areas",
+      "value": 1622,
+      "unit": "communities",
+      "source_page": 9
+    }
+  ],
+  "related_countries": [
+    "BRA",
+    "COD",
+    "COL",
+    "IND",
+    "IDN",
+    "PER",
+    "MLI",
+    "BFA",
+    "GTM",
+    "NPL",
+    "BLZ",
+    "PAN",
+    "SUR"
+  ],
+  "related_stories": [
+    "Yuri-Pass\u00e9 provisional protection in Colombia",
+    "Yei territory recognition in Papua",
+    "Habitat rights recognition in Odisha",
+    "PIACI territorial protection advances in the Amazon",
+    "Legal implementation pathways for territorial rights in 2024",
+    "2025 outlook links tenure rights to climate and biodiversity deadlines"
+  ],
+  "related_charts": [
+    "impact-growth-2023-2024",
+    "tenure-footprint-regional"
+  ],
+  "source_refs": [
+    {
+      "source_page": 9,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 22,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 31,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 34,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 37,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 57,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 79,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

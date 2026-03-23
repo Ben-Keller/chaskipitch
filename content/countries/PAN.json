@@ -1,0 +1,146 @@
+{
+  "iso3": "PAN",
+  "name": "Panama",
+  "status": "active",
+  "project_count": 1,
+  "region": "latin_america",
+  "thematics": [
+    "territorial-governance",
+    "policy-advocacy"
+  ],
+  "summary": "Panama appears in the active implementation map and in regional Indigenous women leadership narratives.",
+  "metrics": {
+    "project_count": 1,
+    "source_page": [
+      25,
+      54
+    ]
+  },
+  "partners": [
+    "COONAPIP and allied organisations"
+  ],
+  "featured_achievements": [
+    "Regional women leaders from Panama contributed to cross-country governance exchange outcomes."
+  ],
+  "stories": [
+    {
+      "title": "Regional women’s advocacy ties",
+      "summary": "Panamanian leadership voices fed into shared COP30 strategy dialogues across the region.",
+      "source_page": 54,
+      "source_refs": [
+        {
+          "source_page": 54,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "National coordination and state recognition milestones",
+      "summary": "The report highlights governance strengthening in Panama tied to state recognition outcomes.",
+      "source_page": 81,
+      "source_refs": [
+        {
+          "source_page": 81,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "Sometimes the work is exhausting, but seeing women take action globally is strengthening.",
+    "attribution": "Yanel Venado, COONAPIP",
+    "source_page": 54
+  },
+  "media": {
+    "photos": [
+      "report-page-54.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 25
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 25,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 54,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 81,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "PAN-IMP-001",
+      "project_name": "Panama CNIP Governance Strengthening and State Recognition",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "policy-advocacy"
+      ],
+      "partners": [
+        "COONAPIP and allied organisations"
+      ],
+      "summary": "Report-derived project record for Panama: panama cnip governance strengthening and state recognition aligned with documented outcomes in pages 54, 81.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 1
+      },
+      "source_refs": [
+        {
+          "source_page": 54,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 81,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

@@ -1,0 +1,40 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "GTM Territory 1",
+        "layer": "protected_governed",
+        "source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -91.5,
+              15.3
+            ],
+            [
+              -89.8,
+              15.3
+            ],
+            [
+              -89.8,
+              16.7
+            ],
+            [
+              -91.5,
+              16.7
+            ],
+            [
+              -91.5,
+              15.3
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

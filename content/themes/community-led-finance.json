@@ -1,0 +1,187 @@
+{
+  "slug": "community-led-finance",
+  "name": "Community-led Finance",
+  "description": "Flexible, rights-based finance flows that place resources and decision-making power closer to communities.",
+  "source_pages": [
+    10,
+    15,
+    61,
+    62,
+    63,
+    64,
+    65,
+    69,
+    70,
+    71,
+    72,
+    73,
+    75,
+    76,
+    77,
+    79,
+    80
+  ],
+  "kpis": [
+    {
+      "id": "disbursements_2024",
+      "label": "Disbursements in 2024",
+      "value": 29993000,
+      "unit": "USD",
+      "source_page": 62
+    },
+    {
+      "id": "new_funding_committed",
+      "label": "New Funding Committed in 2024",
+      "value": 130989988,
+      "unit": "USD",
+      "source_page": 76
+    },
+    {
+      "id": "project_cost_ratio",
+      "label": "Budget Spent on Project Costs",
+      "value": 89,
+      "unit": "%",
+      "source_page": 10
+    },
+    {
+      "id": "territorial_funds_launched",
+      "label": "New Territorial Funds Launched",
+      "value": 2,
+      "unit": "funds",
+      "source_page": 15
+    },
+    {
+      "id": "uk_amcat_commitment",
+      "label": "UK AMCAT Multi-year Commitment",
+      "value": 113085900,
+      "unit": "USD",
+      "source_page": 76
+    },
+    {
+      "id": "funders_supporting_budget_2024",
+      "label": "Funders Supporting 2024 Budget",
+      "value": 24,
+      "unit": "funders",
+      "source_page": 77
+    },
+    {
+      "id": "new_funders_2024",
+      "label": "New Funders Joined in 2024",
+      "value": 3,
+      "unit": "funders",
+      "source_page": 77
+    }
+  ],
+  "related_countries": [
+    "BRA",
+    "COD",
+    "KEN",
+    "SUR",
+    "COL"
+  ],
+  "related_stories": [
+    "Funding flow and disbursement model",
+    "UEFA financial systems transformation",
+    "Territorial fund expansion in 2024",
+    "Shared path to scale through fit-for-purpose finance systems",
+    "Navigating power dynamics when large grants reshape institutions",
+    "Funding sources, milestones, and 2025 finance priorities",
+    "Part Three framing: trust-based and fit-for-purpose funding",
+    "Budget backed by two dozen funders and three new funders in 2024",
+    "Internal systems upgrades to support scale without sacrificing values",
+    "Advisory and governance strengthening to steward larger finance flows"
+  ],
+  "related_charts": [
+    "funding-flow-2024",
+    "funding-milestones-2024",
+    "evolution-grants-projects",
+    "institutional-development-2024"
+  ],
+  "source_refs": [
+    {
+      "source_page": 10,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 15,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 61,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 62,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 63,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 64,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 65,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 69,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 70,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 71,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 72,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 73,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 75,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 76,
+      "source_type": "figure",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 77,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 79,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    },
+    {
+      "source_page": 80,
+      "source_type": "chapter",
+      "note": "Report-derived thematic source reference."
+    }
+  ]
+}

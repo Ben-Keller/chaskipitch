@@ -1,0 +1,1086 @@
+{
+  "report": {
+    "title": "Tenure Facility Annual Report 2024",
+    "year": 2024,
+    "source_pdf": "The Tenure Facility - Tenure Facility Annual Report 2024.pdf",
+    "last_updated": "2026-03-22"
+  },
+  "hero_kpis": [
+    {
+      "id": "hectares_positively_impacted",
+      "label": "Hectares Positively Impacted",
+      "value": 33679926,
+      "unit": "ha",
+      "source_page": 9
+    },
+    {
+      "id": "communities_positively_impacted",
+      "label": "Communities Positively Impacted",
+      "value": 10345,
+      "unit": "communities",
+      "source_page": 9
+    },
+    {
+      "id": "hectares_secured",
+      "label": "Hectares with Tenure Rights Secured",
+      "value": 4376542,
+      "unit": "ha",
+      "source_page": 9
+    },
+    {
+      "id": "communities_in_secured_areas",
+      "label": "Communities in Secured-Tenure Areas",
+      "value": 1622,
+      "unit": "communities",
+      "source_page": 9
+    },
+    {
+      "id": "active_projects",
+      "label": "Active Projects",
+      "value": 35,
+      "unit": "projects",
+      "source_page": 9
+    },
+    {
+      "id": "countries",
+      "label": "Countries",
+      "value": 18,
+      "unit": "countries",
+      "source_page": 9
+    }
+  ],
+  "regional_kpis": {
+    "global": {
+      "hectares_positively_impacted": 33679926,
+      "communities_positively_impacted": 10345,
+      "hectares_secured": 4376542,
+      "communities_in_secured_areas": 1622,
+      "active_projects": 35,
+      "countries": 18,
+      "source_page": 9
+    },
+    "africa": {
+      "hectares_positively_impacted": 6773028,
+      "source_page": 9,
+      "note": "The report figure provides regional hectare totals; other headline indicators are reported globally."
+    },
+    "asia": {
+      "hectares_positively_impacted": 6193423,
+      "source_page": 9,
+      "note": "The report figure provides regional hectare totals; other headline indicators are reported globally."
+    },
+    "latin_america": {
+      "hectares_positively_impacted": 20713474,
+      "source_page": 9,
+      "note": "The report figure provides regional hectare totals; other headline indicators are reported globally."
+    }
+  },
+  "status_definitions": [
+    {
+      "id": "active",
+      "label": "Active project countries (implementation phase in 2024)",
+      "description": "Countries with active project implementation in 2024",
+      "source_page": 23,
+      "color": "#D35E4B"
+    },
+    {
+      "id": "additional_2024",
+      "label": "Countries where additional projects began implementation in 2024",
+      "description": "Countries where additional projects entered implementation in 2024",
+      "source_page": 23,
+      "color": "#D35E4B"
+    },
+    {
+      "id": "first_time_2024",
+      "label": "Countries we began working in for the first time in 2024",
+      "description": "Countries first entered by Tenure Facility in 2024",
+      "source_page": 23,
+      "color": "#D35E4B"
+    },
+    {
+      "id": "preparing",
+      "label": "Countries where projects are being prepared",
+      "description": "Countries in project preparation",
+      "source_page": 23,
+      "color": "#EFC56E"
+    },
+    {
+      "id": "under_assessment",
+      "label": "Countries under assessment for future projects",
+      "description": "Countries under assessment for future projects",
+      "source_page": 23,
+      "color": "#0D7A78"
+    }
+  ],
+  "timeline": [
+    {
+      "year": 2012,
+      "label": "Groundwork starts",
+      "description": "Rights and Resources Initiative begins consultations on a financial mechanism to support tenure rights.",
+      "source_page": 24
+    },
+    {
+      "year": 2015,
+      "label": "Pilots launched",
+      "description": "Six pilot projects are launched.",
+      "source_page": 24
+    },
+    {
+      "year": 2017,
+      "label": "Independent NGO",
+      "description": "Tenure Facility is formally founded as an independent NGO.",
+      "source_page": 24
+    },
+    {
+      "year": 2018,
+      "label": "First grant",
+      "description": "First grant is awarded and work expands to three new countries.",
+      "source_page": 24
+    },
+    {
+      "year": 2020,
+      "label": "Proof of concept",
+      "description": "US$5.6M disbursed across 12 partners.",
+      "source_page": 24,
+      "metrics": {
+        "disbursed_usd": 5600000,
+        "partners": 12
+      }
+    },
+    {
+      "year": 2021,
+      "label": "Breakthrough",
+      "description": "13 projects with US$5M grants; Tenure Facility becomes a TED Audacious grantee.",
+      "source_page": 24,
+      "metrics": {
+        "projects": 13,
+        "grants_usd": 5000000
+      }
+    },
+    {
+      "year": 2022,
+      "label": "Gathering pace",
+      "description": "14 projects with US$12M grants and ROOTS framework operational.",
+      "source_page": 24,
+      "metrics": {
+        "projects": 14,
+        "grants_usd": 12000000
+      }
+    },
+    {
+      "year": 2023,
+      "label": "Accelerating steadily",
+      "description": "29 projects with US$26M grants; strategic framework launched to secure 60M ha by 2027.",
+      "source_page": 24,
+      "metrics": {
+        "projects": 29,
+        "grants_usd": 26000000
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Advisory Group reformed",
+      "description": "Tenure Facility launched a reformed 20-member Advisory Group to provide independent strategic guidance across regions and generations.",
+      "source_page": 72,
+      "metrics": {
+        "advisory_group_members": 20
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Board transitions led by Indigenous women",
+      "description": "Three new Indigenous women joined the Board in 2024, with Joan Carling appointed Chair and Carl Lindgren as Vice-Chair.",
+      "source_page": 72,
+      "metrics": {
+        "new_board_members": 3
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Funding base broadened",
+      "description": "The 2024 budget (just under USD 40 million) was supported by two dozen funders, including three new funders.",
+      "source_page": 77,
+      "metrics": {
+        "funder_count": 24,
+        "new_funders": 3,
+        "budget_usd_approx": 40000000
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Momentum builds",
+      "description": "35 projects active and US$30M disbursed; UK invests up to GBP 94M in the Amazon Catalyst.",
+      "source_page": 24,
+      "metrics": {
+        "projects": 35,
+        "disbursed_usd": 30000000,
+        "uk_pledge_gbp": 94000000
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Operational systems strengthened",
+      "description": "2024 improvements included ROOTS project-management consolidation, simplified results reporting, updated procurement policy, and IT incident response training.",
+      "source_page": 75,
+      "metrics": {
+        "core_policy_updates": 2
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Team footprint expanded",
+      "description": "By end-2024, team presence reached 56 staff: 25 in Stockholm and 31 in other locations, mostly in project regions.",
+      "source_page": 73,
+      "metrics": {
+        "team_stockholm": 25,
+        "team_other_locations": 31,
+        "team_total": 56
+      }
+    },
+    {
+      "year": 2024,
+      "label": "Trust-based funding model articulated",
+      "description": "Part Three codifies a fit-for-purpose, rights-based funding model centered on partner trust, flexible finance, and long-term capacity support.",
+      "source_page": 61
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Advisory Group",
+      "definition": "A 20-member independent group launched in 2024 to provide high-level strategic guidance, challenge assumptions, and strengthen global-local alignment.",
+      "source_page": 72
+    },
+    {
+      "term": "Fit-for-purpose funding model",
+      "definition": "A rights-based financing approach that tailors support to partner capacity, combines flexible long-term funding with compliance support, and centers community self-determination.",
+      "source_page": 61
+    },
+    {
+      "term": "Securing tenure",
+      "definition": "A multi-pronged strategy through which communities strengthen and sustain rights to traditional lands, territories, and resources, including mapping, conflict resolution, governance strengthening, and defence against external threats.",
+      "source_page": 22
+    },
+    {
+      "term": "Territorial funds",
+      "definition": "Financial mechanisms managed by grassroots organisations representing communities to finance long-term land, governance, and livelihood priorities.",
+      "source_page": 15
+    },
+    {
+      "term": "Territorial governance",
+      "definition": "Community-led systems, institutions, and decision-making structures used to manage lands, forests, waters, and resources according to collective rights and priorities.",
+      "source_page": 22
+    }
+  ],
+  "methodology": {
+    "summary": "Figures and stories are extracted from the Tenure Facility Annual Report 2024. Country boundaries are sourced from authoritative TopoJSON in the project geo manifest, while project territory overlays remain supplemental GeoJSON prepared outside the PDF for digital storytelling and exploration.",
+    "source_pages": [
+      9,
+      10,
+      22,
+      24,
+      25,
+      61,
+      62,
+      72,
+      73,
+      75,
+      76,
+      77
+    ]
+  },
+  "about": {
+    "vision": "Indigenous Peoples, Afro-descendant Peoples, and local communities thrive in their ancestral territories with full recognition of their right to own, manage, and develop their traditional lands, territories, and resources.",
+    "mission": "To work in partnership with Indigenous Peoples, Afro-descendant Peoples, and local communities to strengthen their tenure and ability to preserve, protect, and enjoy the benefits of their traditional lands, territories, and resources.",
+    "values": [
+      {
+        "name": "Respect",
+        "description": "For Indigenous Peoples, Afro-descendant Peoples, and local communities; for the team and stakeholders; and for the planet.",
+        "source_page": 7
+      },
+      {
+        "name": "Reliability",
+        "description": "A culture of accountability, transparency, equity, and timeliness.",
+        "source_page": 7
+      },
+      {
+        "name": "Trust",
+        "description": "Nurturing trusting, responsible, and longstanding relationships with communities and stakeholders.",
+        "source_page": 7
+      }
+    ],
+    "pillars": [
+      {
+        "title": "Source",
+        "description": "Supporting Indigenous Peoples, Afro-descendant Peoples and local community-led initiatives rooted in their traditions and priorities, with assistance tailored to local needs for scalable systemic change.",
+        "source_page": 6
+      },
+      {
+        "title": "Secure",
+        "description": "Achieving recognition of land and forest rights through legal and administrative processes, participatory mapping, and conflict resolution, with inclusive decision-making for women and youth.",
+        "source_page": 6
+      },
+      {
+        "title": "Sustain",
+        "description": "Strengthening social cohesion, cultural identities, organisational capacity, territorial monitoring, traditional knowledge, and local economic development to defend land and forest rights.",
+        "source_page": 6
+      },
+      {
+        "title": "Share",
+        "description": "Facilitating knowledge exchange and advocacy to amplify success, influence policy narratives, and mobilise additional resources to scale impact.",
+        "source_page": 6
+      }
+    ]
+  },
+  "data_model_version": "phase5.0",
+  "source_refs": [
+    {
+      "source_page": 9,
+      "source_type": "figure",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 10,
+      "source_type": "chapter",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 22,
+      "source_type": "chapter",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 24,
+      "source_type": "figure",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 25,
+      "source_type": "figure",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 61,
+      "source_type": "chapter",
+      "note": "Fit-for-purpose funding model framing."
+    },
+    {
+      "source_page": 62,
+      "source_type": "figure",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 72,
+      "source_type": "chapter",
+      "note": "Board and Advisory Group updates."
+    },
+    {
+      "source_page": 73,
+      "source_type": "chapter",
+      "note": "Team composition and distributed staffing details."
+    },
+    {
+      "source_page": 75,
+      "source_type": "chapter",
+      "note": "Operational learning and system strengthening notes."
+    },
+    {
+      "source_page": 76,
+      "source_type": "figure",
+      "note": "Report-derived source reference for global metadata."
+    },
+    {
+      "source_page": 77,
+      "source_type": "chapter",
+      "note": "Budget source mix and funder ecosystem details."
+    }
+  ],
+  "kpi_display_logic": {
+    "default_theme_mode": "theme_native",
+    "theme_modes": {
+      "climate-biodiversity": "theme_native",
+      "community-led-finance": "theme_native",
+      "learning-exchange": "theme_native",
+      "policy-advocacy": "theme_native",
+      "technology-mapping": "theme_native",
+      "tenure-security": "hero_global_with_region_overrides",
+      "territorial-governance": "theme_native",
+      "women-youth-leadership": "theme_native"
+    },
+    "regional_override_kpi_ids": [
+      "hectares_positively_impacted"
+    ],
+    "regional_recomputed_kpi_ids": [
+      "active_projects",
+      "countries"
+    ],
+    "regional_recompute_scope": "visible_country_selection",
+    "note": "Tenure Security uses global hero KPIs with region-specific overrides. Other themes use theme-native KPI sets."
+  },
+  "kpi_derivation_registry": [
+    {
+      "kpi_id": "active_projects",
+      "label": "Active Projects",
+      "scope": "global",
+      "method": "direct_report_figure",
+      "formula": "value = direct transcription of active_projects from report source",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "projects",
+      "note": "Global headline KPI."
+    },
+    {
+      "kpi_id": "active_projects_global",
+      "label": "active projects (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for active_projects in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "cedaw_women_leaders",
+      "label": "Indigenous Women Leaders in CEDAW Report",
+      "scope": "theme",
+      "theme": "women-youth-leadership",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for women-youth-leadership (cedaw_women_leaders)",
+      "input_refs": [],
+      "source_pages": [
+        47
+      ],
+      "unit": "leaders",
+      "note": "Theme-native KPI used in women-youth-leadership."
+    },
+    {
+      "kpi_id": "communities_in_secured_areas",
+      "label": "Communities in Secured-Tenure Areas",
+      "scope": "global",
+      "method": "direct_report_figure",
+      "formula": "value = direct transcription of communities_in_secured_areas from report source",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "communities",
+      "note": "Global headline KPI."
+    },
+    {
+      "kpi_id": "communities_in_secured_areas_global",
+      "label": "communities in secured areas (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for communities_in_secured_areas in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "communities_positively_impacted",
+      "label": "Communities Positively Impacted",
+      "scope": "global",
+      "method": "direct_report_figure",
+      "formula": "value = direct transcription of communities_positively_impacted from report source",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "communities",
+      "note": "Global headline KPI."
+    },
+    {
+      "kpi_id": "communities_positively_impacted_global",
+      "label": "communities positively impacted (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for communities_positively_impacted in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "cop16_adp_recognition",
+      "label": "COP16 Recognition Milestones for Afro-descendant Peoples",
+      "scope": "theme",
+      "theme": "policy-advocacy",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for policy-advocacy (cop16_adp_recognition)",
+      "input_refs": [],
+      "source_pages": [
+        18
+      ],
+      "unit": "milestone",
+      "note": "Theme-native KPI used in policy-advocacy."
+    },
+    {
+      "kpi_id": "countries",
+      "label": "Countries",
+      "scope": "global",
+      "method": "direct_report_figure",
+      "formula": "value = direct transcription of countries from report source",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "countries",
+      "note": "Global headline KPI."
+    },
+    {
+      "kpi_id": "countries_global",
+      "label": "countries (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for countries in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "disbursements_2024",
+      "label": "Disbursements in 2024",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "direct_report_figure",
+      "formula": "value = thematic extraction for community-led-finance (disbursements_2024)",
+      "input_refs": [],
+      "source_pages": [
+        62
+      ],
+      "unit": "USD",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "drc_mapping_hectares",
+      "label": "Mapped in DRC Tenure Work",
+      "scope": "theme",
+      "theme": "technology-mapping",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for technology-mapping (drc_mapping_hectares)",
+      "input_refs": [],
+      "source_pages": [
+        39
+      ],
+      "unit": "ha",
+      "note": "Theme-native KPI used in technology-mapping."
+    },
+    {
+      "kpi_id": "exchange_types",
+      "label": "Exchange Formats",
+      "scope": "theme",
+      "theme": "learning-exchange",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for learning-exchange (exchange_types)",
+      "input_refs": [],
+      "source_pages": [
+        53
+      ],
+      "unit": "types",
+      "note": "Theme-native KPI used in learning-exchange."
+    },
+    {
+      "kpi_id": "funders_supporting_budget_2024",
+      "label": "Funders Supporting 2024 Budget",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "report_summary_transcription",
+      "formula": "value = direct transcription of 'two dozen funders' from budget and funding sources section",
+      "input_refs": [
+        "manual_report_extraction"
+      ],
+      "source_pages": [
+        77
+      ],
+      "unit": "funders",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "gender_mapped_hectares",
+      "label": "Gender-responsive Mapping in Indonesia",
+      "scope": "theme",
+      "theme": "technology-mapping",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for technology-mapping (gender_mapped_hectares)",
+      "input_refs": [],
+      "source_pages": [
+        47
+      ],
+      "unit": "ha",
+      "note": "Theme-native KPI used in technology-mapping."
+    },
+    {
+      "kpi_id": "hectares_positively_impacted",
+      "label": "Hectares Positively Impacted",
+      "scope": "global",
+      "method": "direct_report_figure",
+      "formula": "value = direct transcription of hectares_positively_impacted from report source",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Global headline KPI."
+    },
+    {
+      "kpi_id": "hectares_positively_impacted_africa",
+      "label": "hectares positively impacted (africa)",
+      "scope": "regional",
+      "region": "africa",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for hectares_positively_impacted in africa",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "hectares_positively_impacted_asia",
+      "label": "hectares positively impacted (asia)",
+      "scope": "regional",
+      "region": "asia",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for hectares_positively_impacted in asia",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "hectares_positively_impacted_global",
+      "label": "hectares positively impacted (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for hectares_positively_impacted in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "hectares_positively_impacted_latin_america",
+      "label": "hectares positively impacted (latin america)",
+      "scope": "regional",
+      "region": "latin_america",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for hectares_positively_impacted in latin_america",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "hectares_secured",
+      "label": "Hectares with Tenure Rights Secured",
+      "scope": "global",
+      "method": "direct_report_figure",
+      "formula": "value = direct transcription of hectares_secured from report source",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Global headline KPI."
+    },
+    {
+      "kpi_id": "hectares_secured_global",
+      "label": "hectares secured (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for hectares_secured in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "ha",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "indigenous_women_board_members_2024",
+      "label": "New Indigenous Women Board Members",
+      "scope": "theme",
+      "theme": "women-youth-leadership",
+      "method": "report_summary_transcription",
+      "formula": "value = direct transcription of board composition update in 2024 governance section",
+      "input_refs": [
+        "manual_report_extraction"
+      ],
+      "source_pages": [
+        72
+      ],
+      "unit": "leaders",
+      "note": "Theme-native KPI used in women-youth-leadership."
+    },
+    {
+      "kpi_id": "intact_forest_indigenous_share",
+      "label": "Intact Forest Landscapes in Indigenous Lands",
+      "scope": "theme",
+      "theme": "climate-biodiversity",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for climate-biodiversity (intact_forest_indigenous_share)",
+      "input_refs": [],
+      "source_pages": [
+        23
+      ],
+      "unit": "%+",
+      "note": "Theme-native KPI used in climate-biodiversity."
+    },
+    {
+      "kpi_id": "interamerican_rulings",
+      "label": "Landmark Inter-American Court Rulings Supported",
+      "scope": "theme",
+      "theme": "policy-advocacy",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for policy-advocacy (interamerican_rulings)",
+      "input_refs": [
+        "manual_report_extraction"
+      ],
+      "source_pages": [
+        13
+      ],
+      "unit": "ruling",
+      "note": "Theme-native KPI used in policy-advocacy."
+    },
+    {
+      "kpi_id": "jharfra_claim_target",
+      "label": "JharFRA Community Forest Rights Claim Target",
+      "scope": "theme",
+      "theme": "technology-mapping",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for technology-mapping (jharfra_claim_target)",
+      "input_refs": [],
+      "source_pages": [
+        44
+      ],
+      "unit": "claims",
+      "note": "Theme-native KPI used in technology-mapping."
+    },
+    {
+      "kpi_id": "latin_america_core_countries",
+      "label": "Core Countries in Esperantina Territorial Funds Exchange",
+      "scope": "theme",
+      "theme": "learning-exchange",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for learning-exchange (latin_america_core_countries)",
+      "input_refs": [],
+      "source_pages": [
+        53
+      ],
+      "unit": "countries",
+      "note": "Theme-native KPI used in learning-exchange."
+    },
+    {
+      "kpi_id": "learning_exchanges_policy",
+      "label": "Learning Exchanges Feeding Policy Pathways",
+      "scope": "theme",
+      "theme": "policy-advocacy",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for policy-advocacy (learning_exchanges_policy)",
+      "input_refs": [],
+      "source_pages": [
+        10
+      ],
+      "unit": "exchanges",
+      "note": "Theme-native KPI used in policy-advocacy."
+    },
+    {
+      "kpi_id": "learning_exchanges_total",
+      "label": "Total Learning Exchanges in 2024",
+      "scope": "theme",
+      "theme": "learning-exchange",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for learning-exchange (learning_exchanges_total)",
+      "input_refs": [],
+      "source_pages": [
+        10
+      ],
+      "unit": "exchanges",
+      "note": "Theme-native KPI used in learning-exchange."
+    },
+    {
+      "kpi_id": "new_funders_2024",
+      "label": "New Funders Joined in 2024",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "report_summary_transcription",
+      "formula": "value = direct transcription of new funders listed in 2024",
+      "input_refs": [
+        "manual_report_extraction"
+      ],
+      "source_pages": [
+        77
+      ],
+      "unit": "funders",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "new_funding_committed",
+      "label": "New Funding Committed in 2024",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "direct_report_figure",
+      "formula": "value = thematic extraction for community-led-finance (new_funding_committed)",
+      "input_refs": [],
+      "source_pages": [
+        76
+      ],
+      "unit": "USD",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "new_women_leaders",
+      "label": "New Women Leaders Identified",
+      "scope": "theme",
+      "theme": "women-youth-leadership",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for women-youth-leadership (new_women_leaders)",
+      "input_refs": [],
+      "source_pages": [
+        47
+      ],
+      "unit": "leaders",
+      "note": "Theme-native KPI used in women-youth-leadership."
+    },
+    {
+      "kpi_id": "odti_platforms",
+      "label": "Indigenous-led Official Geospatial Platforms",
+      "scope": "theme",
+      "theme": "technology-mapping",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for technology-mapping (odti_platforms)",
+      "input_refs": [],
+      "source_pages": [
+        44
+      ],
+      "unit": "platform",
+      "note": "Theme-native KPI used in technology-mapping."
+    },
+    {
+      "kpi_id": "project_cost_ratio",
+      "label": "Budget Spent on Project Costs",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for community-led-finance (project_cost_ratio)",
+      "input_refs": [],
+      "source_pages": [
+        10
+      ],
+      "unit": "%",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "source_page_africa",
+      "label": "source page (africa)",
+      "scope": "regional",
+      "region": "africa",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for source_page in africa",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "source_page_asia",
+      "label": "source page (asia)",
+      "scope": "regional",
+      "region": "asia",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for source_page in asia",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "source_page_global",
+      "label": "source page (global)",
+      "scope": "regional",
+      "region": "global",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for source_page in global",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "source_page_latin_america",
+      "label": "source page (latin america)",
+      "scope": "regional",
+      "region": "latin_america",
+      "method": "direct_report_figure",
+      "formula": "value = regional breakout for source_page in latin_america",
+      "input_refs": [],
+      "source_pages": [
+        9
+      ],
+      "source_figure": "Figure 1",
+      "unit": "count",
+      "note": "Regional KPI breakout."
+    },
+    {
+      "kpi_id": "territorial_funds_launched",
+      "label": "New Territorial Funds Launched",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for community-led-finance (territorial_funds_launched)",
+      "input_refs": [],
+      "source_pages": [
+        15
+      ],
+      "unit": "funds",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "tropical_forest_loss",
+      "label": "Primary Tropical Forest Lost in 2024",
+      "scope": "theme",
+      "theme": "climate-biodiversity",
+      "method": "report_summary_transcription",
+      "formula": "value = thematic extraction for climate-biodiversity (tropical_forest_loss)",
+      "input_refs": [],
+      "source_pages": [
+        22
+      ],
+      "unit": "ha",
+      "note": "Theme-native KPI used in climate-biodiversity."
+    },
+    {
+      "kpi_id": "uk_amcat_commitment",
+      "label": "UK AMCAT Multi-year Commitment",
+      "scope": "theme",
+      "theme": "community-led-finance",
+      "method": "direct_report_figure",
+      "formula": "value = thematic extraction for community-led-finance (uk_amcat_commitment)",
+      "input_refs": [],
+      "source_pages": [
+        76
+      ],
+      "unit": "USD",
+      "note": "Theme-native KPI used in community-led-finance."
+    },
+    {
+      "kpi_id": "uk_pledge_gbp",
+      "label": "UK Amazon Basin Commitment",
+      "scope": "theme",
+      "theme": "policy-advocacy",
+      "method": "direct_report_figure",
+      "formula": "value = thematic extraction for policy-advocacy (uk_pledge_gbp)",
+      "input_refs": [],
+      "source_pages": [
+        24
+      ],
+      "unit": "GBP",
+      "note": "Theme-native KPI used in policy-advocacy."
+    },
+    {
+      "kpi_id": "women_exchange_participants",
+      "label": "Indigenous Leaders in Women Governance Exchange",
+      "scope": "theme",
+      "theme": "learning-exchange",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for learning-exchange (women_exchange_participants)",
+      "input_refs": [],
+      "source_pages": [
+        54
+      ],
+      "unit": "leaders",
+      "note": "Theme-native KPI used in learning-exchange."
+    },
+    {
+      "kpi_id": "women_led_village_growth",
+      "label": "Increase in Women-led Villages",
+      "scope": "theme",
+      "theme": "women-youth-leadership",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for women-youth-leadership (women_led_village_growth)",
+      "input_refs": [],
+      "source_pages": [
+        47
+      ],
+      "unit": "%",
+      "note": "Theme-native KPI used in women-youth-leadership."
+    },
+    {
+      "kpi_id": "women_mobilised_fospa",
+      "label": "Women Mobilised for XI FOSPA",
+      "scope": "theme",
+      "theme": "women-youth-leadership",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for women-youth-leadership (women_mobilised_fospa)",
+      "input_refs": [],
+      "source_pages": [
+        47
+      ],
+      "unit": "leaders",
+      "note": "Theme-native KPI used in women-youth-leadership."
+    },
+    {
+      "kpi_id": "women_producer_groups",
+      "label": "Women-led Producer Groups Registered",
+      "scope": "theme",
+      "theme": "women-youth-leadership",
+      "method": "chapter_indicator_extraction",
+      "formula": "value = thematic extraction for women-youth-leadership (women_producer_groups)",
+      "input_refs": [],
+      "source_pages": [
+        47
+      ],
+      "unit": "groups",
+      "note": "Theme-native KPI used in women-youth-leadership."
+    }
+  ]
+}

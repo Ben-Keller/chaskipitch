@@ -1,0 +1,740 @@
+{
+  "iso3": "IND",
+  "country_name": "India",
+  "region": "asia",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 3,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    10,
+    13,
+    24,
+    25,
+    26,
+    28,
+    30,
+    41,
+    44,
+    45,
+    47,
+    59,
+    62,
+    70
+  ],
+  "canonical_projects": [
+    {
+      "slug": "habitat_rights_recognition",
+      "display_name": "Habitat Rights Recognition"
+    },
+    {
+      "slug": "guyana_women_youth_leadership",
+      "display_name": "Guyana Women and Youth Leadership"
+    }
+  ],
+  "organizations": [
+    "APA",
+    "ISB",
+    "Vasundhara"
+  ],
+  "kpis": [
+    {
+      "id": "IND_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 3,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "India has 3 active projects on the map."
+    },
+    {
+      "id": "IND_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 875680,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "community-led-finance",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 13,
+      "source_heading": "FOREST RIGHTS RECOGNITION FOR PARTICULARLY VULNERABLE TRIBAL GROUPS IN INDIA:",
+      "source_text": "The Odisha State Government formally recognised the Habitat Rights of seven Particularly Vulnerable Tribal Groups, securing 875,680 hectares of forest land for 547 communities across eight districts. This included landmark recognitions within protected areas such as the Siilipal Tiger Reserve, and marked a significant step toward safeguarding the cultural, territorial, and livelihood rights of Odisha’s most vulnerable Indigenous groups. Vasundhara played a key role in supporting these claims and documenting the communities’ heritage."
+    },
+    {
+      "id": "IND_KPI_003",
+      "metric": "communities",
+      "label": "communities",
+      "value": 547,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "community-led-finance",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 13,
+      "source_heading": "FOREST RIGHTS RECOGNITION FOR PARTICULARLY VULNERABLE TRIBAL GROUPS IN INDIA:",
+      "source_text": "The Odisha State Government formally recognised the Habitat Rights of seven Particularly Vulnerable Tribal Groups, securing 875,680 hectares of forest land for 547 communities across eight districts. This included landmark recognitions within protected areas such as the Siilipal Tiger Reserve, and marked a significant step toward safeguarding the cultural, territorial, and livelihood rights of Odisha’s most vulnerable Indigenous groups. Vasundhara played a key role in supporting these claims and documenting the communities’ heritage."
+    },
+    {
+      "id": "IND_KPI_004",
+      "metric": "projects",
+      "label": "projects",
+      "value": 35,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "report",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "territorial-governance"
+      ],
+      "geography_scope": "country",
+      "source_page": 24,
+      "source_heading": null,
+      "source_text": "35 projects, $30 million is disbursed"
+    },
+    {
+      "id": "IND_KPI_005",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 875000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 41,
+      "source_heading": "RIGHTS FOR THE MANY – HOW OUR INDIAN PARTNERS ARE HELPING THOUSANDS OF COMMUNITIES ACHIEVE TENURE SECURITY",
+      "source_text": "A few cases stand out. In Odisha State, Vasundhara helped document the community heritage of seven Particularly Vulnerable Tribal Groups, helping to secure government recognition of Habitat Rights over 875,000 hectares of forest for 547 communities — including recognitions within protected areas such as Similipal Tiger Reserve. Vasundhara also helped 1,223 communities in Odisha to"
+    },
+    {
+      "id": "IND_KPI_006",
+      "metric": "communities",
+      "label": "communities",
+      "value": 547,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 41,
+      "source_heading": "RIGHTS FOR THE MANY – HOW OUR INDIAN PARTNERS ARE HELPING THOUSANDS OF COMMUNITIES ACHIEVE TENURE SECURITY",
+      "source_text": "A few cases stand out. In Odisha State, Vasundhara helped document the community heritage of seven Particularly Vulnerable Tribal Groups, helping to secure government recognition of Habitat Rights over 875,000 hectares of forest for 547 communities — including recognitions within protected areas such as Similipal Tiger Reserve. Vasundhara also helped 1,223 communities in Odisha to"
+    },
+    {
+      "id": "IND_KPI_007",
+      "metric": "communities",
+      "label": "communities",
+      "value": 1223,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 41,
+      "source_heading": "RIGHTS FOR THE MANY – HOW OUR INDIAN PARTNERS ARE HELPING THOUSANDS OF COMMUNITIES ACHIEVE TENURE SECURITY",
+      "source_text": "A few cases stand out. In Odisha State, Vasundhara helped document the community heritage of seven Particularly Vulnerable Tribal Groups, helping to secure government recognition of Habitat Rights over 875,000 hectares of forest for 547 communities — including recognitions within protected areas such as Similipal Tiger Reserve. Vasundhara also helped 1,223 communities in Odisha to"
+    },
+    {
+      "id": "IND_KPI_008",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 15,
+      "unit": "%",
+      "metric_family": "governance",
+      "direction": "recognize",
+      "beneficiary_group": null,
+      "kpi_category": "governance_and_rights",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "technology-mapping",
+        "climate-biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 44,
+      "source_heading": null,
+      "source_text": "In India, Vasundhara’s Forest Rights Act Atlases present detailed, data-driven mapping, offering a breakthrough solution for rights recognition. Fewer than 15 percent of eligible"
+    },
+    {
+      "id": "IND_KPI_009",
+      "metric": "women_led_producer_groups",
+      "label": "women-led producer groups",
+      "value": 24,
+      "unit": "women led producer groups",
+      "metric_family": "leadership",
+      "direction": "share",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership",
+        "climate-biodiversity",
+        "community-led-finance"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "ISB helped register 24 women-led producer groups under the Green Shakti Producer Company. These groups represent hundreds of shareholders across Odisha’s forest regions."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "IND_PRJ_001",
+      "kind": "project_description",
+      "title": "In 2024, we disbursed close to US$30 million to advance tenure rights and territorial governance in Africa, Asia, and…",
+      "body": "In 2024, we disbursed close to US$30 million to advance tenure rights and territorial governance in Africa, Asia, and Latin America.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 10
+    },
+    {
+      "id": "IND_PRJ_002",
+      "kind": "project_description",
+      "title": "FOREST RIGHTS RECOGNITION FOR PARTICULARLY VULNERABLE TRIBAL GROUPS IN INDIA:",
+      "body": "The Odisha State Government formally recognised the Habitat Rights of seven Particularly Vulnerable Tribal Groups, securing 875,680 hectares of forest land for 547 communities across eight districts. This included landmark recognitions within protected areas such as the Siilipal Tiger Reserve, and marked a significant step toward safeguarding the cultural, territorial, and livelihood rights of Odisha’s most vulnerable Indigenous groups. Vasundhara played a key role in supporting these claims and documenting the communities’ heritage.",
+      "narrative_type": "milestone",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "community-led-finance",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "Vasundhara"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_002",
+        "IND_KPI_003"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 13
+    },
+    {
+      "id": "IND_PRJ_003",
+      "kind": "project_description",
+      "title": "Organisations in India need to have a Foreign Contributions Regulations Act (FRCA) certificate to receive foreign f…",
+      "body": "3 Organisations in India need to have a Foreign Contributions Regulations Act (FRCA) certificate to receive foreign funds — and many small, grassroots organisations do not have the capacity to secure one. That’s why, there, we work with other types of groups supporting traditional communities, including the Indian School of Business (ISB).",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [
+        "APA",
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 26
+    },
+    {
+      "id": "IND_PRJ_004",
+      "kind": "project_description",
+      "title": "THE WOMEN COMMUNITY LEADERS STRENGTHENING FOREST RIGHTS IN INDIA",
+      "body": "Jayanti Buruda and Augustina Soreng are both leaders in their communities in India, working with ISB to both promote gender equality and secure forest rights – two areas which are deeply linked.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 28
+    },
+    {
+      "id": "IND_PRJ_005",
+      "kind": "project_description",
+      "title": "JAYANTI BURUDA, WOMAN COMMUNITY LEADER STRENGTHENING FOREST RIGHTS IN INDIA",
+      "body": "ISB’s recognition of this sacred relationship is one of the key reasons they have earned local communities’ trust. “ISB leads with empathy for nature, the environment and the people living in the forest,” says Augustina. “They joined us in this work as equals, not outsiders. The work they have done has been transformative, not only for us but also for the larger movement to protect the land and the rights of Indigenous Peoples.”",
+      "narrative_type": "milestone",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "women-youth-leadership"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 28
+    },
+    {
+      "id": "IND_PRJ_006",
+      "kind": "project_description",
+      "title": "From the dense rainforests of the Amazon to the vast communal lands of Africa and the sprawling forests of India, com…",
+      "body": "From the dense rainforests of the Amazon to the vast communal lands of Africa and the sprawling forests of India, communities made historic strides in 2024 toward securing their land rights. Across Latin America, Africa, and Asia, Tenure Facility partners helped Indigenous Peoples, Afro-descendant Peoples, and local communities achieve real, lasting change — often against overwhelming odds.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 30
+    },
+    {
+      "id": "IND_PRJ_007",
+      "kind": "project_description",
+      "title": "RIGHTS FOR THE MANY – HOW OUR INDIAN PARTNERS ARE HELPING THOUSANDS OF COMMUNITIES ACHIEVE TENURE SECURITY",
+      "body": "A few cases stand out. In Odisha State, Vasundhara helped document the community heritage of seven Particularly Vulnerable Tribal Groups, helping to secure government recognition of Habitat Rights over 875,000 hectares of forest for 547 communities — including recognitions within protected areas such as Similipal Tiger Reserve. Vasundhara also helped 1,223 communities in Odisha to",
+      "narrative_type": "milestone",
+      "project_or_initiative": {
+        "slug": "habitat_rights_recognition",
+        "display_name": "Habitat Rights Recognition"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "Vasundhara"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_005",
+        "IND_KPI_006",
+        "IND_KPI_007"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 41
+    },
+    {
+      "id": "IND_PRJ_008",
+      "kind": "project_description",
+      "title": "39 7,490: The number of Indian communities that made progress towards securing and effectively governing their territ…",
+      "body": "39 7,490: The number of Indian communities that made progress towards securing and effectively governing their territories.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "territorial-governance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "IND_KPI_005",
+        "IND_KPI_006",
+        "IND_KPI_007"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 41
+    },
+    {
+      "id": "IND_PRJ_009",
+      "kind": "project_description",
+      "title": "villages in India have received titles under Act",
+      "body": "villages in India have received titles under Act. But Vasundhara’s Atlases combine satellite- based mapping with local data and field verification to help identify eligible villages at scale. This technology, paired with close collaboration with government agencies and communities, has already enabled thousands of forest-dependent communities in Odisha State to begin the process of securing legal rights to their land.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "technology-mapping",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "Vasundhara"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_008"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 44
+    },
+    {
+      "id": "IND_PRJ_010",
+      "kind": "project_description",
+      "title": "Indian School of Business (ISB) has also been working to help implement the Forest Rights Act (FRA), having been invi…",
+      "body": "Indian School of Business (ISB) has also been working to help implement the Forest Rights Act (FRA), having been invited by the Jharkhand State Government to be the technology partner for a statewide initiative aimed at recognising at least 10,000 community forest rights claims. The organisation’s JharFRA app is designed to help communities with the digital filing process for FRA claims, while creating a robust digital record system accessible to both communities and government. Transparency is at the heart of the app. Once submitted, claims no longer sit under a pile of paperwork on a local administrator’s desk but can be tracked by community members via a dashboard, thereby helping deepen trust and strengthen tenure rights at the same time.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_008"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 44
+    },
+    {
+      "id": "IND_PRJ_011",
+      "kind": "project_description",
+      "title": "Technology can also be a way to engage a diverse range of people with the mapping and monitoring process, as well as …",
+      "body": "Technology can also be a way to engage a diverse range of people with the mapping and monitoring process, as well as collecting a wider range of data on areas like biodiversity and carbon content. In India, ISB’s nCount is",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_008"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 44
+    },
+    {
+      "id": "IND_PRJ_012",
+      "kind": "project_description",
+      "title": "In India, Vasundhara’s Forest Rights Act Atlases present detailed, data-driven mapping, offering a breakthrough solut…",
+      "body": "In India, Vasundhara’s Forest Rights Act Atlases present detailed, data-driven mapping, offering a breakthrough solution for rights recognition. Fewer than 15 percent of eligible",
+      "narrative_type": "milestone",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "technology-mapping",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [
+        "Vasundhara"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_008"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 44
+    },
+    {
+      "id": "IND_PRJ_013",
+      "kind": "project_description",
+      "title": "Many of our partners work in culturally diverse and remote areas, where even access to electricity or a bank account …",
+      "body": "Many of our partners work in culturally diverse and remote areas, where even access to electricity or a bank account is limited. While emerging technology such as artificial intelligence has the potential to supercharge this work, for now our partners are concentrating on ensuring the communities they support have the access and training to make the most of the simple but effective technologies available to them. For example, ISB have focused on making the JharFRA app as user friendly as possible for Indigenous Peoples, including offering information in a range of languages and distributing physical copies of their claims filing toolkit on village market days.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "territorial-governance",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 45
+    },
+    {
+      "id": "IND_PRJ_014",
+      "kind": "project_description",
+      "title": "ISB helped register 24 women-led producer groups under the Green Shakti Producer Company",
+      "body": "ISB helped register 24 women-led producer groups under the Green Shakti Producer Company. These groups represent hundreds of shareholders across Odisha’s forest regions.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women-youth-leadership",
+        "climate-biodiversity",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [
+        "IND_KPI_009"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 47
+    },
+    {
+      "id": "IND_PRJ_015",
+      "kind": "project_description",
+      "title": "PIVOTING ACTIVITIES DURING ELECTIONS IN INDIA",
+      "body": "official facilitator for the state-led MJJY scheme (Mo Jungle Jami Yojana, translated as “Our Forest Land Scheme”), which focuses on accelerating the recognition of Community Forest Rights in Odisha State under the Forest Rights Act (which recognises and protects the rights of forest-dwelling communities to land and forest resources).",
+      "narrative_type": "milestone",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "climate-biodiversity"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 59
+    },
+    {
+      "id": "IND_PRJ_016",
+      "kind": "project_description",
+      "title": "India held both national and state-level elections throughout last year, extended over multiple stages",
+      "body": "India held both national and state-level elections throughout last year, extended over multiple stages. With governments focused on campaigning, titling processes tend to slow or stall during election periods. To maintain momentum, our partners strategically scheduled their initiatives around election timelines, using election periods to focus on capacity-building activities like staff training. For instance, in Odisha, where election-related restrictions limited community engagement, Vasundhara adapted by conducting centre-level training for staff and officials and refining their land rights documentation strategies, ensuring that progress continued even in the absence of direct fieldwork. In states where leadership changed, partners focused on relationship building with both bureaucracy officials and incoming administrations, while formal partnerships with state governments helped to maintain momentum on land rights initiatives. Vasundhara became the",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "tenure-security",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [
+        "APA",
+        "Vasundhara"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 59
+    },
+    {
+      "id": "IND_PRJ_017",
+      "kind": "project_description",
+      "title": "Differences between income and disbursed funds reflect multi-year planning.",
+      "body": "Differences between income and disbursed funds reflect multi-year planning.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "territorial-governance",
+        "community-led-finance"
+      ],
+      "organizations_mentioned": [
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 62
+    },
+    {
+      "id": "IND_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "Building on these insights, Tenure Facility adapted its operational guidance and gathered best practices for secure c…",
+      "body": "Building on these insights, Tenure Facility adapted its operational guidance and gathered best practices for secure cash disbursement. These now shape both our own financial support systems and partners’ capacity- building in fragile states.",
+      "narrative_type": "organizational_strengthening",
+      "project_or_initiative": {
+        "slug": "guyana_women_youth_leadership",
+        "display_name": "Guyana Women and Youth Leadership"
+      },
+      "theme_tags": [
+        "territorial-governance",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "APA",
+        "ISB"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "context",
+      "highlight_category": "organizational_strengthening",
+      "source_page": 70
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_001' title required cleanup.",
+      "entity_id": "IND_PRJ_001",
+      "source_page": 10
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_003' title required cleanup.",
+      "entity_id": "IND_PRJ_003",
+      "source_page": 26
+    },
+    {
+      "type": "footnote_style_title",
+      "message": "Narrative 'IND_PRJ_003' title required cleanup.",
+      "entity_id": "IND_PRJ_003",
+      "source_page": 26
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_006' title required cleanup.",
+      "entity_id": "IND_PRJ_006",
+      "source_page": 30
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_008' title required cleanup.",
+      "entity_id": "IND_PRJ_008",
+      "source_page": 41
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_010' title required cleanup.",
+      "entity_id": "IND_PRJ_010",
+      "source_page": 44
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_011' title required cleanup.",
+      "entity_id": "IND_PRJ_011",
+      "source_page": 44
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_012' title required cleanup.",
+      "entity_id": "IND_PRJ_012",
+      "source_page": 44
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'IND_PRJ_013' title required cleanup.",
+      "entity_id": "IND_PRJ_013",
+      "source_page": 45
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'IND_QLT_001' title required cleanup.",
+      "entity_id": "IND_QLT_001",
+      "source_page": 70
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 9,
+    "narrative_count": 18,
+    "project_description_count": 17,
+    "qualitative_highlight_count": 1
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "IND.json"
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "iso3": "KEN",
+  "country_name": "Kenya",
+  "region": "africa",
+  "map_status": "active_project_country",
+  "mapped_status": "active",
+  "live_status": "active",
+  "status_mismatch": false,
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "source_pages": [
+    25,
+    39,
+    42,
+    47,
+    67
+  ],
+  "canonical_projects": [
+    {
+      "slug": "community_land_management_committees",
+      "display_name": "Community Land Management Committees"
+    }
+  ],
+  "organizations": [
+    "CLAN!",
+    "Forum for Indigenous Resource Management"
+  ],
+  "kpis": [
+    {
+      "id": "KEN_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "technology-mapping"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Kenya has 1 active projects on the map."
+    },
+    {
+      "id": "KEN_KPI_002",
+      "metric": "hectares_under_committee_responsibility",
+      "label": "hectares under committee responsibility",
+      "value": 2500000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "elect",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_land_management_committees",
+        "display_name": "Community Land Management Committees"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Community Land Management Committees, with a collective responsibility for 2.5 million hectares. Each committee is composed of 15 persons and complies with Kenya’s two-thirds gender rule, which requires that no more than two-thirds of the members of elected public bodies should be of the same gender. The election of the committees is an official step under the Communal Land Act."
+    }
+  ],
+  "narratives": [
+    {
+      "id": "KEN_PRJ_001",
+      "kind": "project_description",
+      "title": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Comm…",
+      "body": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Community Land Management Committees, with a collective responsibility for 2.5 million hectares. Each committee is composed of 15 persons and complies with Kenya’s two-thirds gender rule, which requires that no more than two-thirds of the members of elected public bodies should be of the same gender. The election of the committees is an official step under the Communal Land Act.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_land_management_committees",
+        "display_name": "Community Land Management Committees"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "Forum for Indigenous Resource Management"
+      ],
+      "related_kpi_ids": [
+        "KEN_KPI_002"
+      ],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 39
+    },
+    {
+      "id": "KEN_PRJ_002",
+      "kind": "project_description",
+      "title": "CLAN! ensured compliance with Kenya’s two-thirds gender rule in all Community Land Management Committees",
+      "body": "CLAN! ensured compliance with Kenya’s two-thirds gender rule in all Community Land Management Committees. This prevented gender overrepresentation and strengthened inclusive governance.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_land_management_committees",
+        "display_name": "Community Land Management Committees"
+      },
+      "theme_tags": [
+        "women-youth-leadership",
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "CLAN!"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 47
+    },
+    {
+      "id": "KEN_PRJ_003",
+      "kind": "project_description",
+      "title": "DEFINING THE WAY AHEAD: CLAN!’S COMMUNITY- LED GOVERNANCE STRENGTHENING",
+      "body": "In early 2024, CLAN! found itself grappling with governance issues, including trying to reconcile diverse member views on leadership, decision-making and the network’s strategic direction.",
+      "narrative_type": "challenge",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "CLAN!"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 67
+    },
+    {
+      "id": "KEN_PRJ_004",
+      "kind": "project_description",
+      "title": "CLAN! (Community Land Action Now!) is a network of grassroots organisations and NGOs advocating for secure land tenur…",
+      "body": "CLAN! (Community Land Action Now!) is a network of grassroots organisations and NGOs advocating for secure land tenure rights and natural resource management in Kenya. Like most Indigenous and community- led organisations, CLAN! is democratically organised and prioritises the autonomy of the communities it works with by making their voices heard and represented. Because of the diversity of the network, strong governance practices are crucial to ensure direction and decision-making are aligned and representative - which is a great strength when achieved.",
+      "narrative_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security"
+      ],
+      "organizations_mentioned": [
+        "CLAN!"
+      ],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": null,
+      "highlight_category": null,
+      "source_page": 67
+    },
+    {
+      "id": "KEN_QLT_001",
+      "kind": "qualitative_highlight",
+      "title": "In some countries, slow and opaque legal processes stall progress and favour private interests, while in others — lik…",
+      "body": "In some countries, slow and opaque legal processes stall progress and favour private interests, while in others — like Kenya — the cost of land surveys is a barrier to securing tenure rights.",
+      "narrative_type": "policy_or_legal",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure-security",
+        "policy-advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "related_metric_families": [],
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "source_page": 42
+    }
+  ],
+  "quality_flags": [
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'KEN_PRJ_001' title required cleanup.",
+      "entity_id": "KEN_PRJ_001",
+      "source_page": 39
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Narrative 'KEN_PRJ_004' title required cleanup.",
+      "entity_id": "KEN_PRJ_004",
+      "source_page": 67
+    },
+    {
+      "type": "title_contains_truncation_marker",
+      "message": "Highlight 'KEN_QLT_001' title required cleanup.",
+      "entity_id": "KEN_QLT_001",
+      "source_page": 42
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "coverage": {
+    "structured_kpi_count": 2,
+    "narrative_count": 5,
+    "project_description_count": 4,
+    "qualitative_highlight_count": 1
+  },
+  "generated_from": {
+    "schema_version": "v4",
+    "generated_at_utc": "2026-03-22T11:37:50.669Z",
+    "source_file": "KEN.json"
+  }
+}

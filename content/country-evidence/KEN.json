@@ -1,0 +1,287 @@
+{
+  "iso3": "KEN",
+  "country_name": "Kenya",
+  "region": "Africa",
+  "map_status": "active_project_country",
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    25,
+    39,
+    42,
+    47,
+    67
+  ],
+  "summary": "Kenya is listed on the 2024 global footprint map with 1 active project. In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Community Land Management Committees, with a collective responsibility for 2.5 million hectares. Each.",
+  "map_entry": {
+    "status": "active_project_country",
+    "project_count": 1,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "KEN_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Kenya has 1 active projects on the map."
+    },
+    {
+      "id": "KEN_KPI_002",
+      "metric": "hectares_under_committee_responsibility",
+      "label": "hectares under committee responsibility",
+      "value": 2500000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "elect",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_land_management_committees",
+        "display_name": "Community Land Management Committees"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Community Land Management Committees, with a collective responsibility for 2.5 million hectares. Each committee is composed of 15 persons and complies with Kenya’s two-thirds gender rule, which requires that no more than two-thirds of the members of elected public bodies should be of the same gender. The election of the committees is an official step under the Communal Land Act."
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "KEN_PRJ_001",
+      "title": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Comm…",
+      "description": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Community Land Management Committees, with a collective responsibility for 2.5 million hectares. Each committee is composed of 15 persons and complies with Kenya’s two-thirds gender rule, which requires that no more than two-thirds of the members of elected public bodies should be of the same gender. The election of the committees is an official step under the Communal Land Act.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_land_management_committees",
+        "display_name": "Community Land Management Committees"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "Forum for Indigenous Resource Management"
+      ],
+      "related_kpi_ids": [
+        "KEN_KPI_002"
+      ],
+      "source_page": 39,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares_under_committee_responsibility"
+        ]
+      }
+    },
+    {
+      "id": "KEN_PRJ_002",
+      "title": "CLAN! ensured compliance with Kenya’s two-thirds gender rule in all Community Land Management Committees",
+      "description": "CLAN! ensured compliance with Kenya’s two-thirds gender rule in all Community Land Management Committees. This prevented gender overrepresentation and strengthened inclusive governance.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_land_management_committees",
+        "display_name": "Community Land Management Committees"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "CLAN!"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 47,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "KEN_PRJ_003",
+      "title": "DEFINING THE WAY AHEAD: CLAN!’S COMMUNITY- LED GOVERNANCE STRENGTHENING",
+      "description": "In early 2024, CLAN! found itself grappling with governance issues, including trying to reconcile diverse member views on leadership, decision-making and the network’s strategic direction.",
+      "description_type": "challenge",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "CLAN!"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 67,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "KEN_PRJ_004",
+      "title": "CLAN! (Community Land Action Now!) is a network of grassroots organisations and NGOs advocating for secure land tenur…",
+      "description": "CLAN! (Community Land Action Now!) is a network of grassroots organisations and NGOs advocating for secure land tenure rights and natural resource management in Kenya. Like most Indigenous and community- led organisations, CLAN! is democratically organised and prioritises the autonomy of the communities it works with by making their voices heard and represented. Because of the diversity of the network, strong governance practices are crucial to ensure direction and decision-making are aligned and representative - which is a great strength when achieved.",
+      "description_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "CLAN!"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 67,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    }
+  ],
+  "qualitative_highlights": [
+    {
+      "id": "KEN_QLT_001",
+      "title": "In some countries, slow and opaque legal processes stall progress and favour private interests, while in others — lik…",
+      "description": "In some countries, slow and opaque legal processes stall progress and favour private interests, while in others — like Kenya — the cost of land surveys is a barrier to securing tenure rights.",
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 42
+    }
+  ],
+  "organization_mentions": [
+    "CLAN!",
+    "Forum for Indigenous Resource Management"
+  ],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "KEN_KPI_001"
+      ],
+      "land_area": [
+        "KEN_KPI_002"
+      ]
+    },
+    "available_metric_families": [
+      "land_area",
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Kenya appears on Tenure Facility's 2024 global footprint map with status 'active_project_country' and project count 1."
+    },
+    {
+      "source_page": 25,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "1 KENYA"
+    },
+    {
+      "source_page": 39,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "In Kenya, the Forum for Indigenous Resource Management facilitated eight communities in Marsabit County to elect Community Land Management Committees, with a collective responsibility for 2.5 million hectares. Each committee is composed of 15 persons and complies with Kenya’s two-thirds gender rule, which requires that no more than two-thirds of the members of elected public bodies should be of the same gender. The election of the committees is an official step under the Communal Land Act."
+    },
+    {
+      "source_page": 42,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "In some countries, slow and opaque legal processes stall progress and favour private interests, while in others — like Kenya — the cost of land surveys is a barrier to securing tenure rights."
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "KENYA 2/3 gender rule compliance"
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "CLAN! ensured compliance with Kenya’s two-thirds gender rule in all Community Land Management Committees. This prevented gender overrepresentation and strengthened inclusive governance."
+    },
+    {
+      "source_page": 67,
+      "source_heading": "DEFINING THE WAY AHEAD: CLAN!’S COMMUNITY- LED GOVERNANCE STRENGTHENING",
+      "content_type": "project_description",
+      "text": "In early 2024, CLAN! found itself grappling with governance issues, including trying to reconcile diverse member views on leadership, decision-making and the network’s strategic direction."
+    },
+    {
+      "source_page": 67,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "CLAN! (Community Land Action Now!) is a network of grassroots organisations and NGOs advocating for secure land tenure rights and natural resource management in Kenya. Like most Indigenous and community- led organisations, CLAN! is democratically organised and prioritises the autonomy of the communities it works with by making their voices heard and represented. Because of the diversity of the network, strong governance practices are crucial to ensure direction and decision-making are aligned and representative - which is a great strength when achieved."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "community_land_management_committees",
+      "display_name": "Community Land Management Committees"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

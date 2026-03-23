@@ -1,0 +1,404 @@
+{
+  "iso3": "PAN",
+  "country_name": "Panama",
+  "region": "Latin America",
+  "map_status": "active_project_country",
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    22,
+    25,
+    30,
+    35
+  ],
+  "summary": "Panama is listed on the 2024 global footprint map with 1 active project. While forest loss has dropped in some countries, it has risen sharply in others, and, overall, deforestation and degradation rates remain alarmingly high (in 2024 we lost a record 6.7 million hectares of primary.",
+  "map_entry": {
+    "status": "active_project_country",
+    "project_count": 1,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "PAN_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Panama has 1 active projects on the map."
+    },
+    {
+      "id": "PAN_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 6700000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "tenure_security"
+      ],
+      "geography_scope": "country",
+      "source_page": 22,
+      "source_heading": null,
+      "source_text": "While forest loss has dropped in some countries, it has risen sharply in others, and, overall, deforestation and degradation rates remain alarmingly high (in 2024 we lost a record 6.7 million hectares of primary tropical forest - an area almost the size of Panama). With threats to traditional communities’ lands continuing to grow — including the almost 60 percent of Indigenous Peoples’ lands which are threatened by industrial development — it is more urgent than ever to scale efforts to strengthen tenure security."
+    },
+    {
+      "id": "PAN_KPI_003",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 60,
+      "unit": "%",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "Communities",
+      "kpi_category": "shares_and_ratios",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "tenure_security"
+      ],
+      "geography_scope": "country",
+      "source_page": 22,
+      "source_heading": null,
+      "source_text": "While forest loss has dropped in some countries, it has risen sharply in others, and, overall, deforestation and degradation rates remain alarmingly high (in 2024 we lost a record 6.7 million hectares of primary tropical forest - an area almost the size of Panama). With threats to traditional communities’ lands continuing to grow — including the almost 60 percent of Indigenous Peoples’ lands which are threatened by industrial development — it is more urgent than ever to scale efforts to strengthen tenure security."
+    },
+    {
+      "id": "PAN_KPI_004",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 204000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "People",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "policy_advocacy",
+        "tenure_security"
+      ],
+      "geography_scope": "country",
+      "source_page": 35,
+      "source_heading": null,
+      "source_text": "allowed seven collective territories and two comarcas recover 204,000 hectares of Indigenous land. This achievement, led by the National Coordinator of Indigenous Peoples of Panama (COONAPIP), was made possible through collaborative working sessions with Panama’s National Energy Secretariat and the Ministry of Government."
+    },
+    {
+      "id": "PAN_KPI_005",
+      "metric": "hectares_covered",
+      "label": "hectares covered",
+      "value": 873243,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": "People",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "mapping_monitoring",
+        "policy_advocacy",
+        "tenure_security"
+      ],
+      "geography_scope": "country",
+      "source_page": 35,
+      "source_heading": "RECLAIMING WHAT WAS TAKEN IN PANAMA",
+      "source_text": "Our partners in Panama made a great deal of progress this year, protecting land against illegal settlements and taking back land for Indigenous Peoples. Indigenous territorial authorities across several regions physically demarcated and mapped their territories, covering a total of 873,243 hectares. And the Emberá Wounaan Comarca (an Indigenous administrative region equivalent to a province) worked with government authorities to evict illegal settlers as part of a broader strategy to remove unauthorised occupants and to prevent further illegal settlements that threaten the ecological and cultural integrity of Indigenous territories."
+    },
+    {
+      "id": "PAN_KPI_006",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 341000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "institutional_context",
+        "community_finance_livelihoods"
+      ],
+      "geography_scope": "country",
+      "source_page": 35,
+      "source_heading": null,
+      "source_text": "341,000 HECTARES: Land previously granted to the Sinclair Oil Corporation in Panama returned to rightful Indigenous ownership."
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "PAN_PRJ_001",
+      "title": "While forest loss has dropped in some countries, it has risen sharply in others, and, overall, deforestation and degr…",
+      "description": "While forest loss has dropped in some countries, it has risen sharply in others, and, overall, deforestation and degradation rates remain alarmingly high (in 2024 we lost a record 6.7 million hectares of primary tropical forest - an area almost the size of Panama). With threats to traditional communities’ lands continuing to grow — including the almost 60 percent of Indigenous Peoples’ lands which are threatened by industrial development — it is more urgent than ever to scale efforts to strengthen tenure security.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "PAN_KPI_002",
+        "PAN_KPI_003"
+      ],
+      "source_page": 22,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares",
+          "percentage_share"
+        ]
+      }
+    },
+    {
+      "id": "PAN_PRJ_002",
+      "title": "From Papua to Panama, shoots of change are breaking through the soil",
+      "description": "From Papua to Panama, shoots of change are breaking through the soil. We begin this part by delving into the incredible progress communities made in securing their rights and strengthening governance over their ancestral territories, then branch into thematic stories of innovation, inclusion, resilience, and learning in action.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "papua_indigenous_land_recognition",
+        "display_name": "Papua Indigenous Land Recognition"
+      },
+      "theme_tags": [
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 30,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "PAN_PRJ_003",
+      "title": "allowed seven collective territories and two comarcas recover 204,000 hectares of Indigenous land",
+      "description": "allowed seven collective territories and two comarcas recover 204,000 hectares of Indigenous land. This achievement, led by the National Coordinator of Indigenous Peoples of Panama (COONAPIP), was made possible through collaborative working sessions with Panama’s National Energy Secretariat and the Ministry of Government.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "policy_advocacy",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "PAN_KPI_004",
+        "PAN_KPI_005",
+        "PAN_KPI_006"
+      ],
+      "source_page": 35,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "PAN_PRJ_004",
+      "title": "RECLAIMING WHAT WAS TAKEN IN PANAMA",
+      "description": "Our partners in Panama made a great deal of progress this year, protecting land against illegal settlements and taking back land for Indigenous Peoples. Indigenous territorial authorities across several regions physically demarcated and mapped their territories, covering a total of 873,243 hectares. And the Emberá Wounaan Comarca (an Indigenous administrative region equivalent to a province) worked with government authorities to evict illegal settlers as part of a broader strategy to remove unauthorised occupants and to prevent further illegal settlements that threaten the ecological and cultural integrity of Indigenous territories.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "mapping_monitoring",
+        "policy_advocacy",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "PAN_KPI_004",
+        "PAN_KPI_005",
+        "PAN_KPI_006"
+      ],
+      "source_page": 35,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares_covered"
+        ]
+      }
+    }
+  ],
+  "qualitative_highlights": [
+    {
+      "id": "PAN_QLT_001",
+      "title": "341,000 HECTARES: Land previously granted to the Sinclair Oil Corporation in Panama returned to rightful Indigenous o…",
+      "description": "341,000 HECTARES: Land previously granted to the Sinclair Oil Corporation in Panama returned to rightful Indigenous ownership.",
+      "signal_type": "context",
+      "highlight_category": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "panama_land_recovery",
+        "display_name": "Panama Land Recovery"
+      },
+      "theme_tags": [
+        "institutional_context",
+        "community_finance_livelihoods"
+      ],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 35
+    }
+  ],
+  "organization_mentions": [],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "PAN_KPI_001"
+      ],
+      "land_area": [
+        "PAN_KPI_002",
+        "PAN_KPI_003",
+        "PAN_KPI_004",
+        "PAN_KPI_005",
+        "PAN_KPI_006"
+      ]
+    },
+    "available_metric_families": [
+      "land_area",
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 22,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "While forest loss has dropped in some countries, it has risen sharply in others, and, overall, deforestation and degradation rates remain alarmingly high (in 2024 we lost a record 6.7 million hectares of primary tropical forest - an area almost the size of Panama). With threats to traditional communities’ lands continuing to grow — including the almost 60 percent of Indigenous Peoples’ lands which are threatened by industrial development — it is more urgent than ever to scale efforts to strengthen tenure security."
+    },
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Panama appears on Tenure Facility's 2024 global footprint map with status 'active_project_country' and project count 1."
+    },
+    {
+      "source_page": 25,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "1 PANAMA"
+    },
+    {
+      "source_page": 30,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "From Papua to Panama, shoots of change are breaking through the soil. We begin this part by delving into the incredible progress communities made in securing their rights and strengthening governance over their ancestral territories, then branch into thematic stories of innovation, inclusion, resilience, and learning in action."
+    },
+    {
+      "source_page": 35,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "allowed seven collective territories and two comarcas recover 204,000 hectares of Indigenous land. This achievement, led by the National Coordinator of Indigenous Peoples of Panama (COONAPIP), was made possible through collaborative working sessions with Panama’s National Energy Secretariat and the Ministry of Government."
+    },
+    {
+      "source_page": 35,
+      "source_heading": "RECLAIMING WHAT WAS TAKEN IN PANAMA",
+      "content_type": "project_description",
+      "text": "Our partners in Panama made a great deal of progress this year, protecting land against illegal settlements and taking back land for Indigenous Peoples. Indigenous territorial authorities across several regions physically demarcated and mapped their territories, covering a total of 873,243 hectares. And the Emberá Wounaan Comarca (an Indigenous administrative region equivalent to a province) worked with government authorities to evict illegal settlers as part of a broader strategy to remove unauthorised occupants and to prevent further illegal settlements that threaten the ecological and cultural integrity of Indigenous territories."
+    },
+    {
+      "source_page": 35,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "341,000 HECTARES: Land previously granted to the Sinclair Oil Corporation in Panama returned to rightful Indigenous ownership."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "panama_land_recovery",
+      "display_name": "Panama Land Recovery"
+    },
+    {
+      "slug": "papua_indigenous_land_recognition",
+      "display_name": "Papua Indigenous Land Recognition"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

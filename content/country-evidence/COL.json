@@ -1,0 +1,828 @@
+{
+  "iso3": "COL",
+  "country_name": "Colombia",
+  "region": "Latin America",
+  "map_status": "active_project_country",
+  "project_count": 3,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    13,
+    14,
+    25,
+    33,
+    34,
+    37,
+    44,
+    53,
+    56,
+    57
+  ],
+  "summary": "Colombia is listed on the 2024 global footprint map with 3 active projects. The Inter-American Court of Human Rights ruled in favour of the U’wa people in a case brought against the Colombian state for the historical violation of their territorial rights. Supported by the National Commission of.",
+  "map_entry": {
+    "status": "active_project_country",
+    "project_count": 3,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "COL_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 3,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Colombia has 3 active projects on the map."
+    },
+    {
+      "id": "COL_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 887898,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "colombia_territorial_rights_and_advocacy",
+        "display_name": "Colombia Territorial Rights and Advocacy"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 33,
+      "source_heading": null,
+      "source_text": "A 2018 legal reform in Colombia allowed Indigenous councils to gain formal government recognition as local governments. In 2024, the National Organisation of the Indigenous Peoples of the Colombian Amazon (OPIAC) supported the Mataní Indigenous Territorial Council in the Great Vaupés Reservation, covering 887,898 hectares of intact forest in the Colombian Amazon, to become recognised under this law. Meanwhile, the ACTIVA Indigenous Territory, representing eight communities, formed a new council and applied for official recognition."
+    },
+    {
+      "id": "COL_KPI_003",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 1400000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": "People",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "yuri_passe_provisional_protection_area",
+        "display_name": "Yuri-Passé Provisional Protection Area"
+      },
+      "theme_tags": [
+        "institutional_context",
+        "tenure_security"
+      ],
+      "geography_scope": "country",
+      "source_page": 34,
+      "source_heading": null,
+      "source_text": "1.4 MILLION HECTARES: Ancestral territories of the Yuri-Passé People now under provisional protection measures."
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "COL_PRJ_001",
+      "title": "COLOMBIA’S U’WA WIN AT INTER-AMERICAN COURT OF HUMAN RIGHTS:",
+      "description": "The Inter-American Court of Human Rights ruled in favour of the U’wa people in a case brought against the Colombian state for the historical violation of their territorial rights. Supported by the National Commission of Indigenous Territories (CNTI), the case set an important precedent in favour of the defence of Indigenous Peoples’ territorial rights and the ecosystems they steward in Latin America.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "uwa_territorial_rights_case",
+        "display_name": "U’wa Territorial Rights Case"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 13,
+      "source_trace": {
+        "content_type": "milestone",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_002",
+      "title": "Amplifying Indigenous and Afro-descendant voices on the international stage in October, the 16th meeting of the Confe…",
+      "description": "Amplifying Indigenous and Afro-descendant voices on the international stage in October, the 16th meeting of the Conference of the Parties to the Convention on Biological Diversity (COP16) was held in Colombia. This was a big opportunity for our Latin American partners to influence national, regional, and global policy – and they rose to the challenge. The National Organisation of the Indigenous Peoples of the Colombian Amazon (OPIAC), CNTI, and the Black Communities’ Process worked with the Colombian government to develop Colombia’s biodiversity policies and organised two pre-COP16 events, helping to lay the groundwork for cementing Indigenous and Afro-descendant representation in global biodiversity governance.",
+      "description_type": "challenge",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 14,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_003",
+      "title": "A 2018 legal reform in Colombia allowed Indigenous councils to gain formal government recognition as local governments",
+      "description": "A 2018 legal reform in Colombia allowed Indigenous councils to gain formal government recognition as local governments. In 2024, the National Organisation of the Indigenous Peoples of the Colombian Amazon (OPIAC) supported the Mataní Indigenous Territorial Council in the Great Vaupés Reservation, covering 887,898 hectares of intact forest in the Colombian Amazon, to become recognised under this law. Meanwhile, the ACTIVA Indigenous Territory, representing eight communities, formed a new council and applied for official recognition.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "colombia_territorial_rights_and_advocacy",
+        "display_name": "Colombia Territorial Rights and Advocacy"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COL_KPI_002"
+      ],
+      "source_page": 33,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "COL_PRJ_004",
+      "title": "1.4 MILLION HECTARES: Ancestral territories of the Yuri-Passé People now under provisional protection measures.",
+      "description": "1.4 MILLION HECTARES: Ancestral territories of the Yuri-Passé People now under provisional protection measures.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "yuri_passe_provisional_protection_area",
+        "display_name": "Yuri-Passé Provisional Protection Area"
+      },
+      "theme_tags": [
+        "institutional_context",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COL_KPI_003"
+      ],
+      "source_page": 34,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "COL_PRJ_005",
+      "title": "In Colombia, the Amazon Conservation Team (ACT) secured the approval of provisional protection measures for the ances…",
+      "description": "In Colombia, the Amazon Conservation Team (ACT) secured the approval of provisional protection measures for the ancestral territories of the Yuri-Passé people, covering over 1.4 million hectares – an area larger than Yellowstone National Park. These measures mark a critical step towards safeguarding this vital ecological corridor from illegal mining, logging, and drug trafficking.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "yuri_passe_provisional_protection_area",
+        "display_name": "Yuri-Passé Provisional Protection Area"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COL_KPI_003"
+      ],
+      "source_page": 34,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "COL_PRJ_006",
+      "title": "VICTORY FOR THE U’WA PEOPLE",
+      "description": "In December 2024, the Inter-American Court of Human Rights ruled in favour of Colombia’s U’wa People, whose territories encompass some of Colombia’s most important páramos (highly biodiverse mountain ecosystems that are crucial for carbon sequestration and water regulation). In a case supported by the National Indigenous Territories Commission (CNTI), the Court found the Colombian state had violated the U’wa’s collective rights by permitting oil and gas projects on their land without consent — undermining their cultural and spiritual ties to the territory — and ordered urgent corrective measures. This landmark case sets a legal precedent in Latin America, reaffirming Indigenous rights to land, culture, and self-determination under international law.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "uwa_territorial_rights_case",
+        "display_name": "U’wa Territorial Rights Case"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy",
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 37,
+      "source_trace": {
+        "content_type": "milestone",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_007",
+      "title": "FORMAL RECOGNITION FOR THE BARRULIA PEOPLE",
+      "description": "CNTI also secured a victory for the Barrulia, a nomadic Indigenous group in Colombia whose traditional land rights had long gone unrecognised. After two years of judicial and administrative actions, the National Land Agency issued a resolution formally protecting the Barrulia’s ancestral territory, affirming their possession rights and setting a precedent for the land claims of nomadic and semi-nomadic peoples.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "barrulia_formal_recognition",
+        "display_name": "Barrulia Formal Recognition"
+      },
+      "theme_tags": [
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 37,
+      "source_trace": {
+        "content_type": "milestone",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_008",
+      "title": "While governments are responsible for leading titling efforts, limited budgets or political will often make processes…",
+      "description": "While governments are responsible for leading titling efforts, limited budgets or political will often make processes slow and cumbersome. Many of our partners have responded by developing their own systems to gather the territorial data needed for titling processes to proceed. Some of our partners’ tools have even been officially recognised by governments, including the Observatory of Territorial Rights of Indigenous Peoples, a groundbreaking project integrating technology with Indigenous governance. Designed by the Indigenous Technical Secretariat of the National Commission of Indigenous Territories (CNTI), it is the first Indigenous-led platform in Latin America to have been recognised as an official source of geospatial data on Indigenous territories.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "colombia_territorial_rights_and_advocacy",
+        "display_name": "Colombia Territorial Rights and Advocacy"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy",
+        "mapping_monitoring",
+        "community_finance_livelihoods"
+      ],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 44,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_009",
+      "title": "In Cali, Colombia, the Caribbean and Central America Research Council (CCARC), and the International Indigenous Women…",
+      "description": "In Cali, Colombia, the Caribbean and Central America Research Council (CCARC), and the International Indigenous Women’s Forum (FIMI) convened Indigenous, Afro-descendant, and local community organisations to discuss how learning across borders strengthens their struggles, reminds them they are not alone, and motivates them to carry on in the face of adversity.",
+      "description_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 53,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_010",
+      "title": "Dialogue with Colombian judiciary helps integrate community perspectives into the justice system",
+      "description": "Dialogue with Colombian judiciary helps integrate community perspectives into the justice system",
+      "description_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "institutional_context",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 53,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_011",
+      "title": "CNTI and the Indigenous Territorial Rights Observatory (ODTI) convened a national dialogue on territorial restitution…",
+      "description": "CNTI and the Indigenous Territorial Rights Observatory (ODTI) convened a national dialogue on territorial restitution and legal interpretation to exchange experiences and knowledge between Indigenous leaders and Colombia’s judiciary. Together they integrated legal and ancestral perspectives, contributing to more culturally competent land justice in line with the Peace Agreement.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "colombia_territorial_rights_and_advocacy",
+        "display_name": "Colombia Territorial Rights and Advocacy"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [
+        "CNTI",
+        "ODTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 53,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_012",
+      "title": "ACOFOP exchange leads to Colombia adopting legal framework for community forest concessions",
+      "description": "ACOFOP exchange leads to Colombia adopting legal framework for community forest concessions",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [
+        "ACOFOP"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 53,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_013",
+      "title": "PUTTING INDIGENOUS, AFRO- DESCENDANT, AND LOCAL COMMUNITY TERRITORIES AT THE HEART OF COLOMBIA’S BIODIVERSITY COMMITM…",
+      "description": "COP16 also provided the impetus for Colombia to adopt a decree recognising Indigenous authorities as official environmental regulatory authorities in their territories. The decree grants Indigenous Peoples the authority to protect, manage and conserve biodiversity within their territories according to their knowledge.",
+      "description_type": "advocacy_or_exchange",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy",
+        "community_finance_livelihoods",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 57,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_014",
+      "title": "The last day of COP16 made history with the formal recognition of Afro-descendant Peoples under the Convention on Bio…",
+      "description": "The last day of COP16 made history with the formal recognition of Afro-descendant Peoples under the Convention on Biological Diversity as a group that plays a significant role in biodiversity conservation. This milestone was the result of extensive efforts throughout the year, including preparatory work, discussion, lobbying, and collaboration between PCN, the Colombian government, and other stakeholders.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 57,
+      "source_trace": {
+        "content_type": "milestone",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_015",
+      "title": "Presented at COP16, the final plan rewarded our partners’ efforts by recognising the contribution of Indigenous, Afro…",
+      "description": "Presented at COP16, the final plan rewarded our partners’ efforts by recognising the contribution of Indigenous, Afro-descendant, and local communities’ territories to Colombia’s area-based commitments under Target 3 of the Global Biodiversity Framework, as well as including commitments to supporting and financing the sustainable management of these territories.",
+      "description_type": "advocacy_or_exchange",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 57,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_016",
+      "title": "Our support included co-organising the Afro- descendant Pre-COP, alongside the Bezos Earth Fund and Conservation Inte…",
+      "description": "Our support included co-organising the Afro- descendant Pre-COP, alongside the Bezos Earth Fund and Conservation International. Convened by PCN in partnership with the Colombian Vice-Presidency (including Vice President Francia Márquez, an Afro-descendant leader herself), the Pre-COP provided a crucial opportunity for Afro-descendant organisations to align their proposals and strategies before the conference.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy",
+        "community_finance_livelihoods"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 57,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COL_PRJ_017",
+      "title": "CNTI’s Indigenous Geographic Information System geospatial data was paramount in influencing Colombia’s negotiation t…",
+      "description": "CNTI’s Indigenous Geographic Information System geospatial data was paramount in influencing Colombia’s negotiation texts by highlighting the overlap between Indigenous territories and protected conservation areas and biodiversity hotspots. So much so, that the Colombian government also recognised it as a critical tool for compliance with the plan.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "colombia_territorial_rights_and_advocacy",
+        "display_name": "Colombia Territorial Rights and Advocacy"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy",
+        "mapping_monitoring",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 57,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    }
+  ],
+  "qualitative_highlights": [
+    {
+      "id": "COL_QLT_001",
+      "title": "COLOMBIA’S U’WA WIN AT INTER-AMERICAN COURT OF HUMAN RIGHTS:",
+      "description": "The Inter-American Court of Human Rights ruled in favour of the U’wa people in a case brought against the Colombian state for the historical violation of their territorial rights. Supported by the National Commission of Indigenous Territories (CNTI), the case set an important precedent in favour of the defence of Indigenous Peoples’ territorial rights and the ecosystems they steward in Latin America.",
+      "signal_type": "milestone",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "uwa_territorial_rights_case",
+        "display_name": "U’wa Territorial Rights Case"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "time_period": "2024",
+      "source_page": 13
+    },
+    {
+      "id": "COL_QLT_002",
+      "title": "VICTORY FOR THE U’WA PEOPLE",
+      "description": "In December 2024, the Inter-American Court of Human Rights ruled in favour of Colombia’s U’wa People, whose territories encompass some of Colombia’s most important páramos (highly biodiverse mountain ecosystems that are crucial for carbon sequestration and water regulation). In a case supported by the National Indigenous Territories Commission (CNTI), the Court found the Colombian state had violated the U’wa’s collective rights by permitting oil and gas projects on their land without consent — undermining their cultural and spiritual ties to the territory — and ordered urgent corrective measures. This landmark case sets a legal precedent in Latin America, reaffirming Indigenous rights to land, culture, and self-determination under international law.",
+      "signal_type": "milestone",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "uwa_territorial_rights_case",
+        "display_name": "U’wa Territorial Rights Case"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy",
+        "climate_biodiversity"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "time_period": "2024",
+      "source_page": 37
+    },
+    {
+      "id": "COL_QLT_003",
+      "title": "FORMAL RECOGNITION FOR THE BARRULIA PEOPLE",
+      "description": "CNTI also secured a victory for the Barrulia, a nomadic Indigenous group in Colombia whose traditional land rights had long gone unrecognised. After two years of judicial and administrative actions, the National Land Agency issued a resolution formally protecting the Barrulia’s ancestral territory, affirming their possession rights and setting a precedent for the land claims of nomadic and semi-nomadic peoples.",
+      "signal_type": "milestone",
+      "highlight_category": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "barrulia_formal_recognition",
+        "display_name": "Barrulia Formal Recognition"
+      },
+      "theme_tags": [
+        "tenure_security"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "time_period": "2024",
+      "source_page": 37
+    },
+    {
+      "id": "COL_QLT_004",
+      "title": "With Colombia holding the biodiversity COP16 Presidency, our Colombian partners seized on the opportunity to leverage…",
+      "description": "With Colombia holding the biodiversity COP16 Presidency, our Colombian partners seized on the opportunity to leverage their strong relationships with the Colombian Government — and the latter’s commitment to advancing Indigenous and Afro-descendant rights — to achieve wins for rights-based conservation at domestic and international levels and shape the global dialogue.",
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 56
+    },
+    {
+      "id": "COL_QLT_005",
+      "title": "At the domestic level, OPIAC, CNTI and the Black Communities Process (PCN) worked with the Colombian government to de…",
+      "description": "At the domestic level, OPIAC, CNTI and the Black Communities Process (PCN) worked with the Colombian government to develop Colombia’s National Biodiversity Strategy and Action Plan. This plan is the means through which Colombia translates the Global Biodiversity Framework (an international agreement signed in 2022 at Biodiversity COP15 to halt and reverse biodiversity loss by 2030) into national policy.",
+      "signal_type": "context",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "colombia_territorial_rights_and_advocacy",
+        "display_name": "Colombia Territorial Rights and Advocacy"
+      },
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [
+        "CNTI"
+      ],
+      "time_period": "2024",
+      "source_page": 57
+    },
+    {
+      "id": "COL_QLT_006",
+      "title": "The last day of COP16 made history with the formal recognition of Afro-descendant Peoples under the Convention on Bio…",
+      "description": "The last day of COP16 made history with the formal recognition of Afro-descendant Peoples under the Convention on Biological Diversity as a group that plays a significant role in biodiversity conservation. This milestone was the result of extensive efforts throughout the year, including preparatory work, discussion, lobbying, and collaboration between PCN, the Colombian government, and other stakeholders.",
+      "signal_type": "milestone",
+      "highlight_category": "policy_or_legal",
+      "project_or_initiative": {
+        "slug": "cop16_indigenous_afro_descendant_engagement",
+        "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 57
+    }
+  ],
+  "organization_mentions": [
+    "ACOFOP",
+    "CNTI",
+    "ODTI"
+  ],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "COL_KPI_001"
+      ],
+      "land_area": [
+        "COL_KPI_002",
+        "COL_KPI_003"
+      ]
+    },
+    "available_metric_families": [
+      "land_area",
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 13,
+      "source_heading": "COLOMBIA’S U’WA WIN AT INTER-AMERICAN COURT OF HUMAN RIGHTS:",
+      "content_type": "milestone",
+      "text": "The Inter-American Court of Human Rights ruled in favour of the U’wa people in a case brought against the Colombian state for the historical violation of their territorial rights. Supported by the National Commission of Indigenous Territories (CNTI), the case set an important precedent in favour of the defence of Indigenous Peoples’ territorial rights and the ecosystems they steward in Latin America."
+    },
+    {
+      "source_page": 14,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Amplifying Indigenous and Afro-descendant voices on the international stage in October, the 16th meeting of the Conference of the Parties to the Convention on Biological Diversity (COP16) was held in Colombia. This was a big opportunity for our Latin American partners to influence national, regional, and global policy – and they rose to the challenge. The National Organisation of the Indigenous Peoples of the Colombian Amazon (OPIAC), CNTI, and the Black Communities’ Process worked with the Colombian government to develop Colombia’s biodiversity policies and organised two pre-COP16 events, helping to lay the groundwork for cementing Indigenous and Afro-descendant representation in global biodiversity governance."
+    },
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Colombia appears on Tenure Facility's 2024 global footprint map with status 'active_project_country' and project count 3."
+    },
+    {
+      "source_page": 25,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "3 COLOMBIA"
+    },
+    {
+      "source_page": 33,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "A 2018 legal reform in Colombia allowed Indigenous councils to gain formal government recognition as local governments. In 2024, the National Organisation of the Indigenous Peoples of the Colombian Amazon (OPIAC) supported the Mataní Indigenous Territorial Council in the Great Vaupés Reservation, covering 887,898 hectares of intact forest in the Colombian Amazon, to become recognised under this law. Meanwhile, the ACTIVA Indigenous Territory, representing eight communities, formed a new council and applied for official recognition."
+    },
+    {
+      "source_page": 34,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "1.4 MILLION HECTARES: Ancestral territories of the Yuri-Passé People now under provisional protection measures."
+    },
+    {
+      "source_page": 34,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "In Colombia, the Amazon Conservation Team (ACT) secured the approval of provisional protection measures for the ancestral territories of the Yuri-Passé people, covering over 1.4 million hectares – an area larger than Yellowstone National Park. These measures mark a critical step towards safeguarding this vital ecological corridor from illegal mining, logging, and drug trafficking."
+    },
+    {
+      "source_page": 37,
+      "source_heading": "VICTORY FOR THE U’WA PEOPLE",
+      "content_type": "milestone",
+      "text": "In December 2024, the Inter-American Court of Human Rights ruled in favour of Colombia’s U’wa People, whose territories encompass some of Colombia’s most important páramos (highly biodiverse mountain ecosystems that are crucial for carbon sequestration and water regulation). In a case supported by the National Indigenous Territories Commission (CNTI), the Court found the Colombian state had violated the U’wa’s collective rights by permitting oil and gas projects on their land without consent — undermining their cultural and spiritual ties to the territory — and ordered urgent corrective measures. This landmark case sets a legal precedent in Latin America, reaffirming Indigenous rights to land, culture, and self-determination under international law."
+    },
+    {
+      "source_page": 37,
+      "source_heading": "FORMAL RECOGNITION FOR THE BARRULIA PEOPLE",
+      "content_type": "milestone",
+      "text": "CNTI also secured a victory for the Barrulia, a nomadic Indigenous group in Colombia whose traditional land rights had long gone unrecognised. After two years of judicial and administrative actions, the National Land Agency issued a resolution formally protecting the Barrulia’s ancestral territory, affirming their possession rights and setting a precedent for the land claims of nomadic and semi-nomadic peoples."
+    },
+    {
+      "source_page": 44,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "While governments are responsible for leading titling efforts, limited budgets or political will often make processes slow and cumbersome. Many of our partners have responded by developing their own systems to gather the territorial data needed for titling processes to proceed. Some of our partners’ tools have even been officially recognised by governments, including the Observatory of Territorial Rights of Indigenous Peoples, a groundbreaking project integrating technology with Indigenous governance. Designed by the Indigenous Technical Secretariat of the National Commission of Indigenous Territories (CNTI), it is the first Indigenous-led platform in Latin America to have been recognised as an official source of geospatial data on Indigenous territories."
+    },
+    {
+      "source_page": 53,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "In Cali, Colombia, the Caribbean and Central America Research Council (CCARC), and the International Indigenous Women’s Forum (FIMI) convened Indigenous, Afro-descendant, and local community organisations to discuss how learning across borders strengthens their struggles, reminds them they are not alone, and motivates them to carry on in the face of adversity."
+    },
+    {
+      "source_page": 53,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Dialogue with Colombian judiciary helps integrate community perspectives into the justice system"
+    },
+    {
+      "source_page": 53,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "CNTI and the Indigenous Territorial Rights Observatory (ODTI) convened a national dialogue on territorial restitution and legal interpretation to exchange experiences and knowledge between Indigenous leaders and Colombia’s judiciary. Together they integrated legal and ancestral perspectives, contributing to more culturally competent land justice in line with the Peace Agreement."
+    },
+    {
+      "source_page": 53,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "ACOFOP exchange leads to Colombia adopting legal framework for community forest concessions"
+    },
+    {
+      "source_page": 56,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "With Colombia holding the biodiversity COP16 Presidency, our Colombian partners seized on the opportunity to leverage their strong relationships with the Colombian Government — and the latter’s commitment to advancing Indigenous and Afro-descendant rights — to achieve wins for rights-based conservation at domestic and international levels and shape the global dialogue."
+    },
+    {
+      "source_page": 57,
+      "source_heading": "PUTTING INDIGENOUS, AFRO- DESCENDANT, AND LOCAL COMMUNITY TERRITORIES AT THE HEART OF COLOMBIA’S BIODIVERSITY COMMITMENTS",
+      "content_type": "project_description",
+      "text": "COP16 also provided the impetus for Colombia to adopt a decree recognising Indigenous authorities as official environmental regulatory authorities in their territories. The decree grants Indigenous Peoples the authority to protect, manage and conserve biodiversity within their territories according to their knowledge."
+    },
+    {
+      "source_page": 57,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "At the domestic level, OPIAC, CNTI and the Black Communities Process (PCN) worked with the Colombian government to develop Colombia’s National Biodiversity Strategy and Action Plan. This plan is the means through which Colombia translates the Global Biodiversity Framework (an international agreement signed in 2022 at Biodiversity COP15 to halt and reverse biodiversity loss by 2030) into national policy."
+    },
+    {
+      "source_page": 57,
+      "source_heading": null,
+      "content_type": "milestone",
+      "text": "The last day of COP16 made history with the formal recognition of Afro-descendant Peoples under the Convention on Biological Diversity as a group that plays a significant role in biodiversity conservation. This milestone was the result of extensive efforts throughout the year, including preparatory work, discussion, lobbying, and collaboration between PCN, the Colombian government, and other stakeholders."
+    },
+    {
+      "source_page": 57,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Presented at COP16, the final plan rewarded our partners’ efforts by recognising the contribution of Indigenous, Afro-descendant, and local communities’ territories to Colombia’s area-based commitments under Target 3 of the Global Biodiversity Framework, as well as including commitments to supporting and financing the sustainable management of these territories."
+    },
+    {
+      "source_page": 57,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Our support included co-organising the Afro- descendant Pre-COP, alongside the Bezos Earth Fund and Conservation International. Convened by PCN in partnership with the Colombian Vice-Presidency (including Vice President Francia Márquez, an Afro-descendant leader herself), the Pre-COP provided a crucial opportunity for Afro-descendant organisations to align their proposals and strategies before the conference."
+    },
+    {
+      "source_page": 57,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "CNTI’s Indigenous Geographic Information System geospatial data was paramount in influencing Colombia’s negotiation texts by highlighting the overlap between Indigenous territories and protected conservation areas and biodiversity hotspots. So much so, that the Colombian government also recognised it as a critical tool for compliance with the plan."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "colombia_territorial_rights_and_advocacy",
+      "display_name": "Colombia Territorial Rights and Advocacy"
+    },
+    {
+      "slug": "yuri_passe_provisional_protection_area",
+      "display_name": "Yuri-Passé Provisional Protection Area"
+    },
+    {
+      "slug": "uwa_territorial_rights_case",
+      "display_name": "U’wa Territorial Rights Case"
+    },
+    {
+      "slug": "cop16_indigenous_afro_descendant_engagement",
+      "display_name": "COP16 Indigenous and Afro-descendant Engagement"
+    },
+    {
+      "slug": "barrulia_formal_recognition",
+      "display_name": "Barrulia Formal Recognition"
+    },
+    {
+      "slug": "community_forest_concessions",
+      "display_name": "Community Forest Concessions"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

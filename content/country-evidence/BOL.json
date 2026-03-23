@@ -1,0 +1,360 @@
+{
+  "iso3": "BOL",
+  "country_name": "Bolivia",
+  "region": "Latin America",
+  "map_status": "active_project_country",
+  "project_count": 1,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    13,
+    25,
+    33,
+    47,
+    54
+  ],
+  "summary": "Bolivia is listed on the 2024 global footprint map with 1 active project. The Women and Territorial Governance Learning Exchange, hosted by the National Confederation of Indigenous Women of Bolivia, brought together Indigenous women from across Latin America to discuss their role in defending.",
+  "map_entry": {
+    "status": "active_project_country",
+    "project_count": 1,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "BOL_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 1,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Bolivia has 1 active projects on the map."
+    },
+    {
+      "id": "BOL_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 1400000,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "measure_area",
+      "beneficiary_group": null,
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "autonomous_indigenous_territorial_governments",
+        "display_name": "Autonomous Indigenous Territorial Governments"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 33,
+      "source_heading": null,
+      "source_text": "enshrined in Bolivia’s Constitution. In 2024, three Autonomous Indigenous Territorial Governments — collectively covering approximately 1.4 million hectares — made progress toward this goal by negotiating transitions with national authorities."
+    },
+    {
+      "id": "BOL_KPI_003",
+      "metric": "new_women_leaders",
+      "label": "new women leaders",
+      "value": 140,
+      "unit": "women leaders",
+      "metric_family": "leadership",
+      "direction": "mobilize",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "women_gender_leadership"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "BOLIVIA 140 Women leaders mobilised"
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "BOL_PRJ_001",
+      "title": "The Women and Territorial Governance Learning Exchange, hosted by the National Confederation of Indigenous Women of B…",
+      "description": "The Women and Territorial Governance Learning Exchange, hosted by the National Confederation of Indigenous Women of Bolivia, brought together Indigenous women from across Latin America to discuss their role in defending collective land rights.",
+      "description_type": "advocacy_or_exchange",
+      "project_or_initiative": {
+        "slug": "women_territorial_governance_learning_exchange",
+        "display_name": "Women and Territorial Governance Learning Exchange"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 13,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "BOL_PRJ_002",
+      "title": "enshrined in Bolivia’s Constitution",
+      "description": "enshrined in Bolivia’s Constitution. In 2024, three Autonomous Indigenous Territorial Governments — collectively covering approximately 1.4 million hectares — made progress toward this goal by negotiating transitions with national authorities.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "autonomous_indigenous_territorial_governments",
+        "display_name": "Autonomous Indigenous Territorial Governments"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "BOL_KPI_002"
+      ],
+      "source_page": 33,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "BOL_PRJ_003",
+      "title": "The National Confederation of Indigenous Women of Bolivia (CNAMIB) and the Centre for Legal Studies and Social Resear…",
+      "description": "The National Confederation of Indigenous Women of Bolivia (CNAMIB) and the Centre for Legal Studies and Social Research supported Indigenous Peoples working to gain formal government recognition as Autonomous Indigenous Territorial Governments, a right",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "autonomous_indigenous_territorial_governments",
+        "display_name": "Autonomous Indigenous Territorial Governments"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [
+        "CNAMIB"
+      ],
+      "related_kpi_ids": [
+        "BOL_KPI_002"
+      ],
+      "source_page": 33,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "BOL_PRJ_004",
+      "title": "CNAMIB mobilized 140 women leaders for the XI Pan-Amazon Social Forum (FOSPA)",
+      "description": "CNAMIB mobilized 140 women leaders for the XI Pan-Amazon Social Forum (FOSPA). Their advocacy helped integrate CNAMIB’s proposals into the final FOSPA declaration.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "women_territorial_governance_learning_exchange",
+        "display_name": "Women and Territorial Governance Learning Exchange"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [
+        "CNAMIB"
+      ],
+      "related_kpi_ids": [
+        "BOL_KPI_003"
+      ],
+      "source_page": 47,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "new_women_leaders"
+        ]
+      }
+    },
+    {
+      "id": "BOL_PRJ_005",
+      "title": "BRINGING TOGETHER INDIGENOUS WOMEN IN THE BOLIVIAN AMAZON",
+      "description": "Around 50 Indigenous leaders travelled from across Latin America to the outskirts of Santa Cruz, Bolivia, to join the three- day event in December. In an atmosphere charged with feelings of joint struggles, sisterhood, and empathy, participants explored together how women pass down ancestral wisdom, ensuring the preservation of their territories and cultures, with a clear vision of the needs of their families, communities, and lands. They highlighted challenges including involving more men in women’s rights conversations, as well as the need to work closely with younger generations and women across territories to build capacities for change and foster stronger alliances.",
+      "description_type": "challenge",
+      "project_or_initiative": {
+        "slug": "women_territorial_governance_learning_exchange",
+        "display_name": "Women and Territorial Governance Learning Exchange"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 54,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    }
+  ],
+  "qualitative_highlights": [
+    {
+      "id": "BOL_QLT_001",
+      "title": "The learning exchange was co-hosted by Tenure Facility and partners including the National Confederation of Indigenou…",
+      "description": "The learning exchange was co-hosted by Tenure Facility and partners including the National Confederation of Indigenous Women of Bolivia (CNAMIB), Tinta – The Invisible Thread, and the International Forum of Indigenous Women.",
+      "signal_type": "context",
+      "highlight_category": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "women_territorial_governance_learning_exchange",
+        "display_name": "Women and Territorial Governance Learning Exchange"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security"
+      ],
+      "related_metric_families": [],
+      "organizations_mentioned": [
+        "CNAMIB"
+      ],
+      "time_period": "2024",
+      "source_page": 54
+    }
+  ],
+  "organization_mentions": [
+    "APA",
+    "CNAMIB"
+  ],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "BOL_KPI_001"
+      ],
+      "land_area": [
+        "BOL_KPI_002"
+      ],
+      "leadership": [
+        "BOL_KPI_003"
+      ]
+    },
+    "available_metric_families": [
+      "land_area",
+      "leadership",
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 13,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "The Women and Territorial Governance Learning Exchange, hosted by the National Confederation of Indigenous Women of Bolivia, brought together Indigenous women from across Latin America to discuss their role in defending collective land rights."
+    },
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Bolivia appears on Tenure Facility's 2024 global footprint map with status 'active_project_country' and project count 1."
+    },
+    {
+      "source_page": 25,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "1 BOLIVIA"
+    },
+    {
+      "source_page": 33,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "enshrined in Bolivia’s Constitution. In 2024, three Autonomous Indigenous Territorial Governments — collectively covering approximately 1.4 million hectares — made progress toward this goal by negotiating transitions with national authorities."
+    },
+    {
+      "source_page": 33,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "The National Confederation of Indigenous Women of Bolivia (CNAMIB) and the Centre for Legal Studies and Social Research supported Indigenous Peoples working to gain formal government recognition as Autonomous Indigenous Territorial Governments, a right"
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "BOLIVIA 140 Women leaders mobilised"
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "CNAMIB mobilized 140 women leaders for the XI Pan-Amazon Social Forum (FOSPA). Their advocacy helped integrate CNAMIB’s proposals into the final FOSPA declaration."
+    },
+    {
+      "source_page": 54,
+      "source_heading": "BRINGING TOGETHER INDIGENOUS WOMEN IN THE BOLIVIAN AMAZON",
+      "content_type": "project_description",
+      "text": "Around 50 Indigenous leaders travelled from across Latin America to the outskirts of Santa Cruz, Bolivia, to join the three- day event in December. In an atmosphere charged with feelings of joint struggles, sisterhood, and empathy, participants explored together how women pass down ancestral wisdom, ensuring the preservation of their territories and cultures, with a clear vision of the needs of their families, communities, and lands. They highlighted challenges including involving more men in women’s rights conversations, as well as the need to work closely with younger generations and women across territories to build capacities for change and foster stronger alliances."
+    },
+    {
+      "source_page": 54,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "The learning exchange was co-hosted by Tenure Facility and partners including the National Confederation of Indigenous Women of Bolivia (CNAMIB), Tinta – The Invisible Thread, and the International Forum of Indigenous Women."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "autonomous_indigenous_territorial_governments",
+      "display_name": "Autonomous Indigenous Territorial Governments"
+    },
+    {
+      "slug": "women_territorial_governance_learning_exchange",
+      "display_name": "Women and Territorial Governance Learning Exchange"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}

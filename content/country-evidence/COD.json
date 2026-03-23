@@ -1,0 +1,902 @@
+{
+  "iso3": "COD",
+  "country_name": "Democratic Republic of the Congo",
+  "region": "Africa",
+  "map_status": "additional_projects_began_implementation_in_2024",
+  "project_count": 6,
+  "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
+  "all_report_pages_mentioned": [
+    11,
+    25,
+    39,
+    47,
+    50,
+    53,
+    58,
+    64,
+    68,
+    70
+  ],
+  "summary": "Democratic Republic of the Congo is listed on the 2024 global footprint map with 6 active projects. The legal recognition and management planning of Community Forest Concessions — forest areas that are collectively managed and owned by these communities — in the DRC is racing ahead, with Indigenous and local.",
+  "map_entry": {
+    "status": "additional_projects_began_implementation_in_2024",
+    "project_count": 6,
+    "source_page": 25
+  },
+  "structured_kpis": [
+    {
+      "id": "COD_KPI_001",
+      "metric": "project_count",
+      "label": "active project count",
+      "value": 6,
+      "unit": "projects",
+      "metric_family": "portfolio",
+      "direction": "count",
+      "beneficiary_group": null,
+      "kpi_category": "portfolio_scale",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "source_text": "Democratic Republic of the Congo has 6 active projects on the map."
+    },
+    {
+      "id": "COD_KPI_002",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 387260,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 11,
+      "source_heading": "PROTECTING FORESTS IN THE DEMOCRATIC REPUBLIC OF THE CONGO (DRC):",
+      "source_text": "The legal recognition and management planning of Community Forest Concessions — forest areas that are collectively managed and owned by these communities — in the DRC is racing ahead, with Indigenous and local communities playing a growing role in land governance and conservation efforts. Led by partners including the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), simple management plans for 12 community forest concessions covering 387,260 hectares were established, validated by communities, and submitted to the provincial authority, with three already approved by the end of the year. The management plans designated 70 percent of the forest area across the 12 concessions, totalling 268,504.58 hectares, for conservation."
+    },
+    {
+      "id": "COD_KPI_003",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 268504.58,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 11,
+      "source_heading": "PROTECTING FORESTS IN THE DEMOCRATIC REPUBLIC OF THE CONGO (DRC):",
+      "source_text": "The legal recognition and management planning of Community Forest Concessions — forest areas that are collectively managed and owned by these communities — in the DRC is racing ahead, with Indigenous and local communities playing a growing role in land governance and conservation efforts. Led by partners including the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), simple management plans for 12 community forest concessions covering 387,260 hectares were established, validated by communities, and submitted to the provincial authority, with three already approved by the end of the year. The management plans designated 70 percent of the forest area across the 12 concessions, totalling 268,504.58 hectares, for conservation."
+    },
+    {
+      "id": "COD_KPI_004",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 70,
+      "unit": "%",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "shares_and_ratios",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 11,
+      "source_heading": "PROTECTING FORESTS IN THE DEMOCRATIC REPUBLIC OF THE CONGO (DRC):",
+      "source_text": "The legal recognition and management planning of Community Forest Concessions — forest areas that are collectively managed and owned by these communities — in the DRC is racing ahead, with Indigenous and local communities playing a growing role in land governance and conservation efforts. Led by partners including the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), simple management plans for 12 community forest concessions covering 387,260 hectares were established, validated by communities, and submitted to the provincial authority, with three already approved by the end of the year. The management plans designated 70 percent of the forest area across the 12 concessions, totalling 268,504.58 hectares, for conservation."
+    },
+    {
+      "id": "COD_KPI_005",
+      "metric": "hectares_designated_for_conservation",
+      "label": "hectares designated for conservation",
+      "value": 387260,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "CFCLs that had already gained recognition. This land covers 387,260 hectares, with 70 percent designated for conservation. Plans were validated by communities and submitted to the provincial authority, with three already receiving approval by the year’s end."
+    },
+    {
+      "id": "COD_KPI_006",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 70,
+      "unit": "%",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "shares_and_ratios",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "CFCLs that had already gained recognition. This land covers 387,260 hectares, with 70 percent designated for conservation. Plans were validated by communities and submitted to the provincial authority, with three already receiving approval by the year’s end."
+    },
+    {
+      "id": "COD_KPI_007",
+      "metric": "percentage_share",
+      "label": "percentage / share",
+      "value": 87,
+      "unit": "%",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Communities",
+      "kpi_category": "shares_and_ratios",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": "FROM MAPPING TO MANAGEMENT– COMMUNITIES TAKE CONTROL OF FORESTS IN THE DRC",
+      "source_text": "Some 87 percent of land in the DRC – home to the world’s largest expanse of intact rainforest – is claimed by Indigenous Peoples and local communities based on their customary ownership. But only a tiny fraction of these communities’ rights is recognised by the government. Our partners are working to change this by helping communities register and govern Community Forest Concessions (CFCLs), which give communities the right to own and manage specific forest areas."
+    },
+    {
+      "id": "COD_KPI_008",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 762329,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": "Communities",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "762,329 HECTARES: Area mapped in the DRC, bringing 28 communities closer to securing their land rights."
+    },
+    {
+      "id": "COD_KPI_009",
+      "metric": "communities",
+      "label": "communities",
+      "value": 28,
+      "unit": "communities",
+      "metric_family": "land_area",
+      "direction": "map",
+      "beneficiary_group": "Communities",
+      "kpi_category": "other",
+      "time_period": "2024",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "geography_scope": "country",
+      "source_page": 39,
+      "source_heading": null,
+      "source_text": "762,329 HECTARES: Area mapped in the DRC, bringing 28 communities closer to securing their land rights."
+    },
+    {
+      "id": "COD_KPI_010",
+      "metric": "new_women_leaders",
+      "label": "new women leaders",
+      "value": 289,
+      "unit": "women leaders",
+      "metric_family": "leadership",
+      "direction": "report",
+      "beneficiary_group": "Women",
+      "kpi_category": "leadership_and_inclusion",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 47,
+      "source_heading": null,
+      "source_text": "UEFA identified 289 women leaders and integrated them into Community Forest Concession (CFCL) governing bodies. This significantly increased female representation in local forest governance structures."
+    },
+    {
+      "id": "COD_KPI_011",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 306263,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "fire_monitoring_and_response",
+        "display_name": "Fire Monitoring and Response"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 68,
+      "source_heading": null,
+      "source_text": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and contributed to the formal recognition of 166,631 hectares of community forest land across Mai-Ndombe, Kwilu, and Sud Ubangi provinces. It also helped reduce wildfire incidents in Kwango province and drove women’s inclusion and Pygmy leadership in forest governance (all community forest governance bodies supported by CAGDFT now include at least three women). These outcomes were a direct result of CAGDFT’s focus on building up its institutional capacity — as well as supporting communities to do the same. This transformation has positioned CAGDFT as one of the strongest Indigenous and community land governance organisations in the DRC, with a scalable, long-term rights-based conservation model."
+    },
+    {
+      "id": "COD_KPI_012",
+      "metric": "hectares",
+      "label": "hectares",
+      "value": 166631,
+      "unit": "hectares",
+      "metric_family": "land_area",
+      "direction": "recognize",
+      "beneficiary_group": "Women",
+      "kpi_category": "land_extent",
+      "time_period": "2024",
+      "project_or_initiative": {
+        "slug": "fire_monitoring_and_response",
+        "display_name": "Fire Monitoring and Response"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "geography_scope": "country",
+      "source_page": 68,
+      "source_heading": null,
+      "source_text": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and contributed to the formal recognition of 166,631 hectares of community forest land across Mai-Ndombe, Kwilu, and Sud Ubangi provinces. It also helped reduce wildfire incidents in Kwango province and drove women’s inclusion and Pygmy leadership in forest governance (all community forest governance bodies supported by CAGDFT now include at least three women). These outcomes were a direct result of CAGDFT’s focus on building up its institutional capacity — as well as supporting communities to do the same. This transformation has positioned CAGDFT as one of the strongest Indigenous and community land governance organisations in the DRC, with a scalable, long-term rights-based conservation model."
+    }
+  ],
+  "project_descriptions": [
+    {
+      "id": "COD_PRJ_001",
+      "title": "PROTECTING FORESTS IN THE DEMOCRATIC REPUBLIC OF THE CONGO (DRC):",
+      "description": "The legal recognition and management planning of Community Forest Concessions — forest areas that are collectively managed and owned by these communities — in the DRC is racing ahead, with Indigenous and local communities playing a growing role in land governance and conservation efforts. Led by partners including the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), simple management plans for 12 community forest concessions covering 387,260 hectares were established, validated by communities, and submitted to the provincial authority, with three already approved by the end of the year. The management plans designated 70 percent of the forest area across the 12 concessions, totalling 268,504.58 hectares, for conservation.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COD_KPI_002",
+        "COD_KPI_003",
+        "COD_KPI_004"
+      ],
+      "source_page": 11,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares",
+          "hectares",
+          "percentage_share"
+        ]
+      }
+    },
+    {
+      "id": "COD_PRJ_002",
+      "title": "FROM MAPPING TO MANAGEMENT– COMMUNITIES TAKE CONTROL OF FORESTS IN THE DRC",
+      "description": "Some 87 percent of land in the DRC – home to the world’s largest expanse of intact rainforest – is claimed by Indigenous Peoples and local communities based on their customary ownership. But only a tiny fraction of these communities’ rights is recognised by the government. Our partners are working to change this by helping communities register and govern Community Forest Concessions (CFCLs), which give communities the right to own and manage specific forest areas.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring",
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COD_KPI_005",
+        "COD_KPI_006",
+        "COD_KPI_007"
+      ],
+      "source_page": 39,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "percentage_share"
+        ]
+      }
+    },
+    {
+      "id": "COD_PRJ_003",
+      "title": "762,329 HECTARES: Area mapped in the DRC, bringing 28 communities closer to securing their land rights.",
+      "description": "762,329 HECTARES: Area mapped in the DRC, bringing 28 communities closer to securing their land rights.",
+      "description_type": "project_overview",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "tenure_security",
+        "mapping_monitoring"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COD_KPI_005",
+        "COD_KPI_006",
+        "COD_KPI_007",
+        "COD_KPI_008",
+        "COD_KPI_009"
+      ],
+      "source_page": 39,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "hectares",
+          "communities"
+        ]
+      }
+    },
+    {
+      "id": "COD_PRJ_004",
+      "title": "UEFA identified 289 women leaders and integrated them into Community Forest Concession (CFCL) governing bodies",
+      "description": "UEFA identified 289 women leaders and integrated them into Community Forest Concession (CFCL) governing bodies. This significantly increased female representation in local forest governance structures.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [
+        "UEFA"
+      ],
+      "related_kpi_ids": [
+        "COD_KPI_010"
+      ],
+      "source_page": 47,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": [
+          "new_women_leaders"
+        ]
+      }
+    },
+    {
+      "id": "COD_PRJ_005",
+      "title": "Born into an Indigenous Batwa community, UEFA Executive Director Esperance Binyuki Nyota was one of only a few girls …",
+      "description": "Born into an Indigenous Batwa community, UEFA Executive Director Esperance Binyuki Nyota was one of only a few girls in her community who had the chance to go to school. Now she is committed to ensuring future generations of women and girls have access to education and the confidence to step into leadership roles. In 2024, UEFA identified 289 dynamic women from Indigenous and non-Indigenous Bantu communities with strong leadership potential and invited them to get involved in the management of the Local Community Forest Concessions, as well as taking on leadership positions within their villages.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [
+        "UEFA"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 50,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_006",
+      "title": "The Union for the Emancipation of Indigenous Women (UEFA) is an Indigenous-led women’s organisation that enables wome…",
+      "description": "The Union for the Emancipation of Indigenous Women (UEFA) is an Indigenous-led women’s organisation that enables women and youth to participate in governance and forest management in Eastern DRC — home to some of the largest expanses of intact tropical forest on Earth.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "uefa_womens_forest_governance",
+        "display_name": "UEFA Women’s Forest Governance"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [
+        "UEFA"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 50,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_007",
+      "title": "Indigenous women play an important role in preserving and transmitting traditional conservation practices, such as th…",
+      "description": "Indigenous women play an important role in preserving and transmitting traditional conservation practices, such as the Sangisa spirit of forest protection. In fact, research indicates that forests governed by committees that include women are in better condition. UEFA’s work, therefore, not only advances equality in these communities but also a contributes to valuable conservation work in the region.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "uefa_womens_forest_governance",
+        "display_name": "UEFA Women’s Forest Governance"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [
+        "UEFA"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 50,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_008",
+      "title": "The Second Congo Basin Learning Forum in Kinshasa provided a space for Indigenous and community representatives to en…",
+      "description": "The Second Congo Basin Learning Forum in Kinshasa provided a space for Indigenous and community representatives to engage with governments and civil society on the challenges they face in engaging with carbon andconservation initiatives and develop practical solutions to address them.",
+      "description_type": "challenge",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "climate_biodiversity",
+        "policy_advocacy"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 53,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_009",
+      "title": "Tenure Facility has been assisting partners with accessing dialogues and key discussions on climate finance, ensuring…",
+      "description": "Tenure Facility has been assisting partners with accessing dialogues and key discussions on climate finance, ensuring that community- led territorial funds are represented. This includes co-hosting the Path to Scale Coalition, funding COIAB to convene Pre- COP30 meetings across all nine Amazon Basin countries and sponsoring the Network of Indigenous and Local Populations for the Sustainable Management of Forest Ecosystems in Central Africa’s engagement in the development of an Indigenous Peoples and local communities Congo Basin Pledge, which aims to mobilise US$1 billion to support land rights, conservation, and sustainable development for communities in the Congo Basin. However, the goal is not just COP30 itself but what comes afterwards. By strengthening financial mechanisms, policy advocacy, and international networks, these organisations are positioning themselves to access funding at scale for securing community tenure rights across the globe. 56",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "territorial_funds",
+        "display_name": "Territorial Funds"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy",
+        "community_finance_livelihoods"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 58,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_010",
+      "title": "UEFA’S FINANCIAL TRANSFORMATION",
+      "description": "UEFA, an Indigenous women’s organisation based in South Kivu, DRC, began working with Tenure Facility in 2023. Despite two decades of grassroots work, they faced gaps in their administrative and financial processes that prevented them from diversifying their funding sources. The UEFA leadership team decided to put stronger financial systems in place to ensure the organisation’s long-term future.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "uefa_womens_forest_governance",
+        "display_name": "UEFA Women’s Forest Governance"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "community_finance_livelihoods",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "UEFA"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 64,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_011",
+      "title": "UEFA received a US$125,000 grant from Tenure Facility to improve its financial management systems and develop a detai…",
+      "description": "UEFA received a US$125,000 grant from Tenure Facility to improve its financial management systems and develop a detailed project proposal. The organisation made notable strides, including implementing accounting software across their offices and developing a financial procedures manual. In the implementation phase (with UEFA receiving an additional US$820,000 grant), Tenure Facility has supported the organisation with further financial planning workshops, UEFA has also put together a five-year financial plan, which it has used to bolster conversations with other donors. The organisation has now become a knowledge source for other Tenure Facility partners in the region, sharing their insights via learning exchanges.",
+      "description_type": "advocacy_or_exchange",
+      "project_or_initiative": {
+        "slug": "uefa_womens_forest_governance",
+        "display_name": "UEFA Women’s Forest Governance"
+      },
+      "theme_tags": [
+        "institutional_context",
+        "community_finance_livelihoods",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [
+        "UEFA"
+      ],
+      "related_kpi_ids": [],
+      "source_page": 64,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_012",
+      "title": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and co…",
+      "description": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and contributed to the formal recognition of 166,631 hectares of community forest land across Mai-Ndombe, Kwilu, and Sud Ubangi provinces. It also helped reduce wildfire incidents in Kwango province and drove women’s inclusion and Pygmy leadership in forest governance (all community forest governance bodies supported by CAGDFT now include at least three women). These outcomes were a direct result of CAGDFT’s focus on building up its institutional capacity — as well as supporting communities to do the same. This transformation has positioned CAGDFT as one of the strongest Indigenous and community land governance organisations in the DRC, with a scalable, long-term rights-based conservation model.",
+      "description_type": "milestone",
+      "project_or_initiative": {
+        "slug": "fire_monitoring_and_response",
+        "display_name": "Fire Monitoring and Response"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "related_kpi_ids": [
+        "COD_KPI_011",
+        "COD_KPI_012"
+      ],
+      "source_page": 68,
+      "source_trace": {
+        "content_type": "milestone",
+        "kpi_refs_legacy": [
+          "hectares",
+          "hectares"
+        ]
+      }
+    },
+    {
+      "id": "COD_PRJ_013",
+      "title": "Before partnering with Tenure Facility, the Centre for the Support of Sustainable Management of Tropical Forests (CAG…",
+      "description": "Before partnering with Tenure Facility, the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), operated as a local NGO with limited resources, focusing on community forest advocacy in the DRC. Tenure Facility provided funding and financial management training that enabled CAGDFT to manage multi-million- dollar grants, strengthen community governance and scale conflict resolution efforts. Five years into our partnership, the organisation is now a national and global leader in community forest governance.",
+      "description_type": "project_overview",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity",
+        "policy_advocacy",
+        "community_finance_livelihoods"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [
+        "COD_KPI_011",
+        "COD_KPI_012"
+      ],
+      "source_page": 68,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    },
+    {
+      "id": "COD_PRJ_014",
+      "title": "To better understand these challenges, Tenure Facility surveyed our DRC partners in June 2024",
+      "description": "To better understand these challenges, Tenure Facility surveyed our DRC partners in June 2024. The results were encouraging because partners had not experienced a single major security breach, thanks to strong risk-mitigation strategies, including route planning, intelligence gathering, discreet transport, and staff training in cash handling.",
+      "description_type": "challenge",
+      "project_or_initiative": null,
+      "theme_tags": [
+        "institutional_context",
+        "tenure_security"
+      ],
+      "organizations_mentioned": [],
+      "related_kpi_ids": [],
+      "source_page": 70,
+      "source_trace": {
+        "content_type": "project_description",
+        "kpi_refs_legacy": []
+      }
+    }
+  ],
+  "qualitative_highlights": [
+    {
+      "id": "COD_QLT_001",
+      "title": "CFCLs that had already gained recognition",
+      "description": "CFCLs that had already gained recognition. This land covers 387,260 hectares, with 70 percent designated for conservation. Plans were validated by communities and submitted to the provincial authority, with three already receiving approval by the year’s end.",
+      "signal_type": "context",
+      "highlight_category": "context_or_milestone",
+      "project_or_initiative": {
+        "slug": "community_forest_concessions",
+        "display_name": "Community Forest Concessions"
+      },
+      "theme_tags": [
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "organizations_mentioned": [],
+      "time_period": "2024",
+      "source_page": 39
+    },
+    {
+      "id": "COD_QLT_002",
+      "title": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and co…",
+      "description": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and contributed to the formal recognition of 166,631 hectares of community forest land across Mai-Ndombe, Kwilu, and Sud Ubangi provinces. It also helped reduce wildfire incidents in Kwango province and drove women’s inclusion and Pygmy leadership in forest governance (all community forest governance bodies supported by CAGDFT now include at least three women). These outcomes were a direct result of CAGDFT’s focus on building up its institutional capacity — as well as supporting communities to do the same. This transformation has positioned CAGDFT as one of the strongest Indigenous and community land governance organisations in the DRC, with a scalable, long-term rights-based conservation model.",
+      "signal_type": "milestone",
+      "highlight_category": "organizational_strengthening",
+      "project_or_initiative": {
+        "slug": "fire_monitoring_and_response",
+        "display_name": "Fire Monitoring and Response"
+      },
+      "theme_tags": [
+        "women_gender_leadership",
+        "tenure_security",
+        "climate_biodiversity"
+      ],
+      "related_metric_families": [
+        "land_area"
+      ],
+      "organizations_mentioned": [
+        "APA"
+      ],
+      "time_period": "2024",
+      "source_page": 68
+    }
+  ],
+  "organization_mentions": [
+    "APA",
+    "UEFA"
+  ],
+  "kpi_index": {
+    "by_metric_family": {
+      "portfolio": [
+        "COD_KPI_001"
+      ],
+      "land_area": [
+        "COD_KPI_002",
+        "COD_KPI_003",
+        "COD_KPI_004",
+        "COD_KPI_005",
+        "COD_KPI_006",
+        "COD_KPI_007",
+        "COD_KPI_008",
+        "COD_KPI_009",
+        "COD_KPI_011",
+        "COD_KPI_012"
+      ],
+      "leadership": [
+        "COD_KPI_010"
+      ]
+    },
+    "available_metric_families": [
+      "land_area",
+      "leadership",
+      "portfolio"
+    ],
+    "time_period_default": "2024"
+  },
+  "source_trace": [
+    {
+      "source_page": 11,
+      "source_heading": "PROTECTING FORESTS IN THE DEMOCRATIC REPUBLIC OF THE CONGO (DRC):",
+      "content_type": "project_description",
+      "text": "The legal recognition and management planning of Community Forest Concessions — forest areas that are collectively managed and owned by these communities — in the DRC is racing ahead, with Indigenous and local communities playing a growing role in land governance and conservation efforts. Led by partners including the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), simple management plans for 12 community forest concessions covering 387,260 hectares were established, validated by communities, and submitted to the provincial authority, with three already approved by the end of the year. The management plans designated 70 percent of the forest area across the 12 concessions, totalling 268,504.58 hectares, for conservation."
+    },
+    {
+      "source_page": 25,
+      "source_heading": "Global footprint map",
+      "content_type": "map_reference",
+      "text": "Democratic Republic of the Congo appears on Tenure Facility's 2024 global footprint map with status 'additional_projects_began_implementation_in_2024' and project count 6."
+    },
+    {
+      "source_page": 39,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "CFCLs that had already gained recognition. This land covers 387,260 hectares, with 70 percent designated for conservation. Plans were validated by communities and submitted to the provincial authority, with three already receiving approval by the year’s end."
+    },
+    {
+      "source_page": 39,
+      "source_heading": "FROM MAPPING TO MANAGEMENT– COMMUNITIES TAKE CONTROL OF FORESTS IN THE DRC",
+      "content_type": "project_description",
+      "text": "Some 87 percent of land in the DRC – home to the world’s largest expanse of intact rainforest – is claimed by Indigenous Peoples and local communities based on their customary ownership. But only a tiny fraction of these communities’ rights is recognised by the government. Our partners are working to change this by helping communities register and govern Community Forest Concessions (CFCLs), which give communities the right to own and manage specific forest areas."
+    },
+    {
+      "source_page": 39,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "762,329 HECTARES: Area mapped in the DRC, bringing 28 communities closer to securing their land rights."
+    },
+    {
+      "source_page": 47,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "UEFA identified 289 women leaders and integrated them into Community Forest Concession (CFCL) governing bodies. This significantly increased female representation in local forest governance structures."
+    },
+    {
+      "source_page": 50,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Born into an Indigenous Batwa community, UEFA Executive Director Esperance Binyuki Nyota was one of only a few girls in her community who had the chance to go to school. Now she is committed to ensuring future generations of women and girls have access to education and the confidence to step into leadership roles. In 2024, UEFA identified 289 dynamic women from Indigenous and non-Indigenous Bantu communities with strong leadership potential and invited them to get involved in the management of the Local Community Forest Concessions, as well as taking on leadership positions within their villages."
+    },
+    {
+      "source_page": 50,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "The Union for the Emancipation of Indigenous Women (UEFA) is an Indigenous-led women’s organisation that enables women and youth to participate in governance and forest management in Eastern DRC — home to some of the largest expanses of intact tropical forest on Earth."
+    },
+    {
+      "source_page": 50,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Indigenous women play an important role in preserving and transmitting traditional conservation practices, such as the Sangisa spirit of forest protection. In fact, research indicates that forests governed by committees that include women are in better condition. UEFA’s work, therefore, not only advances equality in these communities but also a contributes to valuable conservation work in the region."
+    },
+    {
+      "source_page": 53,
+      "source_heading": null,
+      "content_type": "context",
+      "text": "Integrating rights into carbon and conservation in theCongo Basin"
+    },
+    {
+      "source_page": 53,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "The Second Congo Basin Learning Forum in Kinshasa provided a space for Indigenous and community representatives to engage with governments and civil society on the challenges they face in engaging with carbon andconservation initiatives and develop practical solutions to address them."
+    },
+    {
+      "source_page": 58,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Tenure Facility has been assisting partners with accessing dialogues and key discussions on climate finance, ensuring that community- led territorial funds are represented. This includes co-hosting the Path to Scale Coalition, funding COIAB to convene Pre- COP30 meetings across all nine Amazon Basin countries and sponsoring the Network of Indigenous and Local Populations for the Sustainable Management of Forest Ecosystems in Central Africa’s engagement in the development of an Indigenous Peoples and local communities Congo Basin Pledge, which aims to mobilise US$1 billion to support land rights, conservation, and sustainable development for communities in the Congo Basin. However, the goal is not just COP30 itself but what comes afterwards. By strengthening financial mechanisms, policy advocacy, and international networks, these organisations are positioning themselves to access funding at scale for securing community tenure rights across the globe. 56"
+    },
+    {
+      "source_page": 64,
+      "source_heading": "UEFA’S FINANCIAL TRANSFORMATION",
+      "content_type": "project_description",
+      "text": "UEFA, an Indigenous women’s organisation based in South Kivu, DRC, began working with Tenure Facility in 2023. Despite two decades of grassroots work, they faced gaps in their administrative and financial processes that prevented them from diversifying their funding sources. The UEFA leadership team decided to put stronger financial systems in place to ensure the organisation’s long-term future."
+    },
+    {
+      "source_page": 64,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "UEFA received a US$125,000 grant from Tenure Facility to improve its financial management systems and develop a detailed project proposal. The organisation made notable strides, including implementing accounting software across their offices and developing a financial procedures manual. In the implementation phase (with UEFA receiving an additional US$820,000 grant), Tenure Facility has supported the organisation with further financial planning workshops, UEFA has also put together a five-year financial plan, which it has used to bolster conversations with other donors. The organisation has now become a knowledge source for other Tenure Facility partners in the region, sharing their insights via learning exchanges."
+    },
+    {
+      "source_page": 68,
+      "source_heading": null,
+      "content_type": "milestone",
+      "text": "In 2024, the organisation made measurable progress towards securing land tenure rights across 306,263 hectares and contributed to the formal recognition of 166,631 hectares of community forest land across Mai-Ndombe, Kwilu, and Sud Ubangi provinces. It also helped reduce wildfire incidents in Kwango province and drove women’s inclusion and Pygmy leadership in forest governance (all community forest governance bodies supported by CAGDFT now include at least three women). These outcomes were a direct result of CAGDFT’s focus on building up its institutional capacity — as well as supporting communities to do the same. This transformation has positioned CAGDFT as one of the strongest Indigenous and community land governance organisations in the DRC, with a scalable, long-term rights-based conservation model."
+    },
+    {
+      "source_page": 68,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "Before partnering with Tenure Facility, the Centre for the Support of Sustainable Management of Tropical Forests (CAGDFT), operated as a local NGO with limited resources, focusing on community forest advocacy in the DRC. Tenure Facility provided funding and financial management training that enabled CAGDFT to manage multi-million- dollar grants, strengthen community governance and scale conflict resolution efforts. Five years into our partnership, the organisation is now a national and global leader in community forest governance."
+    },
+    {
+      "source_page": 70,
+      "source_heading": null,
+      "content_type": "project_description",
+      "text": "To better understand these challenges, Tenure Facility surveyed our DRC partners in June 2024. The results were encouraging because partners had not experienced a single major security breach, thanks to strong risk-mitigation strategies, including route planning, intelligence gathering, discreet transport, and staff training in cash handling."
+    }
+  ],
+  "notes": [
+    "Single-country source blocks were prioritized.",
+    "Structured KPIs normalize numeric values into separate fields for frontend use.",
+    "Narrative blocks are split into project_descriptions and qualitative_highlights to support richer country pages.",
+    "v4 normalizes theme_tags to a controlled vocabulary.",
+    "v4 normalizes KPI direction values to a controlled vocabulary.",
+    "v4 standardizes project_or_initiative into canonical slug/display_name objects when identifiable."
+  ],
+  "schema_version": "v4",
+  "canonical_projects": [
+    {
+      "slug": "community_forest_concessions",
+      "display_name": "Community Forest Concessions"
+    },
+    {
+      "slug": "fire_monitoring_and_response",
+      "display_name": "Fire Monitoring and Response"
+    },
+    {
+      "slug": "uefa_womens_forest_governance",
+      "display_name": "UEFA Women’s Forest Governance"
+    },
+    {
+      "slug": "territorial_funds",
+      "display_name": "Territorial Funds"
+    }
+  ],
+  "ontology": {
+    "schema_version": "v4",
+    "theme_tag_vocab": [
+      "tenure_security",
+      "climate_biodiversity",
+      "mapping_monitoring",
+      "policy_advocacy",
+      "women_gender_leadership",
+      "community_finance_livelihoods",
+      "institutional_context"
+    ],
+    "direction_vocab": [
+      "count",
+      "recognize",
+      "measure_area",
+      "share",
+      "share_baseline",
+      "share_result",
+      "map",
+      "benefit",
+      "report",
+      "secure",
+      "mobilize",
+      "elect",
+      "train"
+    ],
+    "project_name_style": "canonical_object"
+  }
+}
