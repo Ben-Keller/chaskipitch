@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
-import { SiteHeader } from "./components/site-header";
-import { UiShell } from "./components/ui-shell";
-import { FinancialsPage } from "./pages/financials-page";
-import { AboutPage } from "./pages/about-page";
-import { DashboardPage } from "./pages/dashboard-page";
-import { CreativePitchPage } from "./pages/creative-pitch-page";
+import { SiteHeader } from "./app/site-header";
+import { UiShell } from "./app/ui-shell";
+import { FinancialsPage } from "./app/financials-page";
+import { AboutPage } from "./app/about-page";
+import { DashboardPage } from "./app/dashboard-page";
+import { CreativePitchPage } from "./app/creative-pitch-page";
 
-const primaryTabs = [
+const creativePitchEnabled = import.meta.env.VITE_ENABLE_CREATIVE_PITCH !== "false";
+
+const baseTabs = [
   { key: "impact", label: "Impact" },
   { key: "financials", label: "Financials" },
-  { key: "about", label: "About" },
-  { key: "creative_pitch", label: "Creative Pitch" }
+  { key: "about", label: "About" }
 ];
+const primaryTabs = creativePitchEnabled
+  ? [...baseTabs, { key: "creative_pitch", label: "Creative Pitch" }]
+  : baseTabs;
 
 export default function App() {
   const [activePage, setActivePage] = useState("impact");
@@ -20,6 +24,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activePage]);
 
+  useEffect(() => {
+    if (!creativePitchEnabled && activePage === "creative_pitch") {
+      setActivePage("impact");
+    }
+  }, [activePage, creativePitchEnabled]);
+
   return (
     <>
       <div className="atmosphere" aria-hidden="true" />
@@ -27,13 +37,15 @@ export default function App() {
       <UiShell />
       <main
         className={`site-main${
-          activePage === "impact" || activePage === "creative_pitch" ? " site-main--dashboard" : ""
+          activePage === "impact" || (creativePitchEnabled && activePage === "creative_pitch")
+            ? " site-main--dashboard"
+            : ""
         }`}
       >
         {activePage === "impact" ? <DashboardPage /> : null}
         {activePage === "financials" ? <FinancialsPage /> : null}
         {activePage === "about" ? <AboutPage /> : null}
-        {activePage === "creative_pitch" ? <CreativePitchPage /> : null}
+        {creativePitchEnabled && activePage === "creative_pitch" ? <CreativePitchPage /> : null}
       </main>
     </>
   );

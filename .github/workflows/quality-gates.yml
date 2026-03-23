@@ -22,26 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build authoritative geometry
-        run: npm run build:geo
-
-      - name: Build country signals
-        run: npm run build:signals
-
-      - name: Validate content
-        run: npm run validate:data
-
-      - name: Validate geospatial layers
-        run: npm run validate:geo
-
-      - name: Validate country signals
-        run: npm run validate:signals
-
-      - name: Validate Phase 6 QA checks
-        run: npm run validate:qa
-
-      - name: Build app
-        run: npm run build
-
-      - name: Check performance budgets
-        run: npm run perf:budget
+      - name: Run unified CI pipeline
+        run: npm run pipeline:ci

@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const INPUT_PATH = path.join(ROOT, "tenure_facility_videos_full.json");
+const INPUT_PATH = path.join(ROOT, "sources", "videos_full.json");
 const COUNTRIES_DIR = path.join(ROOT, "content", "countries");
 const OUTPUT_PATH = path.join(ROOT, "content", "country-videos.json");
 
@@ -190,8 +190,7 @@ async function main() {
     .slice(0, 12);
 
   const result = {
-    generated_at: new Date().toISOString(),
-    source_file: "tenure_facility_videos_full.json",
+    source_file: "sources/videos_full.json",
     matching_notes: "Matched by country aliases in title and description. Scores: title +3, description +1.",
     global_recent: globalRecent,
     by_iso3: dedupedAndSorted

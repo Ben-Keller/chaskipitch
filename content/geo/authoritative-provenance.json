@@ -1,6 +1,5 @@
 {
   "version": "phase3.authoritative-world.1",
-  "generated_at": "2026-03-22T11:37:28.357Z",
   "input": {
     "manifest": "geo/countries_manifest.json",
     "topo_dir": "countries_topojson",

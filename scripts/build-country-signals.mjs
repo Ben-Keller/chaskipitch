@@ -5,10 +5,10 @@ import {
   PLATFORM_STATUS_BY_V4,
   PLATFORM_THEME_BY_V4,
   SIGNAL_DIRECTIONS
-} from "./utils/signal-mappings.mjs";
+} from "./signal-mappings.mjs";
 
 const ROOT = process.cwd();
-const V4_DIR = path.join(ROOT, "tenure_facility_country_jsons_v4", "countries");
+const V4_DIR = path.join(ROOT, "sources", "country-v4", "countries");
 const LIVE_COUNTRIES_DIR = path.join(ROOT, "content", "countries");
 const OUTPUT_DIR = path.join(ROOT, "content", "country-signals");
 
@@ -101,7 +101,7 @@ async function readJson(filePath) {
   return JSON.parse(raw);
 }
 
-async function buildCountrySignals(iso3, generatedAtUtc) {
+async function buildCountrySignals(iso3) {
   const sourceFile = `${iso3}.json`;
   const [v4Country, liveCountry] = await Promise.all([
     readJson(path.join(V4_DIR, sourceFile)),
@@ -345,7 +345,6 @@ async function buildCountrySignals(iso3, generatedAtUtc) {
     },
     generated_from: {
       schema_version: cleanText(v4Country.schema_version || "v4"),
-      generated_at_utc: generatedAtUtc,
       source_file: sourceFile
     }
   };
@@ -355,7 +354,6 @@ async function buildCountrySignals(iso3, generatedAtUtc) {
 
 async function main() {
   const files = (await fs.readdir(V4_DIR)).filter((file) => file.endsWith(".json") && file !== "index.json").sort();
-  const generatedAtUtc = new Date().toISOString();
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   const existingOutputFiles = (await fs.readdir(OUTPUT_DIR)).filter((file) => file.endsWith(".json"));
@@ -364,15 +362,14 @@ async function main() {
   const countries = [];
   for (const file of files) {
     const iso3 = file.replace(".json", "");
-    const countrySignals = await buildCountrySignals(iso3, generatedAtUtc);
+    const countrySignals = await buildCountrySignals(iso3);
     countries.push(countrySignals);
     await fs.writeFile(path.join(OUTPUT_DIR, file), `${JSON.stringify(countrySignals, null, 2)}\n`, "utf-8");
   }
 
   const sortedCountries = [...countries].sort((left, right) => left.country_name.localeCompare(right.country_name));
   const indexPayload = {
-    generated_at_utc: generatedAtUtc,
-    source_folder: "tenure_facility_country_jsons_v4/countries",
+    source_folder: "sources/country-v4/countries",
     countries: sortedCountries.map((country) => ({
       iso3: country.iso3,
       country_name: country.country_name,

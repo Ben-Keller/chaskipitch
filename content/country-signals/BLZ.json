@@ -4,8 +4,8 @@
   "region": "latin_america",
   "map_status": "active_project_country",
   "mapped_status": "active",
-  "live_status": "first_time_2024",
-  "status_mismatch": true,
+  "live_status": "active",
+  "status_mismatch": false,
   "project_count": 1,
   "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
   "source_pages": [
@@ -123,10 +123,6 @@
   ],
   "quality_flags": [
     {
-      "type": "status_mismatch_against_live",
-      "message": "Mapped status 'active' differs from live status 'first_time_2024'."
-    },
-    {
       "type": "title_contains_truncation_marker",
       "message": "Narrative 'BLZ_PRJ_001' title required cleanup.",
       "entity_id": "BLZ_PRJ_001",
@@ -161,7 +157,6 @@
   },
   "generated_from": {
     "schema_version": "v4",
-    "generated_at_utc": "2026-03-22T11:37:50.669Z",
     "source_file": "BLZ.json"
   }
 }

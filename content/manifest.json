@@ -1,0 +1,49 @@
+{
+  "countries": [
+    "BFA",
+    "BLZ",
+    "BOL",
+    "BRA",
+    "CMR",
+    "COD",
+    "COG",
+    "COL",
+    "ECU",
+    "GTM",
+    "GUY",
+    "IDN",
+    "IND",
+    "KEN",
+    "KHM",
+    "LBR",
+    "MLI",
+    "MMR",
+    "NPL",
+    "PAN",
+    "PER",
+    "SUR"
+  ],
+  "themes": [
+    "climate-biodiversity",
+    "community-led-finance",
+    "learning-exchange",
+    "policy-advocacy",
+    "technology-mapping",
+    "tenure-security",
+    "territorial-governance",
+    "women-youth-leadership"
+  ],
+  "charts": [
+    "evolution-grants-projects",
+    "funding-flow-2024",
+    "funding-milestones-2024",
+    "impact-growth-2023-2024",
+    "institutional-development-2024",
+    "learning-exchanges-2024",
+    "mapping-and-tech-kpis-2024",
+    "policy-and-advocacy-highlights-2024",
+    "tenure-footprint-regional",
+    "territorial-governance-kpis-2024",
+    "womens-leadership-highlights-2024"
+  ]
+}

@@ -1,6 +1,5 @@
 {
-  "generated_at": "2026-03-22T15:01:49.042Z",
-  "source_file": "tenure_facility_videos_full.json",
+  "source_file": "sources/videos_full.json",
   "matching_notes": "Matched by country aliases in title and description. Scores: title +3, description +1.",
   "global_recent": [
     {

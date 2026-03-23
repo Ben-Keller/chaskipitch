@@ -35,7 +35,7 @@ export function withBasePath(pathValue) {
 }
 
 export function contentPath(relativePath) {
-  return withBasePath(`content/${String(relativePath).replace(/^\/+/, "")}`);
+  return withBasePath(`runtime/content/${String(relativePath).replace(/^\/+/, "")}`);
 }
 
 export function mediaPath(relativePath) {

@@ -4,8 +4,8 @@
   "region": "africa",
   "map_status": "active_project_country",
   "mapped_status": "active",
-  "live_status": "first_time_2024",
-  "status_mismatch": true,
+  "live_status": "active",
+  "status_mismatch": false,
   "project_count": 1,
   "source_report": "The Tenure Facility - Tenure Facility Annual Report 2024",
   "source_pages": [
@@ -36,12 +36,7 @@
     }
   ],
   "narratives": [],
-  "quality_flags": [
-    {
-      "type": "status_mismatch_against_live",
-      "message": "Mapped status 'active' differs from live status 'first_time_2024'."
-    }
-  ],
+  "quality_flags": [],
   "notes": [
     "Single-country source blocks were prioritized.",
     "Structured KPIs normalize numeric values into separate fields for frontend use.",
@@ -58,7 +53,6 @@
   },
   "generated_from": {
     "schema_version": "v4",
-    "generated_at_utc": "2026-03-22T11:37:50.669Z",
     "source_file": "LBR.json"
   }
 }

@@ -7,6 +7,7 @@ const TEXTURE_DIR = path.join(ROOT, "photos", "texture");
 const COUNTRIES_DIR = path.join(ROOT, "content", "countries");
 const THEMES_DIR = path.join(ROOT, "content", "themes");
 const OUTPUT_PATH = path.join(ROOT, "content", "photo-assignments.json");
+const DEFAULT_SEED = 3959268853;
 
 function normalizeWebpList(entries) {
   return entries
@@ -42,6 +43,22 @@ function toThemeSlug(fileName) {
   return fileName.replace(/\.json$/i, "").toLowerCase();
 }
 
+function resolveSeed() {
+  const rawSeed = process.env.PHOTO_ASSIGNMENT_SEED;
+  if (!rawSeed) {
+    return DEFAULT_SEED;
+  }
+
+  const parsed = Number(rawSeed);
+  if (!Number.isFinite(parsed)) {
+    throw new Error(
+      `Invalid PHOTO_ASSIGNMENT_SEED '${rawSeed}'. Provide a finite numeric value.`
+    );
+  }
+
+  return parsed;
+}
+
 async function main() {
   const [pictureEntries, textureEntries, countryEntries, themeEntries] = await Promise.all([
     fs.readdir(PICTURE_DIR, { withFileTypes: true }),
@@ -68,7 +85,7 @@ async function main() {
     throw new Error("No .webp files found in photos/texture");
   }
 
-  const seed = Math.floor(Math.random() * 0xffffffff);
+  const seed = resolveSeed();
   const random = mulberry32(seed);
   const shuffledPicturesForCountries = shuffle(pictures, random);
   const shuffledPicturesForThemes = shuffle(pictures, random);
@@ -78,7 +95,7 @@ async function main() {
   countries.forEach((iso3, index) => {
     const image = shuffledPicturesForCountries[index % shuffledPicturesForCountries.length];
     country_photos[iso3] = {
-      image: `/photos/picture/${image}`,
+      image: `/runtime/photos/picture/${image}`,
       alt: `Placeholder photo assignment for ${iso3}`
     };
   });
@@ -88,17 +105,16 @@ async function main() {
     const image = shuffledPicturesForThemes[index % shuffledPicturesForThemes.length];
     const texture = shuffledTexturesForThemes[index % shuffledTexturesForThemes.length];
     theme_media[slug] = {
-      image: `/photos/picture/${image}`,
-      texture: `/photos/texture/${texture}`,
+      image: `/runtime/photos/picture/${image}`,
+      texture: `/runtime/photos/texture/${texture}`,
       alt: `Placeholder thematic image for ${slug.replaceAll("-", " ")}`
     };
   });
 
   const payload = {
     meta: {
-      generated_at: new Date().toISOString(),
       random_seed: seed,
-      note: "Random placeholder assignments generated from /photos assets."
+      note: "Deterministic placeholder assignments generated from /photos assets."
     },
     country_photos,
     theme_media

@@ -15,25 +15,30 @@ npm install
 npm run dev
 ```
 
-Before `dev`/`build`, content JSON is synced to `public/content` automatically.
-`public/content`, `public/creative-pitch/assets`, and `public/photos` are generated/symlinked artifacts and are not source-of-truth files.
+Before `dev`/`build`, content JSON is synced to `public/runtime/content` automatically.
+`public/runtime/content`, `public/runtime/creative-pitch/assets`, and `public/runtime/photos` are generated/symlinked artifacts and are not source-of-truth files.
 
 Creative pitch source-of-truth:
 
 - Story JSON: `creative-pitch/story.json` (synced to `content/creative-pitch-story.json` on prebuild/predev)
-- Visual assets: `creative-pitch/assets` (symlinked to `public/creative-pitch/assets`)
+- Visual assets: `creative-pitch/assets` (symlinked to `public/runtime/creative-pitch/assets`)
 
-The active runtime lives under `src/`. Legacy Next.js files remain in `app/` and top-level `components/` as reference only and are not part of the build pipeline.
+The runtime lives under `src/` only. The project is now a single-framework React + Vite app.
+
+## Source Layout
+
+- `src/app/` UI runtime (pages + components)
+- `src/lib/` data-loading hooks and shared utilities
+- `sources/` raw upstream source datasets used by build scripts
+  - `sources/country-v4/`
+  - `sources/videos_full.json`
 
 ## Information architecture
 
-- `/` Home / Global Impact
-- `/countries` Country Explorer
-- `/countries/:iso3` Country drill-down storytelling scenes
-- `/thematics` Thematics index
-- `/thematics/:slug` Thematic views with KPIs, countries, and charts
-- `/financials` Interactive financial chart section
-- `/about` About / Method / Download
+- `Impact` Global map, thematic filtering, KPI strips, evidence and video panels
+- `Financials` Chart-led financial section with editorial blocks
+- `About` Methodology, KPI framing, and report links
+- `Creative Pitch` Story experience with sequenced visual layers
 
 ## Content schema
 
@@ -51,6 +56,7 @@ The active runtime lives under `src/`. Legacy Next.js files remain in `app/` and
 - `content/geo/authoritative-provenance.json`
 - `content/geo/<ISO3>/territories.geojson`
 - `content/geo/<ISO3>/boundary.geojson`
+- `content/manifest.json` (generated slug/index manifest used by runtime loaders)
 
 ## Phase 1 model upgrades
 
@@ -69,39 +75,35 @@ Global metadata now includes:
 - `data_model_version`
 - `source_refs[]`
 
-## Data templates
-
-A full placeholder-seeded template set is available in:
-
-- `data-templates/README.md`
-
-It includes templates for:
-
-- Country status truth table
-- Project master list
-- KPI source workbook
-- Figure 1-7 raw data tables
-- Geospatial manifest and layer registry
-- Media and video manifests
-- Quote registry
-- Design tokens and motion specs
-- Editorial priorities and report coverage tracker
-
-## Validation and QA
+## Unified Pipeline
 
 ```bash
-npm run build:geo
-npm run build:signals
-npm run enrich:phase5
-npm run validate:data
-npm run validate:geo
-npm run validate:signals
-npm run validate:qa
-npm run build
-npm run perf:budget
-npm run audit:v4
-npm run check:placeholders
+npm run pipeline:build     # build derived content artifacts
+npm run pipeline:validate  # run all validators
+npm run pipeline:ci        # build artifacts + validate + build app + perf budget + generated-content check
+npm run repo:audit         # report large tracked files and top-level size usage
 ```
+
+Additional optional scripts are still available for targeted runs (`audit:v4`, `check:placeholders`, `enrich:phase5`).
+
+Creative pitch sequence optimization:
+
+- Upscaled sequence frames (`frame_####.png`) are automatically converted to WebP during `predev`/`prebuild` and pipeline builds.
+- Default behavior removes source PNG frames after successful conversion (`REMOVE_UPSCALED_PNG=false` keeps PNGs).
+- Optional quality override: `WEBP_QUALITY=<number>` (default `82`).
+- Pipeline cleanup policy is enforced during sequence build:
+  - In `creative-pitch/pipeline/runs` and `creative-pitch/pipeline/run_backups`, only OpenAI/Runway outputs are retained.
+  - `creative-pitch/pipeline/output` is cleared after runs.
+  - In `creative-pitch/assets`, only final exported sequence frames are kept (`frame_####.webp`).
+
+## Deployment Size Controls
+
+- Disable creative pitch runtime (and avoid shipping sequence assets):
+  - `VITE_ENABLE_CREATIVE_PITCH=false`
+- Use a hosted PDF instead of repository-local report binary:
+  - `VITE_REPORT_URL=https://.../tenure-facility-annual-report-2024.pdf`
+- Audit tracked repository size before pushing:
+  - `npm run repo:audit`
 
 ## Notes
 

@@ -1,6 +1,5 @@
 {
-  "generated_at_utc": "2026-03-22T11:37:50.669Z",
-  "source_folder": "tenure_facility_country_jsons_v4/countries",
+  "source_folder": "sources/country-v4/countries",
   "countries": [
     {
       "iso3": "BLZ",
@@ -8,12 +7,12 @@
       "region": "latin_america",
       "map_status": "active_project_country",
       "mapped_status": "active",
-      "live_status": "first_time_2024",
-      "status_mismatch": true,
+      "live_status": "active",
+      "status_mismatch": false,
       "project_count": 1,
       "kpi_count": 1,
       "narrative_count": 3,
-      "quality_flag_count": 4,
+      "quality_flag_count": 3,
       "source_pages": [
         25,
         27,
@@ -313,12 +312,12 @@
       "region": "africa",
       "map_status": "active_project_country",
       "mapped_status": "active",
-      "live_status": "first_time_2024",
-      "status_mismatch": true,
+      "live_status": "active",
+      "status_mismatch": false,
       "project_count": 1,
       "kpi_count": 1,
       "narrative_count": 0,
-      "quality_flag_count": 1,
+      "quality_flag_count": 0,
       "source_pages": [
         25
       ]
@@ -345,12 +344,12 @@
       "region": "asia",
       "map_status": "active_project_country",
       "mapped_status": "active",
-      "live_status": "first_time_2024",
-      "status_mismatch": true,
+      "live_status": "active",
+      "status_mismatch": false,
       "project_count": 1,
       "kpi_count": 3,
       "narrative_count": 2,
-      "quality_flag_count": 1,
+      "quality_flag_count": 0,
       "source_pages": [
         25,
         41,
@@ -433,11 +432,7 @@
     "country_count": 22,
     "total_kpis": 87,
     "total_narratives": 122,
-    "total_quality_flags": 77,
-    "status_mismatch_countries": [
-      "BLZ",
-      "LBR",
-      "NPL"
-    ]
+    "total_quality_flags": 74,
+    "status_mismatch_countries": []
   }
 }

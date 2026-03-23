@@ -3,14 +3,21 @@ import path from "path";
 
 const ROOT = process.cwd();
 const SRC = path.join(ROOT, "content");
-const DEST = path.join(ROOT, "public", "content");
+const RUNTIME_ROOT = path.join(ROOT, "public", "runtime");
+const DEST = path.join(RUNTIME_ROOT, "content");
 const CREATIVE_PITCH_STORY_SOURCE = path.join(ROOT, "creative-pitch", "story.json");
 const CREATIVE_PITCH_STORY_DEST = path.join(ROOT, "content", "creative-pitch-story.json");
 const CREATIVE_PITCH_ASSET_SOURCE = path.join(ROOT, "creative-pitch", "assets");
-const CREATIVE_PITCH_PUBLIC_DIR = path.join(ROOT, "public", "creative-pitch");
+const CREATIVE_PITCH_PUBLIC_DIR = path.join(RUNTIME_ROOT, "creative-pitch");
 const CREATIVE_PITCH_ASSET_DEST = path.join(CREATIVE_PITCH_PUBLIC_DIR, "assets");
 const PHOTOS_SOURCE = path.join(ROOT, "photos");
-const PHOTOS_DEST = path.join(ROOT, "public", "photos");
+const PHOTOS_DEST = path.join(RUNTIME_ROOT, "photos");
+const CONTENT_MANIFEST_DEST = path.join(ROOT, "content", "manifest.json");
+const LEGACY_PUBLIC_PATHS = [
+  path.join(ROOT, "public", "content"),
+  path.join(ROOT, "public", "creative-pitch"),
+  path.join(ROOT, "public", "photos")
+];
 
 async function copyDir(source, target) {
   await fs.mkdir(target, { recursive: true });
@@ -26,6 +33,54 @@ async function copyDir(source, target) {
     }
 
     await fs.copyFile(sourcePath, targetPath);
+  }
+}
+
+async function writeFileIfChanged(filePath, content) {
+  try {
+    const existing = await fs.readFile(filePath, "utf-8");
+    if (existing === content) {
+      return false;
+    }
+  } catch {
+    // File missing or unreadable. We will write a fresh copy.
+  }
+
+  await fs.writeFile(filePath, content, "utf-8");
+  return true;
+}
+
+async function listJsonBasenames(directoryPath) {
+  const entries = await fs.readdir(directoryPath, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".json"))
+    .map((entry) => entry.name.replace(/\.json$/i, ""))
+    .sort((a, b) => a.localeCompare(b));
+}
+
+async function ensureContentManifest() {
+  const countries = (await listJsonBasenames(path.join(SRC, "countries"))).filter(
+    (slug) => slug.toLowerCase() !== "index"
+  );
+  const themes = (await listJsonBasenames(path.join(SRC, "themes"))).filter(
+    (slug) => slug.toLowerCase() !== "index"
+  );
+  const charts = (await listJsonBasenames(path.join(SRC, "charts"))).filter(
+    (slug) => slug.toLowerCase() !== "index"
+  );
+
+  const manifest = {
+    countries,
+    themes,
+    charts
+  };
+
+  const didWrite = await writeFileIfChanged(
+    CONTENT_MANIFEST_DEST,
+    `${JSON.stringify(manifest, null, 2)}\n`
+  );
+  if (didWrite) {
+    console.log(`Content manifest updated: ${path.relative(ROOT, CONTENT_MANIFEST_DEST)}`);
   }
 }
 
@@ -118,6 +173,9 @@ async function ensureCreativePitchStory() {
 
 async function main() {
   await ensureCreativePitchStory();
+  await ensureContentManifest();
+  await fs.mkdir(RUNTIME_ROOT, { recursive: true });
+  await Promise.all(LEGACY_PUBLIC_PATHS.map((target) => fs.rm(target, { recursive: true, force: true })));
   await fs.rm(DEST, { recursive: true, force: true });
   await copyDir(SRC, DEST);
   await ensureCreativePitchAssets();

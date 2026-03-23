@@ -1,11 +1,13 @@
 import fs from "fs/promises";
 import path from "path";
-import { PLATFORM_STATUS_BY_V4, PLATFORM_THEME_BY_V4 } from "./utils/signal-mappings.mjs";
+import { PLATFORM_STATUS_BY_V4, PLATFORM_THEME_BY_V4 } from "./signal-mappings.mjs";
 
 const ROOT = process.cwd();
-const V4_COUNTRIES_DIR = path.join(ROOT, "tenure_facility_country_jsons_v4", "countries");
+const V4_COUNTRIES_DIR = path.join(ROOT, "sources", "country-v4", "countries");
 const LIVE_COUNTRIES_DIR = path.join(ROOT, "content", "countries");
-const OUTPUT_PATH = path.join(ROOT, "docs", "v4-country-pack-audit.json");
+const OUTPUT_PATH = process.env.V4_AUDIT_OUTPUT_PATH
+  ? path.resolve(ROOT, process.env.V4_AUDIT_OUTPUT_PATH)
+  : null;
 
 function sortNumeric(values) {
   return [...values].sort((a, b) => a - b);
@@ -248,7 +250,6 @@ async function main() {
     }));
 
   const output = {
-    generated_at_utc: new Date().toISOString(),
     coverage: {
       v4_country_files: v4Files.length,
       live_country_files: liveFiles.length,
@@ -286,9 +287,13 @@ async function main() {
     per_country: perCountry
   };
 
-  await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf-8");
-
-  console.log(`Audit written: ${path.relative(ROOT, OUTPUT_PATH)}`);
+  if (OUTPUT_PATH) {
+    await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
+    await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf-8");
+    console.log(`Audit written: ${path.relative(ROOT, OUTPUT_PATH)}`);
+  } else {
+    console.log("Audit file output skipped (set V4_AUDIT_OUTPUT_PATH to write a JSON report).");
+  }
   console.log(
     JSON.stringify(
       {

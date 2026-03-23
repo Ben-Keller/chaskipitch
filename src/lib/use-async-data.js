@@ -24,8 +24,7 @@ export function useAsyncData(loader, deps = []) {
     return () => {
       active = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, [loader, ...deps]);
 
   return state;
 }

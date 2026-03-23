@@ -7,7 +7,6 @@ const CONTENT_COUNTRIES_DIR = path.join(CONTENT_ROOT, "countries");
 const CONTENT_GEO_DIR = path.join(CONTENT_ROOT, "geo");
 const SOURCE_GEO_DIR = path.join(ROOT, "geo");
 const MANIFEST_PATH = path.join(SOURCE_GEO_DIR, "countries_manifest.json");
-const GENERATED_AT = new Date().toISOString();
 
 function toFixedNumber(value) {
   if (typeof value !== "number" || Number.isNaN(value)) {
@@ -359,7 +358,6 @@ async function main() {
 
   const provenance = {
     version: "phase3.authoritative-world.1",
-    generated_at: GENERATED_AT,
     input: {
       manifest: "geo/countries_manifest.json",
       topo_dir: manifest.paths?.topo_dir ?? "geo/countries_topojson",
