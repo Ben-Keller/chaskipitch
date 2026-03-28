@@ -8,42 +8,45 @@ export function UiShell() {
   const [scrollRatio, setScrollRatio] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => {
+    let frameId = 0;
+
+    const updateProgress = () => {
+      frameId = 0;
       const doc = document.documentElement;
       const scrollable = doc.scrollHeight - doc.clientHeight;
       if (scrollable <= 0) {
-        setScrollRatio(0);
+        setScrollRatio((value) => (value === 0 ? value : 0));
         return;
       }
       const ratio = clamp(window.scrollY / scrollable, 0, 1);
-      setScrollRatio(ratio);
+      setScrollRatio((value) => (Math.abs(value - ratio) < 0.002 ? value : ratio));
     };
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    const scheduleUpdate = () => {
+      if (frameId) {
+        return;
+      }
+      frameId = window.requestAnimationFrame(updateProgress);
+    };
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
     };
   }, []);
-
-  const showBackToTop = scrollRatio > 0.14;
 
   return (
     <>
       <div className="scroll-progress" aria-hidden="true">
         <span className="scroll-progress__value" style={{ transform: `scaleX(${scrollRatio})` }} />
       </div>
-      <button
-        type="button"
-        className={`back-to-top${showBackToTop ? " back-to-top--visible" : ""}`}
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Back to top"
-      >
-        Top
-      </button>
     </>
   );
 }

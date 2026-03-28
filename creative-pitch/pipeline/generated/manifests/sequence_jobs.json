@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-03-28T22:44:21+00:00",
+  "pipeline": "creative-pitch-story",
+  "defaultFrameCount": 8,
+  "sceneLimit": 3,
+  "imageGenerationMode": {
+    "runStart": true,
+    "runEnd": false,
+    "startVariants": 4
+  },
+  "openaiRunId": "openai-20260328-234038",
+  "openaiRunDirRel": "creative-pitch/pipeline/runs/openai/openai-20260328-234038",
+  "jobs": [
+    {
+      "sceneId": "S1",
+      "sceneTitle": "The Opening",
+      "sceneOrder": 1,
+      "sceneFolder": "s1",
+      "sequenceSlug": "opening_thread",
+      "srcPattern": "/assets/s1/seq/opening_thread/frame_%04d.webp",
+      "assetDir": "/Users/ben/Documents/chaskipitch/creative-pitch/assets/s1/seq/opening_thread",
+      "assetDirRel": "creative-pitch/assets/s1/seq/opening_thread",
+      "frameCount": 8,
+      "activeWebpCount": 0,
+      "manualKeyframeDir": "/Users/ben/Documents/chaskipitch/creative-pitch/pipeline/frames/source/s1/opening_thread",
+      "manualKeyframeDirRel": "creative-pitch/pipeline/frames/source/s1/opening_thread",
+      "startKeyframePath": null,
+      "endKeyframePath": null,
+      "videoPath": null,
+      "videoPathRel": null,
+      "extractPatternPng": "/Users/ben/Documents/chaskipitch/creative-pitch/assets/s1/seq/opening_thread/frame_%04d.png",
+      "extractPatternPngRel": "creative-pitch/assets/s1/seq/opening_thread/frame_%04d.png",
+      "status": "start_options_ready",
+      "openai": {
+        "startPrompt": "Cinematic ecological visual, 16:9. Dark rich soil in close-up with a single fine mycelium thread beginning to glow, subtle moisture, warm earthy palette, soft volumetric light, highly detailed organic texture, no text, no logos.",
+        "endPrompt": "Use the exact same camera angle, framing, lens, and visual style as the start frame. The single thread has expanded into a delicate branching mycelium network with gentle bioluminescent glow, still underground, same earthy cinematic palette, no text, no logos.",
+        "model": "gpt-image-1",
+        "size": "1536x1024",
+        "quality": "low",
+        "style": "natural"
+      },
+      "runway": {
+        "model": "gen4.5",
+        "ratio": "1280:720",
+        "durationSeconds": 5,
+        "seed": null,
+        "publicFigureThreshold": "auto",
+        "prompt": "Animate from a single glowing underground thread into a small branching mycelium structure. Keep movement organic and subtle, with no camera pan or rotation, no flicker, and no new subjects. Prioritize texture continuity and cinematic realism."
+      },
+      "imageHandoffDir": "/Users/ben/Documents/chaskipitch/creative-pitch/pipeline/images/s1/opening_thread",
+      "imageHandoffDirRel": "creative-pitch/pipeline/images/s1/opening_thread"
+    },
+    {
+      "sceneId": "S2",
+      "sceneTitle": "The Ecosystem",
+      "sceneOrder": 2,
+      "sceneFolder": "s2",
+      "sequenceSlug": "mycelium_growth",
+      "srcPattern": "/assets/s2/seq/mycelium_growth/frame_%04d.webp",
+      "assetDir": "/Users/ben/Documents/chaskipitch/creative-pitch/assets/s2/seq/mycelium_growth",
+      "assetDirRel": "creative-pitch/assets/s2/seq/mycelium_growth",
+      "frameCount": 8,
+      "activeWebpCount": 0,
+      "manualKeyframeDir": "/Users/ben/Documents/chaskipitch/creative-pitch/pipeline/frames/source/s2/mycelium_growth",
+      "manualKeyframeDirRel": "creative-pitch/pipeline/frames/source/s2/mycelium_growth",
+      "startKeyframePath": null,
+      "endKeyframePath": null,
+      "videoPath": null,
+      "videoPathRel": null,
+      "extractPatternPng": "/Users/ben/Documents/chaskipitch/creative-pitch/assets/s2/seq/mycelium_growth/frame_%04d.png",
+      "extractPatternPngRel": "creative-pitch/assets/s2/seq/mycelium_growth/frame_%04d.png",
+      "status": "start_options_ready",
+      "openai": {
+        "startPrompt": "Cinematic ecological visual, 16:9. Subsurface view: sparse roots and fungal strands beneath forest soil, early-stage underground connectivity, quiet atmosphere, warm browns and deep greens, detailed natural textures, no text, no logos.",
+        "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Underground network is now dense and interconnected, carrying nutrients around roots, a small shoot becoming visible above soil line, smooth growth progression, no text, no logos.",
+        "model": "gpt-image-1",
+        "size": "1536x1024",
+        "quality": "low",
+        "style": "natural"
+      },
+      "runway": {
+        "model": "gen4.5",
+        "ratio": "1280:720",
+        "durationSeconds": 5,
+        "seed": null,
+        "publicFigureThreshold": "auto",
+        "prompt": "Animate gradual expansion of underground connectivity: roots and fungal threads become denser and coordinated, with a barely emerging shoot above soil. Motion should feel ecological and physically plausible, no abrupt transitions or camera drift."
+      },
+      "imageHandoffDir": "/Users/ben/Documents/chaskipitch/creative-pitch/pipeline/images/s2/mycelium_growth",
+      "imageHandoffDirRel": "creative-pitch/pipeline/images/s2/mycelium_growth"
+    },
+    {
+      "sceneId": "S3",
+      "sceneTitle": "Recognition, Not Creation",
+      "sceneOrder": 3,
+      "sceneFolder": "s3",
+      "sequenceSlug": "trunk_emergence",
+      "srcPattern": "/assets/s3/seq/trunk_emergence/frame_%04d.webp",
+      "assetDir": "/Users/ben/Documents/chaskipitch/creative-pitch/assets/s3/seq/trunk_emergence",
+      "assetDirRel": "creative-pitch/assets/s3/seq/trunk_emergence",
+      "frameCount": 8,
+      "activeWebpCount": 0,
+      "manualKeyframeDir": "/Users/ben/Documents/chaskipitch/creative-pitch/pipeline/frames/source/s3/trunk_emergence",
+      "manualKeyframeDirRel": "creative-pitch/pipeline/frames/source/s3/trunk_emergence",
+      "startKeyframePath": null,
+      "endKeyframePath": null,
+      "videoPath": null,
+      "videoPathRel": null,
+      "extractPatternPng": "/Users/ben/Documents/chaskipitch/creative-pitch/assets/s3/seq/trunk_emergence/frame_%04d.png",
+      "extractPatternPngRel": "creative-pitch/assets/s3/seq/trunk_emergence/frame_%04d.png",
+      "status": "start_options_ready",
+      "openai": {
+        "startPrompt": "Cinematic ecological visual, 16:9. Low angle at forest floor showing rooted base of a young trunk emerging from established roots, sense of continuity and history, earthy tones, soft directional light, no text, no logos.",
+        "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The trunk is stronger and more established, roots visibly reinforced, subtle signs of legal recognition and protection represented by ordered structure in the environment, no text, no logos.",
+        "model": "gpt-image-1",
+        "size": "1536x1024",
+        "quality": "low",
+        "style": "natural"
+      },
+      "runway": {
+        "model": "gen4.5",
+        "ratio": "1280:720",
+        "durationSeconds": 5,
+        "seed": null,
+        "publicFigureThreshold": "auto",
+        "prompt": "Animate the trunk emergence and strengthening from rooted base to established growth. Emphasize continuity of bark, roots, and soil detail. Keep motion restrained and grounded, avoiding dramatic camera movement or stylization changes."
+      },
+      "imageHandoffDir": "/Users/ben/Documents/chaskipitch/creative-pitch/pipeline/images/s3/trunk_emergence",
+      "imageHandoffDirRel": "creative-pitch/pipeline/images/s3/trunk_emergence"
+    }
+  ]
+}

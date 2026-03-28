@@ -87,6 +87,17 @@ export const fallbackPhotoAssignments = {
   theme_media: {}
 };
 
+const MIN_PHOTO_Y_OFFSET = -45;
+const MAX_PHOTO_Y_OFFSET = 45;
+
+export function normalizePhotoYOffset(value) {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed)) {
+    return 0;
+  }
+  return Math.max(MIN_PHOTO_Y_OFFSET, Math.min(MAX_PHOTO_Y_OFFSET, Math.round(parsed)));
+}
+
 function toTitle(value) {
   return value
     .replaceAll("_", " ")
@@ -279,8 +290,9 @@ export function buildEvidenceHighlights(evidence) {
     }));
 }
 
-export function AtlasContextPhoto({ src, alt, fallbackSrc = "" }) {
+export function AtlasContextPhoto({ src, alt, fallbackSrc = "", yOffset = 0 }) {
   const [resolvedSrc, setResolvedSrc] = useState(src || fallbackSrc || "");
+  const normalizedYOffset = normalizePhotoYOffset(yOffset);
 
   useEffect(() => {
     setResolvedSrc(src || fallbackSrc || "");
@@ -297,6 +309,7 @@ export function AtlasContextPhoto({ src, alt, fallbackSrc = "" }) {
           className="atlas-context-photo__fg"
           src={resolvedSrc}
           alt={alt}
+          style={{ objectPosition: `50% ${50 + normalizedYOffset}%` }}
           loading="lazy"
           decoding="async"
           onError={() => {

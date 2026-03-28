@@ -5,7 +5,10 @@ function uniquePages(pages) {
   return Array.from(new Set((pages ?? []).filter((page) => Number.isFinite(page))));
 }
 
-function SourcePills({ pages }) {
+function SourcePills({ pages, showSources = true }) {
+  if (!showSources) {
+    return null;
+  }
   const unique = uniquePages(pages);
   if (!unique.length) {
     return null;
@@ -20,7 +23,7 @@ function SourcePills({ pages }) {
   );
 }
 
-function ModuleQuote({ quote }) {
+function ModuleQuote({ quote, showSources = true }) {
   if (!quote?.text) {
     return null;
   }
@@ -29,13 +32,13 @@ function ModuleQuote({ quote }) {
     <blockquote className="financial-editorial-quote">
       <p>{quote.text}</p>
       <footer>
-        {quote.attribution} {quote.source_page ? <SourcePill page={quote.source_page} /> : null}
+        {quote.attribution} {showSources && quote.source_page ? <SourcePill page={quote.source_page} /> : null}
       </footer>
     </blockquote>
   );
 }
 
-function ModuleAside({ aside }) {
+function ModuleAside({ aside, showSources = true }) {
   if (!aside?.title) {
     return null;
   }
@@ -48,7 +51,7 @@ function ModuleAside({ aside }) {
           <li key={item}>{item}</li>
         ))}
       </ul>
-      {aside.source_page ? (
+      {showSources && aside.source_page ? (
         <p className="note">
           <SourcePill page={aside.source_page} />
         </p>
@@ -57,26 +60,37 @@ function ModuleAside({ aside }) {
   );
 }
 
-export function FinancialEditorialBlocks({ editorial }) {
+export function FinancialEditorialBlocks({
+  editorial,
+  showHero = true,
+  showSupporters = true,
+  showSources = true,
+  hiddenModuleIds = []
+}) {
   if (!editorial) {
     return null;
   }
 
   const hero = editorial.hero ?? null;
-  const modules = Array.isArray(editorial.modules) ? editorial.modules : [];
+  const hiddenModuleSet = new Set(
+    Array.isArray(hiddenModuleIds) ? hiddenModuleIds.map((id) => String(id)) : []
+  );
+  const modules = (Array.isArray(editorial.modules) ? editorial.modules : []).filter(
+    (module) => !hiddenModuleSet.has(String(module?.id))
+  );
   const supporters = editorial.supporters ?? null;
   const newSupporterSet = new Set((supporters?.new_in_2024 ?? []).map((name) => String(name)));
 
   return (
     <>
-      {hero ? (
+      {showHero && hero ? (
         <section className="panel panel--dark financial-editorial-hero" aria-labelledby="financial-editorial-hero-title">
           <p className="section-kicker" style={{ color: "#9fd6c9" }}>
             {hero.kicker ?? "Editorial framing"}
           </p>
           <h2 id="financial-editorial-hero-title">{hero.title}</h2>
           {hero.summary ? <p>{hero.summary}</p> : null}
-          <SourcePills pages={hero.source_pages} />
+          <SourcePills pages={hero.source_pages} showSources={showSources} />
         </section>
       ) : null}
 
@@ -88,7 +102,7 @@ export function FinancialEditorialBlocks({ editorial }) {
               {module.kicker ? <p className="section-kicker">{module.kicker}</p> : null}
               <h2>{module.title}</h2>
               {module.summary ? <p>{module.summary}</p> : null}
-              <SourcePills pages={module.source_pages} />
+              <SourcePills pages={module.source_pages} showSources={showSources} />
             </header>
 
             <div className="financial-editorial-module__content">
@@ -102,7 +116,7 @@ export function FinancialEditorialBlocks({ editorial }) {
                   </article>
                 ))}
 
-                <ModuleQuote quote={module.quote} />
+                <ModuleQuote quote={module.quote} showSources={showSources} />
 
                 {module.motif ? (
                   <article className="financial-editorial-motif" aria-label={module.motif.title ?? "Motif"}>
@@ -123,18 +137,19 @@ export function FinancialEditorialBlocks({ editorial }) {
                     loading="lazy"
                   />
                   <figcaption>
-                    {module.media.caption ?? ""} {module.media.source_page ? <SourcePill page={module.media.source_page} /> : null}
+                    {module.media.caption ?? ""}{" "}
+                    {showSources && module.media.source_page ? <SourcePill page={module.media.source_page} /> : null}
                   </figcaption>
                 </figure>
               ) : null}
 
-              <ModuleAside aside={module.aside} />
+              <ModuleAside aside={module.aside} showSources={showSources} />
             </div>
           </section>
         );
       })}
 
-      {supporters ? (
+      {showSupporters && supporters ? (
         <section className="panel financial-supporters" aria-labelledby="financial-supporters-title">
           <h2 id="financial-supporters-title">{supporters.title}</h2>
           {supporters.description ? <p>{supporters.description}</p> : null}
@@ -149,7 +164,7 @@ export function FinancialEditorialBlocks({ editorial }) {
             ))}
           </div>
           <p className="note">
-            {supporters.note ?? ""} {supporters.source_page ? <SourcePill page={supporters.source_page} /> : null}
+            {supporters.note ?? ""} {showSources && supporters.source_page ? <SourcePill page={supporters.source_page} /> : null}
           </p>
         </section>
       ) : null}

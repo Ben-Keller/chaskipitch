@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { SiteHeader } from "./app/site-header";
 import { UiShell } from "./app/ui-shell";
-import { FinancialsPage } from "./app/financials-page";
-import { AboutPage } from "./app/about-page";
 import { DashboardPage } from "./app/dashboard-page";
 import { CreativePitchPage } from "./app/creative-pitch-page";
+import { EvolutionDashboardPage } from "./app/evolution-dashboard-page";
 
 const creativePitchEnabled = import.meta.env.VITE_ENABLE_CREATIVE_PITCH !== "false";
 
 const baseTabs = [
   { key: "impact", label: "Impact" },
-  { key: "financials", label: "Financials" },
-  { key: "about", label: "About" }
+  { key: "evolution", label: "Evolution & Finance" }
 ];
 const primaryTabs = creativePitchEnabled
   ? [...baseTabs, { key: "creative_pitch", label: "Creative Pitch" }]
@@ -43,8 +41,7 @@ export default function App() {
         }`}
       >
         {activePage === "impact" ? <DashboardPage /> : null}
-        {activePage === "financials" ? <FinancialsPage /> : null}
-        {activePage === "about" ? <AboutPage /> : null}
+        {activePage === "evolution" ? <EvolutionDashboardPage /> : null}
         {creativePitchEnabled && activePage === "creative_pitch" ? <CreativePitchPage /> : null}
       </main>
     </>

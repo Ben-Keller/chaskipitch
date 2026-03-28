@@ -1,0 +1,231 @@
+{
+  "projectId": "rooted_10y",
+  "projectTitle": "Rooted — Tenure Facility Decade Explainer",
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Underground Prelude",
+      "bgColor": "#120E0A",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s1/seq/mycelium_growth/frame_%04d.webp",
+        "frameCount": 12
+      },
+      "texts": [
+        {
+          "id": "S1_L06",
+          "content": "A tree does not begin with its rings.",
+          "textAlign": "left",
+          "fontFamily": "Fraunces",
+          "fontWeight": 600,
+          "fontSizeDesktopPx": 56,
+          "fontSizeMobilePx": 34,
+          "widthVw": 42,
+          "heightVh": 18,
+          "xPct": 12,
+          "yPct": 24,
+          "start": 0.05,
+          "end": 0.42
+        },
+        {
+          "id": "S1_L07",
+          "content": "It begins underground — with roots pushing through soil, with fungal threads reaching outward in every direction, with a network of connection forming long before the first ring is ever laid down.",
+          "textAlign": "left",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontSizeDesktopPx": 24,
+          "fontSizeMobilePx": 18,
+          "widthVw": 36,
+          "heightVh": 26,
+          "xPct": 12,
+          "yPct": 46,
+          "start": 0.18,
+          "end": 0.66
+        },
+        {
+          "id": "S1_L08",
+          "content": "By the time you count a tree's rings, you are reading a record of something that was already ancient.",
+          "textAlign": "left",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontSizeDesktopPx": 26,
+          "fontSizeMobilePx": 18,
+          "widthVw": 36,
+          "heightVh": 16,
+          "xPct": 12,
+          "yPct": 74,
+          "start": 0.55,
+          "end": 0.95
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "title": "Recognition, Not Creation",
+      "bgColor": "#1A140E",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s2/seq/trunk_emergence/frame_%04d.webp",
+        "frameCount": 24
+      },
+      "texts": [
+        {
+          "id": "S2_L06",
+          "content": "The land rights movement is ancient. The decade did not create it — it recognized it.",
+          "textAlign": "left",
+          "fontFamily": "Fraunces",
+          "fontWeight": 600,
+          "fontSizeDesktopPx": 50,
+          "fontSizeMobilePx": 32,
+          "widthVw": 42,
+          "heightVh": 24,
+          "xPct": 10,
+          "yPct": 24,
+          "start": 0.08,
+          "end": 0.65
+        },
+        {
+          "id": "S2_L07",
+          "content": "Rooted frames the Tenure Facility as legal recognition, resourcing, and amplification of something that was already there — and as the network that helps it grow and spread.",
+          "textAlign": "left",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontSizeDesktopPx": 24,
+          "fontSizeMobilePx": 18,
+          "widthVw": 36,
+          "heightVh": 22,
+          "xPct": 10,
+          "yPct": 54,
+          "start": 0.28,
+          "end": 0.95
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Reading the Rings",
+      "bgColor": "#241A13",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s3/seq/rings_highlight/frame_%04d.webp",
+        "frameCount": 24
+      },
+      "texts": [
+        {
+          "id": "S3_L08",
+          "content": "Reading the Rings — ten years, ten layers of what was weathered and what was gained.",
+          "textAlign": "center",
+          "fontFamily": "Fraunces",
+          "fontWeight": 600,
+          "fontSizeDesktopPx": 44,
+          "fontSizeMobilePx": 28,
+          "widthVw": 58,
+          "heightVh": 16,
+          "xPct": 21,
+          "yPct": 14,
+          "start": 0.05,
+          "end": 0.4
+        },
+        {
+          "id": "S3_L09",
+          "content": "Land secured. Biodiversity protected. Ecosystems sustained. Communities strengthened. Climate resilience built. These are not separate chapters — they are layers of the same ring.",
+          "textAlign": "center",
+          "fontFamily": "Inter",
+          "fontWeight": 500,
+          "fontSizeDesktopPx": 24,
+          "fontSizeMobilePx": 18,
+          "widthVw": 50,
+          "heightVh": 18,
+          "xPct": 25,
+          "yPct": 38,
+          "start": 0.28,
+          "end": 0.82
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "title": "Mycelial Network / Infrastructure",
+      "bgColor": "#162118",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s4/seq/network_illumination/frame_%04d.webp",
+        "frameCount": 24
+      },
+      "texts": [
+        {
+          "id": "S4_L06",
+          "content": "No tree stands alone. Beneath the forest floor runs a network that sustains the whole ecosystem.",
+          "textAlign": "left",
+          "fontFamily": "Fraunces",
+          "fontWeight": 600,
+          "fontSizeDesktopPx": 46,
+          "fontSizeMobilePx": 30,
+          "widthVw": 38,
+          "heightVh": 22,
+          "xPct": 8,
+          "yPct": 20,
+          "start": 0.1,
+          "end": 0.6
+        },
+        {
+          "id": "S4_L07",
+          "content": "This is the Tenure Facility: not the trees themselves, but the connective infrastructure — partners, governments, legal frameworks, and solidarity across continents — that allows the forest to thrive.",
+          "textAlign": "left",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontSizeDesktopPx": 23,
+          "fontSizeMobilePx": 18,
+          "widthVw": 34,
+          "heightVh": 24,
+          "xPct": 8,
+          "yPct": 48,
+          "start": 0.3,
+          "end": 0.95
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "title": "The Forest Ahead",
+      "bgColor": "#22301F",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s5/seq/forest_breathing/frame_%04d.webp",
+        "frameCount": 24
+      },
+      "texts": [
+        {
+          "id": "S5_L06",
+          "content": "The Forest Ahead",
+          "textAlign": "left",
+          "fontFamily": "Fraunces",
+          "fontWeight": 650,
+          "fontSizeDesktopPx": 58,
+          "fontSizeMobilePx": 36,
+          "widthVw": 34,
+          "heightVh": 12,
+          "xPct": 10,
+          "yPct": 24,
+          "start": 0.1,
+          "end": 0.6
+        },
+        {
+          "id": "S5_L07",
+          "content": "A single tree, however old and strong, is not a forest. The next decade is an invitation to grow the network — because when communities have secure rights to their territories, the land thrives, the climate benefits, and the forest grows.",
+          "textAlign": "left",
+          "fontFamily": "Inter",
+          "fontWeight": 400,
+          "fontSizeDesktopPx": 24,
+          "fontSizeMobilePx": 18,
+          "widthVw": 36,
+          "heightVh": 26,
+          "xPct": 10,
+          "yPct": 46,
+          "start": 0.26,
+          "end": 1
+        }
+      ]
+    }
+  ]
+}

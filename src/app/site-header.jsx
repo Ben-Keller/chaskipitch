@@ -1,7 +1,6 @@
 const defaultNavItems = [
   { key: "impact", label: "Impact" },
-  { key: "financials", label: "Financials" },
-  { key: "about", label: "About" }
+  { key: "evolution", label: "Evolution & Finance" }
 ];
 
 export function SiteHeader({

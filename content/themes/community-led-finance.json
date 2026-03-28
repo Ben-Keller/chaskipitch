@@ -70,6 +70,34 @@
       "value": 3,
       "unit": "funders",
       "source_page": 77
+    },
+    {
+      "id": "advisory_group_members_2024",
+      "label": "Advisory Group Members",
+      "value": 20,
+      "unit": "members",
+      "source_page": 72
+    },
+    {
+      "id": "team_members_stockholm_2024",
+      "label": "Team Members in Stockholm",
+      "value": 25,
+      "unit": "members",
+      "source_page": 73
+    },
+    {
+      "id": "team_members_other_locations_2024",
+      "label": "Team Members in Other Locations",
+      "value": 31,
+      "unit": "members",
+      "source_page": 73
+    },
+    {
+      "id": "team_members_total_2024",
+      "label": "Total Team Members",
+      "value": 56,
+      "unit": "members",
+      "source_page": 73
     }
   ],
   "related_countries": [

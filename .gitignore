@@ -5,5 +5,10 @@ dist/
 # Generated runtime artifacts
 public/runtime/
 
-# Scrollytelling pipeline workspace artifacts
-creative-pitch/pipeline/
+# Scrollytelling pipeline runtime artifacts
+creative-pitch/pipeline/runs/
+creative-pitch/pipeline/run_backups/
+creative-pitch/pipeline/output/
+creative-pitch/pipeline/.env
+creative-pitch/pipeline/.env.*
+!creative-pitch/pipeline/.env.template

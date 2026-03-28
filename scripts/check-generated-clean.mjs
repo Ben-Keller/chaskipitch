@@ -10,8 +10,7 @@ const GENERATED_PATHS = [
   "content/geo/world-footprint.geojson",
   "content/geo/world-countries.geojson",
   "content/geo/authoritative-provenance.json",
-  "content/manifest.json",
-  "content/creative-pitch-story.json"
+  "content/manifest.json"
 ];
 
 async function main() {

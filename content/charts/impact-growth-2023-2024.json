@@ -1,28 +1,24 @@
 {
   "slug": "impact-growth-2023-2024",
-  "title": "Figure 1 Growth Comparison (2023 vs 2024)",
+  "title": "Growth Comparison (2023 vs 2024)",
   "source_page": 9,
-  "chart_type": "paired_metric",
+  "chart_type": "stacked_bar",
   "units": "ha",
   "data_points": [
     {
-      "metric": "Progress toward securing land tenure rights",
-      "value_2023": 21728985,
-      "value_2024": 33679926,
-      "growth_pct": 55,
-      "unit": "ha"
+      "year": "2023",
+      "progress_toward_rights": 21728985,
+      "rights_secured": 2045113
     },
     {
-      "metric": "Hectares with tenure rights secured",
-      "value_2023": 2045113,
-      "value_2024": 4376542,
-      "growth_pct": 114,
-      "unit": "ha"
+      "year": "2024",
+      "progress_toward_rights": 33679926,
+      "rights_secured": 4376542
     }
   ],
   "footnotes": [
-    "Growth percentages and 2024 values are shown in Figure 1.",
-    "2023 baseline values are computed from Figure 1 growth percentages (2024/(1+growth))."
+    "2024 values and growth context are drawn from report growth figures.",
+    "2023 baseline values are computed from report growth percentages (2024/(1+growth))."
   ],
   "source_refs": [
     {
@@ -34,27 +30,28 @@
   ],
   "confidence": 0.78,
   "chart_config": {
-    "figure_id": "Figure 1",
+    "figure_id": "Growth Comparison",
     "figure_title": "A Landmark Year. A Lasting Impact",
-    "x_key": "metric",
-    "x_label": "Growth area",
+    "x_key": "year",
+    "x_label": "Year",
     "y_left_label": "Hectares",
     "y_left_unit": "ha",
+    "stacked": true,
     "series": [
       {
-        "key": "value_2023",
-        "label": "2023",
+        "key": "progress_toward_rights",
+        "label": "Progress Toward Securing Tenure Rights",
         "type": "bar",
         "axis": "left",
-        "color": "#044a5a",
+        "color": "#128c7e",
         "unit": "ha"
       },
       {
-        "key": "value_2024",
-        "label": "2024",
+        "key": "rights_secured",
+        "label": "Hectares with Tenure Rights Secured",
         "type": "bar",
         "axis": "left",
-        "color": "#118c8f",
+        "color": "#d05c49",
         "unit": "ha"
       }
     ]
@@ -62,23 +59,18 @@
   "raw_table": {
     "columns": [
       {
-        "key": "metric",
-        "label": "Metric"
+        "key": "year",
+        "label": "Year"
       },
       {
-        "key": "value_2023",
-        "label": "2023",
+        "key": "progress_toward_rights",
+        "label": "Progress toward rights",
         "unit": "ha"
       },
       {
-        "key": "value_2024",
-        "label": "2024",
+        "key": "rights_secured",
+        "label": "Rights secured",
         "unit": "ha"
-      },
-      {
-        "key": "growth_pct",
-        "label": "Growth",
-        "unit": "%"
       }
     ]
   },

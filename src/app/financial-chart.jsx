@@ -1,4 +1,4 @@
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useState } from "react";
 import {
   arc as d3Arc,
   curveMonotoneX,
@@ -9,6 +9,7 @@ import {
   scaleLinear
 } from "d3";
 import { formatUnit } from "../lib/format";
+import { mediaPath } from "../lib/paths";
 
 const width = 860;
 const height = 320;
@@ -67,12 +68,78 @@ function findValueByLabel(points, label) {
   return row ? toNumeric(row.value) : 0;
 }
 
-export function FinancialChart({ chart, compact = false }) {
+function cleanReportLanguage(text) {
+  const value = String(text ?? "").trim();
+  if (!value) {
+    return "";
+  }
+
+  return value
+    .replace(/\bfigure\s*\d+\b:?/gi, "")
+    .replace(/\bpage\s*\d+\b:?/gi, "")
+    .replace(/\bpart\s+[a-z0-9]+\b:?/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\(\s*\)/g, "")
+    .trim();
+}
+
+const THREADS_REPORT_STAGE_BOUNDS = [
+  [0.052, 0.244],
+  [0.244, 0.409],
+  [0.409, 0.515],
+  [0.515, 0.623],
+  [0.623, 0.768],
+  [0.768, 0.975]
+];
+
+const THREADS_REPORT_CALLOUTS = {
+  "2012-2017": [
+    "2012: Rights and Resources Initiative begins consultations on a financial mechanism to support communities to strengthen tenure rights.",
+    "2015: Six pilot projects are launched.",
+    "2017: Tenure Facility is formally founded as an independent NGO."
+  ],
+  "2018-2020": [
+    "2018-2019: First grant is awarded and work expands to three new countries.",
+    "2020: US$5.6M is disbursed across 12 partners."
+  ],
+  "2021": [
+    "13 projects and US$5M grants.",
+    "Tenure Facility becomes a TED Audacious grantee.",
+    "TED Talk and COP26 boost global visibility."
+  ],
+  "2022": [
+    "14 projects and US$12M grants.",
+    "Tenure Facility becomes a Bezos Earth Fund grantee."
+  ],
+  "2023": [
+    "29 projects and US$26M grants.",
+    "ROOTS framework becomes operational.",
+    "2023-2027 strategy launches with a goal to secure 60M ha of land."
+  ],
+  "2024 & beyond": [
+    "35 projects and US$30M disbursed.",
+    "UK invests GBP 94M in Amazon Catalyst.",
+    "Measurable progress toward 34M hectares.",
+    "New teams established and Advisory Group relaunched."
+  ]
+};
+
+export function FinancialChart({
+  chart,
+  compact = false,
+  selectedTimelineIndex = null,
+  onTimelineSelect = null,
+  hideTimelineStageGrid = false,
+  hideTimelineSummary = false
+}) {
   const [tooltip, setTooltip] = useState(null);
   const [pinnedTooltipKey, setPinnedTooltipKey] = useState(null);
   const [showRawTable, setShowRawTable] = useState(false);
+  const [timelineFigureIndex, setTimelineFigureIndex] = useState(0);
   const rawTableId = useId();
   const tooltipHelpId = `${chart.slug}-tooltip-help`;
+  const chartPointCount = Array.isArray(chart.data_points) ? chart.data_points.length : 0;
+  const timelineIndexControlled = Number.isInteger(selectedTimelineIndex);
 
   const xKey = chart.chart_config?.x_key ?? inferDefaultXKey(chart);
 
@@ -268,12 +335,21 @@ export function FinancialChart({ chart, compact = false }) {
         {legend}
         {body}
         {!compact ? renderRawTable() : null}
-        <p id={tooltipHelpId} className="note chart-a11y-note">
-          {a11yNote}
-        </p>
+        {a11yNote ? (
+          <p id={tooltipHelpId} className="note chart-a11y-note">
+            {a11yNote}
+          </p>
+        ) : null}
       </article>
     );
   };
+
+  useEffect(() => {
+    if (chart.chart_type !== "timeline" || timelineIndexControlled) {
+      return;
+    }
+    setTimelineFigureIndex(Math.max(chartPointCount - 1, 0));
+  }, [chart.chart_type, chart.slug, chartPointCount, timelineIndexControlled]);
 
   if (chart.chart_type === "timeline") {
     const timelineItems = chart.data_points.map((row, index) => ({
@@ -283,125 +359,132 @@ export function FinancialChart({ chart, compact = false }) {
       projects: Number.isFinite(row.projects) ? row.projects : null,
       funding: Number.isFinite(row.value) ? row.value : null
     }));
-
-    const timelineWidth = 1040;
-    const timelineHeight = 220;
-    const leftPad = 38;
-    const rightPad = 36;
-    const stageCenters = timelineItems.map((_, index) => {
-      if (timelineItems.length <= 1) {
-        return timelineWidth / 2;
-      }
-      return leftPad + (index * (timelineWidth - leftPad - rightPad)) / (timelineItems.length - 1);
-    });
-    const boundaries = stageCenters
-      .slice(0, -1)
-      .map((xValue, index) => (xValue + stageCenters[index + 1]) / 2);
-
-    const anchorIndex = Math.min(2, Math.max(timelineItems.length - 1, 0));
-    const anchorX = stageCenters[anchorIndex] ?? timelineWidth / 2;
-    const anchorY = 108;
-    const rightEdge = timelineWidth - rightPad;
-    const leftEdge = leftPad;
-
-    const threadBands = [
-      { count: 14, color: "#d8a153", targetY: 54, spread: 36, lift: -16 },
-      { count: 12, color: "#c95e4a", targetY: 88, spread: 28, lift: -6 },
-      { count: 10, color: "#12908c", targetY: 114, spread: 24, lift: 8 },
-      { count: 10, color: "#0a4f63", targetY: 152, spread: 30, lift: 18 }
-    ];
-
-    const rightThreads = threadBands.flatMap((band, bandIndex) =>
-      Array.from({ length: band.count }).map((_, index) => {
-        const ratio = band.count <= 1 ? 0.5 : index / (band.count - 1);
-        const spread = ratio - 0.5;
-        const startY = anchorY + spread * 18;
-        const endY = band.targetY + spread * band.spread;
-        const controlX1 = anchorX + 84 + bandIndex * 16;
-        const controlY1 = startY + band.lift;
-        const controlX2 = rightEdge - 260 + bandIndex * 18;
-        const controlY2 = endY - band.lift * 0.4;
-        return {
-          key: `thread-right-${bandIndex}-${index}`,
-          path: `M ${anchorX} ${startY} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${rightEdge} ${endY}`,
-          color: band.color
-        };
-      })
+    const timelineSelectionIndex = timelineIndexControlled
+      ? Number(selectedTimelineIndex)
+      : timelineFigureIndex;
+    const activeTimelineIndex =
+      timelineItems.length > 0
+        ? Math.min(Math.max(timelineSelectionIndex, 0), timelineItems.length - 1)
+        : -1;
+    const activeTimelineItem = activeTimelineIndex >= 0 ? timelineItems[activeTimelineIndex] : null;
+    const activeCallouts = activeTimelineItem
+      ? THREADS_REPORT_CALLOUTS[String(activeTimelineItem.period).toLowerCase()] ??
+        THREADS_REPORT_CALLOUTS[String(activeTimelineItem.period)] ??
+        [activeTimelineItem.headline].filter(Boolean)
+      : [];
+    const timelineIntro = chart.chart_config?.timeline_intro ?? null;
+    const timelineIntroTitle = cleanReportLanguage(
+      timelineIntro?.title ?? chart.chart_config?.figure_title ?? chart.title
     );
-
-    const leftThreads = Array.from({ length: 10 }).map((_, index) => {
-      const ratio = 10 <= 1 ? 0.5 : index / (10 - 1);
-      const spread = ratio - 0.5;
-      const startY = 112 + spread * 28;
-      const endY = anchorY + spread * 16;
-      return {
-        key: `thread-left-${index}`,
-        path: `M ${leftEdge} ${startY} C ${leftEdge + 120} ${startY}, ${anchorX - 120} ${endY}, ${anchorX} ${endY}`,
-        color: index % 2 === 0 ? "#1a8e8a" : "#c95e4a"
-      };
-    });
+    const timelineIntroParagraphs = Array.isArray(timelineIntro?.paragraphs)
+      ? timelineIntro.paragraphs
+          .map((paragraph) => cleanReportLanguage(paragraph))
+          .filter((paragraph) => paragraph.length > 0)
+      : [];
+    const handleTimelineSelect = (index) => {
+      if (!timelineIndexControlled) {
+        setTimelineFigureIndex(index);
+      }
+      if (typeof onTimelineSelect === "function") {
+        onTimelineSelect(index);
+      }
+    };
 
     return renderShell(
-      <div className="chart-wrap chart-wrap--timeline">
-        <div className="timeline-thread-strip" aria-hidden="true" />
-        <div className="timeline-tapestry">
-          <div className="timeline-stage-grid timeline-stage-grid--tapestry">
-            {timelineItems.map((item) => (
-              <article className="timeline-stage-card" key={`${item.period}-${item.title}`}>
-                <p className="timeline-stage-card__period">{item.period}</p>
-                <h4>{item.title}</h4>
-                {item.headline ? <p>{item.headline}</p> : null}
-                <div className="timeline-stage-card__meta">
-                  {item.projects !== null ? <span>{item.projects} projects</span> : null}
-                  {item.funding !== null ? <span>{formatUnit(item.funding, "USD")}</span> : null}
+      <div className="chart-wrap chart-wrap--timeline chart-wrap--threads-report">
+        <figure className="threads-report-figure">
+          {timelineIntroTitle || timelineIntroParagraphs.length ? (
+            <header className="threads-report-figure__intro">
+              {timelineIntroTitle ? <h4>{timelineIntroTitle}</h4> : null}
+              {timelineIntroParagraphs.length ? (
+                <div className="threads-report-figure__intro-copy">
+                  {timelineIntroParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
                 </div>
-              </article>
-            ))}
+              ) : null}
+            </header>
+          ) : null}
+          <div className="threads-report-figure__canvas">
+            <img
+              src={mediaPath("report-page-22.jpg")}
+              alt="Threads timeline visual showing growth stages and milestones."
+            />
+            <div className="threads-report-figure__overlay" role="tablist" aria-label="Timeline stages">
+              {timelineItems.map((item, index) => {
+                const fallbackStart = index / Math.max(timelineItems.length, 1);
+                const fallbackEnd = (index + 1) / Math.max(timelineItems.length, 1);
+                const [leftRatio, rightRatio] = THREADS_REPORT_STAGE_BOUNDS[index] ?? [
+                  fallbackStart,
+                  fallbackEnd
+                ];
+                const isActive = index === activeTimelineIndex;
+                return (
+                  <button
+                    key={`${item.period}-${item.title}`}
+                    type="button"
+                    className={`threads-report-stage-hotspot${isActive ? " is-active" : ""}`}
+                    style={{
+                      left: `${leftRatio * 100}%`,
+                      width: `${Math.max((rightRatio - leftRatio) * 100, 4)}%`
+                    }}
+                    aria-selected={isActive}
+                    aria-label={`${item.period}: ${item.title}`}
+                    onClick={() => handleTimelineSelect(index)}
+                  >
+                    <span className="sr-only">
+                      {item.period} {item.title}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
+        </figure>
 
-          <div className="timeline-tapestry__threads" aria-hidden="true">
-            <svg viewBox={`0 0 ${timelineWidth} ${timelineHeight}`} role="presentation">
-              {boundaries.map((xValue, index) => (
-                <line
-                  key={`timeline-boundary-${index}`}
-                  x1={xValue}
-                  x2={xValue}
-                  y1={12}
-                  y2={timelineHeight - 10}
-                  stroke="rgba(20, 58, 52, 0.16)"
-                  strokeWidth="1"
-                />
+        {!hideTimelineSummary && activeTimelineItem ? (
+          <article className="threads-report-stage">
+            <header className="threads-report-stage__head">
+              <p>{activeTimelineItem.period}</p>
+              <h4>{activeTimelineItem.title}</h4>
+            </header>
+            {activeTimelineItem.headline ? <p className="threads-report-stage__headline">{activeTimelineItem.headline}</p> : null}
+            <div className="threads-report-stage__metrics">
+              {activeTimelineItem.projects !== null ? (
+                <span>{formatUnit(activeTimelineItem.projects, "projects")} active</span>
+              ) : null}
+              {activeTimelineItem.funding !== null ? (
+                <span>{formatUnit(activeTimelineItem.funding, "USD")} grants</span>
+              ) : null}
+            </div>
+            <ul className="threads-report-stage__callouts">
+              {activeCallouts.map((callout) => (
+                <li key={callout}>{callout}</li>
               ))}
+            </ul>
+          </article>
+        ) : null}
 
-              {leftThreads.map((thread) => (
-                <path
-                  key={thread.key}
-                  d={thread.path}
-                  fill="none"
-                  stroke={thread.color}
-                  strokeOpacity="0.42"
-                  strokeWidth="1.5"
-                />
-              ))}
-
-              {rightThreads.map((thread) => (
-                <path
-                  key={thread.key}
-                  d={thread.path}
-                  fill="none"
-                  stroke={thread.color}
-                  strokeOpacity="0.45"
-                  strokeWidth="1.25"
-                />
-              ))}
-
-              <circle cx={anchorX} cy={anchorY} r="10" fill="rgba(11, 79, 99, 0.24)" stroke="#0b4f63" strokeWidth="2" />
-              <circle cx={anchorX} cy={anchorY} r="4.5" fill="#f7e9cf" />
-            </svg>
+        {compact || hideTimelineStageGrid ? null : (
+          <div className="threads-report-stage-grid" role="list" aria-label="Timeline stage summary">
+            {timelineItems.map((item, index) => {
+              const isActive = index === activeTimelineIndex;
+              return (
+                <button
+                  key={`${item.period}-${item.title}-chip`}
+                  type="button"
+                  className={`threads-report-stage-grid__item${isActive ? " is-active" : ""}`}
+                  onClick={() => handleTimelineSelect(index)}
+                >
+                  <p>{item.period}</p>
+                  <strong>{item.title}</strong>
+                </button>
+              );
+            })}
           </div>
-        </div>
+        )}
       </div>,
-      "Timeline stages summarize funding and project growth milestones across each phase."
+      ""
     );
   }
 
@@ -919,17 +1002,22 @@ export function FinancialChart({ chart, compact = false }) {
     );
   }
 
+  const isStacked = chart.chart_type === "stacked_bar" || chart.chart_config?.stacked === true;
+  const detailedLegend = isStacked || chart.slug === "impact-growth-2023-2024";
   const defaultLegend = renderLegend ? (
-    <div className="chart-legend">
+    <div className={`chart-legend${detailedLegend ? " chart-legend--detailed" : ""}`}>
       {series.map((item) => (
-        <span key={item.key} className="chart-legend__item">
-          <i className="chart-legend__swatch" style={{ background: item.color }} aria-hidden="true" /> {item.label}
+        <span
+          key={item.key}
+          className={`chart-legend__item${detailedLegend ? " chart-legend__item--detailed" : ""}`}
+        >
+          <i className="chart-legend__swatch" style={{ background: item.color }} aria-hidden="true" />
+          <span>{item.label}</span>
+          {detailedLegend ? <em>{item.unit ?? chart.units}</em> : null}
         </span>
       ))}
     </div>
   ) : null;
-
-  const isStacked = chart.chart_type === "stacked_bar" || chart.chart_config?.stacked === true;
 
   return renderShell(
     <div className="chart-wrap chart-svg-wrap">

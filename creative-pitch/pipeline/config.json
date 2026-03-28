@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "frame_count": 8,
+    "scene_limit": 3,
+    "generate_start_frame": true,
+    "generate_end_frame": false,
+    "start_frame_variants": 4
+  },
+  "render": {
+    "webp_quality": 72,
+    "remove_upscaled_png": true
+  },
+  "commands": {
+    "image_gen": "python3 -u creative-pitch/pipeline/scripts/01_image_gen.py",
+    "animation_gen": "python3 -u creative-pitch/pipeline/scripts/02_animation_gen.py",
+    "image_extract": "python3 -u creative-pitch/pipeline/scripts/03_image_extract.py",
+    "upscale": "npm run build:creative-sequences"
+  }
+}

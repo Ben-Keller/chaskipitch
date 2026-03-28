@@ -1,4 +1,4 @@
-import { contentPath } from "./paths";
+import { contentPath, withBasePath } from "./paths";
 const cache = new Map();
 
 const FALLBACK_COUNTRY_CODES = [
@@ -46,6 +46,7 @@ const FALLBACK_CHART_SLUGS = [
   "learning-exchanges-2024",
   "mapping-and-tech-kpis-2024",
   "policy-and-advocacy-highlights-2024",
+  "projects-funding-over-time",
   "tenure-footprint-regional",
   "territorial-governance-kpis-2024",
   "womens-leadership-highlights-2024"
@@ -163,7 +164,7 @@ export function getCountryVideoIndex() {
 }
 
 export function getCreativePitchStory() {
-  return fetchJson(contentPath("creative-pitch-story.json"));
+  return fetchJson(withBasePath("runtime/creative-pitch/story.json"));
 }
 
 export function getWorldGeo() {

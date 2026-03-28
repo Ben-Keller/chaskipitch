@@ -3,17 +3,36 @@ import { geoCentroid, geoNaturalEarth1, geoPath } from "d3";
 
 const VIEWBOX_WIDTH = 1200;
 const VIEWBOX_HEIGHT = 560;
-const MIN_SCALE = 1;
-const MAX_SCALE = 8;
+const MIN_SCALE = 0.35;
+const MAX_SCALE = 48;
 const GLOBAL_FIT_EXTENT = [
   [-8, 34],
   [VIEWBOX_WIDTH - 18, VIEWBOX_HEIGHT - 6]
 ];
-const REGION_ZOOM_OUT_FACTOR = 1 / 1.2;
-const REGION_DOWN_SHIFT_PX = 32;
 const INTERACTION_SETTLE_MS = 170;
 const DRAG_THRESHOLD = 6;
+const RESIZE_SETTLE_MS = 140;
+const RESIZE_WATCHDOG_MS = 2400;
+const L_HOME_MIN_WIDTH = 981;
+const L_HOME_MAX_WIDTH = 1280;
+const M_HOME_MIN_WIDTH = 761;
+const M_HOME_MAX_WIDTH = 980;
+const S_HOME_MAX_WIDTH = 760;
+const XL_HOME_MIN_WIDTH = 1281;
+const PAN_LIMIT_EXTRA_LEFT = 120;
+const PAN_LIMIT_EXTRA_RIGHT = 180;
+const PAN_LIMIT_EXTRA_DOWN = 70;
+const XL_RIGHT_JUSTIFY_GAP = 6;
+const L_COMMON_SHIFT_X = 20;
+const L_COMMON_SHIFT_Y = -18;
+const L_GLOBAL_SHIFT_X = 92;
+const L_GLOBAL_SHIFT_Y = -14;
 const IDENTITY_VIEW = { scale: 1, tx: 0, ty: 0 };
+const FULL_FOCUS_RECT = { x0: 0, y0: 0, x1: VIEWBOX_WIDTH, y1: VIEWBOX_HEIGHT };
+const FOCUS_RECT_PADDING_PX = 10;
+const OCCLUDER_GAP_PX = 10;
+const MIN_FOCUS_RECT_WIDTH_PX = 220;
+const MIN_FOCUS_RECT_HEIGHT_PX = 180;
 
 const PAGE23_STATUS_STYLE = {
   active: { fill: "#D35E4B", legend: "solid" },
@@ -21,6 +40,14 @@ const PAGE23_STATUS_STYLE = {
   first_time_2024: { fill: "#D35E4B", legend: "dotted" },
   preparing: { fill: "#EFC56E", legend: "solid" },
   under_assessment: { fill: "#0D7A78", legend: "solid" }
+};
+
+const LEGEND_LABEL_OVERRIDES = {
+  active: "Countries with active project implementation",
+  additional_2024: "Countries where additional projects began implementation",
+  first_time_2024: "Countries where work began for the first time",
+  preparing: "Countries where projects are being prepared",
+  under_assessment: "Countries under assessment for future projects"
 };
 
 const LABEL_NAME_OVERRIDE = {
@@ -80,14 +107,77 @@ function toTransformString(view) {
   return `translate(${view.tx} ${view.ty}) scale(${view.scale})`;
 }
 
+function clampFocusRect(rect) {
+  const normalized = rect && typeof rect === "object" ? rect : FULL_FOCUS_RECT;
+  const x0 = clamp(Number(normalized.x0), 0, VIEWBOX_WIDTH - 2);
+  const y0 = clamp(Number(normalized.y0), 0, VIEWBOX_HEIGHT - 2);
+  const x1 = clamp(Number(normalized.x1), x0 + 2, VIEWBOX_WIDTH);
+  const y1 = clamp(Number(normalized.y1), y0 + 2, VIEWBOX_HEIGHT);
+  return { x0, y0, x1, y1 };
+}
+
+function rectCenter(rect) {
+  return {
+    x: (rect.x0 + rect.x1) / 2,
+    y: (rect.y0 + rect.y1) / 2
+  };
+}
+
+function rectIntersectionSpan(aStart, aEnd, bStart, bEnd) {
+  return Math.max(0, Math.min(aEnd, bEnd) - Math.max(aStart, bStart));
+}
+
+function defaultFocusRectForTier(tier) {
+  if (tier === "l") {
+    return clampFocusRect({
+      x0: VIEWBOX_WIDTH * 0.5,
+      y0: VIEWBOX_HEIGHT * 0.24,
+      x1: VIEWBOX_WIDTH - 10,
+      y1: VIEWBOX_HEIGHT - 8
+    });
+  }
+  if (tier === "xl") {
+    return clampFocusRect({
+      x0: 10,
+      y0: VIEWBOX_HEIGHT * 0.2,
+      x1: VIEWBOX_WIDTH - 10,
+      y1: VIEWBOX_HEIGHT - 8
+    });
+  }
+  return clampFocusRect({
+    x0: 10,
+    y0: 10,
+    x1: VIEWBOX_WIDTH - 10,
+    y1: VIEWBOX_HEIGHT - 10
+  });
+}
+
 function clampTransform(view) {
   const scale = clamp(view.scale, MIN_SCALE, MAX_SCALE);
-  const minTx = VIEWBOX_WIDTH - VIEWBOX_WIDTH * scale;
-  const minTy = VIEWBOX_HEIGHT - VIEWBOX_HEIGHT * scale;
+  const scaledWidth = VIEWBOX_WIDTH * scale;
+  const scaledHeight = VIEWBOX_HEIGHT * scale;
+  const centerTx = (VIEWBOX_WIDTH - scaledWidth) / 2;
+  const centerTy = (VIEWBOX_HEIGHT - scaledHeight) / 2;
+  const minTx =
+    scale >= 1
+      ? VIEWBOX_WIDTH - scaledWidth - PAN_LIMIT_EXTRA_LEFT
+      : centerTx - PAN_LIMIT_EXTRA_LEFT;
+  const maxTx =
+    scale >= 1
+      ? PAN_LIMIT_EXTRA_RIGHT
+      : centerTx + PAN_LIMIT_EXTRA_RIGHT;
+  const minTy =
+    scale >= 1
+      ? VIEWBOX_HEIGHT - scaledHeight
+      : centerTy - PAN_LIMIT_EXTRA_DOWN;
+  const maxTy =
+    scale >= 1
+      ? PAN_LIMIT_EXTRA_DOWN
+      : centerTy + PAN_LIMIT_EXTRA_DOWN;
   return {
     scale,
-    tx: clamp(view.tx, minTx, 0),
-    ty: clamp(view.ty, minTy, 0)
+    tx: clamp(view.tx, minTx, maxTx),
+    ty: clamp(view.ty, minTy, maxTy)
   };
 }
 
@@ -100,6 +190,25 @@ function scaleAroundPoint(view, factor, anchorX, anchorY) {
     tx: anchorX - worldX * nextScale,
     ty: anchorY - worldY * nextScale
   });
+}
+
+function viewportTierForWidth(width) {
+  if (!Number.isFinite(width)) {
+    return "xl";
+  }
+  if (width >= XL_HOME_MIN_WIDTH) {
+    return "xl";
+  }
+  if (width >= L_HOME_MIN_WIDTH && width <= L_HOME_MAX_WIDTH) {
+    return "l";
+  }
+  if (width >= M_HOME_MIN_WIDTH && width <= M_HOME_MAX_WIDTH) {
+    return "m";
+  }
+  if (width <= S_HOME_MAX_WIDTH) {
+    return "s";
+  }
+  return "s";
 }
 
 function getStatusFill(status, patternIds) {
@@ -128,6 +237,14 @@ function getLegendSwatchStyle(statusId) {
     };
   }
   return { backgroundColor: base };
+}
+
+function getConciseLegendLabel(status) {
+  const override = LEGEND_LABEL_OVERRIDES[status?.id];
+  if (override) {
+    return override;
+  }
+  return String(status?.label ?? "").trim();
 }
 
 function buildLabelLines(name, _projectCount, iso3) {
@@ -184,26 +301,9 @@ function boundsOverlap(a, b) {
   return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
 }
 
-function fitTransformForFeature(feature, path) {
-  if (!feature) {
-    return IDENTITY_VIEW;
-  }
-
-  const [[x0, y0], [x1, y1]] = path.bounds(feature);
-  const dx = Math.max(1, x1 - x0);
-  const dy = Math.max(1, y1 - y0);
-  const scale = clamp(0.82 / Math.max(dx / VIEWBOX_WIDTH, dy / VIEWBOX_HEIGHT), MIN_SCALE, MAX_SCALE);
-
-  return clampTransform({
-    scale,
-    tx: VIEWBOX_WIDTH / 2 - scale * ((x0 + x1) / 2),
-    ty: VIEWBOX_HEIGHT / 2 - scale * ((y0 + y1) / 2)
-  });
-}
-
-function fitTransformForFeatures(features, path) {
+function collectFeatureBounds(features, path) {
   if (!features?.length) {
-    return IDENTITY_VIEW;
+    return null;
   }
 
   let minX = Number.POSITIVE_INFINITY;
@@ -223,17 +323,56 @@ function fitTransformForFeatures(features, path) {
   });
 
   if (!Number.isFinite(minX) || !Number.isFinite(minY) || !Number.isFinite(maxX) || !Number.isFinite(maxY)) {
+    return null;
+  }
+
+  return { minX, minY, maxX, maxY };
+}
+
+function fitTransformForFeature(feature, path, focusRect = FULL_FOCUS_RECT, fitCoverage = 0.82) {
+  if (!feature) {
     return IDENTITY_VIEW;
   }
 
-  const dx = Math.max(1, maxX - minX);
-  const dy = Math.max(1, maxY - minY);
-  const scale = clamp(0.84 / Math.max(dx / VIEWBOX_WIDTH, dy / VIEWBOX_HEIGHT), MIN_SCALE, MAX_SCALE);
+  const targetRect = clampFocusRect(focusRect);
+  const targetWidth = Math.max(1, targetRect.x1 - targetRect.x0);
+  const targetHeight = Math.max(1, targetRect.y1 - targetRect.y0);
+  const center = rectCenter(targetRect);
+  const [[x0, y0], [x1, y1]] = path.bounds(feature);
+  const dx = Math.max(1, x1 - x0);
+  const dy = Math.max(1, y1 - y0);
+  const scale = clamp(fitCoverage / Math.max(dx / targetWidth, dy / targetHeight), MIN_SCALE, MAX_SCALE);
 
   return clampTransform({
     scale,
-    tx: VIEWBOX_WIDTH / 2 - scale * ((minX + maxX) / 2),
-    ty: VIEWBOX_HEIGHT / 2 - scale * ((minY + maxY) / 2)
+    tx: center.x - scale * ((x0 + x1) / 2),
+    ty: center.y - scale * ((y0 + y1) / 2)
+  });
+}
+
+function fitTransformForFeatures(features, path, focusRect = FULL_FOCUS_RECT, fitCoverage = 0.84) {
+  if (!features?.length) {
+    return IDENTITY_VIEW;
+  }
+
+  const targetRect = clampFocusRect(focusRect);
+  const targetWidth = Math.max(1, targetRect.x1 - targetRect.x0);
+  const targetHeight = Math.max(1, targetRect.y1 - targetRect.y0);
+  const center = rectCenter(targetRect);
+  const bounds = collectFeatureBounds(features, path);
+  if (!bounds) {
+    return IDENTITY_VIEW;
+  }
+  const { minX, minY, maxX, maxY } = bounds;
+
+  const dx = Math.max(1, maxX - minX);
+  const dy = Math.max(1, maxY - minY);
+  const scale = clamp(fitCoverage / Math.max(dx / targetWidth, dy / targetHeight), MIN_SCALE, MAX_SCALE);
+
+  return clampTransform({
+    scale,
+    tx: center.x - scale * ((minX + maxX) / 2),
+    ty: center.y - scale * ((minY + maxY) / 2)
   });
 }
 
@@ -241,6 +380,7 @@ export function GlobalMapD3({
   allCountries = [],
   visibleCountries = [],
   selectedRegion = "global",
+  isAllThematicsOverview = false,
   worldFootprintGeo = { type: "FeatureCollection", features: [] },
   worldCountriesGeo = { type: "FeatureCollection", features: [] },
   statusDefinitions = [],
@@ -251,19 +391,51 @@ export function GlobalMapD3({
   highlightedIso = null,
   overlay = null
 }) {
+  const [viewportTier, setViewportTier] = useState(() =>
+    typeof window !== "undefined" ? viewportTierForWidth(window.innerWidth) : "xl"
+  );
+  const [resizeRevision, setResizeRevision] = useState(0);
+
   const patternPrefix = useId().replaceAll(":", "");
   const [legendCollapsed, setLegendCollapsed] = useState(false);
   const [keyboardIso, setKeyboardIso] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isInteracting, setIsInteracting] = useState(false);
+  const [isResizing, setIsResizing] = useState(false);
 
+  const wrapRef = useRef(null);
   const svgRef = useRef(null);
   const mapGroupRef = useRef(null);
   const viewTransformRef = useRef(IDENTITY_VIEW);
   const animationRef = useRef(0);
   const settleTimerRef = useRef(0);
+  const resizeTimerRef = useRef(0);
+  const resizeWatchdogTimerRef = useRef(0);
+  const resizeRafRef = useRef(0);
+  const resizeEventBurstRef = useRef(0);
+  const resizeSessionRef = useRef({ active: false, startedAt: 0, events: 0 });
   const dragStateRef = useRef(null);
   const suppressClickRef = useRef(false);
+  const shouldDebugResize = useMemo(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+    try {
+      return window.localStorage.getItem("impact_map_debug") === "1";
+    } catch (_error) {
+      return false;
+    }
+  }, []);
+
+  const logResize = useCallback(
+    (message, details = {}) => {
+      if (!shouldDebugResize) {
+        return;
+      }
+      console.info("[impact-map/resize]", message, details);
+    },
+    [shouldDebugResize]
+  );
 
   const patternIds = useMemo(
     () => ({
@@ -276,10 +448,135 @@ export function GlobalMapD3({
   );
 
   useEffect(() => {
-    if (window.innerWidth < 760) {
+    if (window.innerWidth <= 1280) {
       setLegendCollapsed(true);
     }
   }, []);
+
+  const previousAllThematicsRef = useRef(isAllThematicsOverview);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      previousAllThematicsRef.current = isAllThematicsOverview;
+      return;
+    }
+    if (window.innerWidth < XL_HOME_MIN_WIDTH) {
+      previousAllThematicsRef.current = isAllThematicsOverview;
+      return;
+    }
+    const changedFromAllThematics =
+      previousAllThematicsRef.current && !isAllThematicsOverview;
+    if (changedFromAllThematics) {
+      setLegendCollapsed(true);
+    }
+    previousAllThematicsRef.current = isAllThematicsOverview;
+  }, [isAllThematicsOverview]);
+
+  const getFocusRect = useCallback((selectionKind = "global") => {
+    const fallback = defaultFocusRectForTier(viewportTier);
+    const svg = svgRef.current;
+    const wrap = wrapRef.current;
+    if (!svg || !wrap) {
+      return fallback;
+    }
+
+    const mapRect = svg.getBoundingClientRect();
+    if (!Number.isFinite(mapRect.width) || !Number.isFinite(mapRect.height) || mapRect.width <= 0 || mapRect.height <= 0) {
+      return fallback;
+    }
+
+    const getRect = (selector) => {
+      const node = wrap.querySelector(selector);
+      return node instanceof HTMLElement ? node.getBoundingClientRect() : null;
+    };
+    const overlapsMap = (rect) => {
+      if (!rect) {
+        return false;
+      }
+      return (
+        rectIntersectionSpan(mapRect.left, mapRect.right, rect.left, rect.right) > 0 &&
+        rectIntersectionSpan(mapRect.top, mapRect.bottom, rect.top, rect.bottom) > 0
+      );
+    };
+
+    const topDeckRect = getRect(".atlas-top-deck");
+    const introRect = getRect(".atlas-figure-intro");
+    const searchRect = getRect(".atlas-search-region");
+    const themeRect = getRect(".atlas-theme-ribbon");
+    const kpiRect = getRect(".atlas-kpi-ribbon--inline");
+    const contextRect = getRect(".atlas-context-card");
+
+    let x0 = mapRect.left + FOCUS_RECT_PADDING_PX;
+    let y0 = mapRect.top + FOCUS_RECT_PADDING_PX;
+    let x1 = mapRect.right - FOCUS_RECT_PADDING_PX;
+    let y1 = mapRect.bottom - FOCUS_RECT_PADDING_PX;
+
+    if (viewportTier === "xl") {
+      // XL: map can render up to the bottom edge of the KPI/search row.
+      const topOccluders = [kpiRect, searchRect].filter(overlapsMap);
+      const topBottom = topOccluders.reduce(
+        (maxBottom, rect) => Math.max(maxBottom, rect.bottom),
+        Number.NEGATIVE_INFINITY
+      );
+      if (Number.isFinite(topBottom)) {
+        y0 = Math.max(y0, topBottom + OCCLUDER_GAP_PX);
+      } else if (overlapsMap(introRect)) {
+        y0 = Math.max(y0, introRect.bottom + OCCLUDER_GAP_PX);
+      }
+
+      // XL: the context panel blocks map visibility; fit to the side opposite the panel.
+      if (overlapsMap(contextRect)) {
+        const contextCenterX = contextRect.left + contextRect.width / 2;
+        const mapCenterX = mapRect.left + mapRect.width / 2;
+        if (contextCenterX >= mapCenterX) {
+          x1 = Math.min(x1, contextRect.left - OCCLUDER_GAP_PX);
+        } else {
+          x0 = Math.max(x0, contextRect.right + OCCLUDER_GAP_PX);
+        }
+      }
+    } else if (viewportTier === "l") {
+      // L: keep the fit window high so the map isn't pushed too far down.
+      y0 = mapRect.top + FOCUS_RECT_PADDING_PX;
+
+      const leftOccluders = [searchRect, themeRect, contextRect].filter(overlapsMap);
+      const rightEdgeOfLeftColumn = leftOccluders.reduce((maxRight, rect) => {
+        const centerX = rect.left + rect.width / 2;
+        if (centerX > mapRect.left + mapRect.width * 0.72) {
+          return maxRight;
+        }
+        return Math.max(maxRight, rect.right);
+      }, Number.NEGATIVE_INFINITY);
+      if (Number.isFinite(rightEdgeOfLeftColumn)) {
+        x0 = Math.max(x0, rightEdgeOfLeftColumn + OCCLUDER_GAP_PX);
+      }
+    } else if (viewportTier === "m" || viewportTier === "s") {
+      x0 = mapRect.left + FOCUS_RECT_PADDING_PX;
+      y0 = mapRect.top + FOCUS_RECT_PADDING_PX;
+      x1 = mapRect.right - FOCUS_RECT_PADDING_PX;
+      y1 = mapRect.bottom - FOCUS_RECT_PADDING_PX;
+    }
+
+    if (selectionKind === "country") {
+      x0 += 4;
+      y0 += 4;
+      x1 -= 4;
+      y1 -= 4;
+    }
+
+    if (x1 - x0 < MIN_FOCUS_RECT_WIDTH_PX || y1 - y0 < MIN_FOCUS_RECT_HEIGHT_PX) {
+      return fallback;
+    }
+
+    const scaleX = VIEWBOX_WIDTH / mapRect.width;
+    const scaleY = VIEWBOX_HEIGHT / mapRect.height;
+
+    return clampFocusRect({
+      x0: (x0 - mapRect.left) * scaleX,
+      y0: (y0 - mapRect.top) * scaleY,
+      x1: (x1 - mapRect.left) * scaleX,
+      y1: (y1 - mapRect.top) * scaleY
+    });
+  }, [viewportTier]);
 
   const clearSettleTimer = useCallback(() => {
     if (settleTimerRef.current) {
@@ -309,9 +606,154 @@ export function GlobalMapD3({
     viewTransformRef.current = clamped;
     if (mapGroupRef.current) {
       mapGroupRef.current.setAttribute("transform", toTransformString(clamped));
-      mapGroupRef.current.style.setProperty("--map-scale-inverse", `${1 / clamped.scale}`);
+      const labelScaleInverse = clamped.scale >= 1 ? 1 / clamped.scale : 1;
+      mapGroupRef.current.style.setProperty("--map-scale-inverse", `${labelScaleInverse}`);
     }
   }, []);
+
+  useEffect(() => {
+    const settleAfterResize = (reason) => {
+      const session = resizeSessionRef.current;
+      const now = performance.now();
+      const elapsedMs = session.active ? Math.round(now - session.startedAt) : 0;
+      cancelAnimation();
+      clearSettleTimer();
+      dragStateRef.current = null;
+      suppressClickRef.current = false;
+      setIsDragging((current) => (current ? false : current));
+      setIsInteracting((current) => (current ? false : current));
+      setIsResizing((current) => (current ? false : current));
+      applyTransform(viewTransformRef.current);
+      if (window.innerWidth <= 1280) {
+        setLegendCollapsed((current) => (current ? current : true));
+      }
+      logResize("settled", {
+        reason,
+        elapsedMs,
+        events: session.events,
+        viewport: `${window.innerWidth}x${window.innerHeight}`
+      });
+      setViewportTier((current) => {
+        const next = viewportTierForWidth(window.innerWidth);
+        return current === next ? current : next;
+      });
+      setResizeRevision((current) => current + 1);
+      session.active = false;
+      session.startedAt = 0;
+      session.events = 0;
+      if (resizeTimerRef.current) {
+        window.clearTimeout(resizeTimerRef.current);
+        resizeTimerRef.current = 0;
+      }
+      if (resizeRafRef.current) {
+        window.cancelAnimationFrame(resizeRafRef.current);
+        resizeRafRef.current = 0;
+      }
+      resizeEventBurstRef.current = 0;
+      if (resizeWatchdogTimerRef.current) {
+        window.clearTimeout(resizeWatchdogTimerRef.current);
+        resizeWatchdogTimerRef.current = 0;
+      }
+    };
+
+    const beginResizeSession = () => {
+      const session = resizeSessionRef.current;
+      if (session.active) {
+        return;
+      }
+      session.active = true;
+      session.startedAt = performance.now();
+      session.events = 0;
+      cancelAnimation();
+      clearSettleTimer();
+      setIsResizing((current) => (current ? current : true));
+      setIsDragging((current) => (current ? false : current));
+      setIsInteracting((current) => (current ? false : current));
+      logResize("started", {
+        viewport: `${window.innerWidth}x${window.innerHeight}`
+      });
+      resizeWatchdogTimerRef.current = window.setTimeout(() => {
+        resizeWatchdogTimerRef.current = 0;
+        settleAfterResize("watchdog");
+      }, RESIZE_WATCHDOG_MS);
+    };
+
+    const onResize = () => {
+      resizeEventBurstRef.current += 1;
+      if (resizeRafRef.current) {
+        return;
+      }
+      resizeRafRef.current = window.requestAnimationFrame(() => {
+        resizeRafRef.current = 0;
+        const burstCount = Math.max(1, resizeEventBurstRef.current);
+        resizeEventBurstRef.current = 0;
+        beginResizeSession();
+        const session = resizeSessionRef.current;
+        session.events += burstCount;
+        if (session.events % 25 === 0) {
+          logResize("pulse", {
+            events: session.events,
+            elapsedMs: Math.round(performance.now() - session.startedAt)
+          });
+        }
+        if (resizeTimerRef.current) {
+          window.clearTimeout(resizeTimerRef.current);
+        }
+        resizeTimerRef.current = window.setTimeout(() => {
+          resizeTimerRef.current = 0;
+          settleAfterResize("debounced");
+        }, RESIZE_SETTLE_MS);
+      });
+    };
+
+    window.addEventListener("resize", onResize, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (resizeTimerRef.current) {
+        window.clearTimeout(resizeTimerRef.current);
+        resizeTimerRef.current = 0;
+      }
+      if (resizeRafRef.current) {
+        window.cancelAnimationFrame(resizeRafRef.current);
+        resizeRafRef.current = 0;
+      }
+      resizeEventBurstRef.current = 0;
+      if (resizeWatchdogTimerRef.current) {
+        window.clearTimeout(resizeWatchdogTimerRef.current);
+        resizeWatchdogTimerRef.current = 0;
+      }
+    };
+  }, [applyTransform, cancelAnimation, clearSettleTimer, logResize]);
+
+  useEffect(() => {
+    if (
+      !shouldDebugResize ||
+      typeof window === "undefined" ||
+      typeof window.PerformanceObserver !== "function"
+    ) {
+      return undefined;
+    }
+    const supportedTypes = window.PerformanceObserver.supportedEntryTypes ?? [];
+    if (!supportedTypes.includes("longtask")) {
+      return undefined;
+    }
+
+    const observer = new window.PerformanceObserver((list) => {
+      list.getEntries().forEach((entry) => {
+        if (entry.duration >= 120) {
+          logResize("longtask", {
+            durationMs: Math.round(entry.duration),
+            startedAtMs: Math.round(entry.startTime),
+            name: entry.name || "longtask"
+          });
+        }
+      });
+    });
+
+    observer.observe({ entryTypes: ["longtask"] });
+    return () => observer.disconnect();
+  }, [logResize, shouldDebugResize]);
 
   const animateToTransform = useCallback(
     (targetView, duration = 620) => {
@@ -356,6 +798,19 @@ export function GlobalMapD3({
     return () => {
       cancelAnimation();
       clearSettleTimer();
+      if (resizeTimerRef.current) {
+        window.clearTimeout(resizeTimerRef.current);
+        resizeTimerRef.current = 0;
+      }
+      if (resizeRafRef.current) {
+        window.cancelAnimationFrame(resizeRafRef.current);
+        resizeRafRef.current = 0;
+      }
+      resizeEventBurstRef.current = 0;
+      if (resizeWatchdogTimerRef.current) {
+        window.clearTimeout(resizeWatchdogTimerRef.current);
+        resizeWatchdogTimerRef.current = 0;
+      }
     };
   }, [cancelAnimation, clearSettleTimer]);
 
@@ -395,16 +850,22 @@ export function GlobalMapD3({
     [baseFeatures]
   );
 
+  const globalFeatures = useMemo(() => {
+    return visibleCountries
+      .map((country) => footprintByIso.get(country.iso3) ?? baseFeaturesByIso.get(country.iso3))
+      .filter(Boolean);
+  }, [baseFeaturesByIso, footprintByIso, visibleCountries]);
+
   const regionFeatures = useMemo(() => {
     if (selectedRegion === "global") {
       return [];
     }
 
-    return allCountries
+    return visibleCountries
       .filter((country) => country.region === selectedRegion)
       .map((country) => footprintByIso.get(country.iso3) ?? baseFeaturesByIso.get(country.iso3))
       .filter(Boolean);
-  }, [allCountries, baseFeaturesByIso, footprintByIso, selectedRegion]);
+  }, [baseFeaturesByIso, footprintByIso, selectedRegion, visibleCountries]);
 
   const featureRows = useMemo(
     () =>
@@ -507,6 +968,8 @@ export function GlobalMapD3({
     return accepted;
   }, [labels, selectedIso]);
 
+  const renderedLabels = isResizing ? [] : shownLabels;
+
   const selectedFeatureRow = useMemo(
     () => (selectedIso ? featureRows.find((row) => row.iso3 === selectedIso) ?? null : null),
     [featureRows, selectedIso]
@@ -573,13 +1036,118 @@ export function GlobalMapD3({
     return `translate(${tx} ${ty}) scale(${scale})`;
   }, [hasProtectedAreaData, path, selectedFeatureRow, surinameTemplateFeature, templateTerritoryRows.length]);
 
+  const fitCoverageFor = useCallback(
+    (selectionKind) => {
+      if (selectionKind === "country") {
+        if (viewportTier === "l") return 0.87;
+        if (viewportTier === "m") return 0.9;
+        if (viewportTier === "s") return 0.88;
+        return 0.9;
+      }
+      if (selectionKind === "region") {
+        if (viewportTier === "l") return 0.95;
+        if (viewportTier === "m") return 0.96;
+        if (viewportTier === "s") return 0.95;
+        return 0.98;
+      }
+      if (viewportTier === "l") return 0.96;
+      if (viewportTier === "m") return 0.97;
+      if (viewportTier === "s") return 0.96;
+      return 0.99;
+    },
+    [viewportTier]
+  );
+
+  const applyTierBias = useCallback(
+    (view, { selectionKind, features, focusRect }) => {
+      let next = view;
+
+      if (viewportTier === "l") {
+        const globalShiftX = selectionKind === "global" ? L_GLOBAL_SHIFT_X : 0;
+        const globalShiftY = selectionKind === "global" ? L_GLOBAL_SHIFT_Y : 0;
+        next = clampTransform({
+          ...next,
+          tx: next.tx + L_COMMON_SHIFT_X + globalShiftX,
+          ty: next.ty + L_COMMON_SHIFT_Y + globalShiftY
+        });
+      }
+
+      if (viewportTier === "xl" && features?.length) {
+        const bounds = collectFeatureBounds(features, path);
+        if (bounds) {
+          const targetRect = clampFocusRect(focusRect);
+          const targetWidth = targetRect.x1 - targetRect.x0;
+          const rightThirdStart = targetRect.x1 - targetWidth / 3;
+          const targetRight = targetRect.x1 - XL_RIGHT_JUSTIFY_GAP;
+          const bboxHalfWidth = ((bounds.maxX - bounds.minX) * next.scale) / 2;
+          const worldCenter = ((bounds.minX + bounds.maxX) / 2) * next.scale;
+          const rightThirdCenter = rightThirdStart + (targetRight - rightThirdStart) / 2;
+          const minInsideCenter = targetRect.x0 + XL_RIGHT_JUSTIFY_GAP + bboxHalfWidth;
+
+          let targetCenter = rightThirdCenter;
+          const canFullyFitInsideRightThird = bboxHalfWidth * 2 <= targetRight - rightThirdStart;
+          if (canFullyFitInsideRightThird) {
+            const minRightThirdCenter = rightThirdStart + bboxHalfWidth;
+            const maxRightThirdCenter = targetRight - bboxHalfWidth;
+            targetCenter = clamp(rightThirdCenter, minRightThirdCenter, maxRightThirdCenter);
+          } else {
+            // When too wide for the right third, keep right edge in bounds and bias as far right as possible.
+            targetCenter = targetRight - bboxHalfWidth;
+          }
+
+          targetCenter = Math.max(targetCenter, minInsideCenter);
+          next = clampTransform({
+            ...next,
+            tx: targetCenter - worldCenter
+          });
+        }
+      }
+
+      return next;
+    },
+    [path, viewportTier]
+  );
+
   const fitSelectedIso = useCallback(
     (iso3) => {
       const feature = iso3 ? baseFeaturesByIso.get(iso3) : null;
-      return feature ? fitTransformForFeature(feature, path) : IDENTITY_VIEW;
+      const focusRect = getFocusRect("country");
+      if (!feature) {
+        return IDENTITY_VIEW;
+      }
+      const fitted = fitTransformForFeature(feature, path, focusRect, fitCoverageFor("country"));
+      return applyTierBias(fitted, {
+        selectionKind: "country",
+        features: [feature],
+        focusRect
+      });
     },
-    [baseFeaturesByIso, path]
+    [applyTierBias, baseFeaturesByIso, fitCoverageFor, getFocusRect, path]
   );
+
+  const resolveGlobalView = useCallback(() => {
+    const focusRect = getFocusRect("global");
+    const targetFeatures = globalFeatures.length ? globalFeatures : baseFeatures;
+    const fitted = fitTransformForFeatures(targetFeatures, path, focusRect, fitCoverageFor("global"));
+    return applyTierBias(fitted, {
+      selectionKind: "global",
+      features: targetFeatures,
+      focusRect
+    });
+  }, [applyTierBias, baseFeatures, fitCoverageFor, getFocusRect, globalFeatures, path]);
+
+  const resolveRegionView = useCallback(() => {
+    if (!regionFeatures.length) {
+      return resolveGlobalView();
+    }
+    const focusRect = getFocusRect("region");
+    const fitted = fitTransformForFeatures(regionFeatures, path, focusRect, fitCoverageFor("region"));
+    return applyTierBias(fitted, {
+      selectionKind: "region",
+      features: regionFeatures,
+      focusRect
+    });
+  }, [applyTierBias, fitCoverageFor, getFocusRect, path, regionFeatures, resolveGlobalView]);
 
   const pickCountryAtClientPoint = useCallback(
     (clientX, clientY) => {
@@ -603,9 +1171,12 @@ export function GlobalMapD3({
   }, [applyTransform, featureRows]);
 
   useEffect(() => {
+    if (!selectedIso) {
+      return;
+    }
     const target = fitSelectedIso(selectedIso);
     animateToTransform(target, 680);
-  }, [animateToTransform, fitSelectedIso, selectedIso]);
+  }, [animateToTransform, fitSelectedIso, resizeRevision, selectedIso, viewportTier]);
 
   useEffect(() => {
     if (selectedIso) {
@@ -613,23 +1184,19 @@ export function GlobalMapD3({
     }
 
     if (selectedRegion === "global") {
-      animateToTransform(IDENTITY_VIEW, 520);
+      animateToTransform(resolveGlobalView(), 520);
       return;
     }
 
-    const fittedRegion = fitTransformForFeatures(regionFeatures, path);
-    const zoomedOut = scaleAroundPoint(
-      fittedRegion,
-      REGION_ZOOM_OUT_FACTOR,
-      VIEWBOX_WIDTH / 2,
-      VIEWBOX_HEIGHT / 2
-    );
-    const target = clampTransform({
-      ...zoomedOut,
-      ty: zoomedOut.ty + REGION_DOWN_SHIFT_PX
-    });
-    animateToTransform(target, 640);
-  }, [animateToTransform, path, regionFeatures, selectedIso, selectedRegion]);
+    animateToTransform(resolveRegionView(), 640);
+  }, [
+    animateToTransform,
+    resolveGlobalView,
+    resolveRegionView,
+    resizeRevision,
+    selectedIso,
+    selectedRegion
+  ]);
 
   const zoomBy = useCallback(
     (factor, anchorX = VIEWBOX_WIDTH / 2, anchorY = VIEWBOX_HEIGHT / 2, animate = false) => {
@@ -646,8 +1213,8 @@ export function GlobalMapD3({
 
   const handleResetView = useCallback(() => {
     onClearSelection();
-    animateToTransform(IDENTITY_VIEW, 420);
-  }, [animateToTransform, onClearSelection]);
+    animateToTransform(resolveGlobalView(), 420);
+  }, [animateToTransform, onClearSelection, resolveGlobalView]);
 
   const handleWrapClickCapture = useCallback(
     (event) => {
@@ -683,7 +1250,7 @@ export function GlobalMapD3({
 
   const handleWheel = useCallback(
     (event) => {
-      if (window.innerWidth < 760) {
+      if (window.innerWidth <= 980) {
         return;
       }
       if (event.cancelable) {
@@ -880,7 +1447,8 @@ export function GlobalMapD3({
 
   return (
     <div
-      className={`map-wrap map-wrap--page23${isDragging ? " is-dragging" : ""}${isInteracting ? " is-interacting" : ""}`}
+      ref={wrapRef}
+      className={`map-wrap map-wrap--page23 map-wrap--tier-${viewportTier}${isDragging ? " is-dragging" : ""}${isInteracting ? " is-interacting" : ""}${isResizing ? " is-resizing" : ""}`}
       tabIndex={0}
       onKeyDown={handleMapKeyDown}
       onClickCapture={handleWrapClickCapture}
@@ -1038,7 +1606,7 @@ export function GlobalMapD3({
             />
           ) : null}
 
-          {shownLabels.map((label) => (
+          {renderedLabels.map((label) => (
             <text
               key={`${label.iso3}-label`}
               x={label.x + label.dx}
@@ -1050,8 +1618,8 @@ export function GlobalMapD3({
               stroke="#F5EFE1"
               paintOrder="stroke"
               style={{
-                fontSize: "calc(9.5px * var(--map-scale-inverse, 1))",
-                strokeWidth: "calc(1.3px * var(--map-scale-inverse, 1))"
+                fontSize: "calc(var(--map-label-base, 9.8px) * var(--map-scale-inverse, 1))",
+                strokeWidth: "calc(var(--map-label-stroke, 1.3px) * var(--map-scale-inverse, 1))"
               }}
               fillOpacity={selectedIso && label.iso3 !== selectedIso ? 0.34 : 1}
               pointerEvents="none"
@@ -1068,7 +1636,7 @@ export function GlobalMapD3({
 
       {overlay}
 
-      <div className="map-legend-stack">
+      <div className={`map-legend-stack${legendCollapsed ? " is-collapsed" : ""}`}>
         <div className="map-nav-tools" aria-label="Map navigation controls">
           <button
             type="button"
@@ -1109,17 +1677,14 @@ export function GlobalMapD3({
                   Hide
                 </button>
               </div>
+              <p className="map-legend__note">In the 2024 portfolio:</p>
               <ul>
                 {statusDefinitions.map((status) => (
                   <li key={status.id}>
                     <span className="swatch" style={getLegendSwatchStyle(status.id)} aria-hidden="true" />
-                    <span>{status.label}</span>
+                    <span>{getConciseLegendLabel(status)}</span>
                   </li>
                 ))}
-                <li>
-                  <span className="swatch" style={{ background: "#ECEBE3", border: "1px solid rgba(170, 176, 170, 0.86)" }} aria-hidden="true" />
-                  <span>Other countries (no 2024 portfolio project)</span>
-                </li>
               </ul>
             </>
           )}

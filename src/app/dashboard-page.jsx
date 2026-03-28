@@ -14,7 +14,7 @@ import {
   getWorldCountriesGeo,
   getWorldGeo
 } from "../lib/content";
-import { formatUnit } from "../lib/format";
+import { formatCompact, formatUnit } from "../lib/format";
 import { useAsyncData } from "../lib/use-async-data";
 import {
   AtlasContextPhoto,
@@ -35,6 +35,20 @@ import {
   resolveMediaPath,
   themeOrder
 } from "./dashboard-support";
+
+function normalizeHighlightText(value) {
+  return String(value ?? "")
+    .toLowerCase()
+    .replace(/[\W_]+/g, " ")
+    .trim();
+}
+
+const REGION_BUBBLE_COLORS = {
+  global: "#d4b988",
+  africa: "#d05c49",
+  asia: "#0b4f63",
+  latin_america: "#128c7e"
+};
 
 export function DashboardPage() {
   const loadDashboardData = useCallback(async () => {
@@ -150,20 +164,59 @@ export function DashboardPage() {
   const selectedCountry =
     countries.find((country) => country.iso3 === selectedCountryIso) ?? null;
 
+  const selectedCountryFeaturedAchievements = useMemo(() => {
+    const seen = new Set();
+    return (selectedCountry?.featured_achievements ?? []).filter((achievement) => {
+      const key = normalizeHighlightText(achievement);
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  }, [selectedCountry]);
+
   const selectedCountryThemes = useMemo(
     () => new Set(selectedCountry?.thematics ?? []),
     [selectedCountry]
   );
 
-  const selectedCountryEvidenceExcerpts = useMemo(
-    () => buildEvidenceExcerpts(selectedCountryEvidence),
-    [selectedCountryEvidence]
-  );
+  const selectedCountryEvidenceHighlights = useMemo(() => {
+    const seen = new Set(
+      selectedCountryFeaturedAchievements.map((achievement) => normalizeHighlightText(achievement))
+    );
+    return buildEvidenceHighlights(selectedCountryEvidence).filter((highlight) => {
+      const key = normalizeHighlightText(highlight?.text);
+      if (!key || seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  }, [selectedCountryEvidence, selectedCountryFeaturedAchievements]);
 
-  const selectedCountryEvidenceHighlights = useMemo(
-    () => buildEvidenceHighlights(selectedCountryEvidence),
-    [selectedCountryEvidence]
-  );
+  const selectedCountryEvidenceExcerpts = useMemo(() => {
+    const seen = new Set([
+      ...selectedCountryFeaturedAchievements.map((achievement) => normalizeHighlightText(achievement)),
+      ...selectedCountryEvidenceHighlights.map((highlight) => normalizeHighlightText(highlight?.text))
+    ]);
+    return buildEvidenceExcerpts(selectedCountryEvidence).filter((excerpt) => {
+      const combined = normalizeHighlightText(`${excerpt?.title ?? ""} ${excerpt?.description ?? ""}`);
+      const titleOnly = normalizeHighlightText(excerpt?.title);
+      const descriptionOnly = normalizeHighlightText(excerpt?.description);
+      const isDuplicate =
+        (combined && seen.has(combined)) ||
+        (titleOnly && seen.has(titleOnly)) ||
+        (descriptionOnly && seen.has(descriptionOnly));
+      if (isDuplicate || (!combined && !titleOnly && !descriptionOnly)) {
+        return false;
+      }
+      if (combined) seen.add(combined);
+      if (titleOnly) seen.add(titleOnly);
+      if (descriptionOnly) seen.add(descriptionOnly);
+      return true;
+    });
+  }, [selectedCountryEvidence, selectedCountryEvidenceHighlights, selectedCountryFeaturedAchievements]);
 
   useEffect(() => {
     let active = true;
@@ -262,6 +315,9 @@ export function DashboardPage() {
     return new Map(entries);
   }, [photoAssignments?.theme_media]);
 
+  const selectedCountryContextMedia =
+    selectedCountryPhoto ?? selectedCountryPhotoFallback ?? selectedThemeMedia ?? null;
+
   const displayedKpis = useMemo(() => {
     const themeMode =
       kpiDisplayLogic.theme_modes[selectedThemeSlug] ?? kpiDisplayLogic.default_theme_mode;
@@ -309,7 +365,7 @@ export function DashboardPage() {
 
   const activeKpis = selectedCountry
     ? buildCountryKpis(selectedCountry)
-    : displayedKpis.slice(0, 6);
+    : displayedKpis;
 
   const selectedCountryVideos = useMemo(
     () => buildCountryVideos(selectedCountry, countryVideoIndex),
@@ -357,6 +413,36 @@ export function DashboardPage() {
     [globalContent.about?.pillars]
   );
 
+  const regionalHectareBubbles = useMemo(() => {
+    const regionalKpis = globalContent.regional_kpis ?? {};
+    const values = regionOptions.map((option) => {
+      const rawValue = Number(regionalKpis?.[option.key]?.hectares_positively_impacted);
+      return {
+        key: option.key,
+        hectares: Number.isFinite(rawValue) && rawValue > 0 ? rawValue : null
+      };
+    });
+
+    const maxHectares = Math.max(
+      ...values.map((entry) => (Number.isFinite(entry.hectares) ? entry.hectares : 0)),
+      1
+    );
+
+    return values.map((entry) => {
+      const scaledRatio = entry.hectares ? Math.sqrt(entry.hectares / maxHectares) : 0;
+      return {
+        ...entry,
+        bubbleSize: entry.hectares ? 8 + scaledRatio * 14 : 8,
+        color: REGION_BUBBLE_COLORS[entry.key] ?? "#d4b988"
+      };
+    });
+  }, [globalContent.regional_kpis]);
+
+  const regionalHectareBubbleByKey = useMemo(
+    () => new Map(regionalHectareBubbles.map((entry) => [entry.key, entry])),
+    [regionalHectareBubbles]
+  );
+
   const isAllThematicsOverview = !selectedCountry && selectedTheme.slug === "tenure-security";
 
   useEffect(() => {
@@ -380,6 +466,7 @@ export function DashboardPage() {
           allCountries={countries}
           visibleCountries={visibleCountries}
           selectedRegion={selectedRegion}
+          isAllThematicsOverview={isAllThematicsOverview}
           worldFootprintGeo={worldGeo}
           worldCountriesGeo={worldCountriesGeo}
           statusDefinitions={globalContent.status_definitions}
@@ -404,19 +491,54 @@ export function DashboardPage() {
                     </p>
                     <div className="atlas-region-controls">
                       <div className="atlas-region-tabs atlas-region-tabs--intro" role="group" aria-label="Region filter">
-                        {regionOptions.map((option) => (
-                          <button
-                            key={option.key}
-                            type="button"
-                            className={selectedRegion === option.key ? "is-active" : ""}
-                            onClick={() => {
-                              setSelectedRegion(option.key);
-                              setSelectedCountryIso(null);
-                            }}
-                          >
-                            {option.label}
-                          </button>
-                        ))}
+                        {regionOptions.map((option) => {
+                          const regionalBubble = regionalHectareBubbleByKey.get(option.key);
+                          const hasHectares = Number.isFinite(regionalBubble?.hectares);
+                          const tooltipId = `atlas-region-hectares-${option.key}`;
+                          const tooltipText = hasHectares
+                            ? `${formatUnit(regionalBubble.hectares, "ha")} positively impacted`
+                            : "";
+                          return (
+                            <button
+                              key={option.key}
+                              type="button"
+                              className={[
+                                "atlas-region-tab",
+                                selectedRegion === option.key ? "is-active" : ""
+                              ]
+                                .filter(Boolean)
+                                .join(" ")}
+                              aria-describedby={hasHectares ? tooltipId : undefined}
+                              title={tooltipText || undefined}
+                              onClick={() => {
+                                setSelectedRegion(option.key);
+                                setSelectedCountryIso(null);
+                              }}
+                            >
+                              <span className="atlas-region-tab__label">{option.label}</span>
+                              {hasHectares ? (
+                                <span className="atlas-region-tab__meta">
+                                  <span
+                                    className="atlas-region-tab__bubble"
+                                    aria-hidden="true"
+                                    style={{
+                                      "--bubble-size": `${regionalBubble.bubbleSize}px`,
+                                      "--bubble-color": regionalBubble.color
+                                    }}
+                                  />
+                                  <span className="atlas-region-tab__value">
+                                    {`${formatCompact(regionalBubble.hectares)} ha`}
+                                  </span>
+                                </span>
+                              ) : null}
+                              {hasHectares ? (
+                                <span id={tooltipId} className="atlas-region-bubble-tooltip" role="tooltip">
+                                  {tooltipText}
+                                </span>
+                              ) : null}
+                            </button>
+                          );
+                        })}
                       </div>
                       <input
                         type="search"
@@ -467,24 +589,22 @@ export function DashboardPage() {
                     <h2>{selectedCountry.name}</h2>
                     {(selectedCountryPhoto?.image || selectedCountryPhotoFallback?.image || selectedThemeMedia?.image) ? (
                       <AtlasContextPhoto
-                        src={resolveMediaPath(
-                          selectedCountryPhoto?.image || selectedCountryPhotoFallback?.image || selectedThemeMedia?.image
-                        )}
+                        src={resolveMediaPath(selectedCountryContextMedia?.image)}
                         fallbackSrc={selectedThemeImage || ""}
                         alt={
-                          selectedCountryPhoto?.alt ||
-                          selectedCountryPhotoFallback?.alt ||
-                          selectedThemeMedia?.alt ||
-                          `${selectedCountry.name} photo`
+                          selectedCountryContextMedia?.alt || `${selectedCountry.name} photo`
                         }
+                        yOffset={selectedCountryContextMedia?.y_offset}
                       />
                     ) : null}
                     <p>{selectedCountry.summary}</p>
-                    <ul>
-                      {selectedCountry.featured_achievements.slice(0, 3).map((achievement) => (
-                        <li key={achievement}>{achievement}</li>
-                      ))}
-                    </ul>
+                    {selectedCountryFeaturedAchievements.length ? (
+                      <ul>
+                        {selectedCountryFeaturedAchievements.slice(0, 3).map((achievement) => (
+                          <li key={achievement}>{achievement}</li>
+                        ))}
+                      </ul>
+                    ) : null}
                     {selectedCountryEvidenceHighlights.length ? (
                       <section className="atlas-context-evidence" aria-label={`${selectedCountry.name} report highlights`}>
                         <h3>Additional highlights</h3>
@@ -556,6 +676,7 @@ export function DashboardPage() {
                         src={selectedThemeImage}
                         fallbackSrc=""
                         alt={selectedThemeMedia.alt || `${selectedTheme.name} photo`}
+                        yOffset={selectedThemeMedia?.y_offset}
                       />
                     ) : null}
                     {isAllThematicsOverview ? (

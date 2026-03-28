@@ -1,3367 +1,682 @@
 {
   "projectId": "rooted_10y",
-  "projectTitle": "Rooted \u2014 Tenure Facility Decade Explainer",
+  "projectTitle": "Rooted — Tenure Facility Decade Explainer",
   "scenes": [
     {
       "id": "S1",
-      "order": 1,
-      "title": "Underground Prelude",
-      "theme": "Roots / mycelium / origin before visibility",
-      "scrollStartVh": 0,
-      "scrollLengthVh": 220,
-      "pin": true,
-      "bgColor": "#120E0A",
-      "camera": {
-        "groupId": "CAM_S1",
-        "move": "push_in",
-        "notes": "Slow 2.5D push through soil layers toward root network; text appears as discoveries."
+      "title": "The Opening",
+      "bgColor": "#0E0B08",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s1/seq/opening_thread/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Dark rich soil in close-up with a single fine mycelium thread beginning to glow, subtle moisture, warm earthy palette, soft volumetric light, highly detailed organic texture, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and visual style as the start frame. The single thread has expanded into a delicate branching mycelium network with gentle bioluminescent glow, still underground, same earthy cinematic palette, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate from a single glowing underground thread into a small branching mycelium structure. Keep movement organic and subtle, with no camera pan or rotation, no flicker, and no new subjects. Prioritize texture continuity and cinematic realism."
+          }
+        }
       },
-      "layers": [
+      "texts": [
         {
-          "id": "S1_L01",
-          "parentLayerId": null,
-          "order": 1,
-          "kind": "image",
-          "name": "Soil gradient background",
-          "assetMode": "static",
-          "assetPath": "/assets/s1/soil_gradient.avif",
-          "assetFormat": "avif",
-          "assetRole": "background",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 130,
-          "baseXPct": 50,
-          "baseYPct": 50,
-          "depthIndex": -5,
-          "parallaxX": 0,
-          "parallaxY": 0.05,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s1/soil_gradient.avif",
-          "mobileBehavior": "keep",
-          "preloadPriority": "high",
-          "notes": "Base full-bleed background; no independent entrance animation.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 52,
-              "scale": 1.08,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.12,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 48,
-              "scale": 1.18,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 46,
-              "scale": 1.25,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S1_L02",
-          "parentLayerId": null,
-          "order": 2,
-          "kind": "image",
-          "name": "Deep root silhouettes",
-          "assetMode": "static",
-          "assetPath": "/assets/s1/deep_roots.webp",
-          "assetFormat": "webp",
-          "assetRole": "midground",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 120,
-          "heightVh": 110,
-          "baseXPct": 52,
-          "baseYPct": 58,
-          "depthIndex": -2,
-          "parallaxX": 0.01,
-          "parallaxY": 0.18,
-          "blendMode": "multiply",
-          "maskShape": "none",
-          "triggerStart": 0.02,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": "/assets/s1/deep_roots.webp",
-          "mobileBehavior": "keep",
-          "preloadPriority": "high",
-          "notes": "Large silhouette mass that establishes depth under the soil.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 52,
-              "yPct": 62,
-              "scale": 1.02,
-              "opacity": 0.35,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 51,
-              "yPct": 58,
-              "scale": 1.05,
-              "opacity": 0.75,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 55,
-              "scale": 1.1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 49,
-              "yPct": 52,
-              "scale": 1.16,
-              "opacity": 0.8,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S1_L03",
-          "parentLayerId": null,
-          "order": 3,
-          "kind": "sequence",
-          "name": "Mycelial network growth sequence",
-          "assetMode": "sequence",
-          "assetPath": "/assets/s1/seq/mycelium_growth",
-          "assetFormat": "webp_sequence",
-          "assetRole": "hero-sequence",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 110,
-          "heightVh": 100,
-          "baseXPct": 50,
-          "baseYPct": 54,
-          "depthIndex": 0,
-          "parallaxX": 0.015,
-          "parallaxY": 0.22,
-          "blendMode": "screen",
-          "maskShape": "none",
-          "triggerStart": 0.08,
-          "triggerEnd": 0.92,
-          "ease": "none",
-          "reducedMotionMode": "first-frame",
-          "reducedMotionAsset": "/assets/s1/seq/mycelium_growth/frame_0001.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "high",
-          "notes": "Primary AI-generated image sequence; scrub frame index directly from local scene progress.",
-          "sequence": {
-            "srcPattern": "/assets/s1/seq/mycelium_growth/frame_%04d.webp",
-            "frameCount": 12,
-            "fps": 18,
-            "scrubMode": "frame-by-scroll",
-            "aiStartPrompt": "Dark underground cross section with sparse faint fungal threads, earthy painterly texture, cinematic low light, no text, centered composition.",
-            "aiEndPrompt": "Dense glowing mycelial thread network spreading laterally through rich soil, earthy painterly texture, subtle bioluminescent highlights, no text, centered composition."
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 58,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 3,
-              "frame": 4
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 54,
-              "scale": 1,
-              "opacity": 0.85,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 23
-            },
-            {
-              "p": 0.7,
-              "xPct": 49,
-              "yPct": 51,
-              "scale": 1.05,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 23
-            },
-            {
-              "p": 1,
-              "xPct": 49,
-              "yPct": 48,
-              "scale": 1.12,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 23
-            }
-          ]
-        },
-        {
-          "id": "S1_L04",
-          "parentLayerId": null,
-          "order": 4,
-          "kind": "image",
-          "name": "Dust / particulate overlay",
-          "assetMode": "static",
-          "assetPath": "/assets/s1/particles.png",
-          "assetFormat": "png",
-          "assetRole": "atmosphere",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 120,
-          "heightVh": 120,
-          "baseXPct": 50,
-          "baseYPct": 50,
-          "depthIndex": 3,
-          "parallaxX": 0.02,
-          "parallaxY": 0.28,
-          "blendMode": "screen",
-          "maskShape": "none",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "hide",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "hide",
-          "preloadPriority": "low",
-          "notes": "Very light atmosphere only; disable on low-end/mobile.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 52,
-              "yPct": 54,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 51,
-              "yPct": 52,
-              "scale": 1.02,
-              "opacity": 0.25,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.06,
-              "opacity": 0.42,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 49,
-              "yPct": 48,
-              "scale": 1.1,
-              "opacity": 0.15,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S1_L05",
-          "parentLayerId": null,
-          "order": 5,
-          "kind": "image",
-          "name": "Soft fog depth veil",
-          "assetMode": "static",
-          "assetPath": "/assets/s1/fog_layer.webp",
-          "assetFormat": "webp",
-          "assetRole": "foreground",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 90,
-          "baseXPct": 50,
-          "baseYPct": 70,
-          "depthIndex": 4,
-          "parallaxX": 0,
-          "parallaxY": 0.35,
-          "blendMode": "screen",
-          "maskShape": "gradient-bottom",
-          "triggerStart": 0.1,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "hide",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "hide",
-          "preloadPriority": "low",
-          "notes": "Use as foreground veil to increase 2.5D feel during camera push.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 75,
-              "scale": 1.1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 72,
-              "scale": 1.08,
-              "opacity": 0.15,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 68,
-              "scale": 1.05,
-              "opacity": 0.25,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 64,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S1_L06",
-          "parentLayerId": null,
-          "order": 6,
-          "kind": "text",
-          "name": "Opening kicker",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "title",
-          "textContent": "A tree does not begin with its rings.",
-          "fontFamily": "Fraunces",
-          "fontWeight": 600,
-          "fontSizeDesktopPx": 56,
-          "fontSizeMobilePx": 34,
+          "id": "S1_T1",
+          "content": "Rooted.",
           "textAlign": "left",
-          "widthVw": 42,
-          "heightVh": 18,
-          "baseXPct": 12,
-          "baseYPct": 18,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.05,
-          "triggerEnd": 0.42,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Primary title beat for scene 1.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 12,
-              "yPct": 24,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 12,
-              "yPct": 20,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 12,
-              "yPct": 18,
-              "scale": 1,
-              "opacity": 0.65,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 12,
-              "yPct": 16,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            }
-          ]
+          "widthVw": 24,
+          "heightVh": 12,
+          "xPct": 10,
+          "yPct": 22,
+          "styleId": "title"
         },
         {
-          "id": "S1_L07",
-          "parentLayerId": null,
-          "order": 7,
-          "kind": "text",
-          "name": "Opening body beat 1",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "body",
-          "textContent": "It begins underground \u2014 with roots pushing through soil, with fungal threads reaching outward in every direction, with a network of connection forming long before the first ring is ever laid down.",
-          "fontFamily": "Inter",
-          "fontWeight": 400,
-          "fontSizeDesktopPx": 24,
-          "fontSizeMobilePx": 18,
+          "id": "S1_T2",
+          "content": "A global initiative marking ten years of advancing land and forest rights.",
           "textAlign": "left",
-          "widthVw": 36,
-          "heightVh": 26,
-          "baseXPct": 12,
-          "baseYPct": 42,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.18,
-          "triggerEnd": 0.66,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Two-line paragraph beat synced with mycelial sequence growth.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 12,
-              "yPct": 46,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 12,
-              "yPct": 42,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 12,
-              "yPct": 40,
-              "scale": 1,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 12,
-              "yPct": 38,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            }
-          ]
+          "widthVw": 34,
+          "heightVh": 14,
+          "xPct": 10,
+          "yPct": 42,
+          "styleId": "bodyStrong"
         },
         {
-          "id": "S1_L08",
-          "parentLayerId": null,
-          "order": 8,
-          "kind": "text",
-          "name": "Opening body beat 2",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "body",
-          "textContent": "By the time you count a tree's rings, you are reading a record of something that was already ancient.",
-          "fontFamily": "Inter",
-          "fontWeight": 500,
-          "fontSizeDesktopPx": 26,
-          "fontSizeMobilePx": 18,
+          "id": "S1_T3",
+          "content": "What begins as a single thread becomes a living system.",
           "textAlign": "left",
-          "widthVw": 36,
-          "heightVh": 16,
-          "baseXPct": 12,
-          "baseYPct": 70,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.55,
-          "triggerEnd": 0.95,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Exit beat that prepares transition to visible trunk.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 12,
-              "yPct": 74,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 12,
-              "yPct": 70,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 12,
-              "yPct": 68,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 12,
-              "yPct": 66,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 3,
-              "frame": 0
-            }
-          ]
+          "widthVw": 32,
+          "heightVh": 14,
+          "xPct": 10,
+          "yPct": 66,
+          "styleId": "body"
         }
       ]
     },
     {
       "id": "S2",
-      "order": 2,
-      "title": "Recognition, Not Creation",
-      "theme": "Emergence of trunk / continuity / pre-existing stewardship",
-      "scrollStartVh": 220,
-      "scrollLengthVh": 180,
-      "pin": true,
-      "bgColor": "#1A140E",
-      "camera": {
-        "groupId": "CAM_S2",
-        "move": "crane_up",
-        "notes": "Camera rises from underground toward trunk base; previous underground imagery softens but remains partly visible."
+      "title": "The Ecosystem",
+      "bgColor": "#120E0A",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s2/seq/mycelium_growth/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Subsurface view: sparse roots and fungal strands beneath forest soil, early-stage underground connectivity, quiet atmosphere, warm browns and deep greens, detailed natural textures, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Underground network is now dense and interconnected, carrying nutrients around roots, a small shoot becoming visible above soil line, smooth growth progression, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate gradual expansion of underground connectivity: roots and fungal threads become denser and coordinated, with a barely emerging shoot above soil. Motion should feel ecological and physically plausible, no abrupt transitions or camera drift."
+          }
+        }
       },
-      "layers": [
+      "texts": [
         {
-          "id": "S2_L01",
-          "parentLayerId": null,
-          "order": 1,
-          "kind": "image",
-          "name": "Soil-to-light background",
-          "assetMode": "static",
-          "assetPath": "/assets/s2/soil_to_light_gradient.avif",
-          "assetFormat": "avif",
-          "assetRole": "background",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 130,
-          "baseXPct": 50,
-          "baseYPct": 50,
-          "depthIndex": -5,
-          "parallaxX": 0,
-          "parallaxY": 0.06,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s2/soil_to_light_gradient.avif",
-          "mobileBehavior": "keep",
-          "preloadPriority": "high",
-          "notes": "Dark lower half with warm light entering upper area.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 54,
-              "scale": 1.08,
-              "opacity": 0.85,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.12,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 47,
-              "scale": 1.16,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 44,
-              "scale": 1.22,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S2_L02",
-          "parentLayerId": null,
-          "order": 2,
-          "kind": "image",
-          "name": "Residual underground roots",
-          "assetMode": "static",
-          "assetPath": "/assets/s2/root_holdover.webp",
-          "assetFormat": "webp",
-          "assetRole": "continuity-layer",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 115,
-          "heightVh": 70,
-          "baseXPct": 50,
-          "baseYPct": 88,
-          "depthIndex": -1,
-          "parallaxX": 0,
-          "parallaxY": 0.14,
-          "blendMode": "multiply",
-          "maskShape": "gradient-top",
-          "triggerStart": 0,
-          "triggerEnd": 0.55,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s2/root_holdover.webp",
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Ensures scene 1 and 2 feel connected rather than cut apart.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 92,
-              "scale": 1,
-              "opacity": 0.8,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 88,
-              "scale": 1.03,
-              "opacity": 0.65,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 84,
-              "scale": 1.06,
-              "opacity": 0.25,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 80,
-              "scale": 1.1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S2_L03",
-          "parentLayerId": null,
-          "order": 3,
-          "kind": "sequence",
-          "name": "Trunk emergence sequence",
-          "assetMode": "sequence",
-          "assetPath": "/assets/s2/seq/trunk_emergence",
-          "assetFormat": "webp_sequence",
-          "assetRole": "hero-sequence",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 42,
-          "heightVh": 92,
-          "baseXPct": 68,
-          "baseYPct": 58,
-          "depthIndex": 1,
-          "parallaxX": 0.008,
-          "parallaxY": 0.2,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.08,
-          "triggerEnd": 0.95,
-          "ease": "none",
-          "reducedMotionMode": "first-frame",
-          "reducedMotionAsset": "/assets/s2/seq/trunk_emergence/frame_0001.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "high",
-          "notes": "Hero transition sequence for Scene 2: root holdover to visible trunk establishment.",
-          "sequence": {
-            "srcPattern": "/assets/s2/seq/trunk_emergence/frame_%04d.webp",
-            "frameCount": 24,
-            "fps": 18,
-            "scrubMode": "frame-by-scroll",
-            "aiStartPrompt": "Early upward trunk emergence from root zone, soft low-contrast bark silhouette with diffuse dawn light, painterly documentary style, no text.",
-            "aiEndPrompt": "Fully established trunk and lower canopy transition with brighter morning light shafts, richer bark texture, painterly documentary style, no text."
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 69,
-              "yPct": 61,
-              "scale": 0.92,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 68,
-              "yPct": 59,
-              "scale": 0.98,
-              "opacity": 0.78,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 8
-            },
-            {
-              "p": 0.7,
-              "xPct": 67,
-              "yPct": 57,
-              "scale": 1.06,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 17
-            },
-            {
-              "p": 1,
-              "xPct": 66,
-              "yPct": 55,
-              "scale": 1.12,
-              "opacity": 0.96,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 23
-            }
-          ]
-        },
-        {
-          "id": "S2_L04",
-          "parentLayerId": null,
-          "order": 4,
-          "kind": "image",
-          "name": "Light beam overlay",
-          "assetMode": "static",
-          "assetPath": "/assets/s2/light_beam.webp",
-          "assetFormat": "webp",
-          "assetRole": "atmosphere",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 75,
-          "heightVh": 100,
-          "baseXPct": 72,
-          "baseYPct": 22,
-          "depthIndex": 2,
-          "parallaxX": -0.01,
-          "parallaxY": 0.1,
-          "blendMode": "screen",
-          "maskShape": "none",
-          "triggerStart": 0.08,
-          "triggerEnd": 0.8,
-          "ease": "none",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": "/assets/s2/light_beam.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "low",
-          "notes": "Small atmospheric cue that the site is emerging above ground.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 74,
-              "yPct": 16,
-              "scale": 0.96,
-              "opacity": 0,
-              "rotateDeg": -4,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 73,
-              "yPct": 18,
-              "scale": 1,
-              "opacity": 0.35,
-              "rotateDeg": -2,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 72,
-              "yPct": 20,
-              "scale": 1.04,
-              "opacity": 0.5,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 71,
-              "yPct": 22,
-              "scale": 1.08,
-              "opacity": 0.1,
-              "rotateDeg": 2,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S2_L05",
-          "parentLayerId": null,
-          "order": 5,
-          "kind": "image",
-          "name": "Archival paper texture",
-          "assetMode": "static",
-          "assetPath": "/assets/s2/paper_texture.avif",
-          "assetFormat": "avif",
-          "assetRole": "texture",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 130,
-          "baseXPct": 50,
-          "baseYPct": 50,
-          "depthIndex": 3,
-          "parallaxX": 0,
-          "parallaxY": 0.04,
-          "blendMode": "soft-light",
-          "maskShape": "none",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s2/paper_texture.avif",
-          "mobileBehavior": "hide",
-          "preloadPriority": "low",
-          "notes": "Optional tactile grain only.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0.08,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0.12,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0.12,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S2_L06",
-          "parentLayerId": null,
-          "order": 6,
-          "kind": "text",
-          "name": "Scene 2 title",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "title",
-          "textContent": "The land rights movement is ancient. The decade did not create it \u2014 it recognized it.",
-          "fontFamily": "Fraunces",
-          "fontWeight": 600,
-          "fontSizeDesktopPx": 50,
-          "fontSizeMobilePx": 32,
+          "id": "S2_T1",
+          "content": "A hundred-year-old tree did not arrive at its age alone.",
           "textAlign": "left",
           "widthVw": 42,
-          "heightVh": 24,
-          "baseXPct": 10,
-          "baseYPct": 20,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.08,
-          "triggerEnd": 0.65,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Core interpretive statement for this scene.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 10,
-              "yPct": 24,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 10,
-              "yPct": 20,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 10,
-              "yPct": 18,
-              "scale": 1,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 10,
-              "yPct": 16,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            }
-          ]
+          "heightVh": 20,
+          "xPct": 10,
+          "yPct": 18,
+          "styleId": "heading"
         },
         {
-          "id": "S2_L07",
-          "parentLayerId": null,
-          "order": 7,
-          "kind": "text",
-          "name": "Scene 2 body",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "body",
-          "textContent": "Rooted frames the Tenure Facility as legal recognition, resourcing, and amplification of something that was already there \u2014 and as the network that helps it grow and spread.",
-          "fontFamily": "Inter",
-          "fontWeight": 400,
-          "fontSizeDesktopPx": 24,
-          "fontSizeMobilePx": 18,
+          "id": "S2_T2",
+          "content": "Long before the seed found the ground, a network was already threading through the soil — carrying nutrients, building connections, preparing conditions that the seed itself could never have created.",
           "textAlign": "left",
-          "widthVw": 36,
-          "heightVh": 22,
-          "baseXPct": 10,
-          "baseYPct": 50,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.28,
-          "triggerEnd": 0.95,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Body copy aligned left of trunk.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 10,
-              "yPct": 54,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 10,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0.55,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 10,
-              "yPct": 48,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 10,
-              "yPct": 46,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 3,
-              "frame": 0
-            }
-          ]
+          "widthVw": 38,
+          "heightVh": 26,
+          "xPct": 10,
+          "yPct": 42,
+          "styleId": "body"
+        },
+        {
+          "id": "S2_T3",
+          "content": "This is how lasting change begins: beneath the surface, before it becomes visible.",
+          "textAlign": "left",
+          "widthVw": 34,
+          "heightVh": 16,
+          "xPct": 10,
+          "yPct": 74,
+          "styleId": "bodyStrong"
         }
       ]
     },
     {
       "id": "S3",
-      "order": 3,
-      "title": "Reading the Rings",
-      "theme": "Ten rings / ten years / retrospective with data and stories",
-      "scrollStartVh": 400,
-      "scrollLengthVh": 280,
-      "pin": true,
-      "bgColor": "#241A13",
-      "camera": {
-        "groupId": "CAM_S3",
-        "move": "zoom_to_center",
-        "notes": "Push into cross-section of trunk; ring highlights and info layers appear as nested reveal."
+      "title": "Recognition, Not Creation",
+      "bgColor": "#1A140E",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s3/seq/trunk_emergence/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Low angle at forest floor showing rooted base of a young trunk emerging from established roots, sense of continuity and history, earthy tones, soft directional light, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The trunk is stronger and more established, roots visibly reinforced, subtle signs of legal recognition and protection represented by ordered structure in the environment, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate the trunk emergence and strengthening from rooted base to established growth. Emphasize continuity of bark, roots, and soil detail. Keep motion restrained and grounded, avoiding dramatic camera movement or stylization changes."
+          }
+        }
       },
-      "layers": [
+      "texts": [
         {
-          "id": "S3_L01",
-          "parentLayerId": null,
-          "order": 1,
-          "kind": "image",
-          "name": "Cross-section background",
-          "assetMode": "static",
-          "assetPath": "/assets/s3/rings_background.webp",
-          "assetFormat": "webp",
-          "assetRole": "background",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 120,
-          "heightVh": 120,
-          "baseXPct": 50,
-          "baseYPct": 52,
-          "depthIndex": -4,
-          "parallaxX": 0,
-          "parallaxY": 0.04,
-          "blendMode": "normal",
-          "maskShape": "circle",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s3/rings_background.webp",
-          "mobileBehavior": "keep",
-          "preloadPriority": "high",
-          "notes": "Hero scene backdrop; center crop on trunk cross-section.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 54,
-              "scale": 0.92,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 52,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.12,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 48,
-              "scale": 1.26,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "id": "S3_T1",
+          "content": "The land rights movement is ancient. The decade did not create it — it recognized it.",
+          "textAlign": "left",
+          "widthVw": 42,
+          "heightVh": 24,
+          "xPct": 10,
+          "yPct": 20,
+          "styleId": "heading"
         },
         {
-          "id": "S3_L02",
-          "parentLayerId": null,
-          "order": 2,
-          "kind": "image",
-          "name": "Bark edge vignette",
-          "assetMode": "static",
-          "assetPath": "/assets/s3/bark_edge.png",
-          "assetFormat": "png",
-          "assetRole": "foreground",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 125,
-          "heightVh": 125,
-          "baseXPct": 50,
-          "baseYPct": 52,
-          "depthIndex": 2,
-          "parallaxX": 0,
-          "parallaxY": 0.08,
-          "blendMode": "normal",
-          "maskShape": "circle-edge",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s3/bark_edge.png",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "high",
-          "notes": "Foreground vignette preserves illusion of camera entering tree.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 54,
-              "scale": 0.95,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 52,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.08,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 48,
-              "scale": 1.18,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S3_L03",
-          "parentLayerId": null,
-          "order": 3,
-          "kind": "sequence",
-          "name": "Ring highlight sequence",
-          "assetMode": "sequence",
-          "assetPath": "/assets/s3/seq/rings_highlight",
-          "assetFormat": "webp_sequence",
-          "assetRole": "hero-sequence",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 100,
-          "heightVh": 100,
-          "baseXPct": 50,
-          "baseYPct": 52,
-          "depthIndex": 0,
-          "parallaxX": 0,
-          "parallaxY": 0.06,
-          "blendMode": "screen",
-          "maskShape": "circle",
-          "triggerStart": 0.12,
-          "triggerEnd": 0.95,
-          "ease": "none",
-          "reducedMotionMode": "first-frame",
-          "reducedMotionAsset": "/assets/s3/seq/rings_highlight/frame_0001.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "high",
-          "notes": "Sequence can be AI-assisted or manually composited; maps scroll to ring illumination states.",
-          "sequence": {
-            "srcPattern": "/assets/s3/seq/rings_highlight/frame_%04d.webp",
-            "frameCount": 24,
-            "fps": 20,
-            "scrubMode": "frame-by-scroll",
-            "aiStartPrompt": "Tree cross-section with faint annual rings, warm brown palette, documentary painterly style, no labels, centered circular composition.",
-            "aiEndPrompt": "Tree cross-section with ten subtly illuminated rings and delicate highlight pulses around each ring, warm brown palette, documentary painterly style, no labels, centered circular composition."
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 52,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 51,
-              "scale": 1.03,
-              "opacity": 0.8,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 8
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.12,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 17
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 48,
-              "scale": 1.24,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 23
-            }
-          ]
-        },
-        {
-          "id": "S3_L04",
-          "parentLayerId": null,
-          "order": 4,
-          "kind": "image",
-          "name": "Ring label vector overlay",
-          "assetMode": "static",
-          "assetPath": "/assets/s3/ring_labels.svg",
-          "assetFormat": "svg",
-          "assetRole": "data-overlay",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 88,
-          "heightVh": 88,
-          "baseXPct": 50,
-          "baseYPct": 52,
-          "depthIndex": 3,
-          "parallaxX": 0,
-          "parallaxY": 0.02,
-          "blendMode": "normal",
-          "maskShape": "circle",
-          "triggerStart": 0.3,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s3/ring_labels.svg",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "medium",
-          "notes": "SVG labels for ten rings or decade beats.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 52,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 52,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.02,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 48,
-              "scale": 1.08,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S3_L05",
-          "parentLayerId": null,
-          "order": 5,
-          "kind": "panel",
-          "name": "Metric panel left",
-          "assetMode": "static",
-          "assetPath": "/assets/s3/metric_panel_left.svg",
-          "assetFormat": "svg",
-          "assetRole": "data-panel",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 22,
-          "heightVh": 34,
-          "baseXPct": 12,
-          "baseYPct": 52,
-          "depthIndex": 4,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "rounded-rect",
-          "triggerStart": 0.42,
-          "triggerEnd": 0.95,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s3/metric_panel_left.svg",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "medium",
-          "notes": "Holds metrics such as land secured, communities supported.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 8,
-              "yPct": 56,
-              "scale": 0.96,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 10,
-              "yPct": 54,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 12,
-              "yPct": 52,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 12,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S3_L06",
-          "parentLayerId": null,
-          "order": 6,
-          "kind": "panel",
-          "name": "Metric panel right",
-          "assetMode": "static",
-          "assetPath": "/assets/s3/metric_panel_right.svg",
-          "assetFormat": "svg",
-          "assetRole": "data-panel",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 22,
-          "heightVh": 34,
-          "baseXPct": 88,
-          "baseYPct": 52,
-          "depthIndex": 4,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "rounded-rect",
-          "triggerStart": 0.5,
-          "triggerEnd": 0.98,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s3/metric_panel_right.svg",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "medium",
-          "notes": "Mirror panel for biodiversity, climate resilience, etc.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 92,
-              "yPct": 56,
-              "scale": 0.96,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 90,
-              "yPct": 54,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 88,
-              "yPct": 52,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 88,
-              "yPct": 50,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S3_L07",
-          "parentLayerId": null,
-          "order": 7,
-          "kind": "image",
-          "name": "Community inset photo stack",
-          "assetMode": "static",
-          "assetPath": "/assets/s3/community_insets.webp",
-          "assetFormat": "webp",
-          "assetRole": "story-overlay",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
+          "id": "S3_T2",
+          "content": "Over the past ten years, the Tenure Facility has helped recognize, resource, and strengthen work that was already rooted in communities, territories, and practice.",
+          "textAlign": "left",
           "widthVw": 36,
-          "heightVh": 28,
-          "baseXPct": 50,
-          "baseYPct": 84,
-          "depthIndex": 5,
-          "parallaxX": 0,
-          "parallaxY": 0.02,
-          "blendMode": "normal",
-          "maskShape": "soft-edges",
-          "triggerStart": 0.55,
-          "triggerEnd": 1,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s3/community_insets.webp",
-          "mobileBehavior": "hide",
-          "preloadPriority": "low",
-          "notes": "Optional human layer to keep data emotionally grounded.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 88,
-              "scale": 0.92,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 86,
-              "scale": 0.96,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 84,
-              "scale": 1,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 82,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "heightVh": 22,
+          "xPct": 10,
+          "yPct": 50,
+          "styleId": "body"
         },
         {
-          "id": "S3_L08",
-          "parentLayerId": null,
-          "order": 8,
-          "kind": "text",
-          "name": "Scene 3 title",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "title",
-          "textContent": "Reading the Rings \u2014 ten years, ten layers of what was weathered and what was gained.",
-          "fontFamily": "Fraunces",
-          "fontWeight": 600,
-          "fontSizeDesktopPx": 44,
-          "fontSizeMobilePx": 28,
-          "textAlign": "center",
-          "widthVw": 58,
+          "id": "S3_T3",
+          "content": "Not a new forest — but recognition, resourcing, and legal force for one that was already alive.",
+          "textAlign": "left",
+          "widthVw": 34,
           "heightVh": 16,
-          "baseXPct": 21,
-          "baseYPct": 12,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.05,
-          "triggerEnd": 0.4,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Use as opening line before zooming further into rings.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 21,
-              "yPct": 14,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 21,
-              "yPct": 12,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 21,
-              "yPct": 10,
-              "scale": 1,
-              "opacity": 0.2,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 21,
-              "yPct": 8,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S3_L09",
-          "parentLayerId": null,
-          "order": 9,
-          "kind": "text",
-          "name": "Scene 3 body",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "body",
-          "textContent": "Land secured. Biodiversity protected. Ecosystems sustained. Communities strengthened. Climate resilience built. These are not separate chapters \u2014 they are layers of the same ring.",
-          "fontFamily": "Inter",
-          "fontWeight": 500,
-          "fontSizeDesktopPx": 24,
-          "fontSizeMobilePx": 18,
-          "textAlign": "center",
-          "widthVw": 50,
-          "heightVh": 18,
-          "baseXPct": 25,
-          "baseYPct": 22,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.28,
-          "triggerEnd": 0.82,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Ties metric panels back into one integrated narrative.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 25,
-              "yPct": 24,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 25,
-              "yPct": 22,
-              "scale": 1,
-              "opacity": 0.5,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 25,
-              "yPct": 20,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 25,
-              "yPct": 18,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            }
-          ]
+          "xPct": 10,
+          "yPct": 74,
+          "styleId": "bodyStrong"
         }
       ]
     },
     {
       "id": "S4",
-      "order": 4,
-      "title": "Mycelial Network / Infrastructure",
-      "theme": "Invisible support network enabling forest health",
-      "scrollStartVh": 680,
-      "scrollLengthVh": 220,
-      "pin": true,
-      "bgColor": "#162118",
-      "camera": {
-        "groupId": "CAM_S4",
-        "move": "lateral_pan",
-        "notes": "Pull out from one tree to a networked forest floor; emphasize lateral connectivity rather than vertical hero shot."
+      "title": "Reading the Rings",
+      "bgColor": "#241A13",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s4/seq/rings_highlight/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Close composition of a tree cross-section with visible growth rings, muted highlights, tactile wood grain, warm amber-brown tones, contemplative mood, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The same growth rings are now selectively illuminated in layered bands, conveying cumulative progress and resilience, refined glow accents only, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate selective illumination across existing ring layers, revealing depth and accumulated resilience over time. Keep the cross-section stable in frame with gentle inward cinematic push only, no spinning, no perspective jump."
+          }
+        }
       },
-      "layers": [
+      "texts": [
         {
-          "id": "S4_L01",
-          "parentLayerId": null,
-          "order": 1,
-          "kind": "image",
-          "name": "Forest floor background",
-          "assetMode": "static",
-          "assetPath": "/assets/s4/forest_floor.avif",
-          "assetFormat": "avif",
-          "assetRole": "background",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 130,
-          "baseXPct": 50,
-          "baseYPct": 50,
-          "depthIndex": -5,
-          "parallaxX": 0.02,
-          "parallaxY": 0.04,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s4/forest_floor.avif",
-          "mobileBehavior": "keep",
-          "preloadPriority": "high",
-          "notes": "Lateral move begins here.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 54,
-              "yPct": 50,
-              "scale": 1.06,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 52,
-              "yPct": 50,
-              "scale": 1.08,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 49,
-              "yPct": 50,
-              "scale": 1.12,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 46,
-              "yPct": 50,
-              "scale": 1.16,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "id": "S4_T1",
+          "content": "When we read the rings, we are not reading the story of a single tree.",
+          "textAlign": "center",
+          "widthVw": 54,
+          "heightVh": 16,
+          "xPct": 23,
+          "yPct": 12,
+          "styleId": "heading"
         },
         {
-          "id": "S4_L02",
-          "parentLayerId": null,
-          "order": 2,
-          "kind": "image",
-          "name": "Far tree silhouettes",
-          "assetMode": "static",
-          "assetPath": "/assets/s4/far_trees.webp",
-          "assetFormat": "webp",
-          "assetRole": "background-mid",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 75,
-          "baseXPct": 50,
-          "baseYPct": 42,
-          "depthIndex": -3,
-          "parallaxX": 0.05,
-          "parallaxY": 0.05,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.05,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s4/far_trees.webp",
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Forest depth with faster x movement than background.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 56,
-              "yPct": 44,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 53,
-              "yPct": 43,
-              "scale": 1.02,
-              "opacity": 0.75,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 49,
-              "yPct": 42,
-              "scale": 1.05,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 45,
-              "yPct": 41,
-              "scale": 1.08,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "id": "S4_T2",
+          "content": "We are reading the story of an ecosystem — what was weathered, what was protected, and what was built over ten years.",
+          "textAlign": "center",
+          "widthVw": 50,
+          "heightVh": 18,
+          "xPct": 25,
+          "yPct": 30,
+          "styleId": "body"
         },
         {
-          "id": "S4_L03",
-          "parentLayerId": null,
-          "order": 3,
-          "kind": "sequence",
-          "name": "Network illumination sequence",
-          "assetMode": "sequence",
-          "assetPath": "/assets/s4/seq/network_illumination",
-          "assetFormat": "webp_sequence",
-          "assetRole": "hero-sequence",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 118,
-          "heightVh": 92,
-          "baseXPct": 50,
-          "baseYPct": 58,
-          "depthIndex": 1,
-          "parallaxX": 0.09,
-          "parallaxY": 0.1,
-          "blendMode": "screen",
-          "maskShape": "none",
-          "triggerStart": 0.12,
-          "triggerEnd": 0.9,
-          "ease": "none",
-          "reducedMotionMode": "first-frame",
-          "reducedMotionAsset": "/assets/s4/seq/network_illumination/frame_0001.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "high",
-          "notes": "Represents the Tenure Facility infrastructure without replacing communities as protagonists.",
-          "sequence": {
-            "srcPattern": "/assets/s4/seq/network_illumination/frame_%04d.webp",
-            "frameCount": 24,
-            "fps": 18,
-            "scrubMode": "frame-by-scroll",
-            "aiStartPrompt": "Subterranean forest floor view with faint connecting fungal threads between separate trees, deep green-brown palette, elegant documentary illustration, no labels.",
-            "aiEndPrompt": "Subterranean forest floor view with visible luminous fungal network linking many trees, deep green-brown palette, elegant documentary illustration, no labels."
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 54,
-              "yPct": 60,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 5,
-              "frame": 1
-            },
-            {
-              "p": 0.35,
-              "xPct": 52,
-              "yPct": 59,
-              "scale": 1,
-              "opacity": 0.7,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 8
-            },
-            {
-              "p": 0.7,
-              "xPct": 49,
-              "yPct": 58,
-              "scale": 1.04,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 17
-            },
-            {
-              "p": 1,
-              "xPct": 46,
-              "yPct": 57,
-              "scale": 1.08,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 23
-            }
-          ]
-        },
-        {
-          "id": "S4_L04",
-          "parentLayerId": null,
-          "order": 4,
-          "kind": "image",
-          "name": "Support node markers",
-          "assetMode": "static",
-          "assetPath": "/assets/s4/network_nodes.svg",
-          "assetFormat": "svg",
-          "assetRole": "data-overlay",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 110,
-          "heightVh": 85,
-          "baseXPct": 50,
-          "baseYPct": 58,
-          "depthIndex": 3,
-          "parallaxX": 0.09,
-          "parallaxY": 0.08,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.35,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s4/network_nodes.svg",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "medium",
-          "notes": "Node labels for funders, partners, frameworks, solidarity links.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 54,
-              "yPct": 58,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 52,
-              "yPct": 58,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 49,
-              "yPct": 58,
-              "scale": 1.02,
-              "opacity": 0.85,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 46,
-              "yPct": 58,
-              "scale": 1.04,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S4_L05",
-          "parentLayerId": null,
-          "order": 5,
-          "kind": "image",
-          "name": "Continental map ghost overlay",
-          "assetMode": "static",
-          "assetPath": "/assets/s4/continent_ghosts.svg",
-          "assetFormat": "svg",
-          "assetRole": "background-overlay",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 95,
-          "heightVh": 72,
-          "baseXPct": 72,
-          "baseYPct": 38,
-          "depthIndex": 0,
-          "parallaxX": 0.04,
-          "parallaxY": 0.02,
-          "blendMode": "overlay",
-          "maskShape": "soft-edges",
-          "triggerStart": 0.5,
-          "triggerEnd": 0.95,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s4/continent_ghosts.svg",
-          "mobileBehavior": "hide",
-          "preloadPriority": "low",
-          "notes": "Optional geographic cue only; keep subtle.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 74,
-              "yPct": 40,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 73,
-              "yPct": 39,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 72,
-              "yPct": 38,
-              "scale": 1.02,
-              "opacity": 0.18,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 71,
-              "yPct": 37,
-              "scale": 1.05,
-              "opacity": 0.22,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S4_L06",
-          "parentLayerId": null,
-          "order": 6,
-          "kind": "text",
-          "name": "Scene 4 title",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "title",
-          "textContent": "No tree stands alone. Beneath the forest floor runs a network that sustains the whole ecosystem.",
-          "fontFamily": "Fraunces",
-          "fontWeight": 600,
-          "fontSizeDesktopPx": 46,
-          "fontSizeMobilePx": 30,
-          "textAlign": "left",
-          "widthVw": 38,
-          "heightVh": 22,
-          "baseXPct": 8,
-          "baseYPct": 16,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.1,
-          "triggerEnd": 0.6,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Sets up network metaphor.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 8,
-              "yPct": 20,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 8,
-              "yPct": 16,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 8,
-              "yPct": 14,
-              "scale": 1,
-              "opacity": 0.75,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 8,
-              "yPct": 12,
-              "scale": 0.98,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S4_L07",
-          "parentLayerId": null,
-          "order": 7,
-          "kind": "text",
-          "name": "Scene 4 body",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "body",
-          "textContent": "This is the Tenure Facility: not the trees themselves, but the connective infrastructure \u2014 partners, governments, legal frameworks, and solidarity across continents \u2014 that allows the forest to thrive.",
-          "fontFamily": "Inter",
-          "fontWeight": 400,
-          "fontSizeDesktopPx": 23,
-          "fontSizeMobilePx": 18,
-          "textAlign": "left",
-          "widthVw": 34,
-          "heightVh": 24,
-          "baseXPct": 8,
-          "baseYPct": 44,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.3,
-          "triggerEnd": 0.95,
-          "ease": "power2.out",
-          "reducedMotionMode": "fade-only",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Network infrastructure explanatory copy.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 8,
-              "yPct": 48,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 8,
-              "yPct": 46,
-              "scale": 1,
-              "opacity": 0.3,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 8,
-              "yPct": 44,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 8,
-              "yPct": 42,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 3,
-              "frame": 0
-            }
-          ]
+          "id": "S4_T3",
+          "content": "Land secured. Biodiversity protected. Ecosystems sustained. Communities strengthened. Climate resilience built.",
+          "textAlign": "center",
+          "widthVw": 48,
+          "heightVh": 18,
+          "xPct": 26,
+          "yPct": 54,
+          "styleId": "bodyStrong"
         }
       ]
     },
     {
       "id": "S5",
-      "order": 5,
-      "title": "The Forest Ahead",
-      "theme": "Open horizon / wider forest / invitation to action",
-      "scrollStartVh": 900,
-      "scrollLengthVh": 200,
-      "pin": true,
-      "bgColor": "#22301F",
-      "camera": {
-        "groupId": "CAM_S5",
-        "move": "pull_back",
-        "notes": "Camera widens from one tree to many; create feeling of future expansion and openness."
+      "title": "The Reframe",
+      "bgColor": "#162118",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s5/seq/network_illumination/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Under-forest root network in low light, threads and root corridors faintly visible, impression of hidden infrastructure beneath trees, dark green-brown palette, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Hidden network becomes visibly active and interconnected with luminous pathways, showing resource flow and reinforced connections supporting tree growth, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate hidden network activation beneath the forest floor: pathways gradually light up and reinforce flow while trees above remain coherent. Use a gentle cinematic zoom-in with smooth temporal pacing, no jitter or hard cuts."
+          }
+        }
       },
-      "layers": [
+      "texts": [
         {
-          "id": "S5_L01",
-          "parentLayerId": null,
-          "order": 1,
-          "kind": "image",
-          "name": "Wide forest background",
-          "assetMode": "static",
-          "assetPath": "/assets/s5/wide_forest.avif",
-          "assetFormat": "avif",
-          "assetRole": "background",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 130,
-          "baseXPct": 50,
-          "baseYPct": 50,
-          "depthIndex": -5,
-          "parallaxX": 0,
-          "parallaxY": 0.03,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s5/wide_forest.avif",
-          "mobileBehavior": "keep",
-          "preloadPriority": "high",
-          "notes": "Final scene begins slightly zoomed in then eases outward.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 48,
-              "scale": 1.2,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 3,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 49,
-              "scale": 1.12,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 50,
-              "scale": 1.04,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 51,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S5_L02",
-          "parentLayerId": null,
-          "order": 2,
-          "kind": "image",
-          "name": "Mid-tree field",
-          "assetMode": "static",
-          "assetPath": "/assets/s5/mid_trees.webp",
-          "assetFormat": "webp",
-          "assetRole": "midground",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 120,
-          "heightVh": 78,
-          "baseXPct": 50,
-          "baseYPct": 55,
-          "depthIndex": -1,
-          "parallaxX": 0,
-          "parallaxY": 0.08,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.1,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s5/mid_trees.webp",
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Secondary tree field widens sense of forest.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 58,
-              "scale": 1.18,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 3,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 57,
-              "scale": 1.1,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 56,
-              "scale": 1.04,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 55,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S5_L03",
-          "parentLayerId": null,
-          "order": 3,
-          "kind": "sequence",
-          "name": "Forest breathing sequence",
-          "assetMode": "sequence",
-          "assetPath": "/assets/s5/seq/forest_breathing",
-          "assetFormat": "webp_sequence",
-          "assetRole": "hero-sequence",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 32,
-          "heightVh": 88,
-          "baseXPct": 68,
-          "baseYPct": 58,
-          "depthIndex": 3,
-          "parallaxX": 0.01,
-          "parallaxY": 0.16,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.05,
-          "triggerEnd": 0.92,
-          "ease": "none",
-          "reducedMotionMode": "first-frame",
-          "reducedMotionAsset": "/assets/s5/seq/forest_breathing/frame_0001.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "high",
-          "notes": "Finale hero sequence with subtle living-system motion before CTA close.",
-          "sequence": {
-            "srcPattern": "/assets/s5/seq/forest_breathing/frame_%04d.webp",
-            "frameCount": 24,
-            "fps": 18,
-            "scrubMode": "frame-by-scroll",
-            "aiStartPrompt": "Calm forest scene with anchored foreground tree and still canopy, muted late-afternoon tones, cinematic painterly realism, no text.",
-            "aiEndPrompt": "Forest scene with gentle canopy sway, subtle atmospheric shimmer, and warm closing light, cinematic painterly realism, no text."
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 68,
-              "yPct": 60,
-              "scale": 0.96,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 68,
-              "yPct": 58,
-              "scale": 1,
-              "opacity": 0.82,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 8
-            },
-            {
-              "p": 0.7,
-              "xPct": 67,
-              "yPct": 56,
-              "scale": 1.05,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 17
-            },
-            {
-              "p": 1,
-              "xPct": 66,
-              "yPct": 54,
-              "scale": 1.1,
-              "opacity": 0.98,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 23
-            }
-          ]
-        },
-        {
-          "id": "S5_L04",
-          "parentLayerId": null,
-          "order": 4,
-          "kind": "image",
-          "name": "Atmospheric haze",
-          "assetMode": "static",
-          "assetPath": "/assets/s5/haze.webp",
-          "assetFormat": "webp",
-          "assetRole": "atmosphere",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 130,
-          "heightVh": 100,
-          "baseXPct": 50,
-          "baseYPct": 65,
-          "depthIndex": 4,
-          "parallaxX": 0,
-          "parallaxY": 0.12,
-          "blendMode": "screen",
-          "maskShape": "gradient-bottom",
-          "triggerStart": 0.1,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": "/assets/s5/haze.webp",
-          "mobileBehavior": "simplify",
-          "preloadPriority": "low",
-          "notes": "Creates openness and distance.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 50,
-              "yPct": 68,
-              "scale": 1.04,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 8,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 50,
-              "yPct": 66,
-              "scale": 1.02,
-              "opacity": 0.18,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 50,
-              "yPct": 65,
-              "scale": 1,
-              "opacity": 0.28,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 50,
-              "yPct": 64,
-              "scale": 0.98,
-              "opacity": 0.34,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S5_L05",
-          "parentLayerId": null,
-          "order": 5,
-          "kind": "image",
-          "name": "Spore / bird accent layer",
-          "assetMode": "static",
-          "assetPath": "/assets/s5/spores_or_birds.png",
-          "assetFormat": "png",
-          "assetRole": "accent",
-          "textContent": null,
-          "fontFamily": null,
-          "fontWeight": null,
-          "fontSizeDesktopPx": null,
-          "fontSizeMobilePx": null,
-          "textAlign": null,
-          "widthVw": 80,
-          "heightVh": 42,
-          "baseXPct": 62,
-          "baseYPct": 20,
-          "depthIndex": 5,
-          "parallaxX": 0.02,
-          "parallaxY": 0.05,
-          "blendMode": "screen",
-          "maskShape": "none",
-          "triggerStart": 0.45,
-          "triggerEnd": 1,
-          "ease": "none",
-          "reducedMotionMode": "hide",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "hide",
-          "preloadPriority": "low",
-          "notes": "Very optional high-frequency detail.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 60,
-              "yPct": 22,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 61,
-              "yPct": 21,
-              "scale": 1.01,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 1,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 62,
-              "yPct": 20,
-              "scale": 1.03,
-              "opacity": 0.25,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 63,
-              "yPct": 19,
-              "scale": 1.05,
-              "opacity": 0.32,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
-        },
-        {
-          "id": "S5_L06",
-          "parentLayerId": null,
-          "order": 6,
-          "kind": "text",
-          "name": "Final title",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "title",
-          "textContent": "The Forest Ahead",
-          "fontFamily": "Fraunces",
-          "fontWeight": 650,
-          "fontSizeDesktopPx": 58,
-          "fontSizeMobilePx": 36,
+          "id": "S5_T1",
+          "content": "The Tenure Facility is not the forest.",
           "textAlign": "left",
           "widthVw": 34,
-          "heightVh": 12,
-          "baseXPct": 10,
-          "baseYPct": 20,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.1,
-          "triggerEnd": 0.6,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Short title that can remain on screen longer.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 10,
-              "yPct": 24,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 10,
-              "yPct": 20,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 10,
-              "yPct": 19,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 10,
-              "yPct": 18,
-              "scale": 1,
-              "opacity": 0.95,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "heightVh": 14,
+          "xPct": 8,
+          "yPct": 18,
+          "styleId": "title"
         },
         {
-          "id": "S5_L07",
-          "parentLayerId": null,
-          "order": 7,
-          "kind": "text",
-          "name": "Final body / CTA",
-          "assetMode": "text",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "body",
-          "textContent": "A single tree, however old and strong, is not a forest. The next decade is an invitation to grow the network \u2014 because when communities have secure rights to their territories, the land thrives, the climate benefits, and the forest grows.",
-          "fontFamily": "Inter",
-          "fontWeight": 400,
-          "fontSizeDesktopPx": 24,
-          "fontSizeMobilePx": 18,
+          "id": "S5_T2",
+          "content": "It is the network beneath it — essential, expansive, and most powerful when it is most invisible.",
           "textAlign": "left",
-          "widthVw": 36,
-          "heightVh": 26,
-          "baseXPct": 10,
-          "baseYPct": 42,
-          "depthIndex": 6,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "none",
-          "triggerStart": 0.26,
-          "triggerEnd": 1,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "medium",
-          "notes": "Main closing copy.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
-          },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 10,
-              "yPct": 46,
-              "scale": 1,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 10,
-              "yPct": 44,
-              "scale": 1,
-              "opacity": 0.5,
-              "rotateDeg": 0,
-              "blurPx": 2,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 10,
-              "yPct": 42,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 10,
-              "yPct": 40,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "widthVw": 34,
+          "heightVh": 18,
+          "xPct": 8,
+          "yPct": 40,
+          "styleId": "bodyStrong"
         },
         {
-          "id": "S5_L08",
-          "parentLayerId": null,
-          "order": 8,
-          "kind": "button",
-          "name": "CTA button",
-          "assetMode": "html",
-          "assetPath": null,
-          "assetFormat": "html",
-          "assetRole": "cta",
-          "textContent": "Grow the network",
-          "fontFamily": "Inter",
-          "fontWeight": 600,
-          "fontSizeDesktopPx": 18,
-          "fontSizeMobilePx": 16,
-          "textAlign": "center",
-          "widthVw": 14,
-          "heightVh": 7,
-          "baseXPct": 10,
-          "baseYPct": 76,
-          "depthIndex": 7,
-          "parallaxX": 0,
-          "parallaxY": 0,
-          "blendMode": "normal",
-          "maskShape": "pill",
-          "triggerStart": 0.55,
-          "triggerEnd": 1,
-          "ease": "power2.out",
-          "reducedMotionMode": "static",
-          "reducedMotionAsset": null,
-          "mobileBehavior": "keep",
-          "preloadPriority": "low",
-          "notes": "Rendered as semantic HTML button, not raster asset.",
-          "sequence": {
-            "srcPattern": null,
-            "frameCount": null,
-            "fps": null,
-            "scrubMode": null,
-            "aiStartPrompt": null,
-            "aiEndPrompt": null
+          "id": "S5_T3",
+          "content": "When the resources flow, the connections hold, and the trees can grow.",
+          "textAlign": "left",
+          "widthVw": 30,
+          "heightVh": 16,
+          "xPct": 8,
+          "yPct": 68,
+          "styleId": "body"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "title": "Rooted in Relation",
+      "bgColor": "#2A2118",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s6/seq/rooted_in_relation/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Symbolic landscape spanning multiple biomes and territories with subtle cultural markers, roots beginning to interlink across distance, respectful documentary-art tone, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Cross-territory root connections are stronger and continuous, emphasizing relationship to land and stewardship across cultures, same composition and palette, no text, no logos."
           },
-          "keyframes": [
-            {
-              "p": 0,
-              "xPct": 10,
-              "yPct": 78,
-              "scale": 0.95,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 6,
-              "frame": 0
-            },
-            {
-              "p": 0.35,
-              "xPct": 10,
-              "yPct": 77,
-              "scale": 0.97,
-              "opacity": 0,
-              "rotateDeg": 0,
-              "blurPx": 4,
-              "frame": 0
-            },
-            {
-              "p": 0.7,
-              "xPct": 10,
-              "yPct": 76,
-              "scale": 1,
-              "opacity": 0.9,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            },
-            {
-              "p": 1,
-              "xPct": 10,
-              "yPct": 76,
-              "scale": 1,
-              "opacity": 1,
-              "rotateDeg": 0,
-              "blurPx": 0,
-              "frame": 0
-            }
-          ]
+          "runway": {
+            "prompt": "Animate cross-territory root connections forming between landscape zones while preserving a respectful documentary-art tone. Keep framing stable and composition coherent, with slow environmental evolution and no aggressive camera motion."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S6_T1",
+          "content": "Rooted in Relation",
+          "textAlign": "left",
+          "widthVw": 30,
+          "heightVh": 12,
+          "xPct": 10,
+          "yPct": 18,
+          "styleId": "title"
+        },
+        {
+          "id": "S6_T2",
+          "content": "Across continents and cultures, Indigenous, Afrodescendant, and local communities have always carried the same knowledge:",
+          "textAlign": "left",
+          "widthVw": 38,
+          "heightVh": 18,
+          "xPct": 10,
+          "yPct": 40,
+          "styleId": "body"
+        },
+        {
+          "id": "S6_T3",
+          "content": "That the land does not belong to them. They belong to it.",
+          "textAlign": "left",
+          "widthVw": 34,
+          "heightVh": 16,
+          "xPct": 10,
+          "yPct": 68,
+          "styleId": "bodyStrong"
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "title": "The Network Listens",
+      "bgColor": "#171512",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s7/seq/network_listens/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Wide scene suggesting distant communities and territories as separated points of light, quiet atmosphere, faint subsurface threads barely connecting them, deep twilight palette, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Formerly separate points are now linked by coherent subsurface signal pathways, connection and solidarity made visible while keeping subtle tone, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate distant points becoming connected by subtle subsurface signal pathways, turning separation into visible solidarity. Use a gentle cinematic zoom-in and smooth bridge-like motion, keeping the scene calm and legible."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S7_T1",
+          "content": "What appeared to be isolated wisdom — separated by oceans, by languages, by centuries — reveals itself, when connected, as a single global body of knowledge.",
+          "textAlign": "left",
+          "widthVw": 44,
+          "heightVh": 26,
+          "xPct": 8,
+          "yPct": 16,
+          "styleId": "heading"
+        },
+        {
+          "id": "S7_T2",
+          "content": "The Tenure Facility threads quietly beneath the surface. Listening. Carrying the signal.",
+          "textAlign": "left",
+          "widthVw": 32,
+          "heightVh": 16,
+          "xPct": 8,
+          "yPct": 58,
+          "styleId": "bodyStrong"
+        },
+        {
+          "id": "S7_T3",
+          "content": "Connection turns distance into solidarity.",
+          "textAlign": "left",
+          "widthVw": 24,
+          "heightVh": 12,
+          "xPct": 8,
+          "yPct": 78,
+          "styleId": "body"
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "title": "Rooting for Change",
+      "bgColor": "#20170F",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s8/seq/rooting_for_change/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Tree-ring motif with early highlighted bands and restrained data-like visual accents, grounded natural textures, hopeful but measured atmosphere, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Ring layers are fully developed and luminous, with richer structured visual accents implying documented impact and scale, still natural and elegant, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate ring and impact motifs from early indicators to fully developed layered progress. Keep movement elegant and measurable-looking, with a gentle cinematic zoom-in and no clutter, no text overlays, no chaotic effects."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S8_T1",
+          "content": "Rooting for Change",
+          "textAlign": "center",
+          "widthVw": 40,
+          "heightVh": 12,
+          "xPct": 30,
+          "yPct": 14,
+          "styleId": "title"
+        },
+        {
+          "id": "S8_T2",
+          "content": "Ten years. Ten rings. 4.5 million hectares secured in 2024 alone. 34 million hectares strengthened. 35 projects. 18 countries.",
+          "textAlign": "center",
+          "widthVw": 52,
+          "heightVh": 20,
+          "xPct": 24,
+          "yPct": 34,
+          "styleId": "bodyStrong"
+        },
+        {
+          "id": "S8_T3",
+          "content": "Ancient wisdom, when resourced and legally protected, produces measurable, documented, irreversible change.",
+          "textAlign": "center",
+          "widthVw": 46,
+          "heightVh": 16,
+          "xPct": 27,
+          "yPct": 68,
+          "styleId": "body"
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "title": "The Living Map & Digital Platform",
+      "bgColor": "#11161A",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s9/seq/living_platform/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Organic-digital transition scene: root-like structures feeding into a minimal map-like interface scaffold, early platform architecture emerging, cool-neutral and earthy mixed palette, no readable text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The living map platform is now fully active with layered nodes, pathways, and story surfaces integrated with organic forms, no readable text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate an organic-to-digital integration where root structures feed into a living map platform architecture. Keep interface-like forms abstract and non-readable, maintain stable framing, and evolve structure smoothly without hard morph artifacts."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S9_T1",
+          "content": "The Living Map & Digital Platform",
+          "textAlign": "left",
+          "widthVw": 38,
+          "heightVh": 16,
+          "xPct": 8,
+          "yPct": 18,
+          "styleId": "title"
+        },
+        {
+          "id": "S9_T2",
+          "content": "The living archive and experiential destination that every other touchpoint ultimately points toward.",
+          "textAlign": "left",
+          "widthVw": 34,
+          "heightVh": 18,
+          "xPct": 8,
+          "yPct": 42,
+          "styleId": "bodyStrong"
+        },
+        {
+          "id": "S9_T3",
+          "content": "A permanent infrastructure for data, stories, and community contribution — built to grow beyond 2027.",
+          "textAlign": "left",
+          "widthVw": 34,
+          "heightVh": 18,
+          "xPct": 8,
+          "yPct": 68,
+          "styleId": "body"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "The Celebratory Film & Shorts",
+      "bgColor": "#161110",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s10/seq/film_and_shorts/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Film language motif: a single cinematic ribbon or frame strip emerging from forest textures, intimate and focused composition, warm contrast, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. One narrative ribbon expands into multiple connected short-form channels radiating outward while preserving one cohesive story aesthetic, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate a single narrative ribbon expanding into multiple connected channels while preserving one coherent cinematic language. Keep motion fluid and story-centric, no camera whip, no abrupt perspective changes, no typography."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S10_T1",
+          "content": "The Celebratory Film & Shorts",
+          "textAlign": "left",
+          "widthVw": 38,
+          "heightVh": 16,
+          "xPct": 8,
+          "yPct": 18,
+          "styleId": "title"
+        },
+        {
+          "id": "S10_T2",
+          "content": "The feature film moves through all three movements. Short-form content travels through social, cultural, and community channels, reaching audiences that no institutional communication can access.",
+          "textAlign": "left",
+          "widthVw": 38,
+          "heightVh": 24,
+          "xPct": 8,
+          "yPct": 40,
+          "styleId": "body"
+        },
+        {
+          "id": "S10_T3",
+          "content": "One cohesive story of the decade, carried in forms built to travel.",
+          "textAlign": "left",
+          "widthVw": 30,
+          "heightVh": 14,
+          "xPct": 8,
+          "yPct": 74,
+          "styleId": "bodyStrong"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "The Immersive Experience & Anniversary Event",
+      "bgColor": "#18140F",
+      "gentleZoom": true,
+      "media": {
+        "srcPattern": "/assets/s11/seq/forest_of_voices/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Interior immersive installation concept with concentric forest-ring structures in low light, anticipatory atmosphere, subtle silhouettes, premium exhibition mood, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The ring installation is fully illuminated and experiential, richer depth and atmosphere with collective presence, conveying a conversion moment, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate concentric immersive ring structures from low-lit anticipation to fully activated experiential presence. Use a gentle cinematic zoom-in, with atmospheric depth increasing gradually and no sudden flashes or strobing."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S11_T1",
+          "content": "The Immersive Experience & Anniversary Event",
+          "textAlign": "left",
+          "widthVw": 40,
+          "heightVh": 18,
+          "xPct": 8,
+          "yPct": 16,
+          "styleId": "heading"
+        },
+        {
+          "id": "S11_T2",
+          "content": "The Forest of Voices is the sensory and emotional center of Rooted — a multi-ring installation unfolding as a journey across time, territory, and community voice.",
+          "textAlign": "left",
+          "widthVw": 38,
+          "heightVh": 22,
+          "xPct": 8,
+          "yPct": 40,
+          "styleId": "body"
+        },
+        {
+          "id": "S11_T3",
+          "content": "The opening address. The conversion moment. The place where the forest becomes visible all at once.",
+          "textAlign": "left",
+          "widthVw": 34,
+          "heightVh": 18,
+          "xPct": 8,
+          "yPct": 72,
+          "styleId": "bodyStrong"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Roots of Abundance",
+      "bgColor": "#22301F",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s12/seq/roots_of_abundance/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Community-rooted landscape at early dawn: healthy but restrained forest and territory stewardship, quiet strength, layered greens and earth tones, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Landscape becomes visibly abundant and thriving with stronger forest vitality and climate-resilient richness, grounded in community stewardship, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate the landscape from restrained vitality to visible abundance and resilience. Emphasize healthy ecological progression and continuity of light, vegetation, and terrain, with calm pacing and stable camera behavior."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S12_T1",
+          "content": "Roots of Abundance",
+          "textAlign": "left",
+          "widthVw": 32,
+          "heightVh": 12,
+          "xPct": 10,
+          "yPct": 18,
+          "styleId": "title"
+        },
+        {
+          "id": "S12_T2",
+          "content": "This is not a story about the future. It is a story about what these communities have always known is possible — and what becomes real when the network holds.",
+          "textAlign": "left",
+          "widthVw": 38,
+          "heightVh": 22,
+          "xPct": 10,
+          "yPct": 40,
+          "styleId": "body"
+        },
+        {
+          "id": "S12_T3",
+          "content": "When communities have secure rights to their territories, the land thrives, the climate benefits, and the forest grows.",
+          "textAlign": "left",
+          "widthVw": 34,
+          "heightVh": 18,
+          "xPct": 10,
+          "yPct": 72,
+          "styleId": "bodyStrong"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "The Invitation",
+      "bgColor": "#0F0C0A",
+      "gentleZoom": false,
+      "media": {
+        "srcPattern": "/assets/s13/seq/final_invitation/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "startPrompt": "Cinematic ecological visual, 16:9. Final invitation mood: forest pathway opening toward a wider horizon, calm and purposeful composition, unified visual language from previous scenes, no text, no logos.",
+            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Horizon becomes brighter and more expansive with converging pathways and collective momentum, clear invitation energy, no text, no logos."
+          },
+          "runway": {
+            "prompt": "Animate final invitation energy as pathways converge toward a brighter horizon and collective momentum. Keep visual language consistent with earlier scenes, motion hopeful but controlled, and avoid abrupt camera or style changes."
+          }
+        }
+      },
+      "texts": [
+        {
+          "id": "S13_T1",
+          "content": "Rooted is a global multimedia activation marking ten years of the land rights movement.",
+          "textAlign": "left",
+          "widthVw": 42,
+          "heightVh": 20,
+          "xPct": 10,
+          "yPct": 18,
+          "styleId": "heading"
+        },
+        {
+          "id": "S13_T2",
+          "content": "A film. A living map. An immersive experience.",
+          "textAlign": "left",
+          "widthVw": 28,
+          "heightVh": 14,
+          "xPct": 10,
+          "yPct": 48,
+          "styleId": "bodyStrong"
+        },
+        {
+          "id": "S13_T3",
+          "content": "Built with the communities whose stories it carries.",
+          "textAlign": "left",
+          "widthVw": 26,
+          "heightVh": 12,
+          "xPct": 10,
+          "yPct": 72,
+          "styleId": "body"
         }
       ]
     }
-  ]
+  ],
+  "textStyles": {
+    "title": {
+      "fontFamily": "Fraunces",
+      "fontWeight": 650,
+      "fontSizeDesktopPx": 58,
+      "fontSizeMobilePx": 36
+    },
+    "heading": {
+      "fontFamily": "Fraunces",
+      "fontWeight": 600,
+      "fontSizeDesktopPx": 46,
+      "fontSizeMobilePx": 30
+    },
+    "bodyStrong": {
+      "fontFamily": "Inter",
+      "fontWeight": 500,
+      "fontSizeDesktopPx": 24,
+      "fontSizeMobilePx": 18
+    },
+    "body": {
+      "fontFamily": "Inter",
+      "fontWeight": 400,
+      "fontSizeDesktopPx": 24,
+      "fontSizeMobilePx": 18
+    }
+  }
 }

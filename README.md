@@ -20,7 +20,9 @@ Before `dev`/`build`, content JSON is synced to `public/runtime/content` automat
 
 Creative pitch source-of-truth:
 
-- Story JSON: `creative-pitch/story.json` (synced to `content/creative-pitch-story.json` on prebuild/predev)
+- Story JSON: `creative-pitch/story.json` (authored control)
+- Timing config: `creative-pitch/pipeline/config.json` (frame-count defaults, render quality, stage commands)
+- Runtime story: `public/runtime/creative-pitch/story.json` (generated during sync)
 - Visual assets: `creative-pitch/assets` (symlinked to `public/runtime/creative-pitch/assets`)
 
 The runtime lives under `src/` only. The project is now a single-framework React + Vite app.
@@ -36,8 +38,7 @@ The runtime lives under `src/` only. The project is now a single-framework React
 ## Information architecture
 
 - `Impact` Global map, thematic filtering, KPI strips, evidence and video panels
-- `Financials` Chart-led financial section with editorial blocks
-- `About` Methodology, KPI framing, and report links
+- `Evolution & Finance` Unified organizational evolution dashboard with interactive timeline, threads visualization, funding flow, institutional indicators, and methodology context
 - `Creative Pitch` Story experience with sequenced visual layers
 
 ## Content schema
@@ -48,7 +49,6 @@ The runtime lives under `src/` only. The project is now a single-framework React
 - `content/charts/<slug>.json`
 - `content/media/index.json`
 - `content/quotes.json`
-- `content/creative-pitch-story.json`
 - `content/country-signals/index.json`
 - `content/country-signals/<ISO3>.json`
 - `content/geo/world-footprint.geojson`
@@ -104,6 +104,50 @@ Creative pitch sequence optimization:
   - `VITE_REPORT_URL=https://.../tenure-facility-annual-report-2024.pdf`
 - Audit tracked repository size before pushing:
   - `npm run repo:audit`
+
+## Deploy To Vercel
+
+Vercel is a good fit for this app:
+
+- Static Vite output (`dist`) with no server runtime required
+- Automatic preview deploys per branch/PR
+- Fast CDN delivery for map/media assets
+
+This repo is preconfigured for Vercel via `vercel.json`:
+
+- Install: `npm ci`
+- Build: `npm run build` (includes runtime content sync via `prebuild`)
+- Output: `dist`
+
+### Dashboard setup (recommended)
+
+1. Push this repository to GitHub.
+2. In Vercel: **Add New Project** -> import the repository.
+3. Framework preset: **Vite**.
+4. Root Directory: project root (`/`).
+5. Confirm:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+6. Set environment variables (optional):
+   - `VITE_ENABLE_CREATIVE_PITCH=false` to reduce deployment size
+   - `VITE_REPORT_URL=https://...` if serving PDF from external storage
+7. Deploy.
+
+### CLI setup (optional)
+
+```bash
+npm i -g vercel
+vercel login
+vercel
+vercel --prod
+```
+
+### Post-deploy checks
+
+1. Load `/` and confirm the Impact map renders.
+2. Confirm `runtime/content` JSON requests return 200.
+3. Open a country context card and verify photos/videos resolve.
+4. If Creative Pitch is enabled, verify sequence frames load from `runtime/creative-pitch/assets`.
 
 ## Notes
 

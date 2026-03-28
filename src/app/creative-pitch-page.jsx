@@ -12,33 +12,37 @@ function withAssetPrefix(pathValue) {
   return withBasePath(pathValue.replace("/assets/", "runtime/creative-pitch/assets/"));
 }
 
-function normalizeLayer(layer) {
-  if (!layer || typeof layer !== "object") {
-    return layer;
+function resolveTextStyle(textLayer, textStyles) {
+  const styleId = typeof textLayer?.styleId === "string" ? textLayer.styleId.trim() : "";
+  if (!styleId) {
+    return { ...(textLayer ?? {}) };
   }
 
-  const normalized = {
-    ...layer,
-    assetPath: withAssetPrefix(layer.assetPath),
-    reducedMotionAsset: withAssetPrefix(layer.reducedMotionAsset)
+  const styleToken = textStyles?.[styleId];
+  if (!styleToken || typeof styleToken !== "object") {
+    return { ...(textLayer ?? {}) };
+  }
+
+  return {
+    ...styleToken,
+    ...(textLayer ?? {})
   };
-
-  if (layer.sequence && typeof layer.sequence === "object") {
-    normalized.sequence = {
-      ...layer.sequence,
-      srcPattern: withAssetPrefix(layer.sequence.srcPattern)
-    };
-  }
-
-  return normalized;
 }
 
 function normalizeStory(story) {
+  const textStyles = story?.textStyles && typeof story.textStyles === "object" ? story.textStyles : {};
   return {
     ...story,
+    textStyles,
     scenes: (story?.scenes ?? []).map((scene) => ({
       ...scene,
-      layers: (scene?.layers ?? []).map(normalizeLayer)
+      media: scene?.media
+        ? {
+            ...scene.media,
+            srcPattern: withAssetPrefix(scene.media.srcPattern)
+          }
+        : null,
+      texts: (scene?.texts ?? []).map((text) => resolveTextStyle(text, textStyles))
     }))
   };
 }
