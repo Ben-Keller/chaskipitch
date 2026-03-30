@@ -132,15 +132,14 @@ def _to_int_or_none(raw: Any) -> Optional[int]:
 
 
 def _default_prompt(job: Dict[str, Any]) -> str:
-    openai_cfg = job.get("openai", {}) if isinstance(job.get("openai"), dict) else {}
-    start_prompt = str(openai_cfg.get("startPrompt") or "").strip()
-    end_prompt = str(openai_cfg.get("endPrompt") or "").strip()
     scene_title = str(job.get("sceneTitle") or "scene")
+    scene_description = str(job.get("sceneDescription") or "").strip()
+    brief = f"{scene_title}. {scene_description}".strip().strip(".")
     return (
-        f"Animate a smooth transition for {scene_title}. "
-        f"Preserve subject continuity and composition. "
-        f"Start state: {start_prompt or 'provided start keyframe'}. "
-        f"End state: {end_prompt or 'provided end keyframe'}."
+        f"Animate a smooth scene progression for {brief}. "
+        "Preserve subject continuity and composition from the provided keyframes. "
+        "Use a slightly abstract visual language with expressive light transitions and atmospheric flow. "
+        "Avoid photorealism, avoid hard cuts, avoid camera jitter."
     )
 
 

@@ -49,10 +49,9 @@ Notebook UI:
   - `creative-pitch/pipeline/scripts/02_animation_gen.py`
   - `creative-pitch/pipeline/scripts/03_image_extract.py`
 - Stage commands are wired by default in `pipeline_backend.py` and mirrored in `pipeline/config.json`.
-- Optional generation controls can be authored per scene at `scene.media.generation`, for example:
-  - `openai.startPrompt` / `openai.endPrompt` for keyframe generation
-  - `runway.prompt`, `runway.model`, `runway.ratio`, `runway.durationSeconds` for animation generation
-  - `openai.endPrompt` is generated as a start-guided edit to preserve composition/style continuity.
+- Prompt text is no longer authored in `story.json`.
+  - `image_gen` derives prompts from each scene title + scene text content.
+  - Visual direction is intentionally slightly abstract (not photorealistic), with emphasis on light transitions.
   - `image_extract` exports all frames from each generated Runway video.
 
 Image keyframe handoff workflow:
@@ -61,7 +60,8 @@ Image keyframe handoff workflow:
   - provider runs: `creative-pitch/pipeline/runs/openai/<run-id>/images/<scene>/<sequence>/start_option_##.png`
   - handoff folder: `creative-pitch/pipeline/images/<scene>/<sequence>/start_option_##.png`
 - Start options are not naive duplicates:
-  - `image_gen` first calls OpenAI text model (`OPENAI_PROMPT_MODEL`) to create `start_frame_variants` prompt variants with subtle style differences, then renders one image per variant prompt.
+  - `image_gen` first calls OpenAI text model (`OPENAI_PROMPT_MODEL`) to create `start_frame_variants` prompt variants.
+  - Variants are forced into distinct camera/view and style profiles (for example macro close-up, aerial wide, overhead, painterly, monochrome, etc.), then rendered one image per variant prompt.
 - Choose one start option manually and save/copy it as:
   - `creative-pitch/pipeline/images/<scene>/<sequence>/start_selected.png`
 - End frame generation writes:

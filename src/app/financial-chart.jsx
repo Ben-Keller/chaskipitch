@@ -199,6 +199,28 @@ export function FinancialChart({
     return formatUnit(value, getSeriesUnit(seriesKey, row));
   };
 
+  const useUnifiedDualAxisTooltip =
+    chart.slug === "projects-funding-over-time" && leftSeries.length > 0 && rightSeries.length > 0;
+
+  const fundingTooltipSeries =
+    series.find((item) => /funding|grant|usd/i.test(`${item.key} ${item.label}`)) ?? leftSeries[0] ?? null;
+  const projectsTooltipSeries =
+    series.find((item) => /project/i.test(`${item.key} ${item.label}`)) ?? rightSeries[0] ?? null;
+
+  const buildUnifiedDualAxisTooltip = (point, xPosition, yPosition) => {
+    if (!useUnifiedDualAxisTooltip || !fundingTooltipSeries || !projectsTooltipSeries) {
+      return null;
+    }
+    const fundingValue = point.values[fundingTooltipSeries.key];
+    const projectsValue = point.values[projectsTooltipSeries.key];
+    return {
+      x: xPosition,
+      y: yPosition,
+      title: point.label,
+      value: `Total funding: ${formatSeriesValue(fundingTooltipSeries.key, fundingValue, point.raw)} | Total projects: ${formatSeriesValue(projectsTooltipSeries.key, projectsValue, point.raw)}`
+    };
+  };
+
   const formatRawCell = (columnKey, value, row) => {
     if (typeof value !== "number") {
       return String(value);
@@ -267,6 +289,28 @@ export function FinancialChart({
       return;
     }
     revealTooltip(key, payload, true);
+  };
+
+  const buildTooltipAriaLabel = (payload) => {
+    if (!payload) {
+      return "";
+    }
+    return payload.source
+      ? `${payload.title}: ${payload.value}. Source: ${payload.source}`
+      : `${payload.title}: ${payload.value}`;
+  };
+
+  const renderTooltipBox = (activeTooltip, style) => {
+    if (!activeTooltip) {
+      return null;
+    }
+    return (
+      <div className="chart-tooltip" style={style}>
+        <strong>{activeTooltip.title}</strong>
+        <span>{activeTooltip.value}</span>
+        {activeTooltip.source ? <small>{activeTooltip.source}</small> : null}
+      </div>
+    );
   };
 
   const renderRawTable = () => {
@@ -367,6 +411,17 @@ export function FinancialChart({
         ? Math.min(Math.max(timelineSelectionIndex, 0), timelineItems.length - 1)
         : -1;
     const activeTimelineItem = activeTimelineIndex >= 0 ? timelineItems[activeTimelineIndex] : null;
+    const activeTimelineBounds =
+      activeTimelineIndex >= 0
+        ? THREADS_REPORT_STAGE_BOUNDS[activeTimelineIndex] ?? [
+            activeTimelineIndex / Math.max(timelineItems.length, 1),
+            (activeTimelineIndex + 1) / Math.max(timelineItems.length, 1)
+          ]
+        : [0.45, 0.55];
+    const activeTimelineCenter = Math.min(
+      0.98,
+      Math.max(0.02, (activeTimelineBounds[0] + activeTimelineBounds[1]) / 2)
+    );
     const activeCallouts = activeTimelineItem
       ? THREADS_REPORT_CALLOUTS[String(activeTimelineItem.period).toLowerCase()] ??
         THREADS_REPORT_CALLOUTS[String(activeTimelineItem.period)] ??
@@ -381,6 +436,20 @@ export function FinancialChart({
           .map((paragraph) => cleanReportLanguage(paragraph))
           .filter((paragraph) => paragraph.length > 0)
       : [];
+    const timelineIntroParts = timelineIntroTitle
+      ? timelineIntroTitle
+          .split(":")
+          .map((part) => part.trim())
+          .filter(Boolean)
+      : [];
+    const timelineIntroKicker = timelineIntroParts.length > 1 ? timelineIntroParts[0] : "";
+    const timelineIntroHeading = timelineIntroParts.length > 1
+      ? timelineIntroParts.slice(1).join(": ")
+      : timelineIntroTitle;
+    const timelineIntroColumnOne = timelineIntroParagraphs[0] ?? "";
+    const timelineIntroColumnTwo = timelineIntroParagraphs.length > 1
+      ? timelineIntroParagraphs.slice(1).join(" ")
+      : "";
     const handleTimelineSelect = (index) => {
       if (!timelineIndexControlled) {
         setTimelineFigureIndex(index);
@@ -391,18 +460,27 @@ export function FinancialChart({
     };
 
     return renderShell(
-      <div className="chart-wrap chart-wrap--timeline chart-wrap--threads-report">
+      <div
+        className="chart-wrap chart-wrap--timeline chart-wrap--threads-report"
+        style={{ "--threads-active-center": `${activeTimelineCenter * 100}%` }}
+      >
         <figure className="threads-report-figure">
-          {timelineIntroTitle || timelineIntroParagraphs.length ? (
+          {timelineIntroHeading || timelineIntroColumnOne || timelineIntroColumnTwo ? (
             <header className="threads-report-figure__intro">
-              {timelineIntroTitle ? <h4>{timelineIntroTitle}</h4> : null}
-              {timelineIntroParagraphs.length ? (
-                <div className="threads-report-figure__intro-copy">
-                  {timelineIntroParagraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-              ) : null}
+              <div className="threads-report-figure__intro-head">
+                {timelineIntroKicker ? <p>{timelineIntroKicker}</p> : null}
+                {timelineIntroHeading ? <h4>{timelineIntroHeading}</h4> : null}
+              </div>
+              {timelineIntroColumnOne ? (
+                <p className="threads-report-figure__intro-paragraph">{timelineIntroColumnOne}</p>
+              ) : (
+                <div />
+              )}
+              {timelineIntroColumnTwo ? (
+                <p className="threads-report-figure__intro-paragraph">{timelineIntroColumnTwo}</p>
+              ) : (
+                <div />
+              )}
             </header>
           ) : null}
           <div className="threads-report-figure__canvas">
@@ -528,7 +606,7 @@ export function FinancialChart({
                   strokeWidth="2"
                   tabIndex={0}
                   role="button"
-                  aria-label={`${payload.title}: ${payload.value}. Source: ${payload.source}`}
+                  aria-label={buildTooltipAriaLabel(payload)}
                   onFocus={() => revealTooltip(key, payload)}
                   onBlur={() => dismissTooltip(key)}
                   onMouseEnter={() => revealTooltip(key, payload)}
@@ -545,19 +623,10 @@ export function FinancialChart({
             );
           })}
         </svg>
-        {tooltip ? (
-          <div
-            className="chart-tooltip"
-            style={{
-              left: `${(tooltip.x / bubbleWidth) * 100}%`,
-              top: `${(tooltip.y / bubbleHeight) * 100}%`
-            }}
-          >
-            <strong>{tooltip.title}</strong>
-            <span>{tooltip.value}</span>
-            <small>{tooltip.source}</small>
-          </div>
-        ) : null}
+        {renderTooltipBox(tooltip, {
+          left: `${((tooltip?.x ?? 0) / bubbleWidth) * 100}%`,
+          top: `${((tooltip?.y ?? 0) / bubbleHeight) * 100}%`
+        })}
       </div>,
       "Bubble sizes represent relative scale across categories."
     );
@@ -588,52 +657,58 @@ export function FinancialChart({
     return renderShell(
       <div className="chart-wrap chart-wrap--pie">
         <div className="pie-chart-layout">
-          <svg
-            viewBox={`0 0 ${pieWidth} ${pieHeight}`}
-            className="pie-chart-svg"
-            role="img"
-            aria-labelledby={`${chart.slug}-title ${tooltipHelpId}`}
-          >
-            <g transform={`translate(${centerX} ${centerY})`}>
-              {arcs.map((slice, index) => {
-                const segment = pieData[index];
-                const centroid = arcPath.centroid(slice);
-                const percentage = totalValue > 0 ? Math.round((segment.value / totalValue) * 100) : 0;
-                const key = `${segment.label}-${index}`;
-                const payload = {
-                  x: centerX + centroid[0],
-                  y: centerY + centroid[1],
-                  title: segment.label,
-                  value: `${formatUnit(segment.value, chart.units)} (${percentage}%)`,
-                  source: provenanceSource
-                };
+          <div className="pie-chart-svg-wrap">
+            <svg
+              viewBox={`0 0 ${pieWidth} ${pieHeight}`}
+              className="pie-chart-svg"
+              role="img"
+              aria-labelledby={`${chart.slug}-title ${tooltipHelpId}`}
+            >
+              <g transform={`translate(${centerX} ${centerY})`}>
+                {arcs.map((slice, index) => {
+                  const segment = pieData[index];
+                  const centroid = arcPath.centroid(slice);
+                  const percentage = totalValue > 0 ? Math.round((segment.value / totalValue) * 100) : 0;
+                  const key = `${segment.label}-${index}`;
+                  const payload = {
+                    x: centerX + centroid[0],
+                    y: centerY + centroid[1],
+                    title: segment.label,
+                    value: `${formatUnit(segment.value, chart.units)} (${percentage}%)`,
+                    source: provenanceSource
+                  };
 
-                return (
-                  <g key={key}>
-                    <path
-                      d={arcPath(slice) ?? undefined}
-                      fill={segment.color}
-                      stroke="rgba(246,235,214,0.92)"
-                      strokeWidth="2"
-                      tabIndex={0}
-                      role="button"
-                      aria-label={`${payload.title}: ${payload.value}. Source: ${payload.source}`}
-                      onFocus={() => revealTooltip(key, payload)}
-                      onBlur={() => dismissTooltip(key)}
-                      onMouseEnter={() => revealTooltip(key, payload)}
-                      onMouseLeave={() => dismissTooltip(key)}
-                      onClick={() => togglePinnedTooltip(key, payload)}
-                    />
-                    {percentage >= 8 ? (
-                      <text x={centroid[0]} y={centroid[1] + 4} textAnchor="middle" fill="#fff7eb" fontSize="13" fontWeight="700">
-                        {percentage}%
-                      </text>
-                    ) : null}
-                  </g>
-                );
-              })}
-            </g>
-          </svg>
+                  return (
+                    <g key={key}>
+                      <path
+                        d={arcPath(slice) ?? undefined}
+                        fill={segment.color}
+                        stroke="rgba(246,235,214,0.92)"
+                        strokeWidth="2"
+                        tabIndex={0}
+                        role="button"
+                        aria-label={buildTooltipAriaLabel(payload)}
+                        onFocus={() => revealTooltip(key, payload)}
+                        onBlur={() => dismissTooltip(key)}
+                        onMouseEnter={() => revealTooltip(key, payload)}
+                        onMouseLeave={() => dismissTooltip(key)}
+                        onClick={() => togglePinnedTooltip(key, payload)}
+                      />
+                      {percentage >= 8 ? (
+                        <text x={centroid[0]} y={centroid[1] + 4} textAnchor="middle" fill="#fff7eb" fontSize="13" fontWeight="700">
+                          {percentage}%
+                        </text>
+                      ) : null}
+                    </g>
+                  );
+                })}
+              </g>
+            </svg>
+            {renderTooltipBox(tooltip, {
+              left: `${((tooltip?.x ?? 0) / pieWidth) * 100}%`,
+              top: `${((tooltip?.y ?? 0) / pieHeight) * 100}%`
+            })}
+          </div>
           <div className="pie-chart-aside">
             {totalRow ? (
               <p className="pie-chart-total">
@@ -656,20 +731,6 @@ export function FinancialChart({
             </ul>
           </div>
         </div>
-
-        {tooltip ? (
-          <div
-            className="chart-tooltip"
-            style={{
-              left: `${(tooltip.x / pieWidth) * 100}%`,
-              top: `${(tooltip.y / pieHeight) * 100}%`
-            }}
-          >
-            <strong>{tooltip.title}</strong>
-            <span>{tooltip.value}</span>
-            <small>{tooltip.source}</small>
-          </div>
-        ) : null}
       </div>,
       "Pie segment labels and values show the commitment split across funding sources."
     );
@@ -716,49 +777,55 @@ export function FinancialChart({
             <p className="funding-flow-total">{formatUnit(disbursementTotal, "USD")} USD</p>
           </div>
           <div className="funding-flow-pie-row">
-            <svg
-              viewBox={`0 0 ${pieWidth} ${pieHeight}`}
-              className="funding-flow-pie"
-              role="img"
-              aria-labelledby={`${chart.slug}-title ${tooltipHelpId}`}
-            >
-              <g transform={`translate(${centerX} ${centerY})`}>
-                {arcs.map((slice, index) => {
-                  const segment = pieData[index];
-                  const [lx, ly] = labelPath.centroid(slice);
-                  const key = `${segment.label}-${index}`;
-                  const payload = {
-                    x: centerX + lx,
-                    y: centerY + ly,
-                    title: segment.label,
-                    value: `${segment.percent}% (${formatUnit(segment.value, "USD")})`,
-                    source: provenanceSource
-                  };
+            <div className="funding-flow-pie-wrap">
+              <svg
+                viewBox={`0 0 ${pieWidth} ${pieHeight}`}
+                className="funding-flow-pie"
+                role="img"
+                aria-labelledby={`${chart.slug}-title ${tooltipHelpId}`}
+              >
+                <g transform={`translate(${centerX} ${centerY})`}>
+                  {arcs.map((slice, index) => {
+                    const segment = pieData[index];
+                    const [lx, ly] = labelPath.centroid(slice);
+                    const key = `${segment.label}-${index}`;
+                    const payload = {
+                      x: centerX + lx,
+                      y: centerY + ly,
+                      title: segment.label,
+                      value: `${segment.percent}% (${formatUnit(segment.value, "USD")})`,
+                      source: provenanceSource
+                    };
 
-                  return (
-                    <g key={key}>
-                      <path
-                        d={arcPath(slice) ?? undefined}
-                        fill={segment.color}
-                        stroke="rgba(246,235,214,0.92)"
-                        strokeWidth="2"
-                        tabIndex={0}
-                        role="button"
-                        aria-label={`${payload.title}: ${payload.value}. Source: ${payload.source}`}
-                        onFocus={() => revealTooltip(key, payload)}
-                        onBlur={() => dismissTooltip(key)}
-                        onMouseEnter={() => revealTooltip(key, payload)}
-                        onMouseLeave={() => dismissTooltip(key)}
-                        onClick={() => togglePinnedTooltip(key, payload)}
-                      />
-                      <text x={lx} y={ly + 4} textAnchor="middle" fill="#fff5e8" fontSize="12" fontWeight="700">
-                        {segment.percent}%
-                      </text>
-                    </g>
-                  );
-                })}
-              </g>
-            </svg>
+                    return (
+                      <g key={key}>
+                        <path
+                          d={arcPath(slice) ?? undefined}
+                          fill={segment.color}
+                          stroke="rgba(246,235,214,0.92)"
+                          strokeWidth="2"
+                          tabIndex={0}
+                          role="button"
+                          aria-label={buildTooltipAriaLabel(payload)}
+                          onFocus={() => revealTooltip(key, payload)}
+                          onBlur={() => dismissTooltip(key)}
+                          onMouseEnter={() => revealTooltip(key, payload)}
+                          onMouseLeave={() => dismissTooltip(key)}
+                          onClick={() => togglePinnedTooltip(key, payload)}
+                        />
+                        <text x={lx} y={ly + 4} textAnchor="middle" fill="#fff5e8" fontSize="12" fontWeight="700">
+                          {segment.percent}%
+                        </text>
+                      </g>
+                    );
+                  })}
+                </g>
+              </svg>
+              {renderTooltipBox(tooltip, {
+                left: `${((tooltip?.x ?? 0) / pieWidth) * 100}%`,
+                top: `${((tooltip?.y ?? 0) / pieHeight) * 100}%`
+              })}
+            </div>
             <ul className="funding-flow-breakdown">
               {pieData.map((segment) => (
                 <li key={segment.label}>
@@ -808,20 +875,6 @@ export function FinancialChart({
             </article>
           </div>
         </div>
-
-        {tooltip ? (
-          <div
-            className="chart-tooltip"
-            style={{
-              left: `${(tooltip.x / pieWidth) * 100}%`,
-              top: `${(tooltip.y / pieHeight) * 100}%`
-            }}
-          >
-            <strong>{tooltip.title}</strong>
-            <span>{tooltip.value}</span>
-            <small>{tooltip.source}</small>
-          </div>
-        ) : null}
       </div>,
       "Pie shares and funding-flow boxes show allocation and movement of funds. Hover or focus pie segments for values."
     );
@@ -924,8 +977,7 @@ export function FinancialChart({
                     x: xPos + widthBar / 2,
                     y: yPos,
                     title: `${row.label} (${yearKey})`,
-                    value: formatUnit(value, row.unit),
-                    source: provenanceSource
+                    value: formatUnit(value, row.unit)
                   };
 
                   return (
@@ -938,7 +990,7 @@ export function FinancialChart({
                       fill={colors[yearKey]}
                       tabIndex={0}
                       role="button"
-                      aria-label={`${payload.title}: ${payload.value}. Source: ${payload.source}`}
+                      aria-label={buildTooltipAriaLabel(payload)}
                       onFocus={() => revealTooltip(key, payload)}
                       onBlur={() => dismissTooltip(key)}
                       onMouseEnter={() => revealTooltip(key, payload)}
@@ -984,19 +1036,10 @@ export function FinancialChart({
           </span>
         </div>
 
-        {tooltip ? (
-          <div
-            className="chart-tooltip"
-            style={{
-              left: `${(tooltip.x / pairedWidth) * 100}%`,
-              top: `${(tooltip.y / pairedHeight) * 100}%`
-            }}
-          >
-            <strong>{tooltip.title}</strong>
-            <span>{tooltip.value}</span>
-            <small>{tooltip.source}</small>
-          </div>
-        ) : null}
+        {renderTooltipBox(tooltip, {
+          left: `${((tooltip?.x ?? 0) / pairedWidth) * 100}%`,
+          top: `${((tooltip?.y ?? 0) / pairedHeight) * 100}%`
+        })}
       </div>,
       "Grouped 2023/2024 bars and growth labels show period-over-period change."
     );
@@ -1098,9 +1141,10 @@ export function FinancialChart({
                   x: baseX + index * barWidth + barWidth / 2,
                   y: yTop,
                   title: `${point.label} - ${item.label}`,
-                  value: formatSeriesValue(item.key, rawValue, point.raw),
-                  source: provenanceSource
+                  value: formatSeriesValue(item.key, rawValue, point.raw)
                 };
+                const tooltipPayload =
+                  buildUnifiedDualAxisTooltip(point, payload.x, payload.y) ?? payload;
 
                 return (
                   <rect
@@ -1113,16 +1157,16 @@ export function FinancialChart({
                     opacity={0.88}
                     tabIndex={0}
                     role="button"
-                    aria-label={`${payload.title}: ${payload.value}. Source: ${payload.source}`}
-                    onFocus={() => revealTooltip(key, payload)}
+                    aria-label={buildTooltipAriaLabel(tooltipPayload)}
+                    onFocus={() => revealTooltip(key, tooltipPayload)}
                     onBlur={() => dismissTooltip(key)}
-                    onMouseEnter={() => revealTooltip(key, payload)}
+                    onMouseEnter={() => revealTooltip(key, tooltipPayload)}
                     onMouseLeave={() => dismissTooltip(key)}
-                    onClick={() => togglePinnedTooltip(key, payload)}
+                    onClick={() => togglePinnedTooltip(key, tooltipPayload)}
                     onKeyDown={(event) => {
                       if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
-                        togglePinnedTooltip(key, payload);
+                        togglePinnedTooltip(key, tooltipPayload);
                       }
                     }}
                   />
@@ -1139,9 +1183,10 @@ export function FinancialChart({
                   x: cx,
                   y: cy,
                   title: `${point.label} - ${item.label}`,
-                  value: formatSeriesValue(item.key, value, point.raw),
-                  source: provenanceSource
+                  value: formatSeriesValue(item.key, value, point.raw)
                 };
+                const tooltipPayload =
+                  buildUnifiedDualAxisTooltip(point, payload.x, payload.y) ?? payload;
 
                 return (
                   <circle
@@ -1154,16 +1199,16 @@ export function FinancialChart({
                     strokeWidth={1.5}
                     tabIndex={0}
                     role="button"
-                    aria-label={`${payload.title}: ${payload.value}. Source: ${payload.source}`}
-                    onFocus={() => revealTooltip(key, payload)}
+                    aria-label={buildTooltipAriaLabel(tooltipPayload)}
+                    onFocus={() => revealTooltip(key, tooltipPayload)}
                     onBlur={() => dismissTooltip(key)}
-                    onMouseEnter={() => revealTooltip(key, payload)}
+                    onMouseEnter={() => revealTooltip(key, tooltipPayload)}
                     onMouseLeave={() => dismissTooltip(key)}
-                    onClick={() => togglePinnedTooltip(key, payload)}
+                    onClick={() => togglePinnedTooltip(key, tooltipPayload)}
                     onKeyDown={(event) => {
                       if (event.key === "Enter" || event.key === " ") {
                         event.preventDefault();
-                        togglePinnedTooltip(key, payload);
+                        togglePinnedTooltip(key, tooltipPayload);
                       }
                     }}
                   />
@@ -1217,19 +1262,10 @@ export function FinancialChart({
         })}
       </svg>
 
-      {tooltip ? (
-        <div
-          className="chart-tooltip"
-          style={{
-            left: `${(tooltip.x / width) * 100}%`,
-            top: `${(tooltip.y / height) * 100}%`
-          }}
-        >
-          <strong>{tooltip.title}</strong>
-          <span>{tooltip.value}</span>
-          <small>{tooltip.source}</small>
-        </div>
-      ) : null}
+      {renderTooltipBox(tooltip, {
+        left: `${((tooltip?.x ?? 0) / width) * 100}%`,
+        top: `${((tooltip?.y ?? 0) / height) * 100}%`
+      })}
     </div>,
     "Hover, focus, or click chart marks to inspect values. Press Enter or Space to pin tooltips; Escape clears.",
     defaultLegend

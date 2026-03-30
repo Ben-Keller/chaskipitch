@@ -126,6 +126,22 @@ def _pick_first(mapping: Dict[str, Any], keys: List[str], fallback: str = "") ->
     return fallback
 
 
+def _scene_text_description(scene: Dict[str, Any]) -> str:
+    texts = scene.get("texts")
+    if not isinstance(texts, list):
+        return ""
+    parts: List[str] = []
+    for entry in texts:
+        if not isinstance(entry, dict):
+            continue
+        content = entry.get("content")
+        if isinstance(content, str):
+            cleaned = " ".join(content.split())
+            if cleaned:
+                parts.append(cleaned)
+    return " ".join(parts).strip()
+
+
 def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
     story = load_story()
     scenes = story.get("scenes")
@@ -165,6 +181,7 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
         job = {
             "sceneId": str(scene.get("id") or f"SCENE_{scene_index + 1}"),
             "sceneTitle": str(scene.get("title") or ""),
+            "sceneDescription": _scene_text_description(scene),
             "sceneOrder": scene_index + 1,
             "sceneFolder": scene_folder,
             "sequenceSlug": sequence_slug,
@@ -183,8 +200,6 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
             "extractPatternPngRel": rel_to_repo(frame_pattern_path.with_suffix(".png")),
             "status": "pending",
             "openai": {
-                "startPrompt": _pick_first(openai_cfg, ["startPrompt", "start_prompt"], _pick_first(generation, ["startPrompt", "start_prompt"])),
-                "endPrompt": _pick_first(openai_cfg, ["endPrompt", "end_prompt"], _pick_first(generation, ["endPrompt", "end_prompt"])),
                 "model": _pick_first(openai_cfg, ["model"], "gpt-image-1"),
                 "size": _pick_first(openai_cfg, ["size"], "1536x1024"),
                 "quality": _pick_first(openai_cfg, ["quality"], "low"),
@@ -350,6 +365,64 @@ def _parse_json_object_from_text(text: str) -> Dict[str, Any] | None:
     return None
 
 
+VARIANT_PROFILES: List[str] = [
+    "Ultra close-up macro composition, shallow depth of field, photoreal documentary texture, low-angle viewpoint.",
+    "Wide establishing shot from elevated aerial perspective, expansive environment context, crisp geographic depth.",
+    "Eye-level medium-wide frame, cinematic anamorphic look, naturalistic color grade, balanced composition.",
+    "Top-down overhead composition, graphic geometry emphasis, clean structural layout, strong negative space.",
+    "Painterly illustrative treatment with visible brush texture, stylized color harmonies, art-directed composition.",
+    "High-contrast monochrome film look, dramatic side lighting, moody tonal separation, classic documentary aesthetic.",
+    "Atmospheric fog-rich scene with volumetric light shafts, dreamy diffusion, soft cinematic palette.",
+    "Infrared-inspired false-color scientific visualization style, high micro-detail texture, analytical visual language.",
+]
+
+
+def _profile_for_index(index: int) -> str:
+    return VARIANT_PROFILES[index % len(VARIANT_PROFILES)]
+
+
+def _token_set(text: str) -> set[str]:
+    chars = []
+    for char in text.lower():
+        chars.append(char if char.isalnum() else " ")
+    return {token for token in "".join(chars).split() if token}
+
+
+def _jaccard_similarity(a: str, b: str) -> float:
+    set_a = _token_set(a)
+    set_b = _token_set(b)
+    if not set_a and not set_b:
+        return 1.0
+    if not set_a or not set_b:
+        return 0.0
+    return len(set_a & set_b) / max(1, len(set_a | set_b))
+
+
+def _ensure_prompt_diversity(prompts: List[str], count: int, base_prompt: str) -> List[str]:
+    output: List[str] = []
+    for index in range(count):
+        candidate = prompts[index].strip() if index < len(prompts) else ""
+        profile = _profile_for_index(index)
+        if not candidate:
+            candidate = base_prompt.strip()
+        enriched = (
+            f"Variation profile ({index + 1}/{count}): {profile}\n"
+            "Recompose the scene to clearly reflect this profile while preserving core subject and narrative intent.\n"
+            f"{candidate}"
+        )
+
+        too_similar = any(_jaccard_similarity(enriched, existing) >= 0.8 for existing in output)
+        if too_similar:
+            enriched = (
+                f"Variation profile ({index + 1}/{count}): {profile}\n"
+                "Make this variation clearly different in viewpoint and rendering style from other variants.\n"
+                f"{base_prompt.strip()}"
+            )
+        output.append(enriched)
+
+    return output
+
+
 def openai_generate_prompt_variants(
     *,
     api_key: str,
@@ -367,16 +440,22 @@ def openai_generate_prompt_variants(
         "Content-Type": "application/json",
     }
 
+    profile_lines = [
+        f"{index + 1}. {_profile_for_index(index)}"
+        for index in range(count)
+    ]
     system_prompt = (
         "You generate image prompt variants for storyboarding. "
         "Return strict JSON only, with shape: {\"prompts\":[...]} and exactly the requested count. "
-        "Each prompt must keep the same subject, camera framing, composition intent, and emotional tone "
-        "as the base prompt, while introducing subtle stylistic variation (lighting mood, texture emphasis, "
-        "color nuance, atmosphere detail). No markdown."
+        "All prompts must preserve the same core subject and story intent as the base prompt, "
+        "but each variant must be significantly different in camera viewpoint and visual style. "
+        "No markdown."
     )
     user_prompt = (
         f"Base prompt:\\n{base_prompt}\\n\\n"
-        f"Generate {count} variants for OpenAI image generation."
+        f"Generate {count} variants for OpenAI image generation.\\n"
+        "Each variant must follow its profile below and must look materially different from the others:\\n"
+        + "\\n".join(profile_lines)
     )
 
     payload: Dict[str, Any] = {
@@ -449,10 +528,7 @@ def openai_generate_prompt_variants(
         if len(prompts) >= count:
             break
 
-    while len(prompts) < count:
-        prompts.append(base_prompt.strip())
-
-    return prompts[:count]
+    return _ensure_prompt_diversity(prompts, count, base_prompt)
 
 
 def openai_generate_image(

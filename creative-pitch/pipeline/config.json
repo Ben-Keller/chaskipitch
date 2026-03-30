@@ -1,7 +1,7 @@
 {
   "defaults": {
     "frame_count": 8,
-    "scene_limit": 3,
+    "scene_limit": 0,
     "generate_start_frame": true,
     "generate_end_frame": false,
     "start_frame_variants": 4

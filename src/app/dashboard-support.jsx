@@ -84,6 +84,7 @@ export const fallbackCountryEvidence = {
 
 export const fallbackPhotoAssignments = {
   country_photos: {},
+  country_photo_pool: {},
   theme_media: {}
 };
 

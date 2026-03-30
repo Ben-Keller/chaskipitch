@@ -34,6 +34,11 @@ from pipeline_core import (  # noqa: E402
 IMAGES_ROOT = PIPELINE_ROOT / "images"
 START_SELECTED_NAME = "start_selected.png"
 END_NAME = "end.png"
+GLOBAL_VISUAL_DIRECTION = (
+    "Slightly abstract cinematic visual language, not photorealistic. "
+    "Use expressive light transitions, soft luminous gradients, and evocative atmosphere. "
+    "Favor stylized texture and composition clarity. No text, no logos."
+)
 
 
 def _set_keyframe(job: Dict[str, Any], start_path: Path | None, end_path: Path | None) -> None:
@@ -52,6 +57,36 @@ def _handoff_dir(job: Dict[str, Any]) -> Path:
 def _copy_image(source: Path, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, target)
+
+
+def _scene_brief(job: Dict[str, Any]) -> str:
+    title = str(job.get("sceneTitle") or "").strip()
+    description = str(job.get("sceneDescription") or "").strip()
+    if title and description:
+        return f"{title}. {description}"
+    if title:
+        return title
+    if description:
+        return description
+    return f"Scene {job.get('sceneId', '')}".strip()
+
+
+def _build_start_base_prompt(job: Dict[str, Any]) -> str:
+    brief = _scene_brief(job)
+    return (
+        f"{GLOBAL_VISUAL_DIRECTION} "
+        f"Represent the opening visual state of this scene: {brief}. "
+        "Keep composition readable and emotionally grounded, with early-stage energy and restrained motion cues."
+    )
+
+
+def _build_end_state_prompt(job: Dict[str, Any]) -> str:
+    brief = _scene_brief(job)
+    return (
+        f"{GLOBAL_VISUAL_DIRECTION} "
+        f"Transform this same scene to its evolved end state: {brief}. "
+        "Preserve core subjects and continuity while increasing light-transition complexity, contrast rhythm, and sense of progression."
+    )
 
 
 def main() -> int:
@@ -117,8 +152,8 @@ def main() -> int:
             continue
 
         openai_cfg = job.get("openai", {}) if isinstance(job.get("openai"), dict) else {}
-        start_prompt = str(openai_cfg.get("startPrompt") or "").strip()
-        end_prompt = str(openai_cfg.get("endPrompt") or "").strip()
+        start_base_prompt = _build_start_base_prompt(job)
+        end_state_prompt = _build_end_state_prompt(job)
 
         if (run_start or run_end) and not openai_api_key:
             missing.append((scene_id, "OPENAI_API_KEY is missing."))
@@ -129,12 +164,9 @@ def main() -> int:
         generated_end = False
 
         if run_start:
-            if not start_prompt:
-                missing.append((scene_id, "startPrompt is missing but start generation is enabled."))
-                continue
             variant_prompts = openai_generate_prompt_variants(
                 api_key=openai_api_key,
-                base_prompt=start_prompt,
+                base_prompt=start_base_prompt,
                 variant_count=start_variants,
                 model=prompt_variation_model,
             )
@@ -147,6 +179,13 @@ def main() -> int:
                 run_option_path = output_dir / option_name
                 image_option_path = images_dir / option_name
                 variant_prompt = variant_prompts[index]
+                prompt_preview = " ".join(variant_prompt.split())
+                if len(prompt_preview) > 240:
+                    prompt_preview = f"{prompt_preview[:130]} ... {prompt_preview[-90:]}"
+                print(
+                    f"image_gen prompt variant: {scene_id} {index + 1}/{start_variants} -> "
+                    f"{prompt_preview}"
+                )
                 openai_generate_image(
                     api_key=openai_api_key,
                     prompt=variant_prompt,
@@ -173,9 +212,6 @@ def main() -> int:
                     )
 
         if run_end:
-            if not end_prompt:
-                missing.append((scene_id, "endPrompt is missing but end generation is enabled."))
-                continue
             if not selected_start.exists():
                 missing.append(
                     (
@@ -190,7 +226,7 @@ def main() -> int:
             guided_end_prompt = (
                 "Transform this exact input image into the end state while preserving the same "
                 "camera position, framing, lens feel, composition, lighting logic, and core style. "
-                f"{end_prompt}"
+                f"{end_state_prompt}"
             )
             openai_generate_image_edit(
                 api_key=openai_api_key,

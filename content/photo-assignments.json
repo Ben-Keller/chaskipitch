@@ -3,23 +3,60 @@
     "random_seed": 3959268853,
     "context_frame_aspect_ratio": 2.45,
     "y_offset_limit": 45,
-    "note": "Country photo assignments preserved from existing curated mapping; theme media generated from remaining /photos assets; y_offset defaults estimated from image saliency."
+    "note": "Country photo assignments preserved from existing curated mapping; theme media generated from remaining /photos assets; y_offset defaults estimated from image saliency.",
+    "selector_output_file": "tools/photo-country-offset-lab/output/photo-country-offset-selections.json",
+    "selector_output_updated_at": "2026-03-29T05:32:30.968Z",
+    "selector_merge_updated_at": "2026-03-30T10:01:28.140Z",
+    "selector_merge_summary": {
+      "selected_countries": 18,
+      "updated_countries": 2,
+      "preserved_countries": 4,
+      "skipped_rows": 36
+    },
+    "theme_texture_selector_output_file": "tools/theme-texture-lab/output/theme-texture-selections.json",
+    "theme_texture_selector_updated_at": "2026-03-30T10:30:51.442Z",
+    "theme_texture_merge_updated_at": "2026-03-30T10:49:30.266Z",
+    "theme_texture_merge_summary": {
+      "applied": 8,
+      "unchanged": 0,
+      "skipped": 0
+    }
   },
   "country_photos": {
+    "COG": {
+      "image": "/runtime/photos/picture/tenure-138.webp",
+      "alt": "Country photo aligned to Republic of Congo report context (page 53)",
+      "y_offset": 10
+    },
+    "ECU": {
+      "image": "/runtime/photos/picture/tenure-028.webp",
+      "alt": "Country photo aligned to Ecuador report context (page 47)",
+      "y_offset": 44
+    },
+    "KHM": {
+      "image": "/runtime/photos/picture/tenure-026.webp",
+      "alt": "Country photo aligned to Cambodia report context (page 20)",
+      "y_offset": 0
+    },
+    "SUR": {
+      "image": "/runtime/photos/picture/tenure-178.webp",
+      "alt": "Country photo aligned to Suriname report context (page 66)",
+      "y_offset": 6
+    },
     "BFA": {
-      "image": "/runtime/photos/picture/tenure-008.webp",
+      "image": "/runtime/photos/picture/tenure-121.webp",
       "alt": "Country photo aligned to Burkina Faso report context (page 15)",
-      "y_offset": -29
+      "y_offset": -15
     },
     "BLZ": {
-      "image": "/runtime/photos/picture/tenure-096.webp",
+      "image": "/runtime/photos/portrait/tenure-014.webp",
       "alt": "Country photo aligned to Belize report context (page 25)",
-      "y_offset": -12
+      "y_offset": -45
     },
     "BOL": {
-      "image": "/runtime/photos/picture/tenure-102.webp",
+      "image": "/runtime/photos/picture/tenure-109.webp",
       "alt": "Country photo aligned to Bolivia report context (page 54)",
-      "y_offset": -8
+      "y_offset": -45
     },
     "BRA": {
       "image": "/runtime/photos/picture/tenure-048.webp",
@@ -27,144 +64,347 @@
       "y_offset": 30
     },
     "CMR": {
-      "image": "/runtime/photos/picture/tenure-082.webp",
+      "image": "/runtime/photos/picture/tenure-076.webp",
       "alt": "Country photo aligned to Cameroon report context (page 23)",
-      "y_offset": -45
+      "y_offset": 45
     },
     "COD": {
-      "image": "/runtime/photos/picture/tenure-109.webp",
+      "image": "/runtime/photos/picture/tenure-097.webp",
       "alt": "Country photo aligned to Democratic Republic of the Congo report context (page 68)",
-      "y_offset": 27
-    },
-    "COG": {
-      "image": "/runtime/photos/picture/tenure-138.webp",
-      "alt": "Country photo aligned to Republic of Congo report context (page 53)",
-      "y_offset": 10
+      "y_offset": -45
     },
     "COL": {
-      "image": "/runtime/photos/picture/tenure-052.webp",
+      "image": "/runtime/photos/picture/tenure-113.webp",
       "alt": "Country photo aligned to Colombia report context (page 12)",
       "y_offset": -15
     },
-    "ECU": {
-      "image": "/runtime/photos/picture/tenure-028.webp",
-      "alt": "Country photo aligned to Ecuador report context (page 47)",
-      "y_offset": 44
-    },
     "GTM": {
-      "image": "/runtime/photos/picture/tenure-101.webp",
+      "image": "/runtime/photos/picture/tenure-168.webp",
       "alt": "Country photo aligned to Guatemala report context (page 47)",
-      "y_offset": -9
+      "y_offset": -15
     },
     "GUY": {
-      "image": "/runtime/photos/picture/tenure-084.webp",
+      "image": "/runtime/photos/picture/tenure-094.webp",
       "alt": "Country photo aligned to Guyana report context (page 48)",
-      "y_offset": 6
+      "y_offset": -15
     },
     "IDN": {
-      "image": "/runtime/photos/picture/tenure-088.webp",
+      "image": "/runtime/photos/picture/tenure-080.webp",
       "alt": "Country photo aligned to Indonesia report context (page 22)",
-      "y_offset": 45
+      "y_offset": -45
     },
     "IND": {
-      "image": "/runtime/photos/picture/tenure-031.webp",
+      "image": "/runtime/photos/picture/tenure-082.webp",
       "alt": "Country photo aligned to India report context (page 44)",
-      "y_offset": 25
+      "y_offset": -45
     },
     "KEN": {
-      "image": "/runtime/photos/picture/tenure-018.webp",
+      "image": "/runtime/photos/picture/tenure-134.webp",
       "alt": "Country photo aligned to Kenya report context (page 67)",
-      "y_offset": 45
-    },
-    "KHM": {
-      "image": "/runtime/photos/picture/tenure-026.webp",
-      "alt": "Country photo aligned to Cambodia report context (page 20)",
-      "y_offset": 0
+      "y_offset": -15
     },
     "LBR": {
-      "image": "/runtime/photos/picture/tenure-153.webp",
+      "image": "/runtime/photos/picture/tenure-096.webp",
       "alt": "Country photo aligned to Liberia report context (page 49)",
       "y_offset": 15
     },
     "MLI": {
-      "image": "/runtime/photos/picture/tenure-094.webp",
+      "image": "/runtime/photos/picture/tenure-124.webp",
       "alt": "Country photo aligned to Mali report context (page 31)",
-      "y_offset": 38
+      "y_offset": -15
     },
     "MMR": {
-      "image": "/runtime/photos/picture/tenure-134.webp",
+      "image": "/runtime/photos/picture/tenure-008.webp",
       "alt": "Country photo aligned to Myanmar report context (page 25)",
-      "y_offset": -16
+      "y_offset": -15
     },
     "NPL": {
-      "image": "/runtime/photos/picture/tenure-078.webp",
+      "image": "/runtime/photos/picture/tenure-128.webp",
       "alt": "Country photo aligned to Nepal report context (page 53)",
-      "y_offset": 45
+      "y_offset": 0
     },
     "PAN": {
-      "image": "/runtime/photos/picture/tenure-076.webp",
+      "image": "/runtime/photos/picture/tenure-066.webp",
       "alt": "Country photo aligned to Panama report context (page 54)",
-      "y_offset": -2
+      "y_offset": -15
     },
     "PER": {
-      "image": "/runtime/photos/picture/tenure-114.webp",
+      "image": "/runtime/photos/picture/tenure-061.webp",
       "alt": "Country photo aligned to Peru report context (page 12)",
-      "y_offset": -14
-    },
-    "SUR": {
-      "image": "/runtime/photos/picture/tenure-178.webp",
-      "alt": "Country photo aligned to Suriname report context (page 66)",
-      "y_offset": 6
+      "y_offset": 15
     }
   },
   "theme_media": {
     "climate-biodiversity": {
       "image": "/runtime/photos/picture/tenure-043.webp",
-      "texture": "/runtime/photos/texture/tenure-103.webp",
+      "texture": "/runtime/photos/texture/tenure-012.webp",
       "alt": "Placeholder thematic image for climate biodiversity",
       "y_offset": 37
     },
     "community-led-finance": {
       "image": "/runtime/photos/picture/tenure-125.webp",
-      "texture": "/runtime/photos/texture/tenure-136.webp",
+      "texture": "/runtime/photos/texture/tenure-054.webp",
       "alt": "Placeholder thematic image for community led finance",
       "y_offset": 18
     },
     "learning-exchange": {
       "image": "/runtime/photos/picture/tenure-000.webp",
-      "texture": "/runtime/photos/texture/tenure-143.webp",
+      "texture": "/runtime/photos/texture/tenure-136.webp",
       "alt": "Placeholder thematic image for learning exchange",
       "y_offset": 45
     },
     "policy-advocacy": {
       "image": "/runtime/photos/picture/tenure-172.webp",
-      "texture": "/runtime/photos/texture/tenure-012.webp",
+      "texture": "/runtime/photos/texture/tenure-175.webp",
       "alt": "Placeholder thematic image for policy advocacy",
       "y_offset": 7
     },
     "technology-mapping": {
       "image": "/runtime/photos/picture/tenure-066.webp",
-      "texture": "/runtime/photos/texture/tenure-040.webp",
+      "texture": "/runtime/photos/texture/tenure-027.webp",
       "alt": "Placeholder thematic image for technology mapping",
       "y_offset": 6
     },
     "tenure-security": {
       "image": "/runtime/photos/picture/tenure-116.webp",
-      "texture": "/runtime/photos/texture/tenure-105.webp",
+      "texture": "/runtime/photos/texture/tenure-152.webp",
       "alt": "Placeholder thematic image for tenure security",
       "y_offset": -9
     },
     "territorial-governance": {
       "image": "/runtime/photos/picture/tenure-137.webp",
-      "texture": "/runtime/photos/texture/tenure-098.webp",
+      "texture": "/runtime/photos/texture/tenure-171.webp",
       "alt": "Placeholder thematic image for territorial governance",
       "y_offset": 5
     },
     "women-youth-leadership": {
       "image": "/runtime/photos/picture/tenure-121.webp",
-      "texture": "/runtime/photos/texture/tenure-095.webp",
+      "texture": "/runtime/photos/texture/tenure-133.webp",
       "alt": "Placeholder thematic image for women youth leadership",
       "y_offset": -15
     }
+  },
+  "country_photo_pool": {
+    "PER": [
+      {
+        "image": "/runtime/photos/picture/tenure-138.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-138.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-061.webp",
+        "y_offset": 15,
+        "source_path": "photos/picture/tenure-061.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-059.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-059.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-000.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-000.webp"
+      }
+    ],
+    "IDN": [
+      {
+        "image": "/runtime/photos/picture/tenure-080.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-080.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-005.webp",
+        "y_offset": 0,
+        "source_path": "photos/picture/tenure-005.webp"
+      }
+    ],
+    "MMR": [
+      {
+        "image": "/runtime/photos/picture/tenure-008.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-008.webp"
+      }
+    ],
+    "COD": [
+      {
+        "image": "/runtime/photos/picture/tenure-097.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-097.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-078.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-078.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-018.webp",
+        "y_offset": 45,
+        "source_path": "photos/picture/tenure-018.webp"
+      }
+    ],
+    "BOL": [
+      {
+        "image": "/runtime/photos/picture/tenure-109.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-109.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-031.webp",
+        "y_offset": -30,
+        "source_path": "photos/picture/tenure-031.webp"
+      }
+    ],
+    "IND": [
+      {
+        "image": "/runtime/photos/picture/tenure-082.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-082.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-052.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-052.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-032.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-032.webp"
+      }
+    ],
+    "BRA": [
+      {
+        "image": "/runtime/photos/picture/tenure-114.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-114.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-102.webp",
+        "y_offset": 0,
+        "source_path": "photos/picture/tenure-102.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-101.webp",
+        "y_offset": -30,
+        "source_path": "photos/picture/tenure-101.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-088.webp",
+        "y_offset": -30,
+        "source_path": "photos/picture/tenure-088.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-068.webp",
+        "y_offset": -45,
+        "source_path": "photos/picture/tenure-068.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-048.webp",
+        "y_offset": 30,
+        "source_path": "photos/picture/tenure-048.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-036.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-036.webp"
+      }
+    ],
+    "PAN": [
+      {
+        "image": "/runtime/photos/picture/tenure-066.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-066.webp"
+      }
+    ],
+    "COL": [
+      {
+        "image": "/runtime/photos/picture/tenure-113.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-113.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-071.webp",
+        "y_offset": 0,
+        "source_path": "photos/picture/tenure-071.webp"
+      }
+    ],
+    "CMR": [
+      {
+        "image": "/runtime/photos/picture/tenure-076.webp",
+        "y_offset": 45,
+        "source_path": "photos/picture/tenure-076.webp"
+      }
+    ],
+    "BFA": [
+      {
+        "image": "/runtime/photos/picture/tenure-121.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-121.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-084.webp",
+        "y_offset": 15,
+        "source_path": "photos/picture/tenure-084.webp"
+      }
+    ],
+    "GUY": [
+      {
+        "image": "/runtime/photos/picture/tenure-094.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-094.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-085.webp",
+        "y_offset": 45,
+        "source_path": "photos/picture/tenure-085.webp"
+      }
+    ],
+    "LBR": [
+      {
+        "image": "/runtime/photos/picture/tenure-096.webp",
+        "y_offset": 15,
+        "source_path": "photos/picture/tenure-096.webp"
+      }
+    ],
+    "MLI": [
+      {
+        "image": "/runtime/photos/picture/tenure-124.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-124.webp"
+      }
+    ],
+    "NPL": [
+      {
+        "image": "/runtime/photos/picture/tenure-128.webp",
+        "y_offset": 0,
+        "source_path": "photos/picture/tenure-128.webp"
+      }
+    ],
+    "KEN": [
+      {
+        "image": "/runtime/photos/picture/tenure-178.webp",
+        "y_offset": 15,
+        "source_path": "photos/picture/tenure-178.webp"
+      },
+      {
+        "image": "/runtime/photos/picture/tenure-134.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-134.webp"
+      }
+    ],
+    "GTM": [
+      {
+        "image": "/runtime/photos/picture/tenure-168.webp",
+        "y_offset": -15,
+        "source_path": "photos/picture/tenure-168.webp"
+      }
+    ],
+    "BLZ": [
+      {
+        "image": "/runtime/photos/portrait/tenure-014.webp",
+        "y_offset": -45,
+        "source_path": "photos/portrait/tenure-014.webp"
+      }
+    ]
   }
 }

@@ -20,6 +20,8 @@
     "build:signals": "node scripts/build-country-signals.mjs",
     "build:videos": "node scripts/build-country-videos.mjs",
     "build:photo-assignments": "node scripts/build-photo-assignments.mjs",
+    "apply:photo-selections": "node scripts/apply-photo-country-selections.mjs",
+    "apply:theme-textures": "node scripts/apply-theme-texture-selections.mjs",
     "build:creative-sequences": "node scripts/build-creative-sequences.mjs",
     "enrich:phase5": "node scripts/enrich-phase5-content.mjs",
     "validate:data": "node scripts/validate-content.mjs",

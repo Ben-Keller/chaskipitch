@@ -3,20 +3,22 @@ import { SiteHeader } from "./app/site-header";
 import { UiShell } from "./app/ui-shell";
 import { DashboardPage } from "./app/dashboard-page";
 import { CreativePitchPage } from "./app/creative-pitch-page";
-import { EvolutionDashboardPage } from "./app/evolution-dashboard-page";
+import { HomePage } from "./app/home-page";
+import { OurFilmsPage } from "./app/our-films-page";
 
 const creativePitchEnabled = import.meta.env.VITE_ENABLE_CREATIVE_PITCH !== "false";
 
 const baseTabs = [
-  { key: "impact", label: "Impact" },
-  { key: "evolution", label: "Evolution & Finance" }
+  { key: "home", label: "Home" },
+  { key: "impact", label: "Tenure Facility" },
+  { key: "films", label: "Our Films" }
 ];
 const primaryTabs = creativePitchEnabled
-  ? [...baseTabs, { key: "creative_pitch", label: "Creative Pitch" }]
+  ? [...baseTabs.slice(0, 2), { key: "creative_pitch", label: "Creative Pitch" }, ...baseTabs.slice(2)]
   : baseTabs;
 
 export default function App() {
-  const [activePage, setActivePage] = useState("impact");
+  const [activePage, setActivePage] = useState("home");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -24,7 +26,15 @@ export default function App() {
 
   useEffect(() => {
     if (!creativePitchEnabled && activePage === "creative_pitch") {
-      setActivePage("impact");
+      setActivePage("home");
+      return;
+    }
+    if (activePage === "evolution") {
+      setActivePage("home");
+      return;
+    }
+    if (activePage === "films2") {
+      setActivePage("films");
     }
   }, [activePage, creativePitchEnabled]);
 
@@ -40,9 +50,12 @@ export default function App() {
             : ""
         }`}
       >
+        {activePage === "home" ? (
+          <HomePage onNavigate={setActivePage} creativePitchEnabled={creativePitchEnabled} />
+        ) : null}
         {activePage === "impact" ? <DashboardPage /> : null}
-        {activePage === "evolution" ? <EvolutionDashboardPage /> : null}
         {creativePitchEnabled && activePage === "creative_pitch" ? <CreativePitchPage /> : null}
+        {activePage === "films" ? <OurFilmsPage /> : null}
       </main>
     </>
   );

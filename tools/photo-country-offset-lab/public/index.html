@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Country + Y-Offset Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <h1>Photo Country + Y-Offset Lab</h1>
+        <p>Assign a country and crop offset for each photo. Saved on every Next.</p>
+      </header>
+
+      <section class="status" id="status-panel">
+        <div id="progress-line">Loading...</div>
+        <div id="output-line"></div>
+      </section>
+
+      <section class="workspace hidden" id="workspace">
+        <aside class="left-column">
+          <div class="card">
+            <h2>Current Photo</h2>
+            <p id="photo-path" class="mono"></p>
+            <p id="existing-mapping" class="note"></p>
+            <p id="saved-mapping" class="note"></p>
+          </div>
+
+          <div class="card">
+            <h2>Country</h2>
+            <label for="country-input">Search country names (or choose NA; manual entry allowed)</label>
+            <input id="country-input" list="country-options" placeholder="Type country name or ISO3" autocomplete="off" />
+            <datalist id="country-options"></datalist>
+            <p id="country-resolution" class="note"></p>
+          </div>
+
+          <div class="card actions">
+            <button id="prev-btn" type="button">Previous</button>
+            <button id="next-btn" type="button">Save + Next</button>
+          </div>
+        </aside>
+
+        <section class="right-column">
+          <div class="card">
+            <h2>Full Image</h2>
+            <div class="full-image-wrap">
+              <img id="full-image" alt="Current photo" />
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Choose One or More Slices (Top to Bottom)</h2>
+            <div id="slice-grid" class="slice-grid"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="done hidden" id="done-panel">
+        <h2>All done</h2>
+        <p>You have reached the end of the photo list.</p>
+      </section>
+
+      <section id="error-panel" class="error hidden"></section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

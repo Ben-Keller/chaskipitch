@@ -8,16 +8,7 @@
       "bgColor": "#0E0B08",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s1/seq/opening_thread/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Dark rich soil in close-up with a single fine mycelium thread beginning to glow, subtle moisture, warm earthy palette, soft volumetric light, highly detailed organic texture, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and visual style as the start frame. The single thread has expanded into a delicate branching mycelium network with gentle bioluminescent glow, still underground, same earthy cinematic palette, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate from a single glowing underground thread into a small branching mycelium structure. Keep movement organic and subtle, with no camera pan or rotation, no flicker, and no new subjects. Prioritize texture continuity and cinematic realism."
-          }
-        }
+        "srcPattern": "/assets/s1/seq/opening_thread/frame_%04d.webp"
       },
       "texts": [
         {
@@ -58,16 +49,7 @@
       "bgColor": "#120E0A",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s2/seq/mycelium_growth/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Subsurface view: sparse roots and fungal strands beneath forest soil, early-stage underground connectivity, quiet atmosphere, warm browns and deep greens, detailed natural textures, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Underground network is now dense and interconnected, carrying nutrients around roots, a small shoot becoming visible above soil line, smooth growth progression, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate gradual expansion of underground connectivity: roots and fungal threads become denser and coordinated, with a barely emerging shoot above soil. Motion should feel ecological and physically plausible, no abrupt transitions or camera drift."
-          }
-        }
+        "srcPattern": "/assets/s2/seq/mycelium_growth/frame_%04d.webp"
       },
       "texts": [
         {
@@ -108,16 +90,7 @@
       "bgColor": "#1A140E",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s3/seq/trunk_emergence/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Low angle at forest floor showing rooted base of a young trunk emerging from established roots, sense of continuity and history, earthy tones, soft directional light, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The trunk is stronger and more established, roots visibly reinforced, subtle signs of legal recognition and protection represented by ordered structure in the environment, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate the trunk emergence and strengthening from rooted base to established growth. Emphasize continuity of bark, roots, and soil detail. Keep motion restrained and grounded, avoiding dramatic camera movement or stylization changes."
-          }
-        }
+        "srcPattern": "/assets/s3/seq/trunk_emergence/frame_%04d.webp"
       },
       "texts": [
         {
@@ -158,16 +131,7 @@
       "bgColor": "#241A13",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s4/seq/rings_highlight/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Close composition of a tree cross-section with visible growth rings, muted highlights, tactile wood grain, warm amber-brown tones, contemplative mood, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The same growth rings are now selectively illuminated in layered bands, conveying cumulative progress and resilience, refined glow accents only, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate selective illumination across existing ring layers, revealing depth and accumulated resilience over time. Keep the cross-section stable in frame with gentle inward cinematic push only, no spinning, no perspective jump."
-          }
-        }
+        "srcPattern": "/assets/s4/seq/rings_highlight/frame_%04d.webp"
       },
       "texts": [
         {
@@ -208,16 +172,7 @@
       "bgColor": "#162118",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s5/seq/network_illumination/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Under-forest root network in low light, threads and root corridors faintly visible, impression of hidden infrastructure beneath trees, dark green-brown palette, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Hidden network becomes visibly active and interconnected with luminous pathways, showing resource flow and reinforced connections supporting tree growth, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate hidden network activation beneath the forest floor: pathways gradually light up and reinforce flow while trees above remain coherent. Use a gentle cinematic zoom-in with smooth temporal pacing, no jitter or hard cuts."
-          }
-        }
+        "srcPattern": "/assets/s5/seq/network_illumination/frame_%04d.webp"
       },
       "texts": [
         {
@@ -258,16 +213,7 @@
       "bgColor": "#2A2118",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s6/seq/rooted_in_relation/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Symbolic landscape spanning multiple biomes and territories with subtle cultural markers, roots beginning to interlink across distance, respectful documentary-art tone, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Cross-territory root connections are stronger and continuous, emphasizing relationship to land and stewardship across cultures, same composition and palette, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate cross-territory root connections forming between landscape zones while preserving a respectful documentary-art tone. Keep framing stable and composition coherent, with slow environmental evolution and no aggressive camera motion."
-          }
-        }
+        "srcPattern": "/assets/s6/seq/rooted_in_relation/frame_%04d.webp"
       },
       "texts": [
         {
@@ -308,16 +254,7 @@
       "bgColor": "#171512",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s7/seq/network_listens/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Wide scene suggesting distant communities and territories as separated points of light, quiet atmosphere, faint subsurface threads barely connecting them, deep twilight palette, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Formerly separate points are now linked by coherent subsurface signal pathways, connection and solidarity made visible while keeping subtle tone, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate distant points becoming connected by subtle subsurface signal pathways, turning separation into visible solidarity. Use a gentle cinematic zoom-in and smooth bridge-like motion, keeping the scene calm and legible."
-          }
-        }
+        "srcPattern": "/assets/s7/seq/network_listens/frame_%04d.webp"
       },
       "texts": [
         {
@@ -358,16 +295,7 @@
       "bgColor": "#20170F",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s8/seq/rooting_for_change/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Tree-ring motif with early highlighted bands and restrained data-like visual accents, grounded natural textures, hopeful but measured atmosphere, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Ring layers are fully developed and luminous, with richer structured visual accents implying documented impact and scale, still natural and elegant, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate ring and impact motifs from early indicators to fully developed layered progress. Keep movement elegant and measurable-looking, with a gentle cinematic zoom-in and no clutter, no text overlays, no chaotic effects."
-          }
-        }
+        "srcPattern": "/assets/s8/seq/rooting_for_change/frame_%04d.webp"
       },
       "texts": [
         {
@@ -408,16 +336,7 @@
       "bgColor": "#11161A",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s9/seq/living_platform/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Organic-digital transition scene: root-like structures feeding into a minimal map-like interface scaffold, early platform architecture emerging, cool-neutral and earthy mixed palette, no readable text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The living map platform is now fully active with layered nodes, pathways, and story surfaces integrated with organic forms, no readable text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate an organic-to-digital integration where root structures feed into a living map platform architecture. Keep interface-like forms abstract and non-readable, maintain stable framing, and evolve structure smoothly without hard morph artifacts."
-          }
-        }
+        "srcPattern": "/assets/s9/seq/living_platform/frame_%04d.webp"
       },
       "texts": [
         {
@@ -458,16 +377,7 @@
       "bgColor": "#161110",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s10/seq/film_and_shorts/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Film language motif: a single cinematic ribbon or frame strip emerging from forest textures, intimate and focused composition, warm contrast, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. One narrative ribbon expands into multiple connected short-form channels radiating outward while preserving one cohesive story aesthetic, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate a single narrative ribbon expanding into multiple connected channels while preserving one coherent cinematic language. Keep motion fluid and story-centric, no camera whip, no abrupt perspective changes, no typography."
-          }
-        }
+        "srcPattern": "/assets/s10/seq/film_and_shorts/frame_%04d.webp"
       },
       "texts": [
         {
@@ -508,16 +418,7 @@
       "bgColor": "#18140F",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s11/seq/forest_of_voices/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Interior immersive installation concept with concentric forest-ring structures in low light, anticipatory atmosphere, subtle silhouettes, premium exhibition mood, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. The ring installation is fully illuminated and experiential, richer depth and atmosphere with collective presence, conveying a conversion moment, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate concentric immersive ring structures from low-lit anticipation to fully activated experiential presence. Use a gentle cinematic zoom-in, with atmospheric depth increasing gradually and no sudden flashes or strobing."
-          }
-        }
+        "srcPattern": "/assets/s11/seq/forest_of_voices/frame_%04d.webp"
       },
       "texts": [
         {
@@ -558,16 +459,7 @@
       "bgColor": "#22301F",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s12/seq/roots_of_abundance/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Community-rooted landscape at early dawn: healthy but restrained forest and territory stewardship, quiet strength, layered greens and earth tones, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Landscape becomes visibly abundant and thriving with stronger forest vitality and climate-resilient richness, grounded in community stewardship, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate the landscape from restrained vitality to visible abundance and resilience. Emphasize healthy ecological progression and continuity of light, vegetation, and terrain, with calm pacing and stable camera behavior."
-          }
-        }
+        "srcPattern": "/assets/s12/seq/roots_of_abundance/frame_%04d.webp"
       },
       "texts": [
         {
@@ -608,16 +500,7 @@
       "bgColor": "#0F0C0A",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s13/seq/final_invitation/frame_%04d.webp",
-        "generation": {
-          "openai": {
-            "startPrompt": "Cinematic ecological visual, 16:9. Final invitation mood: forest pathway opening toward a wider horizon, calm and purposeful composition, unified visual language from previous scenes, no text, no logos.",
-            "endPrompt": "Use the exact same camera angle, framing, lens, and style as the start frame. Horizon becomes brighter and more expansive with converging pathways and collective momentum, clear invitation energy, no text, no logos."
-          },
-          "runway": {
-            "prompt": "Animate final invitation energy as pathways converge toward a brighter horizon and collective momentum. Keep visual language consistent with earlier scenes, motion hopeful but controlled, and avoid abrupt camera or style changes."
-          }
-        }
+        "srcPattern": "/assets/s13/seq/final_invitation/frame_%04d.webp"
       },
       "texts": [
         {

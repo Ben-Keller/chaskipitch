@@ -10,6 +10,25 @@ function normalizeBase(baseUrl) {
 
 const BASE_URL = normalizeBase(import.meta.env.BASE_URL);
 
+function resolveRuntimeBase() {
+  if (BASE_URL !== "./") {
+    return BASE_URL;
+  }
+
+  if (typeof window === "undefined") {
+    return "./";
+  }
+
+  const hostname = String(window.location?.hostname ?? "").toLowerCase();
+  const pathname = String(window.location?.pathname ?? "/");
+  if (hostname.endsWith("github.io")) {
+    const firstSegment = pathname.split("/").filter(Boolean)[0];
+    return firstSegment ? `/${firstSegment}/` : "/";
+  }
+
+  return "/";
+}
+
 export function withBasePath(pathValue) {
   if (typeof pathValue !== "string" || !pathValue.length) {
     return pathValue;
@@ -27,11 +46,7 @@ export function withBasePath(pathValue) {
 
   const cleaned = pathValue.replace(/^\/+/, "");
 
-  if (BASE_URL === "./") {
-    return `./${cleaned}`;
-  }
-
-  return `${BASE_URL}${cleaned}`;
+  return `${resolveRuntimeBase()}${cleaned}`;
 }
 
 export function contentPath(relativePath) {

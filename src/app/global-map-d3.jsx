@@ -23,10 +23,15 @@ const PAN_LIMIT_EXTRA_LEFT = 120;
 const PAN_LIMIT_EXTRA_RIGHT = 180;
 const PAN_LIMIT_EXTRA_DOWN = 70;
 const XL_RIGHT_JUSTIFY_GAP = 6;
+const XL_FOCUS_SHIFT_X = -88;
+const XL_FOCUS_SHIFT_Y = -40;
 const L_COMMON_SHIFT_X = 20;
 const L_COMMON_SHIFT_Y = -18;
 const L_GLOBAL_SHIFT_X = 92;
 const L_GLOBAL_SHIFT_Y = -14;
+const L_FOCUS_SHIFT_X = -56;
+const L_FOCUS_SHIFT_Y = -32;
+const TERRITORY_TEMPLATE_TARGET_RATIO = 0.085;
 const IDENTITY_VIEW = { scale: 1, tx: 0, ty: 0 };
 const FULL_FOCUS_RECT = { x0: 0, y0: 0, x1: VIEWBOX_WIDTH, y1: VIEWBOX_HEIGHT };
 const FOCUS_RECT_PADDING_PX = 10;
@@ -385,10 +390,17 @@ export function GlobalMapD3({
   worldCountriesGeo = { type: "FeatureCollection", features: [] },
   statusDefinitions = [],
   selectedIso = null,
+  selectedHighlightIso = [],
+  hoveredHighlightIso = [],
+  selectedStatusId = null,
+  hoveredStatusId = null,
+  hoveredIso = null,
   selectedTerritoryGeo = null,
   onCountrySelect = () => {},
+  onCountryHover = () => {},
+  onStatusSelect = () => {},
+  onStatusHover = () => {},
   onClearSelection = () => {},
-  highlightedIso = null,
   overlay = null
 }) {
   const [viewportTier, setViewportTier] = useState(() =>
@@ -820,6 +832,26 @@ export function GlobalMapD3({
   );
   const visibleIso = useMemo(() => new Set(visibleCountries.map((country) => country.iso3)), [visibleCountries]);
   const selectableIso = visibleIso;
+  const selectedHighlightSet = useMemo(
+    () =>
+      new Set(
+        (selectedHighlightIso ?? [])
+          .map((iso3) => String(iso3).trim().toUpperCase())
+          .filter(Boolean)
+      ),
+    [selectedHighlightIso]
+  );
+  const hoveredHighlightSet = useMemo(
+    () =>
+      new Set(
+        (hoveredHighlightIso ?? [])
+          .map((iso3) => String(iso3).trim().toUpperCase())
+          .filter(Boolean)
+      ),
+    [hoveredHighlightIso]
+  );
+  const hasSelectedHighlightSet = selectedHighlightSet.size > 0;
+  const hasHoveredHighlightSet = hoveredHighlightSet.size > 0;
 
   const baseFeatures = useMemo(() => {
     return (worldCountriesGeo?.features ?? []).filter(
@@ -900,13 +932,13 @@ export function GlobalMapD3({
       return;
     }
 
-    if (highlightedIso && keyboardCountries.some((country) => country.iso3 === highlightedIso)) {
-      setKeyboardIso(highlightedIso);
+    if (hoveredIso && keyboardCountries.some((country) => country.iso3 === hoveredIso)) {
+      setKeyboardIso(hoveredIso);
       return;
     }
 
     setKeyboardIso((current) => current ?? keyboardCountries[0].iso3);
-  }, [highlightedIso, keyboardCountries, selectedIso]);
+  }, [hoveredIso, keyboardCountries, selectedIso]);
 
   const focusedCountry = keyboardCountries.find((country) => country.iso3 === keyboardIso) ?? null;
 
@@ -944,7 +976,11 @@ export function GlobalMapD3({
       return labels.filter((label) => label.iso3 === selectedIso);
     }
 
-    const ordered = [...labels].sort((left, right) => {
+    const labelPool = hasHoveredHighlightSet
+      ? labels.filter((label) => hoveredHighlightSet.has(label.iso3))
+      : labels;
+
+    const ordered = [...labelPool].sort((left, right) => {
       const leftProjects = Number(left.projectCount) || 0;
       const rightProjects = Number(right.projectCount) || 0;
       if (rightProjects !== leftProjects) {
@@ -966,7 +1002,7 @@ export function GlobalMapD3({
     });
 
     return accepted;
-  }, [labels, selectedIso]);
+  }, [hasHoveredHighlightSet, hoveredHighlightSet, labels, selectedIso]);
 
   const renderedLabels = isResizing ? [] : shownLabels;
 
@@ -1019,8 +1055,8 @@ export function GlobalMapD3({
       return null;
     }
 
-    const targetWidth = countryWidth * 0.34;
-    const targetHeight = countryHeight * 0.34;
+    const targetWidth = countryWidth * TERRITORY_TEMPLATE_TARGET_RATIO;
+    const targetHeight = countryHeight * TERRITORY_TEMPLATE_TARGET_RATIO;
     const scale = Math.min(targetWidth / templateWidth, targetHeight / templateHeight);
     if (!Number.isFinite(scale) || scale <= 0) {
       return null;
@@ -1065,10 +1101,13 @@ export function GlobalMapD3({
       if (viewportTier === "l") {
         const globalShiftX = selectionKind === "global" ? L_GLOBAL_SHIFT_X : 0;
         const globalShiftY = selectionKind === "global" ? L_GLOBAL_SHIFT_Y : 0;
+        const hasFocusedSelection = selectionKind === "country" || selectionKind === "region";
+        const focusShiftX = hasFocusedSelection ? L_FOCUS_SHIFT_X : 0;
+        const focusShiftY = hasFocusedSelection ? L_FOCUS_SHIFT_Y : 0;
         next = clampTransform({
           ...next,
-          tx: next.tx + L_COMMON_SHIFT_X + globalShiftX,
-          ty: next.ty + L_COMMON_SHIFT_Y + globalShiftY
+          tx: next.tx + L_COMMON_SHIFT_X + globalShiftX + focusShiftX,
+          ty: next.ty + L_COMMON_SHIFT_Y + globalShiftY + focusShiftY
         });
       }
 
@@ -1099,6 +1138,14 @@ export function GlobalMapD3({
           next = clampTransform({
             ...next,
             tx: targetCenter - worldCenter
+          });
+        }
+
+        if (selectionKind === "country" || selectionKind === "region") {
+          next = clampTransform({
+            ...next,
+            tx: next.tx + XL_FOCUS_SHIFT_X,
+            ty: next.ty + XL_FOCUS_SHIFT_Y
           });
         }
       }
@@ -1368,9 +1415,10 @@ export function GlobalMapD3({
         }
       }
       suppressClickRef.current = false;
+      onCountryHover(null);
       markInteracting();
     },
-    [handleResetView, markInteracting, onCountrySelect, pickCountryAtClientPoint]
+    [handleResetView, markInteracting, onCountryHover, onCountrySelect, pickCountryAtClientPoint]
   );
 
   const stepKeyboardFocus = (direction) => {
@@ -1464,6 +1512,7 @@ export function GlobalMapD3({
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerEnd}
         onPointerCancel={handlePointerEnd}
+        onPointerLeave={() => onCountryHover(null)}
       >
         <defs>
           <pattern id={patternIds.additional2024} patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(135)">
@@ -1510,7 +1559,15 @@ export function GlobalMapD3({
             const isPortfolioCountry = Boolean(footprintFeature);
             const isVisibleCountry = visibleIso.has(iso3);
             const isSelected = iso3 === selectedIso;
-            const isFocused = iso3 === (keyboardIso ?? highlightedIso);
+            const isFocused = iso3 === hoveredIso;
+            const isStrongHighlighted = isPortfolioCountry && isVisibleCountry && selectedHighlightSet.has(iso3);
+            const isSoftHighlighted =
+              isPortfolioCountry &&
+              isVisibleCountry &&
+              !isStrongHighlighted &&
+              hoveredHighlightSet.has(iso3);
+            const shouldDimForStrongSet = hasSelectedHighlightSet && !selectedIso;
+            const shouldDimForSoftSet = !hasSelectedHighlightSet && hasHoveredHighlightSet && !selectedIso;
 
             let fill = "#F1EFE8";
             let stroke = "rgba(190, 194, 187, 0.78)";
@@ -1530,6 +1587,34 @@ export function GlobalMapD3({
               fillOpacity = 0.96;
               strokeWidth = isFocused || isSelected ? 1.6 : 0.95;
               strokeOpacity = 0.95;
+            }
+
+            if (isPortfolioCountry && isVisibleCountry && isSoftHighlighted) {
+              fillOpacity = 0.98;
+              stroke = "#0A4B55";
+              strokeWidth = 1.46;
+              strokeOpacity = 0.96;
+            }
+
+            if (isPortfolioCountry && isVisibleCountry && isStrongHighlighted) {
+              fillOpacity = 1;
+              stroke = "#072f37";
+              strokeWidth = 1.92;
+              strokeOpacity = 1;
+            }
+
+            if (shouldDimForStrongSet && isPortfolioCountry && isVisibleCountry && !isStrongHighlighted) {
+              fillOpacity = 0.3;
+              stroke = "rgba(124, 132, 126, 0.88)";
+              strokeWidth = 0.66;
+              strokeOpacity = 0.5;
+            }
+
+            if (shouldDimForSoftSet && isPortfolioCountry && isVisibleCountry && !isSoftHighlighted) {
+              fillOpacity = 0.62;
+              stroke = "rgba(124, 132, 126, 0.88)";
+              strokeWidth = 0.76;
+              strokeOpacity = 0.66;
             }
 
             if (selectedIso && !isSelected) {
@@ -1558,6 +1643,16 @@ export function GlobalMapD3({
                 strokeOpacity={strokeOpacity}
                 strokeWidth={strokeWidth}
                 vectorEffect="non-scaling-stroke"
+                onMouseEnter={
+                  isPortfolioCountry && isVisibleCountry && !isDragging
+                    ? () => onCountryHover(iso3)
+                    : undefined
+                }
+                onMouseLeave={
+                  isPortfolioCountry && isVisibleCountry && !isDragging
+                    ? () => onCountryHover(null)
+                    : undefined
+                }
               >
                 <title>
                   {feature.properties.name}
@@ -1654,7 +1749,11 @@ export function GlobalMapD3({
           </button>
         </div>
 
-        <div className={`map-legend${legendCollapsed ? " is-collapsed" : ""}`} aria-label="Map legend">
+        <div
+          className={`map-legend${legendCollapsed ? " is-collapsed" : ""}`}
+          aria-label="Map legend"
+          onMouseLeave={() => onStatusHover(null)}
+        >
           {legendCollapsed ? (
             <button
               type="button"
@@ -1672,7 +1771,10 @@ export function GlobalMapD3({
                   type="button"
                   className="map-legend__toggle"
                   aria-expanded="true"
-                  onClick={() => setLegendCollapsed(true)}
+                  onClick={() => {
+                    onStatusHover(null);
+                    setLegendCollapsed(true);
+                  }}
                 >
                   Hide
                 </button>
@@ -1680,9 +1782,26 @@ export function GlobalMapD3({
               <p className="map-legend__note">In the 2024 portfolio:</p>
               <ul>
                 {statusDefinitions.map((status) => (
-                  <li key={status.id}>
-                    <span className="swatch" style={getLegendSwatchStyle(status.id)} aria-hidden="true" />
-                    <span>{getConciseLegendLabel(status)}</span>
+                  <li
+                    key={status.id}
+                    className={[
+                      selectedStatusId === status.id ? "is-active" : "",
+                      hoveredStatusId === status.id ? "is-hovered" : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    <button
+                      type="button"
+                      className="map-legend__item-button"
+                      aria-pressed={selectedStatusId === status.id}
+                      onClick={() => onStatusSelect(status.id)}
+                      onMouseEnter={() => onStatusHover(status.id)}
+                      onMouseLeave={() => onStatusHover(null)}
+                    >
+                      <span className="swatch" style={getLegendSwatchStyle(status.id)} aria-hidden="true" />
+                      <span>{getConciseLegendLabel(status)}</span>
+                    </button>
                   </li>
                 ))}
               </ul>

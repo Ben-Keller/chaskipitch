@@ -8,16 +8,17 @@ import { LoadingPanel, ErrorPanel } from "./loading-panel";
 
 const THREADS_TIMELINE_SLUG = "evolution-grants-projects";
 const DUAL_AXIS_TREND_SLUG = "projects-funding-over-time";
+const FUNDING_FLOW_SLUG = "funding-flow-2024";
+const FUNDING_MILESTONES_SLUG = "funding-milestones-2024";
+const GROWTH_COMPARISON_SLUG = "impact-growth-2023-2024";
 const CHART_WORKBENCH_ORDER = [
   DUAL_AXIS_TREND_SLUG,
-  "funding-flow-2024",
-  "funding-milestones-2024",
-  "impact-growth-2023-2024"
+  FUNDING_FLOW_SLUG,
+  FUNDING_MILESTONES_SLUG,
+  GROWTH_COMPARISON_SLUG
 ];
-const INSTITUTIONAL_PAGES = new Set([61, 72, 73, 75, 77]);
 const TIMELINE_VIEW_OPTIONS = [
   { key: "stage", label: "Selected phase" },
-  { key: "institutional", label: "Institutional milestones" },
   { key: "all", label: "All milestones" }
 ];
 
@@ -161,29 +162,19 @@ export function EvolutionDashboardPage() {
     return impactTimeline;
   }, [activeStage, impactTimeline, selectedStageRange]);
 
-  const institutionalHighlights = useMemo(
-    () => impactTimeline.filter((item) => INSTITUTIONAL_PAGES.has(item.source_page)),
-    [impactTimeline]
-  );
-
   const visibleMilestones = useMemo(() => {
-    if (timelineViewKey === "institutional") {
-      return institutionalHighlights;
-    }
     if (timelineViewKey === "all") {
       return impactTimeline;
     }
     return stageAlignedMilestones;
-  }, [impactTimeline, institutionalHighlights, stageAlignedMilestones, timelineViewKey]);
+  }, [impactTimeline, stageAlignedMilestones, timelineViewKey]);
 
   const timelineStreamLabel =
-    timelineViewKey === "institutional"
-      ? "Institutional milestones through 2024"
-      : timelineViewKey === "all"
-        ? "Complete milestone timeline through 2024"
-        : activeStage
-          ? `Milestones aligned to ${activeStage.period}`
-          : "Milestones aligned to selected phase";
+    timelineViewKey === "all"
+      ? "Complete milestone timeline through 2024"
+      : activeStage
+        ? `Milestones aligned to ${activeStage.period}`
+        : "Milestones aligned to selected phase";
 
   const stackedCharts = useMemo(
     () =>
@@ -191,6 +182,25 @@ export function EvolutionDashboardPage() {
         .map((slug) => sanitizeChartForDisplay(chartBySlug.get(slug)))
         .filter(Boolean),
     [chartBySlug]
+  );
+
+  const chartBySlugForRender = useMemo(
+    () => new Map(stackedCharts.map((chart) => [chart.slug, chart])),
+    [stackedCharts]
+  );
+  const leadCharts = useMemo(
+    () =>
+      [DUAL_AXIS_TREND_SLUG, FUNDING_FLOW_SLUG]
+        .map((slug) => chartBySlugForRender.get(slug))
+        .filter(Boolean),
+    [chartBySlugForRender]
+  );
+  const pairedCharts = useMemo(
+    () =>
+      [FUNDING_MILESTONES_SLUG, GROWTH_COMPARISON_SLUG]
+        .map((slug) => chartBySlugForRender.get(slug))
+        .filter(Boolean),
+    [chartBySlugForRender]
   );
 
   if (loading) {
@@ -261,7 +271,21 @@ export function EvolutionDashboardPage() {
         <h2>Funding and Impact Charts</h2>
         <div className="evolution-chart-grid__stack">
           {stackedCharts.length ? (
-            stackedCharts.map((chart) => <FinancialChart key={chart.slug} chart={chart} compact />)
+            <>
+              {leadCharts.map((chart) => (
+                <FinancialChart key={chart.slug} chart={chart} compact />
+              ))}
+
+              {pairedCharts.length ? (
+                <div className="evolution-chart-grid__pair">
+                  {pairedCharts.map((chart) => (
+                    <div className="evolution-chart-grid__pair-item" key={chart.slug}>
+                      <FinancialChart chart={chart} compact />
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+            </>
           ) : (
             <p className="note">No charts are available.</p>
           )}
