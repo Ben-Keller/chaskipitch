@@ -28,8 +28,7 @@ const XL_FOCUS_SHIFT_X = -88;
 const XL_FOCUS_SHIFT_Y = -40;
 const L_COMMON_SHIFT_X = 20;
 const L_COMMON_SHIFT_Y = -18;
-const L_GLOBAL_SHIFT_X = 92;
-const L_GLOBAL_SHIFT_Y = -14;
+const L_GLOBAL_SHIFT_Y = -8;
 const L_REGION_SHIFT_X = 28;
 const L_COUNTRY_SHIFT_X = 18;
 const L_FOCUS_SHIFT_X = -56;
@@ -389,6 +388,61 @@ function fitTransformForFeatures(features, path, focusRect = FULL_FOCUS_RECT, fi
   });
 }
 
+function alignBoundsInFocusRect(view, bounds, focusRect, { xBias = 0, yBias = 0 } = {}) {
+  if (!bounds || !focusRect) {
+    return view;
+  }
+
+  const targetRect = clampFocusRect(focusRect);
+  const scale = Number(view?.scale);
+  const tx = Number(view?.tx);
+  const ty = Number(view?.ty);
+  if (!Number.isFinite(scale) || !Number.isFinite(tx) || !Number.isFinite(ty) || scale <= 0) {
+    return view;
+  }
+
+  const focusWidth = Math.max(1, targetRect.x1 - targetRect.x0);
+  const focusHeight = Math.max(1, targetRect.y1 - targetRect.y0);
+
+  const minX = bounds.minX * scale + tx;
+  const maxX = bounds.maxX * scale + tx;
+  const minY = bounds.minY * scale + ty;
+  const maxY = bounds.maxY * scale + ty;
+
+  const contentWidth = Math.max(1, maxX - minX);
+  const contentHeight = Math.max(1, maxY - minY);
+
+  const desiredCenterX = targetRect.x0 + focusWidth * clamp(0.5 + xBias, 0.1, 0.9);
+  const desiredCenterY = targetRect.y0 + focusHeight * clamp(0.5 + yBias, 0.1, 0.9);
+  const currentCenterX = (minX + maxX) / 2;
+  const currentCenterY = (minY + maxY) / 2;
+
+  let nextTx = tx + (desiredCenterX - currentCenterX);
+  let nextTy = ty + (desiredCenterY - currentCenterY);
+
+  if (contentWidth <= focusWidth) {
+    const minAllowedTx = targetRect.x0 - bounds.minX * scale;
+    const maxAllowedTx = targetRect.x1 - bounds.maxX * scale;
+    const lo = Math.min(minAllowedTx, maxAllowedTx);
+    const hi = Math.max(minAllowedTx, maxAllowedTx);
+    nextTx = clamp(nextTx, lo, hi);
+  }
+
+  if (contentHeight <= focusHeight) {
+    const minAllowedTy = targetRect.y0 - bounds.minY * scale;
+    const maxAllowedTy = targetRect.y1 - bounds.maxY * scale;
+    const lo = Math.min(minAllowedTy, maxAllowedTy);
+    const hi = Math.max(minAllowedTy, maxAllowedTy);
+    nextTy = clamp(nextTy, lo, hi);
+  }
+
+  return {
+    ...view,
+    tx: nextTx,
+    ty: nextTy
+  };
+}
+
 export function GlobalMapD3({
   allCountries = [],
   visibleCountries = [],
@@ -504,6 +558,13 @@ export function GlobalMapD3({
     if (!Number.isFinite(mapRect.width) || !Number.isFinite(mapRect.height) || mapRect.width <= 0 || mapRect.height <= 0) {
       return fallback;
     }
+    const viewportTop = 0;
+    const viewportBottom =
+      typeof window !== "undefined" && Number.isFinite(window.innerHeight)
+        ? window.innerHeight
+        : mapRect.bottom;
+    const visibleMapTop = Math.max(mapRect.top, viewportTop);
+    const visibleMapBottom = Math.min(mapRect.bottom, viewportBottom);
 
     const getRect = (selector) => {
       const node = wrap.querySelector(selector);
@@ -555,8 +616,15 @@ export function GlobalMapD3({
         }
       }
     } else if (viewportTier === "l") {
-      // L: keep the fit window high so the map isn't pushed too far down.
-      y0 = mapRect.top + FOCUS_RECT_PADDING_PX;
+      // L: keep full map-fit height for stronger scale, but trim the lower bound
+      // adaptively when the map extends far below the viewport.
+      const overflowBottomPx = Math.max(0, mapRect.bottom - visibleMapBottom);
+      const adaptiveBottomTrimPx = Math.min(
+        180,
+        overflowBottomPx * (selectionKind === "global" ? 0.2 : 0.28)
+      );
+      y0 = Math.max(y0, visibleMapTop + FOCUS_RECT_PADDING_PX);
+      y1 = Math.min(y1, mapRect.bottom - FOCUS_RECT_PADDING_PX - adaptiveBottomTrimPx);
 
       const leftOccluders = [searchRect, themeRect, contextRect].filter(overlapsMap);
       const rightEdgeOfLeftColumn = leftOccluders.reduce(
@@ -1104,7 +1172,6 @@ export function GlobalMapD3({
       let next = view;
 
       if (viewportTier === "l") {
-        const globalShiftX = selectionKind === "global" ? L_GLOBAL_SHIFT_X : 0;
         const globalShiftY = selectionKind === "global" ? L_GLOBAL_SHIFT_Y : 0;
         const regionShiftX = selectionKind === "region" ? L_REGION_SHIFT_X : 0;
         const countryShiftX = selectionKind === "country" ? L_COUNTRY_SHIFT_X : 0;
@@ -1116,12 +1183,22 @@ export function GlobalMapD3({
           tx:
             next.tx +
             L_COMMON_SHIFT_X +
-            globalShiftX +
             regionShiftX +
             countryShiftX +
             focusShiftX,
           ty: next.ty + L_COMMON_SHIFT_Y + globalShiftY + focusShiftY
         });
+
+        if (selectionKind === "global" && features?.length) {
+          const bounds = collectFeatureBounds(features, path);
+          next = clampTransform(
+            alignBoundsInFocusRect(next, bounds, focusRect, {
+              // Slight right bias keeps global map clear of the left content rail without overshooting.
+              xBias: 0.03,
+              yBias: 0
+            })
+          );
+        }
       }
 
       if (viewportTier === "xl" && features?.length) {
