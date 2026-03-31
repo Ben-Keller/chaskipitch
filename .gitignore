@@ -29,6 +29,8 @@ creative-pitch/assets/**/*.avif
 creative-pitch/assets/**/*.mp4
 creative-pitch/assets/**/*.mov
 creative-pitch/assets/**/*.avi
+!creative-pitch/assets/mp4/
+!creative-pitch/assets/mp4/**/*.mp4
 
 # OS metadata
 .DS_Store
