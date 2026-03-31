@@ -1,0 +1,388 @@
+:root {
+  color-scheme: light;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f7f6;
+  color: #173940;
+}
+
+.app-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.topbar h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+}
+
+.topbar p {
+  margin: 0;
+  color: #48646a;
+}
+
+.status-panel {
+  margin: 0.72rem 0;
+}
+
+.status-panel p {
+  margin: 0.12rem 0;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d1dfdc;
+  border-radius: 10px;
+  padding: 0.72rem;
+}
+
+.card h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+}
+
+.film-column {
+  max-height: calc(100vh - 9.2rem);
+  overflow: auto;
+}
+
+.film-column__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.film-column__actions {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+button {
+  border: 1px solid #abc1bc;
+  border-radius: 8px;
+  background: #f7fcfa;
+  color: #173940;
+  font: inherit;
+  font-size: 0.84rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #e8f4f1;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.film-list {
+  margin-top: 0.55rem;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.film-item {
+  width: 100%;
+  text-align: left;
+  background: #fbfdfd;
+  border: 1px solid #c7d8d4;
+  border-radius: 9px;
+  padding: 0.45rem 0.5rem;
+  display: grid;
+  gap: 0.14rem;
+}
+
+.film-item.is-active {
+  border-color: #1f7c72;
+  background: #e7f4f1;
+}
+
+.film-item__title {
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.film-item__meta {
+  font-size: 0.75rem;
+  color: #355962;
+}
+
+.font-column {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.preview-subtitle {
+  margin: 0 0 0.35rem;
+  color: #30545d;
+  font-size: 0.86rem;
+}
+
+.preview-card p {
+  margin: 0.22rem 0;
+}
+
+.font-preview {
+  margin-top: 0.55rem;
+  border: 1px solid #c3d6d1;
+  border-radius: 10px;
+  background: #f7fcfb;
+  padding: 0.62rem;
+}
+
+.font-preview__kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #49656c;
+}
+
+.font-preview h3 {
+  margin: 0.24rem 0 0;
+  font-size: 1.24rem;
+  line-height: 1.1;
+  color: #16353d;
+  font-family: var(--films2-title-font, "Avenir Next", "Segoe UI", sans-serif);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.font-preview__body {
+  margin: 0.35rem 0 0;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.76rem;
+  color: #2f5159;
+}
+
+.note {
+  font-size: 0.84rem;
+  color: #35565e;
+}
+
+.font-grid {
+  margin-top: 0.55rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.52rem;
+}
+
+.font-option {
+  width: 100%;
+  border: 2px solid #b9ceca;
+  border-radius: 10px;
+  background: #f7fbfa;
+  padding: 0.44rem;
+  text-align: left;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.font-option:hover {
+  border-color: #80a9a0;
+}
+
+.font-option.is-selected {
+  border-color: #1e746a;
+  background: #e7f4f1;
+}
+
+.font-option__label {
+  font-size: 0.74rem;
+  color: #33575f;
+}
+
+.font-option__sample {
+  font-size: 1.05rem;
+  line-height: 1.1;
+  color: #17363e;
+  font-family: var(--films2-title-font, "Avenir Next", "Segoe UI", sans-serif);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.films2-title-font--kogi {
+  --films2-title-font: "Bebas Neue", Impact, "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+}
+
+.films2-title-font--andean {
+  --films2-title-font: "Brush Script MT", "Segoe Script", "Snell Roundhand", cursive;
+}
+
+.films2-title-font--undp {
+  --films2-title-font: "Courier New", "Lucida Console", Monaco, monospace;
+}
+
+.films2-title-font--floating {
+  --films2-title-font: "Copperplate", Papyrus, "Marker Felt", fantasy;
+}
+
+.films2-title-font--sunflower {
+  --films2-title-font: Didot, "Bodoni MT", "Times New Roman", serif;
+}
+
+.films2-title-font--avenir {
+  --films2-title-font: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+.films2-title-font--helvetica {
+  --films2-title-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.films2-title-font--arial {
+  --films2-title-font: Arial, "Helvetica Neue", sans-serif;
+}
+
+.films2-title-font--gill-sans {
+  --films2-title-font: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+.films2-title-font--futura {
+  --films2-title-font: Futura, "Avenir Next", "Trebuchet MS", sans-serif;
+}
+
+.films2-title-font--franklin {
+  --films2-title-font: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.films2-title-font--optima {
+  --films2-title-font: Optima, Candara, "Segoe UI", sans-serif;
+}
+
+.films2-title-font--trebuchet {
+  --films2-title-font: "Trebuchet MS", Verdana, sans-serif;
+}
+
+.films2-title-font--verdana {
+  --films2-title-font: Verdana, Geneva, sans-serif;
+}
+
+.films2-title-font--tahoma {
+  --films2-title-font: Tahoma, Geneva, sans-serif;
+}
+
+.films2-title-font--century-gothic {
+  --films2-title-font: "Century Gothic", Futura, sans-serif;
+}
+
+.films2-title-font--georgia {
+  --films2-title-font: Georgia, "Times New Roman", serif;
+}
+
+.films2-title-font--times {
+  --films2-title-font: "Times New Roman", Times, serif;
+}
+
+.films2-title-font--garamond {
+  --films2-title-font: Garamond, "Hoefler Text", Palatino, serif;
+}
+
+.films2-title-font--palatino {
+  --films2-title-font: Palatino, "Palatino Linotype", serif;
+}
+
+.films2-title-font--baskerville {
+  --films2-title-font: Baskerville, "Baskerville Old Face", Garamond, serif;
+}
+
+.films2-title-font--bodoni {
+  --films2-title-font: "Bodoni MT", Didot, "Times New Roman", serif;
+}
+
+.films2-title-font--bookman {
+  --films2-title-font: "Bookman Old Style", "Palatino Linotype", serif;
+}
+
+.films2-title-font--rockwell {
+  --films2-title-font: Rockwell, "Courier New", serif;
+}
+
+.films2-title-font--american-typewriter {
+  --films2-title-font: "American Typewriter", "Courier New", serif;
+}
+
+.films2-title-font--courier {
+  --films2-title-font: "Courier New", "Lucida Console", Monaco, monospace;
+}
+
+.films2-title-font--monaco {
+  --films2-title-font: Monaco, "Lucida Console", "Courier New", monospace;
+}
+
+.films2-title-font--consolas {
+  --films2-title-font: Consolas, "Lucida Console", Monaco, monospace;
+}
+
+.films2-title-font--marker-felt {
+  --films2-title-font: "Marker Felt", "Bradley Hand", "Segoe Script", cursive;
+}
+
+.films2-title-font--papyrus {
+  --films2-title-font: Papyrus, "Copperplate", fantasy;
+}
+
+.films2-title-font--chalkboard {
+  --films2-title-font: "Chalkboard SE", "Comic Sans MS", "Marker Felt", cursive;
+}
+
+.films2-title-font--comic-sans {
+  --films2-title-font: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+}
+
+.films2-title-font--impact {
+  --films2-title-font: Impact, "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+}
+
+.films2-title-font--arial-black {
+  --films2-title-font: "Arial Black", "Arial Bold", Gadget, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  margin-top: 0.8rem;
+  border: 1px solid #d6a1a1;
+  background: #fff0f0;
+  color: #812525;
+  padding: 0.7rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 1080px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .film-column {
+    max-height: none;
+  }
+}
+
+@media (max-width: 740px) {
+  .font-grid {
+    grid-template-columns: 1fr;
+  }
+}

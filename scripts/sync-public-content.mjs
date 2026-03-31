@@ -22,16 +22,24 @@ const LEGACY_PUBLIC_PATHS = [
 ];
 const DEFAULT_CREATIVE_PITCH_CONFIG = {
   timing: {
-    scene_padding_start: 0.05,
-    scene_padding_end: 0.04,
-    base_frames_per_text: 7,
-    characters_per_frame: 1.5,
-    min_frames_per_text: 14,
-    max_frames_per_text: 96,
-    overlap_frames: 10
+    base_timing_seconds: 0.42,
+    seconds_per_word: 0.045,
+    bonus_first_text_seconds: 0.275,
+    bonus_third_text_seconds: 1.6,
+    first_text_pre_fade_extra_from_second_ratio: 0.7,
+    second_text_pre_fade_extra_from_third_ratio: 0.5,
+    scene_padding_start_seconds: 0.22,
+    scene_padding_end_seconds: 0.2,
+    text_fade_seconds: 0.2,
+    scroll_seconds_per_1000px: 0.945,
+    drag_seconds_per_1000px: 1.773,
+    keyboard_step_seconds: 0.65
   },
   defaults: {
-    frame_count: 24
+    frame_count: 24,
+    playback_fps: 24,
+    min_scene_seconds: 0.4,
+    autoplay_speed_multiplier: 0.591
   },
   scene_overrides: {}
 };
@@ -56,53 +64,98 @@ function normalizeCreativePitchConfig(rawConfig) {
 
   return {
     timing: {
-      scene_padding_start: clamp(
+      base_timing_seconds: clamp(
         asFiniteNumber(
-          timing.scene_padding_start,
-          DEFAULT_CREATIVE_PITCH_CONFIG.timing.scene_padding_start
+          timing.base_timing_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.base_timing_seconds
+        ),
+        0.05,
+        4
+      ),
+      seconds_per_word: clamp(
+        asFiniteNumber(
+          timing.seconds_per_word,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.seconds_per_word
+        ),
+        0.005,
+        0.25
+      ),
+      bonus_first_text_seconds: clamp(
+        asFiniteNumber(
+          timing.bonus_first_text_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.bonus_first_text_seconds
         ),
         0,
-        0.45
+        5
       ),
-      scene_padding_end: clamp(
+      bonus_third_text_seconds: clamp(
         asFiniteNumber(
-          timing.scene_padding_end,
-          DEFAULT_CREATIVE_PITCH_CONFIG.timing.scene_padding_end
+          timing.bonus_third_text_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.bonus_third_text_seconds
         ),
         0,
-        0.45
+        5
       ),
-      base_frames_per_text: Math.max(
-        1,
+      first_text_pre_fade_extra_from_second_ratio: clamp(
         asFiniteNumber(
-          timing.base_frames_per_text,
-          DEFAULT_CREATIVE_PITCH_CONFIG.timing.base_frames_per_text
-        )
-      ),
-      characters_per_frame: Math.max(
-        0.1,
-        asFiniteNumber(
-          timing.characters_per_frame,
-          DEFAULT_CREATIVE_PITCH_CONFIG.timing.characters_per_frame
-        )
-      ),
-      min_frames_per_text: Math.max(
-        2,
-        asFiniteNumber(
-          timing.min_frames_per_text,
-          DEFAULT_CREATIVE_PITCH_CONFIG.timing.min_frames_per_text
-        )
-      ),
-      max_frames_per_text: Math.max(
-        3,
-        asFiniteNumber(
-          timing.max_frames_per_text,
-          DEFAULT_CREATIVE_PITCH_CONFIG.timing.max_frames_per_text
-        )
-      ),
-      overlap_frames: Math.max(
+          timing.first_text_pre_fade_extra_from_second_ratio,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.first_text_pre_fade_extra_from_second_ratio
+        ),
         0,
-        asFiniteNumber(timing.overlap_frames, DEFAULT_CREATIVE_PITCH_CONFIG.timing.overlap_frames)
+        2
+      ),
+      second_text_pre_fade_extra_from_third_ratio: clamp(
+        asFiniteNumber(
+          timing.second_text_pre_fade_extra_from_third_ratio,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.second_text_pre_fade_extra_from_third_ratio
+        ),
+        0,
+        2
+      ),
+      scene_padding_start_seconds: clamp(
+        asFiniteNumber(
+          timing.scene_padding_start_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.scene_padding_start_seconds
+        ),
+        0,
+        2
+      ),
+      scene_padding_end_seconds: clamp(
+        asFiniteNumber(
+          timing.scene_padding_end_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.scene_padding_end_seconds
+        ),
+        0,
+        2
+      ),
+      text_fade_seconds: clamp(
+        asFiniteNumber(
+          timing.text_fade_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.text_fade_seconds
+        ),
+        0.05,
+        2
+      ),
+      scroll_seconds_per_1000px: Math.max(
+        0.2,
+        asFiniteNumber(
+          timing.scroll_seconds_per_1000px,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.scroll_seconds_per_1000px
+        )
+      ),
+      drag_seconds_per_1000px: Math.max(
+        0.2,
+        asFiniteNumber(
+          timing.drag_seconds_per_1000px,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.drag_seconds_per_1000px
+        )
+      ),
+      keyboard_step_seconds: Math.max(
+        0.05,
+        asFiniteNumber(
+          timing.keyboard_step_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.timing.keyboard_step_seconds
+        )
       )
     },
     defaults: {
@@ -110,6 +163,27 @@ function normalizeCreativePitchConfig(rawConfig) {
         2,
         Math.round(
           asFiniteNumber(defaults.frame_count, DEFAULT_CREATIVE_PITCH_CONFIG.defaults.frame_count)
+        )
+      ),
+      playback_fps: Math.max(
+        1,
+        asFiniteNumber(
+          defaults.playback_fps,
+          DEFAULT_CREATIVE_PITCH_CONFIG.defaults.playback_fps
+        )
+      ),
+      min_scene_seconds: Math.max(
+        0.4,
+        asFiniteNumber(
+          defaults.min_scene_seconds,
+          DEFAULT_CREATIVE_PITCH_CONFIG.defaults.min_scene_seconds
+        )
+      ),
+      autoplay_speed_multiplier: Math.max(
+        0.1,
+        asFiniteNumber(
+          defaults.autoplay_speed_multiplier,
+          DEFAULT_CREATIVE_PITCH_CONFIG.defaults.autoplay_speed_multiplier
         )
       )
     },
@@ -161,62 +235,101 @@ async function countSceneFramesFromAssets(srcPattern) {
   }
 }
 
-function estimateTextDurationFrames(textContent, timingConfig) {
+function countWords(textContent) {
   const normalizedText = String(textContent ?? "").replace(/\s+/g, " ").trim();
-  const charCount = normalizedText.length;
-  const framesByLength =
-    timingConfig.base_frames_per_text + charCount / timingConfig.characters_per_frame;
-  const clampedFrames = clamp(
-    framesByLength,
-    timingConfig.min_frames_per_text,
-    Math.max(timingConfig.min_frames_per_text, timingConfig.max_frames_per_text)
-  );
-  return Math.max(2, Math.round(clampedFrames));
+  if (!normalizedText) {
+    return 0;
+  }
+  return normalizedText.split(" ").length;
 }
 
-function computeTextWindows(texts, frameCount, timingConfig) {
+function computeTextDurationsSeconds(texts, timingConfig) {
+  const textList = Array.isArray(texts) ? texts : [];
+  return textList.map((text, index) => {
+    const words = countWords(text?.content);
+    const bonus =
+      index === 0
+        ? timingConfig.bonus_first_text_seconds
+        : index === 2
+          ? timingConfig.bonus_third_text_seconds
+          : 0;
+    return Math.max(
+      0.01,
+      timingConfig.base_timing_seconds + words * timingConfig.seconds_per_word + bonus
+    );
+  });
+}
+
+function computeTextTimelineSeconds(texts, timingConfig) {
+  const textList = Array.isArray(texts) ? texts : [];
+  if (!textList.length) {
+    return {
+      durations: [],
+      starts: [],
+      ends: [],
+      requiredTextSpanSeconds: 0
+    };
+  }
+
+  const durations = computeTextDurationsSeconds(textList, timingConfig);
+  const starts = [];
+  let cursor = 0;
+  for (let index = 0; index < durations.length; index += 1) {
+    starts.push(cursor);
+    cursor += durations[index];
+  }
+
+  const ends = starts.map((startSeconds, index) => startSeconds + durations[index]);
+  if (durations.length > 1) {
+    ends[0] = Math.max(
+      ends[0],
+      starts[1] +
+        durations[1] * timingConfig.first_text_pre_fade_extra_from_second_ratio
+    );
+  }
+  if (durations.length > 2) {
+    ends[1] = Math.max(
+      ends[1],
+      starts[2] +
+        durations[2] * timingConfig.second_text_pre_fade_extra_from_third_ratio
+    );
+  }
+
+  const requiredTextSpanSeconds = ends.reduce((maxValue, value) => Math.max(maxValue, value), 0);
+  return {
+    durations,
+    starts,
+    ends,
+    requiredTextSpanSeconds
+  };
+}
+
+function computeTextWindows(texts, sceneDurationSeconds, timingConfig) {
   const textList = Array.isArray(texts) ? texts : [];
   if (!textList.length) {
     return [];
   }
 
-  const totalFrames = Math.max(2, Math.round(frameCount));
-  const progressDenominator = Math.max(1, totalFrames - 1);
-  const toProgress = (frames) => frames / progressDenominator;
+  const timeline = computeTextTimelineSeconds(textList, timingConfig);
+  const sceneDuration = Math.max(0.4, Number(sceneDurationSeconds) || 0.4);
+  const sceneStart = timingConfig.scene_padding_start_seconds;
+  const sceneEnd = timingConfig.scene_padding_end_seconds;
+  const maxEndSeconds = Math.max(sceneStart + 0.01, sceneDuration - sceneEnd);
 
-  const scenePaddingStart = timingConfig.scene_padding_start;
-  const scenePaddingEnd = timingConfig.scene_padding_end;
-  const availableSpan = Math.max(0.1, 1 - scenePaddingStart - scenePaddingEnd);
-
-  const overlapFrames = Math.max(0, Math.round(timingConfig.overlap_frames));
-  const rawDurations = textList.map((text) =>
-    toProgress(estimateTextDurationFrames(text?.content, timingConfig))
-  );
-  const rawOverlap = toProgress(overlapFrames);
-  const rawEffectiveSpan =
-    rawDurations.reduce((sum, value) => sum + value, 0) - rawOverlap * Math.max(0, textList.length - 1);
-  const scale = rawEffectiveSpan > availableSpan ? availableSpan / rawEffectiveSpan : 1;
-  const durations = rawDurations.map((value) => value * scale);
-  const overlap = rawOverlap * scale;
-
-  const windows = [];
-  let cursor = scenePaddingStart;
-
-  for (let index = 0; index < textList.length; index += 1) {
-    const start = clamp(cursor, 0, 0.98);
-    const end = clamp(start + durations[index], start + 0.01, 1 - scenePaddingEnd);
-    windows.push({ start, end });
-    cursor = Math.max(scenePaddingStart, end - overlap);
-  }
-
-  if (windows.length) {
-    windows[windows.length - 1] = {
-      ...windows[windows.length - 1],
-      end: clamp(1 - scenePaddingEnd, windows[windows.length - 1].start + 0.01, 1)
+  return textList.map((_, index) => {
+    const startSeconds = clamp(sceneStart + timeline.starts[index], 0, maxEndSeconds - 0.01);
+    const endSeconds = clamp(
+      sceneStart + timeline.ends[index],
+      startSeconds + 0.01,
+      maxEndSeconds
+    );
+    return {
+      start: clamp(startSeconds / sceneDuration, 0, 1),
+      end: clamp(endSeconds / sceneDuration, 0, 1),
+      startSeconds,
+      endSeconds
     };
-  }
-
-  return windows;
+  });
 }
 
 async function resolveSceneFrameCount(scene, config) {
@@ -239,33 +352,101 @@ async function resolveSceneFrameCount(scene, config) {
   return config.defaults.frame_count;
 }
 
+function resolveScenePlaybackFps(scene, config) {
+  const sceneOverride = config.scene_overrides?.[scene?.id];
+  const overrideFps = Number(sceneOverride?.playback_fps);
+  if (Number.isFinite(overrideFps) && overrideFps > 0) {
+    return overrideFps;
+  }
+
+  const mediaFps = Number(scene?.media?.frameRate);
+  if (Number.isFinite(mediaFps) && mediaFps > 0) {
+    return mediaFps;
+  }
+
+  return config.defaults.playback_fps;
+}
+
+function resolveSceneDurationSeconds(scene, frameCount, fps, texts, config) {
+  const textTimeline = computeTextTimelineSeconds(texts, config.timing);
+  const requiredDurationSeconds =
+    config.timing.scene_padding_start_seconds +
+    textTimeline.requiredTextSpanSeconds +
+    config.timing.scene_padding_end_seconds;
+  const sceneOverride = config.scene_overrides?.[scene?.id];
+  const overrideDuration = Number(sceneOverride?.duration_seconds);
+  if (Number.isFinite(overrideDuration) && overrideDuration > 0) {
+    return Math.max(0.4, overrideDuration, config.defaults.min_scene_seconds, requiredDurationSeconds);
+  }
+
+  const mediaDurationOverride = Number(scene?.media?.durationSeconds);
+  if (Number.isFinite(mediaDurationOverride) && mediaDurationOverride > 0) {
+    return Math.max(
+      0.4,
+      mediaDurationOverride,
+      config.defaults.min_scene_seconds,
+      requiredDurationSeconds
+    );
+  }
+
+  const mediaDurationSeconds = Math.max(0.4, frameCount / Math.max(1, fps));
+  return Math.max(mediaDurationSeconds, config.defaults.min_scene_seconds, requiredDurationSeconds);
+}
+
 async function buildCreativePitchRuntimeStory(storyPayload, config) {
   const scenes = Array.isArray(storyPayload?.scenes) ? storyPayload.scenes : [];
 
   const runtimeScenes = await Promise.all(
     scenes.map(async (scene) => {
       const frameCount = await resolveSceneFrameCount(scene, config);
+      const frameRate = resolveScenePlaybackFps(scene, config);
       const texts = Array.isArray(scene?.texts) ? scene.texts : [];
-      const textWindows = computeTextWindows(texts, frameCount, config.timing);
+      const durationSeconds = resolveSceneDurationSeconds(
+        scene,
+        frameCount,
+        frameRate,
+        texts,
+        config
+      );
+      const textWindows = computeTextWindows(texts, durationSeconds, config.timing);
       return {
         ...scene,
         media: scene?.media
           ? {
               ...scene.media,
-              frameCount
+              frameCount,
+              frameRate: Number(frameRate.toFixed(3)),
+              durationSeconds: Number(durationSeconds.toFixed(3))
             }
           : null,
         texts: texts.map((text, index) => ({
           ...text,
           start: textWindows[index]?.start ?? 0,
-          end: textWindows[index]?.end ?? 1
+          end: textWindows[index]?.end ?? 1,
+          startSeconds: textWindows[index]?.startSeconds ?? 0,
+          endSeconds: textWindows[index]?.endSeconds ?? durationSeconds
         }))
       };
     })
   );
 
+  const totalDurationSeconds = runtimeScenes.reduce((sum, scene) => {
+    const duration = Number(scene?.media?.durationSeconds);
+    return sum + (Number.isFinite(duration) && duration > 0 ? duration : 0);
+  }, 0);
+
   return {
     ...storyPayload,
+    playback: {
+      frameRate: Number(config.defaults.playback_fps.toFixed(3)),
+      autoplaySpeedMultiplier: Number(config.defaults.autoplay_speed_multiplier.toFixed(3)),
+      totalDurationSeconds: Number(Math.max(0, totalDurationSeconds).toFixed(3)),
+      scrollSecondsPer1000Px: Number(config.timing.scroll_seconds_per_1000px.toFixed(3)),
+      dragSecondsPer1000Px: Number(config.timing.drag_seconds_per_1000px.toFixed(3)),
+      keyboardStepSeconds: Number(config.timing.keyboard_step_seconds.toFixed(3)),
+      baseTimingSeconds: Number(config.timing.base_timing_seconds.toFixed(3)),
+      textFadeSeconds: Number(config.timing.text_fade_seconds.toFixed(3))
+    },
     scenes: runtimeScenes
   };
 }

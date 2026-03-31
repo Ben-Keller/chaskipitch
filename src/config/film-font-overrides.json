@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source_file": "tools/film-font-lab/output/film-font-selections.json",
+    "source_updated_at": "2026-03-30T16:13:47.628Z",
+    "applied_at": "2026-03-30T16:20:07.554Z",
+    "applied_count": 4,
+    "skipped_count": 0
+  },
+  "overrides": {
+    "floating-islands": "films2-title-font--century-gothic",
+    "undp60": "films2-title-font--arial-black",
+    "pitukiska": "films2-title-font--floating",
+    "wind-within-you": "films2-title-font--sunflower"
+  }
+}

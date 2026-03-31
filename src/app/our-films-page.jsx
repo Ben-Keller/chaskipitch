@@ -2,19 +2,22 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { withBasePath } from "../lib/paths";
 import { usePageColorControls } from "../lib/page-color-controls";
 import { ColorControlOverlay } from "./color-control-overlay";
+import filmFontOverrides from "../config/film-font-overrides.json";
 
 const FILMS = [
   {
+    id: "wind-within-you",
     title: "The Wind is Within You",
     subtitle: "Kogi Land Reclamation",
-    vimeoId: "1098670116",
-    embed: "https://player.vimeo.com/video/1098670116?h=0155e6c87d",
+    vimeoId: "910246717",
+    embed: "https://player.vimeo.com/video/910246717?h=66fc752da1",
     poster: "films/kogi-land-reclamation.png",
     titleClass: "films2-title-font--kogi",
     description:
       "A grounded story of territory recovery and Indigenous leadership. It directly supports this proposal by showing how land rights are lived in practice, not only documented in policy language."
   },
   {
+    id: "pitukiska",
     title: "Pitukiska",
     subtitle: "The Andean New Year",
     vimeoId: "470478889",
@@ -25,6 +28,7 @@ const FILMS = [
       "Centers cultural continuity, ceremony, and intergenerational memory. For this project, it reinforces why tenure work must protect both territory and the knowledge systems tied to it."
   },
   {
+    id: "undp60",
     title: "UNDP60",
     subtitle: "Celebrating 60 Years of UNDP",
     vimeoId: "1178401210",
@@ -35,6 +39,18 @@ const FILMS = [
       "Demonstrates institutional storytelling at scale and clear impact communication. It is relevant to this proposal’s funding narrative and the need to translate complex outcomes for decision-makers."
   },
   {
+    id: "sustainable-energy-platform",
+    title: "UNDP Sustainable Energy Digital Intelligence Platform",
+    subtitle: "Data Systems for Inclusive Energy Planning",
+    vimeoId: "1098670116",
+    embed: "https://player.vimeo.com/video/1098670116?h=0155e6c87d",
+    poster: "films/sustainable-energy.png",
+    titleClass: "films2-title-font--undp",
+    description:
+      "A systems-focused piece on digital infrastructure for energy access and planning. For this proposal, it demonstrates how clear data architecture and visual storytelling can support policy alignment and implementation at scale."
+  },
+  {
+    id: "floating-islands",
     title: "Floating Islands",
     subtitle: "Lake Titicaca, Peru",
     vimeoId: "470476203",
@@ -45,6 +61,7 @@ const FILMS = [
       "Highlights the relationship between ecological adaptation and local governance in a fragile landscape. This aligns with the proposal’s climate-and-tenure lens in Andean and Amazonian contexts."
   },
   {
+    id: "sunflower-kids",
     title: "Sunflower Kids",
     subtitle: "Solar Education in Lesotho",
     vimeoId: "869911767",
@@ -55,6 +72,7 @@ const FILMS = [
       "Shows community-centered development through youth, learning, and practical infrastructure. It connects to the proposal’s emphasis on long-term capacity, inclusion, and locally led change."
   }
 ];
+const WIND_FILM_ID = "wind-within-you";
 
 function toPlayerId(index) {
   return `films2-player-${index}`;
@@ -73,6 +91,7 @@ function buildVimeoEmbedUrl(rawUrl, index) {
 }
 
 export function OurFilmsPage() {
+  const hoverActivationDelayMs = 180;
   const [activeIndex, setActiveIndex] = useState(0);
   const [playingIndex, setPlayingIndex] = useState(null);
   const [videoModeIndex, setVideoModeIndex] = useState(null);
@@ -82,6 +101,7 @@ export function OurFilmsPage() {
   const [readyPlayers, setReadyPlayers] = useState(() => new Set());
   const [pendingPlayIndex, setPendingPlayIndex] = useState(null);
   const iframeRefs = useRef([]);
+  const hoverTimerRef = useRef(null);
   const {
     categories,
     selectedThemes,
@@ -91,16 +111,40 @@ export function OurFilmsPage() {
     saveControlJson
   } = usePageColorControls("films");
 
+  const sharedTitleClass = useMemo(() => {
+    const windFallback =
+      FILMS.find((film) => film.id === WIND_FILM_ID)?.titleClass || "films2-title-font--kogi";
+    const windOverride = filmFontOverrides?.overrides?.[WIND_FILM_ID];
+    return typeof windOverride === "string" && windOverride ? windOverride : windFallback;
+  }, []);
+
   const filmsWithPlayerUrls = useMemo(
     () =>
       FILMS.map((film, index) => ({
         ...film,
+        titleClass: sharedTitleClass,
         playerId: toPlayerId(index),
         embedWithApi: buildVimeoEmbedUrl(film.embed, index),
         posterUrl: film.poster ? withBasePath(film.poster) : ""
       })),
-    []
+    [sharedTitleClass]
   );
+
+  const accordionVars = useMemo(() => {
+    const count = filmsWithPlayerUrls.length;
+    const sidePad = 2;
+    const cardWidth = count >= 6 ? 76 : 80;
+    const denominator = Math.max(count - 1, 1);
+    const xStep = (100 - sidePad * 2 - cardWidth) / denominator;
+    const sliceTitleCenter = (xStep * 50) / cardWidth;
+    return {
+      "--films2-count": String(count),
+      "--films2-card-width": `${cardWidth}%`,
+      "--films2-x-step": `${xStep}%`,
+      "--films2-side-pad": `${sidePad}%`,
+      "--films2-slice-title-center": `${sliceTitleCenter}%`
+    };
+  }, [filmsWithPlayerUrls.length]);
 
   const postPlayerMessage = useCallback((index, payload) => {
     const frame = iframeRefs.current[index];
@@ -146,6 +190,25 @@ export function OurFilmsPage() {
     [ensurePlayerLoaded, postPlayerMessage, readyPlayers]
   );
 
+  const clearHoverActivation = useCallback(() => {
+    if (hoverTimerRef.current !== null) {
+      window.clearTimeout(hoverTimerRef.current);
+      hoverTimerRef.current = null;
+    }
+  }, []);
+
+  const scheduleHoverActivation = useCallback(
+    (index) => {
+      clearHoverActivation();
+      hoverTimerRef.current = window.setTimeout(() => {
+        setActiveIndex(index);
+        ensurePlayerLoaded(index);
+        hoverTimerRef.current = null;
+      }, hoverActivationDelayMs);
+    },
+    [clearHoverActivation, ensurePlayerLoaded]
+  );
+
   useEffect(() => {
     if (typeof document === "undefined") {
       return undefined;
@@ -179,6 +242,12 @@ export function OurFilmsPage() {
       created.forEach((node) => node.remove());
     };
   }, []);
+
+  useEffect(() => {
+    return () => {
+      clearHoverActivation();
+    };
+  }, [clearHoverActivation]);
 
   useEffect(() => {
     const handleMessage = (event) => {
@@ -246,7 +315,7 @@ export function OurFilmsPage() {
       <section
         className={`films2-accordion${playingIndex !== null ? " is-playing-any" : ""}`}
         aria-label="Curated film references"
-        style={{ "--films2-count": String(filmsWithPlayerUrls.length) }}
+        style={accordionVars}
       >
         {filmsWithPlayerUrls.map((film, index) => {
           const totalFilms = filmsWithPlayerUrls.length;
@@ -281,14 +350,21 @@ export function OurFilmsPage() {
               aria-expanded={isActive}
               tabIndex={0}
               onMouseEnter={() => {
-                setActiveIndex(index);
-                ensurePlayerLoaded(index);
+                scheduleHoverActivation(index);
+              }}
+              onMouseLeave={() => {
+                clearHoverActivation();
               }}
               onFocus={() => {
+                clearHoverActivation();
                 setActiveIndex(index);
                 ensurePlayerLoaded(index);
               }}
+              onBlur={() => {
+                clearHoverActivation();
+              }}
               onClick={() => {
+                clearHoverActivation();
                 setActiveIndex(index);
                 ensurePlayerLoaded(index);
               }}
@@ -358,7 +434,10 @@ export function OurFilmsPage() {
                 <span>{film.title}</span>
               </div>
 
-              <div className="films2-panel__content" aria-hidden={isPlaying || isVideoVisible}>
+              <div
+                className={`films2-panel__content ${film.titleClass}`}
+                aria-hidden={isPlaying || isVideoVisible}
+              >
                 <p>{film.subtitle}</p>
                 <h2>{film.title}</h2>
                 <p>{film.description}</p>

@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 
+const COLOR_THEME_CONTROLS_VISIBLE = false;
+
 function scopeLabel(scope) {
   if (scope === "home") return "Home";
   if (scope === "impact") return "Tenure Facility";
@@ -15,6 +17,10 @@ export function ColorControlOverlay({
   onSave,
   onReset
 }) {
+  if (!COLOR_THEME_CONTROLS_VISIBLE) {
+    return null;
+  }
+
   const [isOpen, setIsOpen] = useState(false);
   const [lastSavedAt, setLastSavedAt] = useState("");
 

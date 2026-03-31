@@ -38,9 +38,11 @@ Notebook UI:
 
 - `creative-pitch/pipeline/pipeline-ui.ipynb` exposes only:
   - stage toggles (`image_gen`, `animation_gen`, `image_extract`, `upscale`)
-  - direct prototype controls (`default_frame_count`, `scene_limit`, `webp_quality`)
-    - `scene_limit=0` means process all scenes from `story.json`
-  - image-gen controls (`generate_start_frame`, `start_frame_variants`, `generate_end_frame`)
+  - direct prototype controls (`runway_duration_seconds`, `webp_quality`, `overwrite`)
+  - scene checkboxes are generated from `story.json`
+  - image-gen controls (`generate_start_frame`, `generate_end_frame`, `copy_start_to_production`, `copy_end_to_production`)
+  - `runway_duration_seconds` is constrained to valid API integer values (`2` to `10`)
+  - `webp_quality` uses presets (`Low`, `Medium`, `High`)
 - Pipeline execution logic lives in Python files:
   - `creative-pitch/pipeline/pipeline_backend.py`
   - `creative-pitch/pipeline/run_pipeline.py`
@@ -49,25 +51,27 @@ Notebook UI:
   - `creative-pitch/pipeline/scripts/02_animation_gen.py`
   - `creative-pitch/pipeline/scripts/03_image_extract.py`
 - Stage commands are wired by default in `pipeline_backend.py` and mirrored in `pipeline/config.json`.
-- Prompt text is no longer authored in `story.json`.
-  - `image_gen` derives prompts from each scene title + scene text content.
-  - Visual direction is intentionally slightly abstract (not photorealistic), with emphasis on light transitions.
+- Prompt text is authored directly in `story.json`:
+  - `scene.media.generation.openai.startPrompt`
+  - `scene.media.generation.openai.delta`
+  - `scene.media.generation.runway.prompt`
   - `image_extract` exports all frames from each generated Runway video.
 
 Image keyframe handoff workflow:
 
-- Start options are generated to both:
-  - provider runs: `creative-pitch/pipeline/runs/openai/<run-id>/images/<scene>/<sequence>/start_option_##.png`
-  - handoff folder: `creative-pitch/pipeline/images/<scene>/<sequence>/start_option_##.png`
-- Start options are not naive duplicates:
-  - `image_gen` first calls OpenAI text model (`OPENAI_PROMPT_MODEL`) to create `start_frame_variants` prompt variants.
-  - Variants are forced into distinct camera/view and style profiles (for example macro close-up, aerial wide, overhead, painterly, monochrome, etc.), then rendered one image per variant prompt.
-- Choose one start option manually and save/copy it as:
-  - `creative-pitch/pipeline/images/<scene>/<sequence>/start_selected.png`
+- A single start frame is generated from `startPrompt`:
+  - provider run copy: `creative-pitch/pipeline/runs/openai/<run-id>/images/<scene>/<sequence>/start.png`
+  - optionally auto-copy to production when `copy_start_to_production=true`
+  - otherwise manually validate and copy to:
+    - `creative-pitch/pipeline/images/production/start/<scene_id>_<sequence_slug>.png`
 - End frame generation writes:
   - provider run copy: `.../end.png` under `pipeline/runs/openai/<run-id>/images/...`
-  - handoff copy: `creative-pitch/pipeline/images/<scene>/<sequence>/end.png`
-- `animation_gen` reads keyframes specifically from `creative-pitch/pipeline/images/...`.
+  - optionally auto-copy to production when `copy_end_to_production=true`
+  - otherwise manually validate and copy to:
+    - `creative-pitch/pipeline/images/production/end/<scene_id>_<sequence_slug>.png`
+- `animation_gen` runs only for scenes with validated keyframes present in:
+  - `creative-pitch/pipeline/images/production/start`
+  - `creative-pitch/pipeline/images/production/end`
 
 Pipeline hygiene policy:
 
@@ -77,7 +81,7 @@ Pipeline hygiene policy:
   - `creative-pitch/pipeline/runs/openai/...`
   - `creative-pitch/pipeline/runs/runway/...`
 - Manual keyframe handoff lives in:
-  - `creative-pitch/pipeline/images/<scene>/<sequence>/start_selected.png`
-  - `creative-pitch/pipeline/images/<scene>/<sequence>/end.png`
+  - `creative-pitch/pipeline/images/production/start`
+  - `creative-pitch/pipeline/images/production/end`
 - Clear `creative-pitch/pipeline/output/` after each run.
 - Keep only final exported sequence frames in `creative-pitch/assets` (`frame_####.webp`).

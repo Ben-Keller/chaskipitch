@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+from io import BytesIO
 import json
 import os
 from datetime import datetime, timezone
@@ -10,6 +11,12 @@ from typing import Any, Dict, List, Optional, Tuple
 import urllib.error
 import urllib.request
 import uuid
+
+try:
+    from PIL import Image, ImageOps
+except ImportError:  # pragma: no cover - optional dependency
+    Image = None
+    ImageOps = None
 
 SUPPORTED_IMAGE_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 
@@ -35,6 +42,9 @@ RUNS_ROOT = PIPELINE_ROOT / "runs"
 OUTPUT_ROOT = PIPELINE_ROOT / "output"
 GENERATED_ROOT = PIPELINE_ROOT / "generated"
 MANIFEST_PATH = GENERATED_ROOT / "manifests" / "sequence_jobs.json"
+PRODUCTION_KEYFRAMES_ROOT = PIPELINE_ROOT / "images" / "production"
+PRODUCTION_START_DIR = PRODUCTION_KEYFRAMES_ROOT / "start"
+PRODUCTION_END_DIR = PRODUCTION_KEYFRAMES_ROOT / "end"
 
 
 def utc_now_iso() -> str:
@@ -55,12 +65,68 @@ def ensure_dir(path: Path) -> Path:
     return path
 
 
+def _safe_filename_key(raw: str) -> str:
+    key = "".join(ch.lower() if ch.isalnum() else "_" for ch in raw.strip())
+    while "__" in key:
+        key = key.replace("__", "_")
+    return key.strip("_")
+
+
+def production_keyframe_name(scene_id: str, sequence_slug: str) -> str:
+    scene_key = _safe_filename_key(scene_id) or "scene"
+    sequence_key = _safe_filename_key(sequence_slug) or "sequence"
+    return f"{scene_key}_{sequence_key}.png"
+
+
+def production_start_path(job: Dict[str, Any]) -> Path:
+    scene_id = str(job.get("sceneId") or "scene")
+    sequence_slug = str(job.get("sequenceSlug") or "sequence")
+    return PRODUCTION_START_DIR / production_keyframe_name(scene_id, sequence_slug)
+
+
+def production_end_path(job: Dict[str, Any]) -> Path:
+    scene_id = str(job.get("sceneId") or "scene")
+    sequence_slug = str(job.get("sequenceSlug") or "sequence")
+    return PRODUCTION_END_DIR / production_keyframe_name(scene_id, sequence_slug)
+
+
 def as_int(value: Any, fallback: int, minimum: int = 1) -> int:
     try:
         numeric = int(float(value))
     except (TypeError, ValueError):
         return max(minimum, fallback)
     return max(minimum, numeric)
+
+
+def parse_scene_ids(raw: str) -> List[str]:
+    if not raw.strip():
+        return []
+    output: List[str] = []
+    seen: set[str] = set()
+    for part in raw.split(","):
+        cleaned = part.strip()
+        lowered = cleaned.lower()
+        if not cleaned or lowered in seen:
+            continue
+        output.append(cleaned)
+        seen.add(lowered)
+    return output
+
+
+def filter_jobs_by_scene_ids(
+    jobs: List[Dict[str, Any]], scene_ids: List[str]
+) -> Tuple[List[Dict[str, Any]], List[str]]:
+    if not scene_ids:
+        return jobs, []
+
+    selected_lookup = {scene_id.lower() for scene_id in scene_ids}
+    available_ids = [str(job.get("sceneId") or "") for job in jobs]
+    filtered = [
+        job for job in jobs if str(job.get("sceneId") or "").strip().lower() in selected_lookup
+    ]
+    available_lookup = {scene_id.lower() for scene_id in available_ids}
+    unknown = [scene_id for scene_id in scene_ids if scene_id.lower() not in available_lookup]
+    return filtered, unknown
 
 
 def load_story() -> Dict[str, Any]:
@@ -204,6 +270,8 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
                 "size": _pick_first(openai_cfg, ["size"], "1536x1024"),
                 "quality": _pick_first(openai_cfg, ["quality"], "low"),
                 "style": _pick_first(openai_cfg, ["style"], "natural"),
+                "startPrompt": _pick_first(openai_cfg, ["startPrompt", "start_prompt"]),
+                "delta": _pick_first(openai_cfg, ["delta"]),
             },
             "runway": {
                 "model": _pick_first(runway_cfg, ["model"], _pick_first(generation, ["runwayModel", "runway_model"], "gen4.5")),
@@ -637,52 +705,77 @@ def _multipart_form_data(
     return body, f"multipart/form-data; boundary={boundary}"
 
 
-def _prepare_dalle2_edit_input(input_image_path: Path, output_dir: Path) -> Path:
-    output_path = output_dir / f"{input_image_path.stem}_dalle2_input.png"
-    output_dir.mkdir(parents=True, exist_ok=True)
+def _require_pillow() -> tuple[Any, Any]:
+    if Image is None or ImageOps is None:
+        raise PipelineError(
+            "Pillow is required for OpenAI image edit preprocessing. "
+            "Install pipeline requirements and retry image_gen."
+        )
+    return Image, ImageOps
 
-    commands = [
-        [
-            "ffmpeg",
-            "-y",
-            "-i",
-            str(input_image_path),
-            "-vf",
-            "scale=1024:1024:force_original_aspect_ratio=decrease,"
-            "pad=1024:1024:(ow-iw)/2:(oh-ih)/2:color=black",
-            "-frames:v",
-            "1",
-            "-compression_level",
-            "9",
-            str(output_path),
-        ],
-        [
-            "ffmpeg",
-            "-y",
-            "-i",
-            str(input_image_path),
-            "-frames:v",
-            "1",
-            str(output_path),
-        ],
-    ]
 
-    for command in commands:
-        try:
-            result = subprocess.run(command, capture_output=True, text=True)
-        except FileNotFoundError:
-            continue
-        if result.returncode == 0 and output_path.exists():
-            return output_path
+def _resample_lanczos(image_module: Any) -> Any:
+    resampling = getattr(image_module, "Resampling", image_module)
+    return getattr(resampling, "LANCZOS")
 
-    if input_image_path.suffix.lower() == ".png":
-        output_path.write_bytes(input_image_path.read_bytes())
-        return output_path
 
-    raise PipelineError(
-        "Could not prepare a PNG edit input for DALL-E 2. "
-        "Install ffmpeg and retry image_gen."
+def _png_bytes_from_image(image: Any) -> bytes:
+    buffer = BytesIO()
+    image.save(buffer, format="PNG", optimize=True)
+    return buffer.getvalue()
+
+
+def _prepare_rgba_edit_input_bytes(input_image_path: Path) -> Tuple[bytes, Tuple[int, int]]:
+    image_module, _ = _require_pillow()
+    with image_module.open(input_image_path) as source:
+        converted = source.convert("RGBA")
+    size = (int(converted.width), int(converted.height))
+    return _png_bytes_from_image(converted), size
+
+
+def _prepare_dalle2_edit_input_bytes(input_image_path: Path) -> Tuple[bytes, Tuple[int, int]]:
+    image_module, _ = _require_pillow()
+    target = (1024, 1024)
+    resample = _resample_lanczos(image_module)
+    with image_module.open(input_image_path) as source:
+        converted = source.convert("RGBA")
+
+    scale = min(target[0] / max(1, converted.width), target[1] / max(1, converted.height))
+    scaled_size = (
+        max(1, int(round(converted.width * scale))),
+        max(1, int(round(converted.height * scale))),
     )
+    resized = converted.resize(scaled_size, resample=resample)
+    canvas = image_module.new("RGBA", target, (0, 0, 0, 255))
+    offset = ((target[0] - scaled_size[0]) // 2, (target[1] - scaled_size[1]) // 2)
+    canvas.paste(resized, offset)
+    return _png_bytes_from_image(canvas), target
+
+
+def _normalize_generated_to_reference_size(image_bytes: bytes, reference_path: Path) -> bytes:
+    image_module, image_ops = _require_pillow()
+    with image_module.open(reference_path) as reference:
+        target_size = (int(reference.width), int(reference.height))
+    with image_module.open(BytesIO(image_bytes)) as generated:
+        generated_rgba = generated.convert("RGBA")
+
+    if generated_rgba.size == target_size:
+        return image_bytes
+
+    resample = _resample_lanczos(image_module)
+    contained = image_ops.contain(generated_rgba, target_size, method=resample)
+    canvas = image_module.new("RGBA", target_size, (0, 0, 0, 255))
+    offset = (
+        (target_size[0] - contained.width) // 2,
+        (target_size[1] - contained.height) // 2,
+    )
+    canvas.paste(contained, offset)
+    return _png_bytes_from_image(canvas)
+
+
+def _is_rgba_required_error(detail: str) -> bool:
+    lowered = detail.lower()
+    return "format must be in" in lowered and "got rgb" in lowered
 
 
 def openai_generate_image_edit(
@@ -711,19 +804,22 @@ def openai_generate_image_edit(
         "prompt": prompt,
         "size": size,
         "quality": quality,
+        "input_fidelity": "high",
         "response_format": "b64_json",
     }
 
     parsed: Dict[str, Any] | None = None
-    request_image_path = input_image_path
+    request_image_bytes, _ = _prepare_rgba_edit_input_bytes(input_image_path)
+    request_image_name = f"{input_image_path.stem}_edit.png"
+    forced_rgba_once = False
     for _ in range(8):
         body, content_type = _multipart_form_data(
             fields,
             [
                 (
                     "image",
-                    request_image_path.name,
-                    request_image_path.read_bytes(),
+                    request_image_name,
+                    request_image_bytes,
                     "image/png",
                 )
             ],
@@ -749,7 +845,7 @@ def openai_generate_image_edit(
                     fields.pop("quality", None)
                     if fields.get("size") not in {"256x256", "512x512", "1024x1024"}:
                         fields["size"] = "1024x1024"
-                    request_image_path = _prepare_dalle2_edit_input(input_image_path, output_path.parent)
+                    request_image_bytes, _ = _prepare_dalle2_edit_input_bytes(input_image_path)
                     continue
                 if param == "size":
                     fields["size"] = "1024x1024"
@@ -758,11 +854,15 @@ def openai_generate_image_edit(
                     fields.pop("quality", None)
                     continue
             if exc.code == 400 and "square" in detail.lower():
-                request_image_path = _prepare_dalle2_edit_input(input_image_path, output_path.parent)
+                request_image_bytes, _ = _prepare_dalle2_edit_input_bytes(input_image_path)
                 if fields.get("model", "").lower() != "dall-e-2":
                     fields["model"] = "dall-e-2"
                 fields.pop("quality", None)
                 fields["size"] = "1024x1024"
+                continue
+            if exc.code == 400 and _is_rgba_required_error(detail) and not forced_rgba_once:
+                request_image_bytes, _ = _prepare_rgba_edit_input_bytes(input_image_path)
+                forced_rgba_once = True
                 continue
             raise PipelineError(f"OpenAI image edit failed ({exc.code}): {detail}") from exc
         except urllib.error.URLError as exc:
@@ -782,16 +882,18 @@ def openai_generate_image_edit(
     b64_payload = first.get("b64_json")
     image_url = first.get("url")
 
+    generated_bytes: bytes | None = None
     if isinstance(b64_payload, str) and b64_payload:
-        output_path.write_bytes(base64.b64decode(b64_payload))
-        return
-
-    if isinstance(image_url, str) and image_url:
+        generated_bytes = base64.b64decode(b64_payload)
+    elif isinstance(image_url, str) and image_url:
         with urllib.request.urlopen(image_url, timeout=240) as response:
-            output_path.write_bytes(response.read())
-        return
+            generated_bytes = response.read()
 
-    raise PipelineError("OpenAI image edit response did not contain b64_json or url.")
+    if generated_bytes is None:
+        raise PipelineError("OpenAI image edit response did not contain b64_json or url.")
+
+    normalized_bytes = _normalize_generated_to_reference_size(generated_bytes, input_image_path)
+    output_path.write_bytes(normalized_bytes)
 
 
 def require_env(name: str) -> str:

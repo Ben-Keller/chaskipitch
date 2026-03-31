@@ -16,12 +16,17 @@ sys.path.insert(0, str(ROOT / "creative-pitch" / "pipeline" / "scripts"))
 
 from pipeline_core import (  # noqa: E402
     PIPELINE_ROOT,
+    PRODUCTION_END_DIR,
+    PRODUCTION_START_DIR,
     RUNS_ROOT,
     as_int,
+    filter_jobs_by_scene_ids,
     find_keyframe_file,
     openai_generate_image,
     openai_generate_image_edit,
-    openai_generate_prompt_variants,
+    parse_scene_ids,
+    production_end_path,
+    production_start_path,
     rel_to_repo,
     run_id,
     save_manifest,
@@ -31,14 +36,8 @@ from pipeline_core import (  # noqa: E402
 )
 
 
-IMAGES_ROOT = PIPELINE_ROOT / "images"
-START_SELECTED_NAME = "start_selected.png"
+START_NAME = "start.png"
 END_NAME = "end.png"
-GLOBAL_VISUAL_DIRECTION = (
-    "Slightly abstract cinematic visual language, not photorealistic. "
-    "Use expressive light transitions, soft luminous gradients, and evocative atmosphere. "
-    "Favor stylized texture and composition clarity. No text, no logos."
-)
 
 
 def _set_keyframe(job: Dict[str, Any], start_path: Path | None, end_path: Path | None) -> None:
@@ -50,43 +49,34 @@ def _set_keyframe(job: Dict[str, Any], start_path: Path | None, end_path: Path |
         job["endKeyframePathRel"] = rel_to_repo(end_path)
 
 
-def _handoff_dir(job: Dict[str, Any]) -> Path:
-    return IMAGES_ROOT / str(job["sceneFolder"]) / str(job["sequenceSlug"])
-
-
 def _copy_image(source: Path, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(source, target)
 
 
-def _scene_brief(job: Dict[str, Any]) -> str:
-    title = str(job.get("sceneTitle") or "").strip()
-    description = str(job.get("sceneDescription") or "").strip()
-    if title and description:
-        return f"{title}. {description}"
-    if title:
-        return title
-    if description:
-        return description
-    return f"Scene {job.get('sceneId', '')}".strip()
+def _prompt_from_story(job: Dict[str, Any], key: str) -> str:
+    openai_cfg = job.get("openai")
+    if not isinstance(openai_cfg, dict):
+        return ""
+    value = openai_cfg.get(key)
+    if not isinstance(value, str):
+        return ""
+    return value.strip()
 
 
-def _build_start_base_prompt(job: Dict[str, Any]) -> str:
-    brief = _scene_brief(job)
-    return (
-        f"{GLOBAL_VISUAL_DIRECTION} "
-        f"Represent the opening visual state of this scene: {brief}. "
-        "Keep composition readable and emotionally grounded, with early-stage energy and restrained motion cues."
-    )
+def _path_exists(raw: Any) -> bool:
+    return isinstance(raw, str) and raw.strip() != "" and Path(raw).exists()
 
 
-def _build_end_state_prompt(job: Dict[str, Any]) -> str:
-    brief = _scene_brief(job)
-    return (
-        f"{GLOBAL_VISUAL_DIRECTION} "
-        f"Transform this same scene to its evolved end state: {brief}. "
-        "Preserve core subjects and continuity while increasing light-transition complexity, contrast rhythm, and sense of progression."
-    )
+def _files_are_identical(path_a: Path, path_b: Path) -> bool:
+    try:
+        if not path_a.exists() or not path_b.exists():
+            return False
+        if path_a.stat().st_size != path_b.stat().st_size:
+            return False
+        return path_a.read_bytes() == path_b.read_bytes()
+    except OSError:
+        return False
 
 
 def main() -> int:
@@ -96,35 +86,47 @@ def main() -> int:
 
     default_frame_count = as_int(os.getenv("PITCH_DEFAULT_FRAME_COUNT"), fallback=24, minimum=2)
     scene_limit = max(0, as_int(os.getenv("PITCH_SCENE_LIMIT"), fallback=0, minimum=0))
+    selected_scene_ids = parse_scene_ids(os.getenv("PITCH_SCENE_IDS", ""))
     run_start = os.getenv("PITCH_IMAGE_GEN_RUN_START", "true").strip().lower() != "false"
     run_end = os.getenv("PITCH_IMAGE_GEN_RUN_END", "true").strip().lower() != "false"
-    start_variants = max(1, as_int(os.getenv("PITCH_IMAGE_GEN_START_VARIANTS"), fallback=4, minimum=1))
-    prompt_variation_model = os.getenv("OPENAI_PROMPT_MODEL", "gpt-4o-mini").strip() or "gpt-4o-mini"
+    overwrite = os.getenv("PITCH_OVERWRITE", "false").strip().lower() == "true"
+    copy_start_to_production = (
+        os.getenv("PITCH_COPY_START_TO_PRODUCTION", "false").strip().lower() == "true"
+    )
+    copy_end_to_production = (
+        os.getenv("PITCH_COPY_END_TO_PRODUCTION", "false").strip().lower() == "true"
+    )
 
     jobs = story_jobs(default_frame_count)
-    if scene_limit > 0:
+    if selected_scene_ids:
+        jobs, unknown_ids = filter_jobs_by_scene_ids(jobs, selected_scene_ids)
+        if unknown_ids:
+            print(f"image_gen warning: unknown scene id(s) ignored: {', '.join(unknown_ids)}")
+    elif scene_limit > 0:
         jobs = jobs[:scene_limit]
 
     openai_api_key = os.getenv("OPENAI_API_KEY", "").strip()
     openai_id = run_id("openai")
     openai_images_root = RUNS_ROOT / "openai" / openai_id / "images"
 
-    generated_count = 0
+    ready_count = 0
     start_generated_count = 0
     end_generated_count = 0
     manual_count = 0
     already_ready = 0
+    start_skipped_validated = 0
+    end_skipped_validated = 0
+    end_skipped_missing_start = 0
+    start_copied_to_production = 0
+    end_copied_to_production = 0
     missing: List[Tuple[str, str]] = []
 
     for job in jobs:
         scene_id = str(job["sceneId"])
         sequence_slug = str(job["sequenceSlug"])
-        images_dir = _handoff_dir(job)
-        images_dir.mkdir(parents=True, exist_ok=True)
-        selected_start = images_dir / START_SELECTED_NAME
-        end_image = images_dir / END_NAME
+        scene_folder = str(job["sceneFolder"])
 
-        if int(job.get("activeWebpCount", 0)) > 0:
+        if int(job.get("activeWebpCount", 0)) > 0 and not overwrite:
             job["status"] = "active_frames_present"
             already_ready += 1
             print(
@@ -133,151 +135,190 @@ def main() -> int:
             )
             continue
 
-        job["imageHandoffDir"] = str(images_dir)
-        job["imageHandoffDirRel"] = rel_to_repo(images_dir)
+        production_start = production_start_path(job)
+        production_end = production_end_path(job)
+        production_start.parent.mkdir(parents=True, exist_ok=True)
+        production_end.parent.mkdir(parents=True, exist_ok=True)
+
+        job["productionStartPath"] = str(production_start)
+        job["productionStartPathRel"] = rel_to_repo(production_start)
+        job["productionEndPath"] = str(production_end)
+        job["productionEndPathRel"] = rel_to_repo(production_end)
 
         manual_dir = Path(str(job["manualKeyframeDir"]))
         start_manual = find_keyframe_file(manual_dir, "start")
         end_manual = find_keyframe_file(manual_dir, "end")
-        if start_manual and end_manual:
-            _copy_image(start_manual, selected_start)
-            _copy_image(end_manual, end_image)
-            _set_keyframe(job, selected_start, end_image)
+        if start_manual and end_manual and (not production_start.exists() or not production_end.exists()):
+            if not production_start.exists():
+                _copy_image(start_manual, production_start)
+            if not production_end.exists():
+                _copy_image(end_manual, production_end)
+            _set_keyframe(job, production_start, production_end)
             job["status"] = "keyframes_ready_manual"
             manual_count += 1
             print(
-                f"image_gen success: {scene_id} -> manual keyframes ready "
-                f"({rel_to_repo(selected_start)} , {rel_to_repo(end_image)})"
+                f"image_gen success: {scene_id} -> manual keyframes copied to production "
+                f"({rel_to_repo(production_start)} , {rel_to_repo(production_end)})"
             )
             continue
 
         openai_cfg = job.get("openai", {}) if isinstance(job.get("openai"), dict) else {}
-        start_base_prompt = _build_start_base_prompt(job)
-        end_state_prompt = _build_end_state_prompt(job)
+        start_prompt = _prompt_from_story(job, "startPrompt")
+        end_delta = _prompt_from_story(job, "delta")
 
-        if (run_start or run_end) and not openai_api_key:
-            missing.append((scene_id, "OPENAI_API_KEY is missing."))
-            continue
-
-        output_dir = openai_images_root / str(job["sceneFolder"]) / sequence_slug
+        output_dir = openai_images_root / scene_folder / sequence_slug
         generated_start = False
         generated_end = False
 
         if run_start:
-            variant_prompts = openai_generate_prompt_variants(
-                api_key=openai_api_key,
-                base_prompt=start_base_prompt,
-                variant_count=start_variants,
-                model=prompt_variation_model,
-            )
-            print(
-                f"image_gen success: {scene_id} -> generated {len(variant_prompts)} start prompt variants "
-                f"using model {prompt_variation_model}"
-            )
-            for index in range(start_variants):
-                option_name = f"start_option_{index + 1:02d}.png"
-                run_option_path = output_dir / option_name
-                image_option_path = images_dir / option_name
-                variant_prompt = variant_prompts[index]
-                prompt_preview = " ".join(variant_prompt.split())
-                if len(prompt_preview) > 240:
-                    prompt_preview = f"{prompt_preview[:130]} ... {prompt_preview[-90:]}"
-                print(
-                    f"image_gen prompt variant: {scene_id} {index + 1}/{start_variants} -> "
-                    f"{prompt_preview}"
-                )
-                openai_generate_image(
-                    api_key=openai_api_key,
-                    prompt=variant_prompt,
-                    output_path=run_option_path,
-                    model=str(openai_cfg.get("model", "gpt-image-1")),
-                    size=str(openai_cfg.get("size", "1536x1024")),
-                    quality=str(openai_cfg.get("quality", "low")),
-                    style=str(openai_cfg.get("style", "natural")),
-                )
-                _copy_image(run_option_path, image_option_path)
-                generated_start = True
-                print(
-                    f"image_gen success: {scene_id} -> start option {index + 1}/{start_variants} "
-                    f"at {rel_to_repo(image_option_path)}"
-                )
-
-            if start_variants == 1 and not selected_start.exists():
-                first_option = images_dir / "start_option_01.png"
-                if first_option.exists():
-                    _copy_image(first_option, selected_start)
+            should_generate_start = False
+            if production_start.exists():
+                if overwrite:
                     print(
-                        f"image_gen success: {scene_id} -> auto-selected start frame "
-                        f"at {rel_to_repo(selected_start)}"
+                        f"image_gen overwrite: {scene_id} -> regenerating start despite existing "
+                        f"{rel_to_repo(production_start)}"
                     )
+                    should_generate_start = True
+                else:
+                    start_skipped_validated += 1
+                    print(
+                        f"image_gen skipped: {scene_id} -> validated start already exists at "
+                        f"{rel_to_repo(production_start)}"
+                    )
+            else:
+                should_generate_start = True
+
+            if should_generate_start:
+                if not start_prompt:
+                    missing.append((scene_id, "scene.media.generation.openai.startPrompt is missing."))
+                elif not openai_api_key:
+                    missing.append((scene_id, "OPENAI_API_KEY is missing for start generation."))
+                else:
+                    run_start_path = output_dir / START_NAME
+                    openai_generate_image(
+                        api_key=openai_api_key,
+                        prompt=start_prompt,
+                        output_path=run_start_path,
+                        model=str(openai_cfg.get("model", "gpt-image-1")),
+                        size=str(openai_cfg.get("size", "1536x1024")),
+                        quality=str(openai_cfg.get("quality", "low")),
+                        style=str(openai_cfg.get("style", "natural")),
+                    )
+                    job["startRunPath"] = str(run_start_path)
+                    job["startRunPathRel"] = rel_to_repo(run_start_path)
+                    generated_start = True
+                    if copy_start_to_production:
+                        _copy_image(run_start_path, production_start)
+                        start_copied_to_production += 1
+                        print(
+                            f"image_gen success: {scene_id} -> start generated and copied to production "
+                            f"({rel_to_repo(run_start_path)} -> {rel_to_repo(production_start)})"
+                        )
+                    else:
+                        print(
+                            f"image_gen success: {scene_id} -> start candidate generated at "
+                            f"{rel_to_repo(run_start_path)}. Copy to {rel_to_repo(production_start)} to validate."
+                        )
 
         if run_end:
-            if not selected_start.exists():
-                missing.append(
-                    (
-                        scene_id,
-                        f"start selection missing. Choose one start_option_##.png and save as {START_SELECTED_NAME} "
-                        f"in {rel_to_repo(images_dir)} before running end generation.",
+            should_generate_end = False
+            if production_end.exists():
+                if production_start.exists() and _files_are_identical(production_start, production_end):
+                    print(
+                        f"image_gen warning: {scene_id} -> validated end matches start exactly; "
+                        "regenerating end frame."
                     )
-                )
-                continue
+                    production_end.unlink(missing_ok=True)
+                    should_generate_end = True
+                elif overwrite:
+                    print(
+                        f"image_gen overwrite: {scene_id} -> regenerating end despite existing "
+                        f"{rel_to_repo(production_end)}"
+                    )
+                    should_generate_end = True
+                else:
+                    end_skipped_validated += 1
+                    print(
+                        f"image_gen skipped: {scene_id} -> validated end already exists at "
+                        f"{rel_to_repo(production_end)}"
+                    )
+            else:
+                should_generate_end = True
 
-            run_end_path = output_dir / END_NAME
-            guided_end_prompt = (
-                "Transform this exact input image into the end state while preserving the same "
-                "camera position, framing, lens feel, composition, lighting logic, and core style. "
-                f"{end_state_prompt}"
-            )
-            openai_generate_image_edit(
-                api_key=openai_api_key,
-                prompt=guided_end_prompt,
-                input_image_path=selected_start,
-                output_path=run_end_path,
-                model=str(openai_cfg.get("model", "gpt-image-1")),
-                size=str(openai_cfg.get("size", "1536x1024")),
-                quality=str(openai_cfg.get("quality", "low")),
-            )
-            _copy_image(run_end_path, end_image)
-            generated_end = True
-            print(f"image_gen success: {scene_id} -> end frame at {rel_to_repo(end_image)}")
+            if should_generate_end and not production_start.exists():
+                end_skipped_missing_start += 1
+                print(
+                    f"image_gen skipped: {scene_id} -> validated start is missing at "
+                    f"{rel_to_repo(production_start)}"
+                )
+            if should_generate_end and production_start.exists():
+                if not end_delta:
+                    missing.append((scene_id, "scene.media.generation.openai.delta is missing."))
+                elif not openai_api_key:
+                    missing.append((scene_id, "OPENAI_API_KEY is missing for end generation."))
+                else:
+                    run_end_path = output_dir / END_NAME
+                    end_prompt = (
+                        "Transform this exact start image into the evolved end state while preserving "
+                        "composition, framing, lens feel, and visual continuity. Apply only these changes: "
+                        f"{end_delta}"
+                    )
+                    openai_generate_image_edit(
+                        api_key=openai_api_key,
+                        prompt=end_prompt,
+                        input_image_path=production_start,
+                        output_path=run_end_path,
+                        model=str(openai_cfg.get("model", "gpt-image-1")),
+                        size=str(openai_cfg.get("size", "1536x1024")),
+                        quality=str(openai_cfg.get("quality", "low")),
+                    )
+                    job["endRunPath"] = str(run_end_path)
+                    job["endRunPathRel"] = rel_to_repo(run_end_path)
+                    generated_end = True
+                    if copy_end_to_production:
+                        _copy_image(run_end_path, production_end)
+                        end_copied_to_production += 1
+                        print(
+                            f"image_gen success: {scene_id} -> end generated and copied to production "
+                            f"({rel_to_repo(run_end_path)} -> {rel_to_repo(production_end)})"
+                        )
+                    else:
+                        print(
+                            f"image_gen success: {scene_id} -> end candidate generated at "
+                            f"{rel_to_repo(run_end_path)}. Copy to {rel_to_repo(production_end)} to validate."
+                        )
 
         if generated_start:
             start_generated_count += 1
         if generated_end:
             end_generated_count += 1
 
-        if selected_start.exists() and end_image.exists():
-            _set_keyframe(job, selected_start, end_image)
-            job["status"] = "keyframes_ready_images"
-            generated_count += 1
-            print(
-                f"image_gen success: {scene_id} -> keyframes ready for animation "
-                f"({rel_to_repo(selected_start)} , {rel_to_repo(end_image)})"
-            )
+        if production_start.exists() and production_end.exists():
+            _set_keyframe(job, production_start, production_end)
+            job["status"] = "keyframes_ready_production"
+            ready_count += 1
             continue
 
-        if run_start and not run_end and (images_dir / "start_option_01.png").exists():
-            job["status"] = "start_options_ready"
+        if production_start.exists() and not production_end.exists():
+            job["status"] = "waiting_for_validated_end"
             continue
 
-        if selected_start.exists() and not end_image.exists():
-            job["status"] = "waiting_for_end_frame"
-            continue
-
-        if start_manual or end_manual:
-            missing.append((scene_id, "Only one manual keyframe was found. Provide both start.* and end.* files."))
-        elif run_start or run_end:
-            missing.append((scene_id, "Start/end keyframes are not ready in pipeline/images."))
+        job["status"] = "waiting_for_validated_start"
 
     manifest = {
         "generatedAt": utc_now_iso(),
         "pipeline": "creative-pitch-story",
         "defaultFrameCount": default_frame_count,
-        "sceneLimit": scene_limit,
+        "sceneLimit": scene_limit if not selected_scene_ids else 0,
+        "sceneIds": selected_scene_ids,
+        "productionStartDirRel": rel_to_repo(PRODUCTION_START_DIR),
+        "productionEndDirRel": rel_to_repo(PRODUCTION_END_DIR),
         "imageGenerationMode": {
             "runStart": run_start,
             "runEnd": run_end,
-            "startVariants": start_variants,
+            "overwrite": overwrite,
+            "copyStartToProduction": copy_start_to_production,
+            "copyEndToProduction": copy_end_to_production,
         },
         "openaiRunId": openai_id if (start_generated_count or end_generated_count) else None,
         "openaiRunDirRel": rel_to_repo(openai_images_root.parent)
@@ -289,15 +330,27 @@ def main() -> int:
 
     print(f"Wrote manifest: {manifest_path}")
     print(f"- scenes total: {len(jobs)}")
-    print(f"- scene limit: {'all' if scene_limit == 0 else scene_limit}")
+    print(f"- scene ids: {', '.join(selected_scene_ids) if selected_scene_ids else 'all'}")
+    print(
+        f"- scene limit: {'ignored (scene ids selected)' if selected_scene_ids else ('all' if scene_limit == 0 else scene_limit)}"
+    )
     print(f"- image_gen run_start: {run_start}")
     print(f"- image_gen run_end: {run_end}")
-    print(f"- start variants: {start_variants}")
+    print(f"- overwrite existing outputs: {overwrite}")
+    print(f"- copy start to production: {copy_start_to_production}")
+    print(f"- copy end to production: {copy_end_to_production}")
+    print(f"- production starts ready: {sum(1 for job in jobs if _path_exists(job.get('productionStartPath')))}")
+    print(f"- production ends ready: {sum(1 for job in jobs if _path_exists(job.get('productionEndPath')))}")
+    print(f"- scenes ready for animation (production): {ready_count}")
     print(f"- scenes already active (webp present): {already_ready}")
     print(f"- scenes ready from manual keyframes: {manual_count}")
-    print(f"- scenes generated by OpenAI: {generated_count}")
-    print(f"- scenes with generated start options: {start_generated_count}")
-    print(f"- scenes with generated end frame: {end_generated_count}")
+    print(f"- generated start candidates: {start_generated_count}")
+    print(f"- generated end candidates: {end_generated_count}")
+    print(f"- generated starts copied to production: {start_copied_to_production}")
+    print(f"- generated ends copied to production: {end_copied_to_production}")
+    print(f"- start skipped (validated exists): {start_skipped_validated}")
+    print(f"- end skipped (validated exists): {end_skipped_validated}")
+    print(f"- end skipped (validated start missing): {end_skipped_missing_start}")
 
     if missing:
         print(summarize_missing(missing))

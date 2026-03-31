@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import glob
+import os
 from pathlib import Path
 import sys
 from typing import List, Tuple
@@ -9,11 +10,14 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "creative-pitch" / "pipeline" / "scripts"))
 
 from pipeline_core import (  # noqa: E402
-    PipelineError,
+    as_int,
     extract_all_video_frames,
+    filter_jobs_by_scene_ids,
     load_manifest,
+    parse_scene_ids,
     rel_to_repo,
     save_manifest,
+    story_jobs,
     utc_now_iso,
 )
 
@@ -27,10 +31,32 @@ def _cleanup_existing_pngs(target_dir: Path) -> int:
 
 
 def main() -> int:
+    selected_scene_ids = parse_scene_ids(os.getenv("PITCH_SCENE_IDS", ""))
+    overwrite = os.getenv("PITCH_OVERWRITE", "false").strip().lower() == "true"
+    default_frame_count = as_int(os.getenv("PITCH_DEFAULT_FRAME_COUNT"), fallback=24, minimum=2)
     manifest = load_manifest()
     jobs = manifest.get("jobs")
-    if not isinstance(jobs, list):
-        raise PipelineError("Manifest is missing jobs[].")
+    jobs = [job for job in jobs if isinstance(job, dict)] if isinstance(jobs, list) else []
+    if not jobs:
+        jobs = story_jobs(default_frame_count)
+        manifest["jobs"] = jobs
+        print(f"image_extract info: rebuilt empty manifest jobs from story ({len(jobs)} scenes).")
+
+    if selected_scene_ids:
+        jobs, unknown_ids = filter_jobs_by_scene_ids(jobs, selected_scene_ids)
+        if unknown_ids and not jobs:
+            rebuilt_jobs = story_jobs(default_frame_count)
+            manifest["jobs"] = rebuilt_jobs
+            jobs, unknown_ids = filter_jobs_by_scene_ids(rebuilt_jobs, selected_scene_ids)
+            if jobs:
+                print(
+                    "image_extract info: manifest scene list refreshed from story to resolve scene selection."
+                )
+        if unknown_ids:
+            print(f"image_extract warning: unknown scene id(s) ignored: {', '.join(unknown_ids)}")
+        print(f"image_extract scene ids: {', '.join(selected_scene_ids)}")
+    else:
+        print("image_extract scene ids: all")
 
     ffmpeg_path = str(manifest.get("ffmpegPath") or "ffmpeg")
     extracted = 0
@@ -38,25 +64,21 @@ def main() -> int:
     unresolved: List[Tuple[str, str]] = []
 
     for job in jobs:
-        if not isinstance(job, dict):
-            continue
-
         scene_id = str(job.get("sceneId") or "unknown")
         video_path_raw = job.get("videoPath")
         active_webp_count = int(job.get("activeWebpCount", 0))
+        if active_webp_count > 0 and not overwrite:
+            job["status"] = "active_frames_present"
+            continue
 
         if not isinstance(video_path_raw, str) or not video_path_raw.strip():
-            if active_webp_count > 0:
-                job["status"] = "active_frames_present"
-                continue
+            job["status"] = "video_missing_for_extract"
             unresolved.append((scene_id, "missing videoPath for extraction"))
             continue
 
         video_path = Path(video_path_raw)
         if not video_path.exists():
-            if active_webp_count > 0:
-                job["status"] = "active_frames_present"
-                continue
+            job["status"] = "video_missing_for_extract"
             unresolved.append((scene_id, f"video file not found: {video_path}"))
             continue
 
@@ -89,12 +111,12 @@ def main() -> int:
 
     print(f"image_extract complete. scenes extracted: {extracted}")
     print(f"- stale PNG frames removed before extraction: {cleaned}")
+    print(f"- overwrite existing outputs: {overwrite}")
 
     if unresolved:
-        print("Extraction blocked for scenes:")
+        print("image_extract warnings (continuing pipeline):")
         for scene_id, reason in unresolved:
             print(f"- {scene_id}: {reason}")
-        return 1
 
     return 0
 

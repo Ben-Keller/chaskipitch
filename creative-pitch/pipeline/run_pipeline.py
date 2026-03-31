@@ -21,11 +21,6 @@ def build_parser() -> argparse.ArgumentParser:
         help="Override defaults.scene_limit in config (0 means all scenes).",
     )
     parser.add_argument(
-        "--start-variants",
-        type=int,
-        help="Override defaults.start_frame_variants in config (image_gen).",
-    )
-    parser.add_argument(
         "--skip-start-frame",
         action="store_true",
         help="Disable start frame generation in image_gen.",
@@ -45,6 +40,21 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Enable end frame generation in image_gen.",
     )
+    parser.add_argument(
+        "--copy-start-to-production",
+        action="store_true",
+        help="After start generation, copy generated starts to production start folder.",
+    )
+    parser.add_argument(
+        "--copy-end-to-production",
+        action="store_true",
+        help="After end generation, copy generated ends to production end folder.",
+    )
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Regenerate selected scenes even if final outputs already exist.",
+    )
     parser.add_argument("--webp-quality", type=int, help="Override render.webp_quality in config.")
     parser.add_argument(
         "--keep-png",
@@ -63,8 +73,6 @@ def main() -> int:
         config.setdefault("defaults", {})["frame_count"] = args.frame_count
     if args.scene_limit is not None:
         config.setdefault("defaults", {})["scene_limit"] = max(0, args.scene_limit)
-    if args.start_variants is not None:
-        config.setdefault("defaults", {})["start_frame_variants"] = max(1, args.start_variants)
     if args.skip_start_frame:
         config.setdefault("defaults", {})["generate_start_frame"] = False
     if args.run_start_frame:
@@ -73,6 +81,12 @@ def main() -> int:
         config.setdefault("defaults", {})["generate_end_frame"] = False
     if args.run_end_frame:
         config.setdefault("defaults", {})["generate_end_frame"] = True
+    if args.copy_start_to_production:
+        config.setdefault("defaults", {})["copy_start_to_production"] = True
+    if args.copy_end_to_production:
+        config.setdefault("defaults", {})["copy_end_to_production"] = True
+    if args.overwrite:
+        config.setdefault("defaults", {})["overwrite"] = True
     if args.webp_quality is not None:
         config.setdefault("render", {})["webp_quality"] = args.webp_quality
     if args.keep_png:

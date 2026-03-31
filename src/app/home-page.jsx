@@ -47,7 +47,7 @@ const HOME_CARDS = [
 export function HomePage({ onNavigate, creativePitchEnabled = true }) {
   const logoSrc = withBasePath("icons/cg-logo.svg");
   const proposalIconSrc = withBasePath("icons/pdf.svg");
-  const proposalHref = reportPath("tenure-facility-annual-report-2024.pdf");
+  const proposalHref = reportPath("ChaskiGlobal_TenureFacility10YearCelebration_Final_3.2026.pdf");
   const {
     categories,
     selectedThemes,
@@ -89,8 +89,8 @@ export function HomePage({ onNavigate, creativePitchEnabled = true }) {
               </a>
             </div>
             <p className="home-hero__statement">
-              A modern proposal interface that unifies strategic impact mapping, visual
-              storytelling, and film references into one clear entry point.
+              Rooted: A story of land, people, and the movement connecting them. Explore the
+              Tenure Facility dashboard, creative proposal, and our selected films below.
             </p>
           </div>
         </div>

@@ -51,12 +51,53 @@ function titleFromSlug(slug) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
+function toSingleSentence(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) {
+    return "";
+  }
+  const sentenceMatch = raw.match(/^.+?[.!?](?=\s|$)/);
+  const sentence = sentenceMatch ? sentenceMatch[0] : raw;
+  return /[.!?]$/.test(sentence) ? sentence : `${sentence}.`;
+}
+
 const REGION_BUBBLE_COLORS = {
-  global: "#d4b988",
-  africa: "#d05c49",
-  asia: "#0b4f63",
-  latin_america: "#128c7e"
+  africa: "#ad1f3f",
+  latin_america: "#2a8a3a",
+  asia: "#2a5dbf"
 };
+const GLOBAL_REGION_PIE_ORDER = ["africa", "latin_america", "asia"];
+const FOUR_S_FALLBACK_DESCRIPTIONS = {
+  source:
+    "Support Indigenous, Afro-descendant, and local community initiatives through partner-defined priorities and locally tailored grant structures.",
+  secure:
+    "Advance land and forest rights recognition through legal processes, participatory mapping, conflict resolution, and inclusive governance.",
+  sustain:
+    "Strengthen organisations, territorial stewardship, and community systems that maintain rights gains over time.",
+  share:
+    "Scale impact by exchanging learning, shaping policy narratives, and mobilising additional resources across partners and regions."
+};
+
+function buildGlobalRegionPieFill(hectaresByRegion) {
+  const weights = GLOBAL_REGION_PIE_ORDER.map((regionKey) => {
+    const value = Number(hectaresByRegion.get(regionKey));
+    return Number.isFinite(value) && value > 0 ? value : 0;
+  });
+  const total = weights.reduce((sum, value) => sum + value, 0);
+  const normalized = total > 0 ? weights.map((value) => value / total) : weights.map(() => 1 / weights.length);
+
+  let cursor = 0;
+  const stops = normalized.map((ratio, index) => {
+    const start = cursor * 100;
+    cursor += ratio;
+    const end = index === normalized.length - 1 ? 100 : cursor * 100;
+    const regionKey = GLOBAL_REGION_PIE_ORDER[index];
+    const color = REGION_BUBBLE_COLORS[regionKey];
+    return `${color} ${start.toFixed(2)}% ${end.toFixed(2)}%`;
+  });
+
+  return `conic-gradient(${stops.join(", ")})`;
+}
 
 export function DashboardPage() {
   const loadDashboardData = useCallback(async () => {
@@ -136,6 +177,10 @@ export function DashboardPage() {
     themes.find((theme) => theme.slug === selectedThemeSlug) ??
     themes.find((theme) => theme.slug === "tenure-security") ??
     themes[0] ??
+    fallbackTheme;
+  const allThematicsTheme =
+    themes.find((theme) => theme.slug === "tenure-security") ??
+    selectedTheme ??
     fallbackTheme;
 
   const countriesByIso = useMemo(
@@ -331,6 +376,7 @@ export function DashboardPage() {
   const contextMode = useMemo(() => {
     if (hoveredCountry) return "country";
     if (hoveredStatusDefinition) return "status";
+    if (hoveredRegion === "global") return "theme";
     if (hoveredTheme) return "theme";
     if (hoveredRegion) return "region";
     if (selectedStatusDefinition) return "status";
@@ -348,7 +394,11 @@ export function DashboardPage() {
   ]);
 
   const contextCountry = contextMode === "country" ? hoveredCountry ?? selectedCountry : null;
-  const contextTheme = contextMode === "theme" ? hoveredTheme ?? selectedTheme : selectedTheme;
+  const contextTheme = contextMode === "theme"
+    ? hoveredRegion === "global"
+      ? allThematicsTheme
+      : hoveredTheme ?? selectedTheme
+    : selectedTheme;
   const contextRegionKey = contextMode === "region" ? hoveredRegion ?? selectedRegion : null;
   const contextStatus = contextMode === "status" ? hoveredStatusDefinition ?? selectedStatusDefinition : null;
   const isContextPreviewMode = Boolean(
@@ -840,14 +890,28 @@ export function DashboardPage() {
     return bullets;
   }, [heroKpisById]);
 
-  const allThematicsPillarsLabel = useMemo(
-    () =>
+  const allThematicsApproachItems = useMemo(() => {
+    const preferredOrder = ["source", "secure", "sustain", "share"];
+    const pillarByKey = new Map(
       (globalContent.about?.pillars ?? [])
-        .map((pillar) => pillar.title)
-        .filter(Boolean)
-        .join(" | "),
-    [globalContent.about?.pillars]
-  );
+        .filter((pillar) => String(pillar?.title ?? "").trim())
+        .map((pillar) => [String(pillar.title).trim().toLowerCase(), pillar])
+    );
+
+    return preferredOrder.map((key) => {
+      const pillar = pillarByKey.get(key);
+      const title = pillar?.title ? String(pillar.title).trim() : titleFromSlug(key);
+      const rawDescription =
+        pillar?.description && String(pillar.description).trim()
+          ? pillar.description
+          : FOUR_S_FALLBACK_DESCRIPTIONS[key];
+      return {
+        key,
+        title,
+        description: toSingleSentence(rawDescription)
+      };
+    });
+  }, [globalContent.about?.pillars]);
 
   const regionalHectareBubbles = useMemo(() => {
     const regionalKpis = globalContent.regional_kpis ?? {};
@@ -858,6 +922,12 @@ export function DashboardPage() {
         hectares: Number.isFinite(rawValue) && rawValue > 0 ? rawValue : null
       };
     });
+    const hectaresByRegion = new Map(
+      values
+        .filter((entry) => entry.key !== "global")
+        .map((entry) => [entry.key, Number(entry.hectares) || 0])
+    );
+    const globalPieFill = buildGlobalRegionPieFill(hectaresByRegion);
 
     const maxHectares = Math.max(
       ...values.map((entry) => (Number.isFinite(entry.hectares) ? entry.hectares : 0)),
@@ -869,7 +939,7 @@ export function DashboardPage() {
       return {
         ...entry,
         bubbleSize: entry.hectares ? 8 + scaledRatio * 14 : 8,
-        color: REGION_BUBBLE_COLORS[entry.key] ?? "#d4b988"
+        color: entry.key === "global" ? globalPieFill : REGION_BUBBLE_COLORS[entry.key] ?? "#6a1f2f"
       };
     });
   }, [globalContent.regional_kpis]);
@@ -950,6 +1020,7 @@ export function DashboardPage() {
                               type="button"
                               className={[
                                 "atlas-region-tab",
+                                `atlas-region-tab--${option.key}`,
                                 selectedRegion === option.key ? "is-active" : "",
                                 hoveredRegion === option.key ? "is-hovered" : ""
                               ]
@@ -1235,7 +1306,19 @@ export function DashboardPage() {
                             </ul>
                           </section>
                         ) : null}
-                        {allThematicsPillarsLabel ? <p><strong>Approach:</strong> {allThematicsPillarsLabel}</p> : null}
+                        {allThematicsApproachItems.length ? (
+                          <section className="atlas-context-approach" aria-label="4S approach">
+                            <h3>4S Approach</h3>
+                            <div className="atlas-context-approach__grid">
+                              {allThematicsApproachItems.map((item) => (
+                                <article key={item.key} className="atlas-context-approach__item">
+                                  <p className="atlas-context-approach__term">{item.title}</p>
+                                  <p>{item.description}</p>
+                                </article>
+                              ))}
+                            </div>
+                          </section>
+                        ) : null}
                       </>
                     ) : (
                       <>

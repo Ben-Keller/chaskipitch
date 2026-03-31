@@ -8,7 +8,23 @@
       "bgColor": "#0E0B08",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s1/seq/opening_thread/frame_%04d.webp"
+        "srcPattern": "/assets/s1/seq/opening_thread/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Dark void with a single faint luminous filament, thin and slightly irregular, drifting diagonally across the frame. Soft glow, warm gold tones fading into deep black. Subtle grain texture, minimal geometry, high negative space. Composition anchored but quiet.",
+            "delta": "The single filament branches into a sparse network of softly glowing lines. Additional threads emerge, forming a loose geometric web. Light intensity increases slightly, introducing depth layering and subtle parallax. The system feels alive but still restrained."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Slow organic extension of light threads, like currents spreading through space. No abrupt motion. Light pulses travel along lines, branching gradually. Maintain calm, continuous flow with slight breathing luminosity."
+          }
+        }
       },
       "texts": [
         {
@@ -49,7 +65,23 @@
       "bgColor": "#120E0A",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s2/seq/mycelium_growth/frame_%04d.webp"
+        "srcPattern": "/assets/s2/seq/mycelium_growth/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Dense, low-contrast field of fine, thread-like structures beneath a dark surface plane. Dim bioluminescent nodes scattered sparsely. Palette: deep browns and muted amber light. Slight curvature suggesting underground depth.",
+            "delta": "Threads thicken and interconnect into a more legible network. Nodes brighten and multiply. Light begins to flow along paths, revealing structure. Depth increases with layered networks appearing at different z-levels."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Subtle growth and branching of filament structures. Light flows like nutrients through pathways. Gentle expansion outward, no camera shake, continuous organic motion."
+          }
+        }
       },
       "texts": [
         {
@@ -90,7 +122,23 @@
       "bgColor": "#1A140E",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s3/seq/trunk_emergence/frame_%04d.webp"
+        "srcPattern": "/assets/s3/seq/trunk_emergence/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Vertical emergence of a faint column of light from a dense underlying network. The base is complex and bright; the upper region is minimal and dim. Geometry is soft, almost implied.",
+            "delta": "The vertical structure becomes clearer but remains partially incomplete. The underlying network intensifies and stabilizes, suggesting that the visible structure is supported rather than created. Contrast increases between base and upper region."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Light rises slowly from the network upward, but never fully forms a solid structure. Pulses reinforce the base, emphasizing foundation over emergence. Smooth vertical flow, no sharp transitions."
+          }
+        }
       },
       "texts": [
         {
@@ -131,7 +179,23 @@
       "bgColor": "#241A13",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s4/seq/rings_highlight/frame_%04d.webp"
+        "srcPattern": "/assets/s4/seq/rings_highlight/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Concentric circular patterns faintly visible in darkness, like soft radial gradients. Thin rings barely illuminated, centered composition, low contrast.",
+            "delta": "Rings become more defined and layered, with subtle variations in thickness and brightness. Additional rings appear outward. Light travels along circular paths, creating rhythm and temporal layering."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Expanding circular waves of light radiate outward. Rings pulse gently, with slight zoom-in effect. Motion is cyclical and smooth, like time unfolding."
+          }
+        }
       },
       "texts": [
         {
@@ -172,7 +236,23 @@
       "bgColor": "#162118",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s5/seq/network_illumination/frame_%04d.webp"
+        "srcPattern": "/assets/s5/seq/network_illumination/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Sparse network barely visible beneath a dark surface, with only a few glowing intersections. Mostly negative space, low activity.",
+            "delta": "Network becomes fully illuminated and interconnected, revealing a complex web. Light flows dynamically across connections. The structure is now clearly the dominant visual element."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Gradual illumination spreading through the network. Light flows accelerate slightly, creating a sense of coherence and stability. No abrupt shifts, just increasing connectivity."
+          }
+        }
       },
       "texts": [
         {
@@ -213,7 +293,23 @@
       "bgColor": "#2A2118",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s6/seq/rooted_in_relation/frame_%04d.webp"
+        "srcPattern": "/assets/s6/seq/rooted_in_relation/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Multiple separate clusters of faint glowing lines, spaced apart in darkness. Each cluster has its own internal structure but no visible connections.",
+            "delta": "Clusters begin to connect via thin bridging filaments. Light starts to synchronize across clusters. The system becomes unified while retaining local variation."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Slow linking of separate clusters through extending light threads. Pulses synchronize across the network. Motion emphasizes connection forming over distance."
+          }
+        }
       },
       "texts": [
         {
@@ -254,7 +350,23 @@
       "bgColor": "#171512",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s7/seq/network_listens/frame_%04d.webp"
+        "srcPattern": "/assets/s7/seq/network_listens/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Wide, sparse field of dim nodes with minimal connections. Signals appear isolated, flickering independently.",
+            "delta": "Connections form between distant nodes. Light pulses begin to travel long distances, linking previously isolated points. The network becomes globally coherent."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Signals propagate across the frame, traveling through newly formed connections. Light pulses move smoothly, creating a sense of listening and response."
+          }
+        }
       },
       "texts": [
         {
@@ -295,7 +407,23 @@
       "bgColor": "#20170F",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s8/seq/rooting_for_change/frame_%04d.webp"
+        "srcPattern": "/assets/s8/seq/rooting_for_change/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Structured circular or radial geometry with faint segmentation. Dim light accents marking discrete sections.",
+            "delta": "Segments intensify and multiply, forming a layered radial system. Light pulses emphasize discrete units while maintaining overall cohesion. Increased density and clarity."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Rhythmic pulses expand across radial segments. Light accumulates over time, building intensity. Motion remains smooth and progressive."
+          }
+        }
       },
       "texts": [
         {
@@ -336,7 +464,23 @@
       "bgColor": "#11161A",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s9/seq/living_platform/frame_%04d.webp"
+        "srcPattern": "/assets/s9/seq/living_platform/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Grid-like abstract plane with faint glowing intersections. Minimal depth, mostly flat but dark.",
+            "delta": "Grid transforms into a multi-layered spatial network. Nodes brighten and connections extend vertically and horizontally. Depth and dimensionality increase significantly."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Network expands in multiple directions. Light flows across layers, creating a sense of a living system. Smooth transitions, no jitter, subtle parallax."
+          }
+        }
       },
       "texts": [
         {
@@ -377,7 +521,23 @@
       "bgColor": "#161110",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s10/seq/film_and_shorts/frame_%04d.webp"
+        "srcPattern": "/assets/s10/seq/film_and_shorts/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Fragmented light panels or planes floating in darkness, loosely arranged, dimly lit. No clear structure.",
+            "delta": "Fragments align into a coherent flowing composition. Light intensifies and transitions smoothly between panels, suggesting continuity and movement across forms."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Panels drift and align while light flows between them. Transitions are fluid and continuous, creating a sense of narrative flow without cuts."
+          }
+        }
       },
       "texts": [
         {
@@ -418,7 +578,23 @@
       "bgColor": "#18140F",
       "gentleZoom": true,
       "media": {
-        "srcPattern": "/assets/s11/seq/forest_of_voices/frame_%04d.webp"
+        "srcPattern": "/assets/s11/seq/forest_of_voices/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Dark, cavernous abstract space with concentric circular geometries faintly visible in perspective, like layered rings receding into depth. Minimal illumination. Soft amber and deep shadow tones. Subtle volumetric haze. The space feels latent, waiting.",
+            "delta": "The concentric structures illuminate progressively, each ring activating with flowing light. Vertical and radial connections emerge between rings, transforming the space into a fully active, immersive field. Depth increases significantly, with layered light structures extending into the distance."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Gradual activation of concentric layers from center outward. Light pulses travel along circular and vertical paths. Subtle forward drift (gentle zoom) enhances immersion. No cuts, no jitter—continuous, ceremonial unfolding of light."
+          }
+        }
       },
       "texts": [
         {
@@ -459,7 +635,23 @@
       "bgColor": "#22301F",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s12/seq/roots_of_abundance/frame_%04d.webp"
+        "srcPattern": "/assets/s12/seq/roots_of_abundance/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Abstract dense network occupying the lower half of the frame, with a soft gradient fading into darkness above. Filament structures are stable and interconnected, with low-intensity light flowing horizontally. The upper space is mostly empty, with faint diffuse glow suggesting latent potential. Warm amber tones on deep black, soft volumetric depth, minimal contrast.",
+            "delta": "Light begins to rise from the dense lower network into the upper space in soft vertical streams. The previously empty upper region fills with diffused luminous fields and suspended nodes. The system transitions from grounded density to expanded vertical abundance. Brightness increases subtly but remains controlled. The composition becomes more balanced between lower structure and upper field, suggesting emergence without literal growth."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Slow upward movement of light from the lower network into the upper field, like diffusion or lift rather than force. Filaments remain stable while light travels through them and disperses above. No sudden motion. Gradual increase in spatial fullness. Gentle breathing in luminosity, maintaining calm continuity."
+          }
+        }
       },
       "texts": [
         {
@@ -500,7 +692,23 @@
       "bgColor": "#0F0C0A",
       "gentleZoom": false,
       "media": {
-        "srcPattern": "/assets/s13/seq/final_invitation/frame_%04d.webp"
+        "srcPattern": "/assets/s13/seq/final_invitation/frame_%04d.webp",
+        "generation": {
+          "openai": {
+            "model": "gpt-image-1",
+            "size": "1536x1024",
+            "quality": "low",
+            "startPrompt": "Wide, open abstract field with a partially formed network concentrated toward the center. Surrounding space is dark and expansive, with only a few faint peripheral nodes. The composition feels incomplete but stable. Light flows gently within the central structure, with high negative space around it.",
+            "delta": "The network extends outward toward the edges of the frame, with new filaments reaching into previously empty space. Peripheral nodes activate and connect. The system becomes more open and expansive rather than denser. Light intensity increases slightly at the edges, creating a sense of outward invitation and continuation beyond the frame. Final state feels unfinished in a deliberate way — open-ended, not closed."
+          },
+          "runway": {
+            "model": "gen4.5",
+            "ratio": "1280:720",
+            "durationSeconds": 5,
+            "publicFigureThreshold": "auto",
+            "prompt": "Gradual outward extension of filaments from the central structure into surrounding space. Light pulses travel outward along these paths. Peripheral nodes illuminate as they connect. Motion remains smooth and continuous, with no hard stops. End in a sustained, open state with gentle flowing light."
+          }
+        }
       },
       "texts": [
         {

@@ -9,6 +9,26 @@ public/runtime/
 creative-pitch/pipeline/runs/
 creative-pitch/pipeline/run_backups/
 creative-pitch/pipeline/output/
+creative-pitch/pipeline/images/
+creative-pitch/pipeline/generated/
+creative-pitch/pipeline/__pycache__/
+creative-pitch/pipeline/scripts/__pycache__/
 creative-pitch/pipeline/.env
 creative-pitch/pipeline/.env.*
 !creative-pitch/pipeline/.env.template
+
+# Creative-pitch committed media policy (app uses WebP sequence frames)
+creative-pitch/assets/**/*.png
+creative-pitch/assets/**/*.jpg
+creative-pitch/assets/**/*.jpeg
+creative-pitch/assets/**/*.gif
+creative-pitch/assets/**/*.bmp
+creative-pitch/assets/**/*.tif
+creative-pitch/assets/**/*.tiff
+creative-pitch/assets/**/*.avif
+creative-pitch/assets/**/*.mp4
+creative-pitch/assets/**/*.mov
+creative-pitch/assets/**/*.avi
+
+# OS metadata
+.DS_Store

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Film Font Lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <h1>Film Font Lab</h1>
+        <p>Select and save one font style per film.</p>
+      </header>
+
+      <section class="status-panel">
+        <p id="progress-line">Loading...</p>
+        <p id="output-line" class="note"></p>
+      </section>
+
+      <section id="workspace" class="workspace hidden">
+        <aside class="film-column card">
+          <div class="film-column__head">
+            <h2>Films</h2>
+            <div class="film-column__actions">
+              <button id="prev-btn" type="button">Previous</button>
+              <button id="save-next-btn" type="button">Save + Next</button>
+            </div>
+          </div>
+          <div id="film-list" class="film-list" aria-label="Film list"></div>
+        </aside>
+
+        <section class="font-column">
+          <article class="card preview-card">
+            <h2 id="current-film-title">Film title</h2>
+            <p id="current-film-subtitle" class="preview-subtitle"></p>
+            <p id="current-film-id" class="mono"></p>
+            <p id="saved-font-line" class="note"></p>
+            <p id="draft-font-line" class="note"></p>
+            <p id="font-availability-line" class="note"></p>
+            <div id="font-preview" class="font-preview">
+              <p class="font-preview__kicker">Preview</p>
+              <h3 id="font-preview-title">Sample Film Title</h3>
+              <p id="font-preview-body" class="font-preview__body">
+                This preview uses the currently selected font for title-facing content.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <h2>Font Options</h2>
+            <p id="font-count-line" class="note"></p>
+            <div id="font-grid" class="font-grid"></div>
+          </article>
+        </section>
+      </section>
+
+      <section id="error-panel" class="error hidden"></section>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
