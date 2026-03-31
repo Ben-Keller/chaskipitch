@@ -26,12 +26,6 @@ STAGES: List[Stage] = [
         "Animation Gen",
         "python3 -u creative-pitch/pipeline/scripts/02_animation_gen.py",
     ),
-    Stage(
-        "image_extract",
-        "Image Extract",
-        "python3 -u creative-pitch/pipeline/scripts/03_image_extract.py",
-    ),
-    Stage("upscale", "Upscale", "npm run build:creative-sequences"),
 ]
 
 FINALIZE_COMMAND = "node scripts/sync-public-content.mjs"
@@ -51,17 +45,19 @@ DEFAULT_CONFIG: Dict[str, object] = {
         "copy_end_to_production": False,
     },
     "timing": {
-        "scene_padding_start": 0.06,
-        "scene_padding_end": 0.05,
-        "reading_words_per_second": 3.0,
-        "min_text_seconds": 1.2,
-        "max_text_seconds": 10.0,
-        "text_transition_overlap_seconds": 0.45,
-        "scroll_seconds_per_1000px": 1.6,
-        "drag_seconds_per_1000px": 3.0,
-        "keyboard_step_seconds": 1.1,
+        "base_timing_seconds": 0.42,
+        "seconds_per_word": 0.045,
+        "bonus_first_text_seconds": 0.275,
+        "bonus_third_text_seconds": 1.6,
+        "first_text_pre_fade_extra_from_second_ratio": 0.7,
+        "second_text_pre_fade_extra_from_third_ratio": 0.5,
+        "scene_padding_start_seconds": 0.22,
+        "scene_padding_end_seconds": 0.2,
+        "text_fade_seconds": 0.2,
+        "scroll_seconds_per_1000px": 0.945,
+        "drag_seconds_per_1000px": 1.773,
+        "keyboard_step_seconds": 0.65,
     },
-    "render": {"webp_quality": 82, "remove_upscaled_png": True},
     "commands": {},
 }
 
@@ -92,12 +88,10 @@ def _normalize_config(raw: Dict[str, object] | None) -> Dict[str, object]:
     source = raw if isinstance(raw, dict) else {}
     defaults = source.get("defaults")
     timing = source.get("timing")
-    render = source.get("render")
     commands = source.get("commands")
 
     defaults_map = defaults if isinstance(defaults, dict) else {}
     timing_map = timing if isinstance(timing, dict) else {}
-    render_map = render if isinstance(render, dict) else {}
     commands_map = commands if isinstance(commands, dict) else {}
     scene_ids_raw = defaults_map.get("scene_ids")
     scene_ids: List[str] = []
@@ -138,45 +132,62 @@ def _normalize_config(raw: Dict[str, object] | None) -> Dict[str, object]:
             "copy_end_to_production": bool(defaults_map.get("copy_end_to_production", False)),
         },
         "timing": {
-            "scene_padding_start": max(
-                0.0, min(0.45, _coerce_float(timing_map.get("scene_padding_start", 0.06), 0.06))
+            "base_timing_seconds": max(
+                0.05, min(4.0, _coerce_float(timing_map.get("base_timing_seconds", 0.42), 0.42))
             ),
-            "scene_padding_end": max(
-                0.0, min(0.45, _coerce_float(timing_map.get("scene_padding_end", 0.05), 0.05))
+            "seconds_per_word": max(
+                0.005, min(0.25, _coerce_float(timing_map.get("seconds_per_word", 0.045), 0.045))
             ),
-            "reading_words_per_second": max(
-                0.8,
-                _coerce_float(timing_map.get("reading_words_per_second", 3.0), 3.0),
+            "bonus_first_text_seconds": max(
+                0.0, min(5.0, _coerce_float(timing_map.get("bonus_first_text_seconds", 0.275), 0.275))
             ),
-            "min_text_seconds": max(
-                0.3, _coerce_float(timing_map.get("min_text_seconds", 1.2), 1.2)
+            "bonus_third_text_seconds": max(
+                0.0, min(5.0, _coerce_float(timing_map.get("bonus_third_text_seconds", 1.6), 1.6))
             ),
-            "max_text_seconds": max(
-                0.5, _coerce_float(timing_map.get("max_text_seconds", 10.0), 10.0)
-            ),
-            "text_transition_overlap_seconds": max(
+            "first_text_pre_fade_extra_from_second_ratio": max(
                 0.0,
-                _coerce_float(
-                    timing_map.get("text_transition_overlap_seconds", 0.45),
-                    0.45,
+                min(
+                    2.0,
+                    _coerce_float(
+                        timing_map.get("first_text_pre_fade_extra_from_second_ratio", 0.7),
+                        0.7,
+                    ),
                 ),
+            ),
+            "second_text_pre_fade_extra_from_third_ratio": max(
+                0.0,
+                min(
+                    2.0,
+                    _coerce_float(
+                        timing_map.get("second_text_pre_fade_extra_from_third_ratio", 0.5),
+                        0.5,
+                    ),
+                ),
+            ),
+            "scene_padding_start_seconds": max(
+                0.0,
+                min(2.0, _coerce_float(timing_map.get("scene_padding_start_seconds", 0.22), 0.22)),
+            ),
+            "scene_padding_end_seconds": max(
+                0.0,
+                min(2.0, _coerce_float(timing_map.get("scene_padding_end_seconds", 0.2), 0.2)),
+            ),
+            "text_fade_seconds": max(
+                0.05,
+                min(2.0, _coerce_float(timing_map.get("text_fade_seconds", 0.2), 0.2)),
             ),
             "scroll_seconds_per_1000px": max(
                 0.2,
-                _coerce_float(timing_map.get("scroll_seconds_per_1000px", 1.6), 1.6),
+                _coerce_float(timing_map.get("scroll_seconds_per_1000px", 0.945), 0.945),
             ),
             "drag_seconds_per_1000px": max(
                 0.2,
-                _coerce_float(timing_map.get("drag_seconds_per_1000px", 3.0), 3.0),
+                _coerce_float(timing_map.get("drag_seconds_per_1000px", 1.773), 1.773),
             ),
             "keyboard_step_seconds": max(
                 0.05,
-                _coerce_float(timing_map.get("keyboard_step_seconds", 1.1), 1.1),
+                _coerce_float(timing_map.get("keyboard_step_seconds", 0.65), 0.65),
             ),
-        },
-        "render": {
-            "webp_quality": max(1, min(100, _coerce_num(render_map.get("webp_quality", 82), 82))),
-            "remove_upscaled_png": bool(render_map.get("remove_upscaled_png", True)),
         },
         "commands": normalized_commands,
     }
@@ -274,10 +285,8 @@ def run_pipeline(
     saved_path = save_config(merged_config, root)
 
     defaults = merged_config.get("defaults", {})
-    render = merged_config.get("render", {})
 
     defaults_map = defaults if isinstance(defaults, dict) else {}
-    render_map = render if isinstance(render, dict) else {}
 
     env = os.environ.copy()
     env["PYTHONUNBUFFERED"] = "1"
@@ -308,9 +317,6 @@ def run_pipeline(
     env["PITCH_RUNWAY_DURATION_SECONDS"] = str(
         max(2, min(10, _coerce_num(defaults_map.get("runway_duration_seconds", 5), 5)))
     )
-    env["WEBP_QUALITY"] = str(_coerce_num(render_map.get("webp_quality", 82), 82))
-    remove_png = bool(render_map.get("remove_upscaled_png", True))
-    env["REMOVE_UPSCALED_PNG"] = "true" if remove_png else "false"
 
     selected = [stage.key for stage in STAGES if stage.key in set(selected_stages)]
     results: Dict[str, object] = {"selected_stages": selected, "status": "ok", "stages": []}
@@ -325,8 +331,7 @@ def run_pipeline(
         f"PITCH_OVERWRITE={env['PITCH_OVERWRITE']} "
         f"PITCH_COPY_START_TO_PRODUCTION={env['PITCH_COPY_START_TO_PRODUCTION']} "
         f"PITCH_COPY_END_TO_PRODUCTION={env['PITCH_COPY_END_TO_PRODUCTION']} "
-        f"PITCH_RUNWAY_DURATION_SECONDS={env['PITCH_RUNWAY_DURATION_SECONDS']} "
-        f"WEBP_QUALITY={env['WEBP_QUALITY']} REMOVE_UPSCALED_PNG={env['REMOVE_UPSCALED_PNG']}",
+        f"PITCH_RUNWAY_DURATION_SECONDS={env['PITCH_RUNWAY_DURATION_SECONDS']}",
     )
 
     for stage_key in selected:

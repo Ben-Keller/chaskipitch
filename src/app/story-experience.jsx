@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { clamp, resolveSequenceSrc } from "../lib/story-math";
+import { clamp } from "../lib/story-math";
 
 const BASE_TEXT_LAYOUT_WIDTH = 1440;
 const TEXT_MAX_WIDTH_SCALE = 1.45;
@@ -16,52 +16,9 @@ const INTRO_RESTORE_THRESHOLD_SECONDS = 0.001;
 const END_RETURN_VISIBILITY_PROGRESS = 0.995;
 const SCENE_FADE_WINDOW = 0.18;
 const INTERACTIVE_SELECTOR = "button, a, input, select, textarea, [data-pitch-control]";
-const PREFETCH_ACTIVE_BACK_FRAMES = 6;
-const PREFETCH_ACTIVE_FORWARD_FRAMES = 14;
-const PREFETCH_NEXT_SCENE_FRAMES = 10;
-const PREFETCH_PREV_SCENE_FRAMES = 6;
-const PREFETCH_BUCKET_SIZE = 3;
-const PREFETCH_CONCURRENCY = 4;
-const PREFETCH_BOOT_FRAMES = 8;
-const MEDIA_MODE_STORAGE_KEY = "creative_pitch_media_mode_v1";
-const MEDIA_MODE_WEBP = "webp";
-const MEDIA_MODE_MP4 = "mp4";
-
-const preloadedFrameSources = new Set();
-const inflightFrameLoads = new Map();
 
 function isInteractiveTarget(target) {
   return target instanceof Element && Boolean(target.closest(INTERACTIVE_SELECTOR));
-}
-
-function resolveNetworkFrameStep() {
-  if (typeof navigator === "undefined") {
-    return 1;
-  }
-  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-  const effectiveType = String(connection?.effectiveType ?? "").toLowerCase();
-  const saveData = Boolean(connection?.saveData);
-  if (saveData) {
-    return 3;
-  }
-  if (effectiveType.includes("slow-2g") || effectiveType === "2g") {
-    return 4;
-  }
-  if (effectiveType === "3g") {
-    return 2;
-  }
-  return 1;
-}
-
-function quantizeFrame(frame, frameCount, step = 1) {
-  const safeCount = Math.max(1, Math.round(frameCount || 1));
-  const safeStep = Math.max(1, Math.round(step || 1));
-  const clamped = clamp(Math.round(frame || 1), 1, safeCount);
-  if (safeStep === 1) {
-    return clamped;
-  }
-  const normalized = Math.round((clamped - 1) / safeStep) * safeStep + 1;
-  return clamp(normalized, 1, safeCount);
 }
 
 function resolveSceneVideoSrc(srcPattern) {
@@ -73,65 +30,6 @@ function resolveSceneVideoSrc(srcPattern) {
     "/mp4/$1/$2.mp4"
   );
   return replaced === srcPattern ? "" : replaced;
-}
-
-function preloadImageSource(src, { highPriority = false } = {}) {
-  if (!src) {
-    return Promise.resolve();
-  }
-  if (preloadedFrameSources.has(src)) {
-    return Promise.resolve();
-  }
-  if (inflightFrameLoads.has(src)) {
-    return inflightFrameLoads.get(src);
-  }
-
-  const request = new Promise((resolve, reject) => {
-    if (typeof Image === "undefined") {
-      preloadedFrameSources.add(src);
-      resolve();
-      return;
-    }
-
-    const image = new Image();
-    image.decoding = "async";
-    if ("fetchPriority" in image) {
-      image.fetchPriority = highPriority ? "high" : "low";
-    }
-
-    image.onload = () => {
-      const decodePromise = image.decode?.();
-      if (decodePromise && typeof decodePromise.then === "function") {
-        decodePromise
-          .then(() => {
-            preloadedFrameSources.add(src);
-            resolve();
-          })
-          .catch(() => {
-            preloadedFrameSources.add(src);
-            resolve();
-          });
-        return;
-      }
-      preloadedFrameSources.add(src);
-      resolve();
-    };
-
-    image.onerror = () => {
-      reject(new Error(`Failed to preload frame: ${src}`));
-    };
-
-    image.src = src;
-  })
-    .catch(() => {
-      // Ignore transient frame errors; runtime can retry on demand.
-    })
-    .finally(() => {
-      inflightFrameLoads.delete(src);
-    });
-
-  inflightFrameLoads.set(src, request);
-  return request;
 }
 
 function resolveSceneDurationSeconds(scene, fallbackFps) {
@@ -198,7 +96,6 @@ function computeTextOpacityMap(
 
   const safeDuration = Math.max(0.2, Number(sceneDurationSeconds) || 0.2);
   const baseFadeProgress = clamp((Number(textFadeSeconds) || 0) / safeDuration, 0.01, 0.45);
-  // Match the slower perceived edge timing (first in / last out) for all text transitions.
   const sharedFadeInProgress = clamp(Math.max(baseFadeProgress, SCENE_FADE_WINDOW), 0.01, 0.45);
   const sharedFadeOutProgress = clamp(Math.max(baseFadeProgress, SCENE_FADE_WINDOW), 0.01, 0.45);
 
@@ -288,51 +185,6 @@ function isLiveWindowActive() {
   return true;
 }
 
-function BufferedSceneImage({ src, alt, zoom }) {
-  const [displayedSrc, setDisplayedSrc] = useState(src || "");
-
-  useEffect(() => {
-    if (!src) {
-      setDisplayedSrc("");
-      return undefined;
-    }
-
-    if (displayedSrc === src) {
-      return undefined;
-    }
-
-    if (preloadedFrameSources.has(src)) {
-      setDisplayedSrc(src);
-      return undefined;
-    }
-
-    let cancelled = false;
-    preloadImageSource(src, { highPriority: true }).then(() => {
-      if (!cancelled) {
-        setDisplayedSrc(src);
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [src, displayedSrc]);
-
-  if (!displayedSrc) {
-    return null;
-  }
-
-  return (
-    <img
-      className="pitch-scene__img"
-      src={displayedSrc}
-      alt={alt}
-      draggable="false"
-      style={{ transform: `scale(${zoom})` }}
-    />
-  );
-}
-
 function ScrubbedSceneVideo({ src, alt, zoom, localProgress, preload = "metadata" }) {
   const videoRef = useRef(null);
   const [resolvedSrc, setResolvedSrc] = useState(src || "");
@@ -394,21 +246,6 @@ export function StoryExperience({ story }) {
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth : BASE_TEXT_LAYOUT_WIDTH
   );
-  const [mediaMode, setMediaMode] = useState(() => {
-    if (typeof window === "undefined") {
-      return MEDIA_MODE_WEBP;
-    }
-    try {
-      const stored = window.localStorage.getItem(MEDIA_MODE_STORAGE_KEY);
-      if (stored === MEDIA_MODE_WEBP || stored === MEDIA_MODE_MP4) {
-        return stored;
-      }
-    } catch {
-      // Ignore storage access failures.
-    }
-    return MEDIA_MODE_MP4;
-  });
-  const [networkFrameStep, setNetworkFrameStep] = useState(() => resolveNetworkFrameStep());
 
   const scenes = useMemo(
     () =>
@@ -417,33 +254,6 @@ export function StoryExperience({ story }) {
       ),
     [story?.scenes]
   );
-
-  const allScenesHaveMp4 = useMemo(
-    () =>
-      scenes.length > 0 &&
-      scenes.every((scene) => Boolean(resolveSceneVideoSrc(scene?.media?.srcPattern))),
-    [scenes]
-  );
-
-  useEffect(() => {
-    if (!scenes.length) {
-      return;
-    }
-    if (mediaMode === MEDIA_MODE_MP4 && !allScenesHaveMp4) {
-      setMediaMode(MEDIA_MODE_WEBP);
-    }
-  }, [allScenesHaveMp4, mediaMode, scenes.length]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-    try {
-      window.localStorage.setItem(MEDIA_MODE_STORAGE_KEY, mediaMode);
-    } catch {
-      // Ignore storage access failures.
-    }
-  }, [mediaMode]);
 
   const fallbackPlaybackFps = useMemo(() => {
     const configured = Number(story?.playback?.frameRate);
@@ -512,134 +322,6 @@ export function StoryExperience({ story }) {
       : DEFAULT_TEXT_FADE_SECONDS;
     return clamp(value, 0.05, 2);
   }, [story?.playback?.textFadeSeconds]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (!connection || typeof connection.addEventListener !== "function") {
-      return undefined;
-    }
-    const refreshFrameStep = () => {
-      setNetworkFrameStep(resolveNetworkFrameStep());
-    };
-    refreshFrameStep();
-    connection.addEventListener("change", refreshFrameStep);
-    return () => {
-      connection.removeEventListener("change", refreshFrameStep);
-    };
-  }, []);
-
-  const currentSceneFrameInfo = useMemo(() => {
-    if (!hasEntered || currentSceneIndex < 0 || currentSceneIndex >= scenes.length) {
-      return null;
-    }
-    const segment = timelineSegments[currentSceneIndex];
-    const scene = scenes[currentSceneIndex];
-    if (!segment || !scene) {
-      return null;
-    }
-
-    const local = clamp(
-      (timelineSeconds - segment.startSeconds) / Math.max(0.0001, segment.durationSeconds),
-      0,
-      1
-    );
-    const frameCount = Math.max(1, Math.round(scene.media?.frameCount ?? 1));
-    const rawFrame = Math.round(1 + local * Math.max(0, frameCount - 1));
-    const frame = quantizeFrame(rawFrame, frameCount, networkFrameStep);
-
-    return {
-      sceneIndex: currentSceneIndex,
-      frame,
-      frameCount
-    };
-  }, [currentSceneIndex, hasEntered, networkFrameStep, scenes, timelineSeconds, timelineSegments]);
-
-  const prefetchRevision = useMemo(() => {
-    if (!currentSceneFrameInfo) {
-      return "idle";
-    }
-    return `${currentSceneFrameInfo.sceneIndex}:${Math.floor(currentSceneFrameInfo.frame / PREFETCH_BUCKET_SIZE)}`;
-  }, [currentSceneFrameInfo]);
-
-  useEffect(() => {
-    if (mediaMode !== MEDIA_MODE_WEBP) {
-      return;
-    }
-    const scene = scenes[0];
-    if (!scene?.media?.srcPattern) {
-      return;
-    }
-
-    const frameCount = Math.max(1, Math.round(scene.media?.frameCount ?? 1));
-    const bootSources = [];
-    for (let frame = 1; frame <= Math.min(frameCount, PREFETCH_BOOT_FRAMES); frame += 1) {
-      bootSources.push(resolveSequenceSrc(scene.media.srcPattern, frame, frameCount));
-    }
-    bootSources.forEach((src) => {
-      preloadImageSource(src, { highPriority: frameCount <= PREFETCH_BOOT_FRAMES });
-    });
-  }, [mediaMode, scenes]);
-
-  useEffect(() => {
-    if (mediaMode !== MEDIA_MODE_WEBP || !hasEntered || !currentSceneFrameInfo) {
-      return undefined;
-    }
-
-    let cancelled = false;
-    const sourceSet = new Set();
-    const { sceneIndex, frame, frameCount } = currentSceneFrameInfo;
-    const currentScene = scenes[sceneIndex];
-
-    if (currentScene?.media?.srcPattern) {
-      const start = Math.max(1, frame - PREFETCH_ACTIVE_BACK_FRAMES);
-      const end = Math.min(frameCount, frame + PREFETCH_ACTIVE_FORWARD_FRAMES);
-      for (let cursor = start; cursor <= end; cursor += 1) {
-        sourceSet.add(resolveSequenceSrc(currentScene.media.srcPattern, cursor, frameCount));
-      }
-    }
-
-    const nextScene = scenes[sceneIndex + 1];
-    if (nextScene?.media?.srcPattern) {
-      const nextCount = Math.max(1, Math.round(nextScene.media?.frameCount ?? 1));
-      for (let cursor = 1; cursor <= Math.min(nextCount, PREFETCH_NEXT_SCENE_FRAMES); cursor += 1) {
-        sourceSet.add(resolveSequenceSrc(nextScene.media.srcPattern, cursor, nextCount));
-      }
-    }
-
-    const prevScene = scenes[sceneIndex - 1];
-    if (prevScene?.media?.srcPattern) {
-      const prevCount = Math.max(1, Math.round(prevScene.media?.frameCount ?? 1));
-      const start = Math.max(1, prevCount - PREFETCH_PREV_SCENE_FRAMES + 1);
-      for (let cursor = start; cursor <= prevCount; cursor += 1) {
-        sourceSet.add(resolveSequenceSrc(prevScene.media.srcPattern, cursor, prevCount));
-      }
-    }
-
-    const queue = [...sourceSet];
-    const run = async () => {
-      const workerCount = Math.min(PREFETCH_CONCURRENCY, queue.length);
-      const workers = Array.from({ length: workerCount }, async () => {
-        while (queue.length && !cancelled) {
-          const src = queue.shift();
-          if (!src) {
-            continue;
-          }
-          // The active frame and immediate neighbors get elevated priority.
-          const prioritize = src.includes(`frame_${String(frame).padStart(4, "0")}.`);
-          await preloadImageSource(src, { highPriority: prioritize });
-        }
-      });
-      await Promise.all(workers);
-    };
-    run();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [currentSceneFrameInfo, hasEntered, mediaMode, prefetchRevision, scenes]);
 
   useEffect(() => {
     timelineSecondsRef.current = timelineSeconds;
@@ -995,14 +677,8 @@ export function StoryExperience({ story }) {
             1
           );
 
-          const frameCount = Math.max(1, Math.round(scene.media?.frameCount ?? 1));
-          const rawFrame = Math.round(1 + local * Math.max(0, frameCount - 1));
-          const frame = quantizeFrame(rawFrame, frameCount, networkFrameStep);
-          const imageSrc = resolveSequenceSrc(scene.media?.srcPattern ?? "", frame, frameCount);
           const videoSrc = resolveSceneVideoSrc(scene.media?.srcPattern ?? "");
-          const shouldUseVideo = mediaMode === MEDIA_MODE_MP4 && Boolean(videoSrc);
-          const shouldMountVideo =
-            shouldUseVideo && (!hasEntered || Math.abs(index - currentSceneIndex) <= 1);
+          const shouldMountVideo = Boolean(videoSrc) && (!hasEntered || Math.abs(index - currentSceneIndex) <= 1);
           const activeVideoSrc = shouldMountVideo ? videoSrc : "";
 
           const fadeIn = clamp(local / SCENE_FADE_WINDOW);
@@ -1019,21 +695,13 @@ export function StoryExperience({ story }) {
 
           return (
             <div key={scene.id} className="pitch-scene" style={{ opacity, backgroundColor: scene.bgColor }}>
-              {shouldUseVideo ? (
-                <ScrubbedSceneVideo
-                  src={activeVideoSrc}
-                  alt={scene.title || "Story frame"}
-                  zoom={zoom}
-                  localProgress={local}
-                  preload={index === currentSceneIndex ? "auto" : "metadata"}
-                />
-              ) : imageSrc ? (
-                  <BufferedSceneImage
-                    src={imageSrc}
-                    alt={scene.title || "Story frame"}
-                    zoom={zoom}
-                  />
-                ) : null}
+              <ScrubbedSceneVideo
+                src={activeVideoSrc}
+                alt={scene.title || "Story frame"}
+                zoom={zoom}
+                localProgress={local}
+                preload={index === currentSceneIndex ? "auto" : "metadata"}
+              />
               <div className="pitch-scene__textOverlay">
                 {texts.map((textLayer, textIndex) => {
                   const left = textLayer.xPct ?? 50;
@@ -1086,21 +754,6 @@ export function StoryExperience({ story }) {
       </div>
       {hasEntered ? (
         <div className="pitch-controls" aria-label="Journey playback controls" data-pitch-control>
-          <button
-            type="button"
-            className="pitch-controls__btn"
-            data-pitch-control
-            onClick={() =>
-              setMediaMode((current) =>
-                current === MEDIA_MODE_MP4 ? MEDIA_MODE_WEBP : MEDIA_MODE_MP4
-              )
-            }
-            aria-label={`Switch to ${mediaMode === MEDIA_MODE_MP4 ? "WebP sequence" : "MP4 video"} mode`}
-            title={mediaMode === MEDIA_MODE_MP4 ? "Switch to WebP sequence mode" : "Switch to MP4 video mode"}
-            disabled={!allScenesHaveMp4 && mediaMode !== MEDIA_MODE_MP4}
-          >
-            {mediaMode === MEDIA_MODE_MP4 ? "MP4" : "WebP"}
-          </button>
           <button
             type="button"
             className="pitch-controls__btn"

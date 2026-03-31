@@ -55,12 +55,6 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Regenerate selected scenes even if final outputs already exist.",
     )
-    parser.add_argument("--webp-quality", type=int, help="Override render.webp_quality in config.")
-    parser.add_argument(
-        "--keep-png",
-        action="store_true",
-        help="Keep source PNGs (sets render.remove_upscaled_png=false).",
-    )
     return parser
 
 
@@ -87,10 +81,6 @@ def main() -> int:
         config.setdefault("defaults", {})["copy_end_to_production"] = True
     if args.overwrite:
         config.setdefault("defaults", {})["overwrite"] = True
-    if args.webp_quality is not None:
-        config.setdefault("render", {})["webp_quality"] = args.webp_quality
-    if args.keep_png:
-        config.setdefault("render", {})["remove_upscaled_png"] = False
 
     result = run_pipeline(args.stages, config=config)
     return 0 if result.get("status") == "ok" else 1

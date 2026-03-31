@@ -19,6 +19,7 @@ from pipeline_core import (  # noqa: E402
     PRODUCTION_END_DIR,
     PRODUCTION_START_DIR,
     RUNS_ROOT,
+    active_video_path,
     as_int,
     filter_jobs_by_scene_ids,
     find_keyframe_file,
@@ -125,13 +126,17 @@ def main() -> int:
         scene_id = str(job["sceneId"])
         sequence_slug = str(job["sequenceSlug"])
         scene_folder = str(job["sceneFolder"])
+        active_video = active_video_path(job)
+        job["activeVideoPath"] = str(active_video)
+        job["activeVideoPathRel"] = rel_to_repo(active_video)
+        job["activeVideoExists"] = active_video.exists()
 
-        if int(job.get("activeWebpCount", 0)) > 0 and not overwrite:
-            job["status"] = "active_frames_present"
+        if active_video.exists() and not overwrite:
+            job["status"] = "active_video_present"
             already_ready += 1
             print(
-                f"image_gen success: {scene_id} -> active WebP frames already present "
-                f"({job.get('activeWebpCount', 0)} frame(s))"
+                f"image_gen success: {scene_id} -> active MP4 already present "
+                f"({rel_to_repo(active_video)})"
             )
             continue
 
@@ -342,7 +347,7 @@ def main() -> int:
     print(f"- production starts ready: {sum(1 for job in jobs if _path_exists(job.get('productionStartPath')))}")
     print(f"- production ends ready: {sum(1 for job in jobs if _path_exists(job.get('productionEndPath')))}")
     print(f"- scenes ready for animation (production): {ready_count}")
-    print(f"- scenes already active (webp present): {already_ready}")
+    print(f"- scenes already active (mp4 present): {already_ready}")
     print(f"- scenes ready from manual keyframes: {manual_count}")
     print(f"- generated start candidates: {start_generated_count}")
     print(f"- generated end candidates: {end_generated_count}")

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+import shutil
 import tempfile
 import time
 import sys
@@ -19,6 +20,7 @@ sys.path.insert(0, str(ROOT / "creative-pitch" / "pipeline" / "scripts"))
 from pipeline_core import (  # noqa: E402
     PIPELINE_ROOT,
     RUNS_ROOT,
+    active_video_path,
     as_int,
     filter_jobs_by_scene_ids,
     load_manifest,
@@ -322,17 +324,20 @@ def main() -> int:
 
     needs_generation: List[Dict[str, Any]] = []
     skipped_missing_keyframes: List[Tuple[str, str]] = []
-    skipped_existing_outputs: List[Tuple[str, int]] = []
+    skipped_existing_outputs: List[Tuple[str, str]] = []
 
     for job in jobs:
-        active_webp_count = int(job.get("activeWebpCount", 0))
-        if active_webp_count > 0 and not overwrite:
-            scene_id = str(job.get("sceneId") or "unknown")
-            skipped_existing_outputs.append((scene_id, active_webp_count))
-            job["status"] = "active_frames_present"
+        scene_id = str(job.get("sceneId") or "unknown")
+        active_video = active_video_path(job)
+        job["activeVideoPath"] = str(active_video)
+        job["activeVideoPathRel"] = rel_to_repo(active_video)
+        job["activeVideoExists"] = active_video.exists()
+
+        if active_video.exists() and not overwrite:
+            skipped_existing_outputs.append((scene_id, rel_to_repo(active_video)))
+            job["status"] = "active_video_present"
             continue
 
-        scene_id = str(job.get("sceneId") or "unknown")
         start_path = production_start_path(job)
         end_path = production_end_path(job)
 
@@ -362,9 +367,9 @@ def main() -> int:
         for scene_id, reason in skipped_missing_keyframes:
             print(f"- {scene_id}: {reason}")
     if skipped_existing_outputs and not overwrite:
-        print("animation_gen skipped scenes (final WebP outputs already exist, overwrite=false):")
-        for scene_id, frame_count in skipped_existing_outputs:
-            print(f"- {scene_id}: activeWebpCount={frame_count}")
+        print("animation_gen skipped scenes (final MP4 outputs already exist, overwrite=false):")
+        for scene_id, active_video_rel in skipped_existing_outputs:
+            print(f"- {scene_id}: {active_video_rel}")
     if overwrite:
         print("animation_gen overwrite: true (existing final outputs are ignored for selected scenes)")
 
@@ -430,6 +435,8 @@ def main() -> int:
 
         output_video = videos_root / scene_folder / f"{sequence_slug}.mp4"
         output_video.parent.mkdir(parents=True, exist_ok=True)
+        active_video = active_video_path(job)
+        active_video.parent.mkdir(parents=True, exist_ok=True)
 
         try:
             first_uri = _upload_ephemeral_with_retries(
@@ -468,13 +475,18 @@ def main() -> int:
                 timeout_seconds=download_timeout_seconds,
                 max_attempts=3,
             )
+            shutil.copy2(output_video, active_video)
 
             job["videoPath"] = str(output_video)
             job["videoPathRel"] = rel_to_repo(output_video)
+            job["activeVideoPath"] = str(active_video)
+            job["activeVideoPathRel"] = rel_to_repo(active_video)
+            job["activeVideoExists"] = True
             job["status"] = "video_generated"
             generated += 1
             print(
-                f"animation_gen success: {scene_id} -> {output_video} "
+                f"animation_gen success: {scene_id} -> run {output_video} "
+                f"| active {active_video} "
                 f"(mode={job.get('runwayInputMode')}, task={job.get('runwayTaskId')})"
             )
         except Exception as exc:  # noqa: BLE001

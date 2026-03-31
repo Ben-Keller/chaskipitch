@@ -90,6 +90,12 @@ def production_end_path(job: Dict[str, Any]) -> Path:
     return PRODUCTION_END_DIR / production_keyframe_name(scene_id, sequence_slug)
 
 
+def active_video_path(job: Dict[str, Any]) -> Path:
+    scene_folder = str(job.get("sceneFolder") or "scene").strip().lower() or "scene"
+    sequence_slug = str(job.get("sequenceSlug") or "sequence").strip().lower() or "sequence"
+    return ASSET_ROOT / "mp4" / scene_folder / f"{sequence_slug}.mp4"
+
+
 def as_int(value: Any, fallback: int, minimum: int = 1) -> int:
     try:
         numeric = int(float(value))
@@ -170,12 +176,6 @@ def resolve_asset_frame_pattern(src_pattern: str) -> Path:
     return (CREATIVE_ROOT / trimmed.lstrip("/")).resolve()
 
 
-def list_active_webp_frames(asset_dir: Path) -> List[Path]:
-    if not asset_dir.exists():
-        return []
-    return sorted(asset_dir.glob("frame_*.webp"))
-
-
 def find_keyframe_file(base_dir: Path, basename: str) -> Optional[Path]:
     for ext in SUPPORTED_IMAGE_EXTS:
         candidate = base_dir / f"{basename}{ext}"
@@ -229,10 +229,9 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
 
         frame_pattern_path = resolve_asset_frame_pattern(src_pattern)
         asset_dir = frame_pattern_path.parent
-        active_webp = list_active_webp_frames(asset_dir)
-
         sequence_slug = asset_dir.name
         scene_folder = asset_dir.parent.parent.name if len(asset_dir.parents) >= 2 else str(scene.get("id", "scene"))
+        active_video = ASSET_ROOT / "mp4" / scene_folder / f"{sequence_slug}.mp4"
         keyframe_source_dir = PIPELINE_ROOT / "frames" / "source" / scene_folder / sequence_slug
 
         generation_raw = media.get("generation")
@@ -254,16 +253,16 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
             "srcPattern": src_pattern,
             "assetDir": str(asset_dir),
             "assetDirRel": rel_to_repo(asset_dir),
+            "activeVideoPath": str(active_video),
+            "activeVideoPathRel": rel_to_repo(active_video),
+            "activeVideoExists": active_video.exists(),
             "frameCount": frame_count,
-            "activeWebpCount": len(active_webp),
             "manualKeyframeDir": str(keyframe_source_dir),
             "manualKeyframeDirRel": rel_to_repo(keyframe_source_dir),
             "startKeyframePath": None,
             "endKeyframePath": None,
             "videoPath": None,
             "videoPathRel": None,
-            "extractPatternPng": str(frame_pattern_path.with_suffix(".png")),
-            "extractPatternPngRel": rel_to_repo(frame_pattern_path.with_suffix(".png")),
             "status": "pending",
             "openai": {
                 "model": _pick_first(openai_cfg, ["model"], "gpt-image-1"),

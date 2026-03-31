@@ -37,25 +37,22 @@ Generated run outputs are not part of this repo.
 Notebook UI:
 
 - `creative-pitch/pipeline/pipeline-ui.ipynb` exposes only:
-  - stage toggles (`image_gen`, `animation_gen`, `image_extract`, `upscale`)
-  - direct prototype controls (`runway_duration_seconds`, `webp_quality`, `overwrite`)
+  - stage toggles (`image_gen`, `animation_gen`)
+  - direct prototype controls (`runway_duration_seconds`, `overwrite`)
   - scene checkboxes are generated from `story.json`
   - image-gen controls (`generate_start_frame`, `generate_end_frame`, `copy_start_to_production`, `copy_end_to_production`)
   - `runway_duration_seconds` is constrained to valid API integer values (`2` to `10`)
-  - `webp_quality` uses presets (`Low`, `Medium`, `High`)
 - Pipeline execution logic lives in Python files:
   - `creative-pitch/pipeline/pipeline_backend.py`
   - `creative-pitch/pipeline/run_pipeline.py`
 - Story-driven stage scripts are in:
   - `creative-pitch/pipeline/scripts/01_image_gen.py`
   - `creative-pitch/pipeline/scripts/02_animation_gen.py`
-  - `creative-pitch/pipeline/scripts/03_image_extract.py`
 - Stage commands are wired by default in `pipeline_backend.py` and mirrored in `pipeline/config.json`.
 - Prompt text is authored directly in `story.json`:
   - `scene.media.generation.openai.startPrompt`
   - `scene.media.generation.openai.delta`
   - `scene.media.generation.runway.prompt`
-  - `image_extract` exports all frames from each generated Runway video.
 
 Image keyframe handoff workflow:
 
@@ -75,8 +72,8 @@ Image keyframe handoff workflow:
 
 Pipeline hygiene policy:
 
-- Active frontend frames live in:
-  - `creative-pitch/assets/.../frame_####.webp`
+- Active frontend videos live in:
+  - `creative-pitch/assets/mp4/<scene>/<sequence>.mp4`
 - Provider-cost generation artifacts live in:
   - `creative-pitch/pipeline/runs/openai/...`
   - `creative-pitch/pipeline/runs/runway/...`
@@ -84,4 +81,4 @@ Pipeline hygiene policy:
   - `creative-pitch/pipeline/images/production/start`
   - `creative-pitch/pipeline/images/production/end`
 - Clear `creative-pitch/pipeline/output/` after each run.
-- Keep only final exported sequence frames in `creative-pitch/assets` (`frame_####.webp`).
+- Keep only final active MP4 outputs under `creative-pitch/assets/mp4`.
