@@ -9,7 +9,7 @@ const HOME_CARDS = [
     title: "Tenure Facility",
     description:
       "Interactive map of countries, thematics, and portfolio context for tenure rights work.",
-    image: "home/tenure-facility.png",
+    image: "home/tenure-facility.webp",
     scope: [
       "Global tenure-rights portfolio interface",
       "Country, thematic, and regional context"
@@ -22,7 +22,7 @@ const HOME_CARDS = [
     title: "Creative Pitch",
     description:
       "Immersive narrative sequence for presenting the proposal as a visual story experience.",
-    image: "home/creative-pitch.png",
+    image: "home/creative-pitch.webp",
     scope: [
       "Narrative scrollytelling presentation mode",
       "Visual sequencing for proposal storytelling"
@@ -35,7 +35,7 @@ const HOME_CARDS = [
     title: "Our Films",
     description:
       "Curated Vimeo references for related films developed by Chaski Global and partners.",
-    image: "home/our-films.png",
+    image: "home/our-films.webp",
     scope: [
       "Reference film library for story direction",
       "Curated cinematic precedents tied to this proposal"
