@@ -61,6 +61,7 @@ function isKnownPath(pathname, creativeEnabled) {
 export default function App() {
   const [activePath, setActivePath] = useState(() => normalizePathname(window.location.pathname));
   const activePage = useMemo(() => pageKeyFromPath(activePath), [activePath]);
+  const isCreativePitchPage = activePage === "creative_pitch";
   const onNavigate = useCallback((pageKey) => {
     const destination = pagePathByKey[pageKey] ?? "/";
     if (!creativePitchEnabled && destination === "/creative-pitch") {
@@ -103,6 +104,43 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activePath]);
 
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return undefined;
+    }
+
+    const modeClass = "body--creative-pitch";
+    const htmlNode = document.documentElement;
+    const bodyNode = document.body;
+    const updateHeaderHeight = () => {
+      const headerNode = document.querySelector(".site-header");
+      if (!headerNode) {
+        return;
+      }
+      const measuredHeight = Math.max(1, Math.round(headerNode.getBoundingClientRect().height));
+      htmlNode.style.setProperty("--site-header-height", `${measuredHeight}px`);
+    };
+
+    if (isCreativePitchPage) {
+      htmlNode.classList.add(modeClass);
+      bodyNode.classList.add(modeClass);
+    } else {
+      htmlNode.classList.remove(modeClass);
+      bodyNode.classList.remove(modeClass);
+    }
+
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+    window.addEventListener("orientationchange", updateHeaderHeight);
+
+    return () => {
+      window.removeEventListener("resize", updateHeaderHeight);
+      window.removeEventListener("orientationchange", updateHeaderHeight);
+      htmlNode.classList.remove(modeClass);
+      bodyNode.classList.remove(modeClass);
+    };
+  }, [isCreativePitchPage]);
+
   return (
     <>
       <div className="atmosphere" aria-hidden="true" />
@@ -110,10 +148,8 @@ export default function App() {
       <UiShell />
       <main
         className={`site-main${
-          activePage === "impact" || activePage === "creative_pitch"
-            ? " site-main--dashboard"
-            : ""
-        }`}
+          activePage === "impact" || isCreativePitchPage ? " site-main--dashboard" : ""
+        }${isCreativePitchPage ? " site-main--creative-pitch" : ""}`}
       >
         {activePage === "home" ? (
           <HomePage onNavigate={onNavigate} creativePitchEnabled={creativePitchEnabled} />

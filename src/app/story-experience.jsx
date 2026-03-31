@@ -792,6 +792,10 @@ export function StoryExperience({ story }) {
       if (isInteractiveTarget(event.target)) {
         return;
       }
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+      event.stopPropagation();
       enterAndGiveUserControl();
       const deltaSeconds = event.deltaY * scrollSecondsPerPx;
       setTimelineSeconds((previous) => clamp(previous + deltaSeconds, 0, totalDurationSeconds));

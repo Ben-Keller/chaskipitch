@@ -21,6 +21,7 @@ const S_HOME_MAX_WIDTH = 760;
 const XL_HOME_MIN_WIDTH = 1281;
 const PAN_LIMIT_EXTRA_LEFT = 120;
 const PAN_LIMIT_EXTRA_RIGHT = 180;
+const PAN_LIMIT_EXTRA_RIGHT_L = 360;
 const PAN_LIMIT_EXTRA_DOWN = 70;
 const XL_RIGHT_JUSTIFY_GAP = 6;
 const XL_FOCUS_SHIFT_X = -88;
@@ -29,6 +30,8 @@ const L_COMMON_SHIFT_X = 20;
 const L_COMMON_SHIFT_Y = -18;
 const L_GLOBAL_SHIFT_X = 92;
 const L_GLOBAL_SHIFT_Y = -14;
+const L_REGION_SHIFT_X = 28;
+const L_COUNTRY_SHIFT_X = 18;
 const L_FOCUS_SHIFT_X = -56;
 const L_FOCUS_SHIFT_Y = -32;
 const TERRITORY_TEMPLATE_TARGET_RATIO = 0.085;
@@ -163,14 +166,19 @@ function clampTransform(view) {
   const scaledHeight = VIEWBOX_HEIGHT * scale;
   const centerTx = (VIEWBOX_WIDTH - scaledWidth) / 2;
   const centerTy = (VIEWBOX_HEIGHT - scaledHeight) / 2;
+  const tier =
+    typeof window !== "undefined"
+      ? viewportTierForWidth(window.innerWidth)
+      : "xl";
+  const panLimitExtraRight = tier === "l" ? PAN_LIMIT_EXTRA_RIGHT_L : PAN_LIMIT_EXTRA_RIGHT;
   const minTx =
     scale >= 1
       ? VIEWBOX_WIDTH - scaledWidth - PAN_LIMIT_EXTRA_LEFT
       : centerTx - PAN_LIMIT_EXTRA_LEFT;
   const maxTx =
     scale >= 1
-      ? PAN_LIMIT_EXTRA_RIGHT
-      : centerTx + PAN_LIMIT_EXTRA_RIGHT;
+      ? panLimitExtraRight
+      : centerTx + panLimitExtraRight;
   const minTy =
     scale >= 1
       ? VIEWBOX_HEIGHT - scaledHeight
@@ -551,13 +559,10 @@ export function GlobalMapD3({
       y0 = mapRect.top + FOCUS_RECT_PADDING_PX;
 
       const leftOccluders = [searchRect, themeRect, contextRect].filter(overlapsMap);
-      const rightEdgeOfLeftColumn = leftOccluders.reduce((maxRight, rect) => {
-        const centerX = rect.left + rect.width / 2;
-        if (centerX > mapRect.left + mapRect.width * 0.72) {
-          return maxRight;
-        }
-        return Math.max(maxRight, rect.right);
-      }, Number.NEGATIVE_INFINITY);
+      const rightEdgeOfLeftColumn = leftOccluders.reduce(
+        (maxRight, rect) => Math.max(maxRight, rect.right),
+        Number.NEGATIVE_INFINITY
+      );
       if (Number.isFinite(rightEdgeOfLeftColumn)) {
         x0 = Math.max(x0, rightEdgeOfLeftColumn + OCCLUDER_GAP_PX);
       }
@@ -1086,7 +1091,7 @@ export function GlobalMapD3({
         if (viewportTier === "s") return 0.95;
         return 0.98;
       }
-      if (viewportTier === "l") return 0.96;
+      if (viewportTier === "l") return 0.985;
       if (viewportTier === "m") return 0.97;
       if (viewportTier === "s") return 0.96;
       return 0.99;
@@ -1101,12 +1106,20 @@ export function GlobalMapD3({
       if (viewportTier === "l") {
         const globalShiftX = selectionKind === "global" ? L_GLOBAL_SHIFT_X : 0;
         const globalShiftY = selectionKind === "global" ? L_GLOBAL_SHIFT_Y : 0;
+        const regionShiftX = selectionKind === "region" ? L_REGION_SHIFT_X : 0;
+        const countryShiftX = selectionKind === "country" ? L_COUNTRY_SHIFT_X : 0;
         const hasFocusedSelection = selectionKind === "country" || selectionKind === "region";
         const focusShiftX = hasFocusedSelection ? L_FOCUS_SHIFT_X : 0;
         const focusShiftY = hasFocusedSelection ? L_FOCUS_SHIFT_Y : 0;
         next = clampTransform({
           ...next,
-          tx: next.tx + L_COMMON_SHIFT_X + globalShiftX + focusShiftX,
+          tx:
+            next.tx +
+            L_COMMON_SHIFT_X +
+            globalShiftX +
+            regionShiftX +
+            countryShiftX +
+            focusShiftX,
           ty: next.ty + L_COMMON_SHIFT_Y + globalShiftY + focusShiftY
         });
       }

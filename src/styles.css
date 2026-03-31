@@ -1,4 +1,5 @@
 :root {
+  --site-header-height: 4.3rem;
   --ink: #122623;
   --ink-soft: #27403b;
   --sand: #efe1cf;
@@ -30,6 +31,17 @@ body {
   background: radial-gradient(circle at 10% 15%, rgba(111, 169, 154, 0.24), transparent 48%),
     radial-gradient(circle at 80% 0%, rgba(167, 77, 63, 0.22), transparent 40%),
     linear-gradient(180deg, #f6efe3 0%, #e7dbc7 45%, #ede6db 100%);
+}
+
+html.body--creative-pitch,
+body.body--creative-pitch {
+  background: #000;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+.body--creative-pitch .atmosphere {
+  display: none;
 }
 
 h1,
@@ -208,6 +220,14 @@ img {
   width: 100vw;
   max-width: 100vw;
   margin: 0;
+}
+
+.site-main--creative-pitch {
+  background: #000;
+  overflow: hidden;
+  min-height: 0;
+  height: calc(100vh - var(--site-header-height));
+  height: calc(100dvh - var(--site-header-height));
 }
 
 .site-header__compact-note {
@@ -5439,9 +5459,10 @@ kbd {
 .creative-pitch-page {
   position: relative;
   width: 100%;
-  height: calc(100vh - 4.3rem);
-  min-height: 520px;
+  height: 100%;
+  min-height: 0;
   margin: 0;
+  background: #000;
 }
 
 .pitch-shell {
@@ -5449,6 +5470,7 @@ kbd {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  overscroll-behavior: none;
   background: #120f0c;
   touch-action: none;
 }
@@ -5795,8 +5817,8 @@ kbd {
 
 @media (max-width: 900px) {
   .creative-pitch-page {
-    height: calc(100vh - 4.7rem);
-    min-height: 440px;
+    height: 100%;
+    min-height: 0;
   }
 
   .pitch-topbar {
