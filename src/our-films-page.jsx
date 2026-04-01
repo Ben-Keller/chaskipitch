@@ -8,7 +8,7 @@ const FILMS = [
     subtitle: "Kogi Land Reclamation",
     vimeoId: "910246717",
     embed: "https://player.vimeo.com/video/910246717?h=66fc752da1",
-    poster: "films/kogi-land-reclamation.png",
+    poster: "films/kogi-land-reclamation.webp",
     titleClass: "films2-title-font--kogi",
     description:
       "A grounded story of territory recovery and Indigenous leadership. It directly supports this proposal by showing how land rights are lived in practice, not only documented in policy language."
@@ -19,7 +19,7 @@ const FILMS = [
     subtitle: "The Andean New Year",
     vimeoId: "470478889",
     embed: "https://player.vimeo.com/video/470478889?h=44622bc319",
-    poster: "films/pitukiska-andean-new-year.png",
+    poster: "films/pitukiska-andean-new-year.webp",
     titleClass: "films2-title-font--andean",
     description:
       "Centers cultural continuity, ceremony, and intergenerational memory. For this project, it reinforces why tenure work must protect both territory and the knowledge systems tied to it."
@@ -30,7 +30,7 @@ const FILMS = [
     subtitle: "Celebrating 60 Years of UNDP",
     vimeoId: "1178401210",
     embed: "https://player.vimeo.com/video/1178401210?h=a8d35734b2",
-    poster: "films/undp60.png",
+    poster: "films/undp60.webp",
     titleClass: "films2-title-font--undp",
     description:
       "Demonstrates institutional storytelling at scale and clear impact communication. It is relevant to this proposal’s funding narrative and the need to translate complex outcomes for decision-makers."
@@ -41,7 +41,7 @@ const FILMS = [
     subtitle: "Data Systems for Inclusive Energy Planning",
     vimeoId: "1098670116",
     embed: "https://player.vimeo.com/video/1098670116?h=0155e6c87d",
-    poster: "films/sustainable-energy.png",
+    poster: "films/sustainable-energy.webp",
     titleClass: "films2-title-font--undp",
     description:
       "A systems-focused piece on digital infrastructure for energy access and planning. For this proposal, it demonstrates how clear data architecture and visual storytelling can support policy alignment and implementation at scale."
@@ -52,7 +52,7 @@ const FILMS = [
     subtitle: "Lake Titicaca, Peru",
     vimeoId: "470476203",
     embed: "https://player.vimeo.com/video/470476203?h=18b362ab18",
-    poster: "films/floating-islands.png",
+    poster: "films/floating-islands.webp",
     titleClass: "films2-title-font--floating",
     description:
       "Highlights the relationship between ecological adaptation and local governance in a fragile landscape. This aligns with the proposal’s climate-and-tenure lens in Andean and Amazonian contexts."
@@ -63,7 +63,7 @@ const FILMS = [
     subtitle: "Solar Education in Lesotho",
     vimeoId: "869911767",
     embed: "https://player.vimeo.com/video/869911767?h=84c870c40b",
-    poster: "films/sunflower-kids.png",
+    poster: "films/sunflower-kids.webp",
     titleClass: "films2-title-font--sunflower",
     description:
       "Shows community-centered development through youth, learning, and practical infrastructure. It connects to the proposal’s emphasis on long-term capacity, inclusion, and locally led change."
