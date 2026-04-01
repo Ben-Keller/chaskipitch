@@ -1,0 +1,149 @@
+{
+  "iso3": "BLZ",
+  "name": "Belize",
+  "status": "active",
+  "project_count": 1,
+  "region": "latin_america",
+  "thematics": [
+    "tenure-security",
+    "territorial-governance"
+  ],
+  "summary": "Belize entered the active project map with one project in Tenure Facility’s 2024 footprint.",
+  "metrics": {
+    "project_count": 1,
+    "source_page": 25
+  },
+  "partners": [
+    "Local community organisations"
+  ],
+  "featured_achievements": [
+    "Belize appears among countries with active implementation in the 2024 map footprint."
+  ],
+  "stories": [
+    {
+      "title": "Footprint expansion",
+      "summary": "Belize contributes to the growing global spread of active project geographies.",
+      "source_page": 25,
+      "source_refs": [
+        {
+          "source_page": 25,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "Belize rights recognition in constrained legal contexts",
+      "summary": "The report cites Belize as a milestone case for Indigenous rights progress despite structural barriers.",
+      "source_page": 81,
+      "source_refs": [
+        {
+          "source_page": 81,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "By bringing together people, capital, and resources, we can catalyse change at scale.",
+    "attribution": "Tenure narrative",
+    "source_page": 23
+  },
+  "media": {
+    "photos": [
+      "report-page-25.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "first_time_2024",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'first_time_2024'.",
+      "source_page": 25
+    },
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 25
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 23,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 25,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 81,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "BLZ-IMP-001",
+      "project_name": "Belize Indigenous Land Rights Recognition Pathway",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "territorial-governance"
+      ],
+      "partners": [
+        "Local community organisations"
+      ],
+      "summary": "Report-derived project record for Belize: belize indigenous land rights recognition pathway aligned with documented outcomes in pages 25, 81.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 1
+      },
+      "source_refs": [
+        {
+          "source_page": 25,
+          "source_type": "map",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 81,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

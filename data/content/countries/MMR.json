@@ -1,0 +1,119 @@
+{
+  "iso3": "MMR",
+  "name": "Myanmar",
+  "status": "under_assessment",
+  "project_count": 0,
+  "region": "asia",
+  "thematics": [
+    "tenure-security",
+    "territorial-governance"
+  ],
+  "summary": "Myanmar appears in the 2024 footprint as a country under assessment for future engagement.",
+  "metrics": {
+    "project_count": 0,
+    "source_page": 25
+  },
+  "partners": [
+    "Assessment-phase stakeholders"
+  ],
+  "featured_achievements": [
+    "Country flagged under assessment for potential future project development."
+  ],
+  "stories": [
+    {
+      "title": "Future engagement assessment",
+      "summary": "Myanmar is listed in the map legend under countries being assessed for future projects.",
+      "source_page": 25,
+      "source_refs": [
+        {
+          "source_page": 25,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "The map illustrates where Tenure Facility is funding projects, expanding operations, and assessing future engagement.",
+    "attribution": "Figure 3 caption",
+    "source_page": 25
+  },
+  "media": {
+    "photos": [
+      "report-page-25.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "boundary",
+    "territories"
+  ],
+  "primary_status": "under_assessment",
+  "status_tags": [
+    "under_assessment"
+  ],
+  "status_timeline": [
+    {
+      "status": "under_assessment",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'under_assessment'.",
+      "source_page": 25
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 25,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "MMR-PIPE-001",
+      "project_name": "Myanmar Future Tenure Project Assessment",
+      "lifecycle_status": "assessment",
+      "implementation_status": "pipeline",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "territorial-governance"
+      ],
+      "partners": [
+        "Assessment-phase stakeholders"
+      ],
+      "summary": "Report-derived pipeline record for Myanmar connected to expansion or assessment pathways.",
+      "metrics": {
+        "project_preparation": false,
+        "project_count_country": 0
+      },
+      "source_refs": [
+        {
+          "source_page": 25,
+          "source_type": "map",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 80,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.6
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "boundary",
+      "territories"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.6
+}

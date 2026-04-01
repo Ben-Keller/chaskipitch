@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const CONTENT = path.join(ROOT, "content");
+const CONTENT = path.join(ROOT, "data", "content");
 const MAX_PAGE = 83;
 
 let z = null;

@@ -2,10 +2,10 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const CONTENT_ROOT = path.join(ROOT, "content");
+const CONTENT_ROOT = path.join(ROOT, "data", "content");
 const CONTENT_COUNTRIES_DIR = path.join(CONTENT_ROOT, "countries");
 const CONTENT_GEO_DIR = path.join(CONTENT_ROOT, "geo");
-const SOURCE_GEO_DIR = path.join(ROOT, "geo");
+const SOURCE_GEO_DIR = path.join(ROOT, "data", "source", "geo");
 const MANIFEST_PATH = path.join(SOURCE_GEO_DIR, "countries_manifest.json");
 
 function toFixedNumber(value) {
@@ -267,7 +267,7 @@ async function main() {
           label_lng: toFixedNumber(labelPoint?.[0] ?? 0),
           label_lat: toFixedNumber(labelPoint?.[1] ?? 0),
           geometry_quality: "authoritative",
-          geometry_source: "geo/countries_manifest.json + geo/countries_topojson/*.topo.json"
+          geometry_source: "data/source/geo/countries_manifest.json + data/source/geo/countries_topojson/*.topo.json"
         },
         geometry: mergedGeometry
       });
@@ -298,7 +298,7 @@ async function main() {
       label_lng: geometryRecord.label_lng,
       label_lat: geometryRecord.label_lat,
       geometry_quality: "authoritative",
-      geometry_source: "geo/countries_manifest.json + geo/countries_topojson/*.topo.json"
+      geometry_source: "data/source/geo/countries_manifest.json + data/source/geo/countries_topojson/*.topo.json"
     };
 
     worldFeatures.push({
@@ -317,7 +317,7 @@ async function main() {
             name: country.name,
             layer: "boundary",
             geometry_quality: "authoritative",
-            geometry_source: "geo/countries_manifest.json + geo/countries_topojson/*.topo.json"
+            geometry_source: "data/source/geo/countries_manifest.json + data/source/geo/countries_topojson/*.topo.json"
           },
           geometry: mergedGeometry
         }
@@ -334,7 +334,7 @@ async function main() {
       ),
       geometry_quality: "mixed",
       geometry_source:
-        "Country boundaries are authoritative from geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+        "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
     };
 
     await writeJson(filePath, country);
@@ -359,16 +359,16 @@ async function main() {
   const provenance = {
     version: "phase3.authoritative-world.1",
     input: {
-      manifest: "geo/countries_manifest.json",
-      topo_dir: manifest.paths?.topo_dir ?? "geo/countries_topojson",
-      world_fit_geojson: manifest.paths?.world_fit_geojson ?? "geo/world_fit.geojson",
+      manifest: "data/source/geo/countries_manifest.json",
+      topo_dir: manifest.paths?.topo_dir ?? "data/source/geo/countries_topojson",
+      world_fit_geojson: manifest.paths?.world_fit_geojson ?? "data/source/geo/world_fit.geojson",
       manifest_version: manifest.version ?? "unknown",
       crs: manifest.crs ?? "EPSG:4326"
     },
     output: {
-      world_footprint: "content/geo/world-footprint.geojson",
-      world_countries: "content/geo/world-countries.geojson",
-      country_boundary_layer: "content/geo/<ISO3>/boundary.geojson",
+      world_footprint: "data/content/geo/world-footprint.geojson",
+      world_countries: "data/content/geo/world-countries.geojson",
+      country_boundary_layer: "data/content/geo/<ISO3>/boundary.geojson",
       world_feature_count: worldFeatures.length,
       world_country_feature_count: worldCountryFeatures.length
     },

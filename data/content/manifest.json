@@ -1,0 +1,37 @@
+{
+  "countries": [
+    "BFA",
+    "BLZ",
+    "BOL",
+    "BRA",
+    "CMR",
+    "COD",
+    "COG",
+    "COL",
+    "ECU",
+    "GTM",
+    "GUY",
+    "IDN",
+    "IND",
+    "KEN",
+    "KHM",
+    "LBR",
+    "MLI",
+    "MMR",
+    "NPL",
+    "PAN",
+    "PER",
+    "SUR"
+  ],
+  "themes": [
+    "climate-biodiversity",
+    "community-led-finance",
+    "learning-exchange",
+    "policy-advocacy",
+    "technology-mapping",
+    "tenure-security",
+    "territorial-governance",
+    "women-youth-leadership"
+  ],
+  "charts": []
+}

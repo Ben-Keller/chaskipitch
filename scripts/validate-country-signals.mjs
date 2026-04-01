@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const SIGNALS_DIR = path.join(ROOT, "content", "country-signals");
+const SIGNALS_DIR = path.join(ROOT, "data", "content", "signals");
 
 const ALLOWED_THEME_TAGS = new Set([
   "tenure-security",
@@ -39,10 +39,10 @@ async function main() {
   const index = await readJson(indexPath);
 
   if (!Array.isArray(index.countries)) {
-    errors.push("country-signals/index.json missing countries[]");
+    errors.push("signals/index.json missing countries[]");
   } else if (index.countries.length !== countryFiles.length) {
     errors.push(
-      `country-signals/index.json countries count (${index.countries.length}) does not match files (${countryFiles.length})`
+      `signals/index.json countries count (${index.countries.length}) does not match files (${countryFiles.length})`
     );
   }
 
@@ -55,56 +55,56 @@ async function main() {
     const iso3 = file.replace(".json", "");
 
     if (payload.iso3 !== iso3) {
-      errors.push(`country-signals/${file} has iso3 '${payload.iso3}'`);
+      errors.push(`signals/${file} has iso3 '${payload.iso3}'`);
     }
 
     if (!Array.isArray(payload.kpis)) {
-      errors.push(`country-signals/${file} missing kpis[]`);
+      errors.push(`signals/${file} missing kpis[]`);
       continue;
     }
 
     if (!Array.isArray(payload.narratives)) {
-      errors.push(`country-signals/${file} missing narratives[]`);
+      errors.push(`signals/${file} missing narratives[]`);
       continue;
     }
 
     const kpiIds = payload.kpis.map((kpi) => kpi.id);
     const duplicateKpiIds = kpiIds.filter((id, index) => kpiIds.indexOf(id) !== index);
     if (duplicateKpiIds.length) {
-      errors.push(`country-signals/${file} duplicate KPI ids: ${unique(duplicateKpiIds).join(", ")}`);
+      errors.push(`signals/${file} duplicate KPI ids: ${unique(duplicateKpiIds).join(", ")}`);
     }
 
     const narrativeIds = payload.narratives.map((entry) => entry.id);
     const duplicateNarrativeIds = narrativeIds.filter((id, index) => narrativeIds.indexOf(id) !== index);
     if (duplicateNarrativeIds.length) {
-      errors.push(`country-signals/${file} duplicate narrative ids: ${unique(duplicateNarrativeIds).join(", ")}`);
+      errors.push(`signals/${file} duplicate narrative ids: ${unique(duplicateNarrativeIds).join(", ")}`);
     }
 
     const sourcePages = new Set(payload.source_pages ?? []);
     payload.kpis.forEach((kpi) => {
       if (!sourcePages.has(kpi.source_page)) {
-        warnings.push(`country-signals/${file} KPI ${kpi.id} source_page ${kpi.source_page} missing from source_pages[]`);
+        warnings.push(`signals/${file} KPI ${kpi.id} source_page ${kpi.source_page} missing from source_pages[]`);
       }
 
       for (const tag of kpi.theme_tags ?? []) {
         if (!ALLOWED_THEME_TAGS.has(tag)) {
-          warnings.push(`country-signals/${file} KPI ${kpi.id} has unknown theme tag '${tag}'`);
+          warnings.push(`signals/${file} KPI ${kpi.id} has unknown theme tag '${tag}'`);
         }
       }
     });
 
     payload.narratives.forEach((entry) => {
       if (!entry.body || !entry.body.trim()) {
-        errors.push(`country-signals/${file} narrative ${entry.id} has empty body`);
+        errors.push(`signals/${file} narrative ${entry.id} has empty body`);
       }
       if (!sourcePages.has(entry.source_page)) {
         warnings.push(
-          `country-signals/${file} narrative ${entry.id} source_page ${entry.source_page} missing from source_pages[]`
+          `signals/${file} narrative ${entry.id} source_page ${entry.source_page} missing from source_pages[]`
         );
       }
       for (const tag of entry.theme_tags ?? []) {
         if (!ALLOWED_THEME_TAGS.has(tag)) {
-          warnings.push(`country-signals/${file} narrative ${entry.id} has unknown theme tag '${tag}'`);
+          warnings.push(`signals/${file} narrative ${entry.id} has unknown theme tag '${tag}'`);
         }
       }
     });
@@ -114,7 +114,7 @@ async function main() {
     totalQualityFlags += (payload.quality_flags ?? []).length;
 
     if (payload.status_mismatch) {
-      warnings.push(`country-signals/${file} status mismatch: mapped=${payload.mapped_status} live=${payload.live_status}`);
+      warnings.push(`signals/${file} status mismatch: mapped=${payload.mapped_status} live=${payload.live_status}`);
     }
   }
 

@@ -1,0 +1,21 @@
+{
+  "version": "phase3.authoritative-world.1",
+  "input": {
+    "manifest": "data/source/geo/countries_manifest.json",
+    "topo_dir": "countries_topojson",
+    "world_fit_geojson": "world_fit.geojson",
+    "manifest_version": "1.0",
+    "crs": "EPSG:4326"
+  },
+  "output": {
+    "world_footprint": "data/content/geo/world-footprint.geojson",
+    "world_countries": "data/content/geo/world-countries.geojson",
+    "country_boundary_layer": "data/content/geo/<ISO3>/boundary.geojson",
+    "world_feature_count": 22,
+    "world_country_feature_count": 249
+  },
+  "warnings": {
+    "missing_countries_in_manifest": [],
+    "missing_topology_for_world": []
+  }
+}

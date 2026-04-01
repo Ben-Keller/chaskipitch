@@ -1,0 +1,139 @@
+{
+  "iso3": "KEN",
+  "name": "Kenya",
+  "status": "active",
+  "project_count": 1,
+  "region": "africa",
+  "thematics": [
+    "territorial-governance",
+    "women-youth-leadership",
+    "community-led-finance"
+  ],
+  "summary": "Kenya’s CLAN! network illustrates community-led governance strengthening through participatory internal reform and gender rule enforcement.",
+  "metrics": {
+    "project_count": 1,
+    "gender_rule_compliance": "2/3",
+    "taskforce_members": 10,
+    "source_page": [
+      47,
+      67
+    ]
+  },
+  "partners": [
+    "CLAN!",
+    "Maliasili",
+    "Grassroots member organisations"
+  ],
+  "featured_achievements": [
+    "CLAN! ensured compliance with Kenya’s two-thirds gender rule in Community Land Management Committees.",
+    "A 10-person internal taskforce and external governance review produced unified institutional recommendations."
+  ],
+  "stories": [
+    {
+      "title": "Governance strengthening in CLAN!",
+      "summary": "Internal accountability and participatory reform turned governance tensions into long-term resilience.",
+      "source_page": 67,
+      "source_refs": [
+        {
+          "source_page": 67,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "Internal governance challenges, approached with openness, can become opportunities for institutional resilience.",
+    "attribution": "CLAN! governance case",
+    "source_page": 67
+  },
+  "media": {
+    "photos": [
+      "report-page-67.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 47
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 67,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "KEN-IMP-001",
+      "project_name": "Kenya CLAN Governance Reform and Gender Rule Compliance",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "women-youth-leadership",
+        "community-led-finance"
+      ],
+      "partners": [
+        "CLAN!",
+        "Maliasili",
+        "Grassroots member organisations"
+      ],
+      "summary": "Report-derived project record for Kenya: kenya clan governance reform and gender rule compliance aligned with documented outcomes in pages 47, 67.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 1,
+        "gender_rule_compliance": "2/3"
+      },
+      "source_refs": [
+        {
+          "source_page": 47,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 67,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

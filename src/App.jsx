@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { SiteHeader } from "./app/site-header";
-import { UiShell } from "./app/ui-shell";
-import { DashboardPage } from "./app/dashboard-page";
-import { CreativePitchPage } from "./app/creative-pitch-page";
-import { HomePage } from "./app/home-page";
-import { OurFilmsPage } from "./app/our-films-page";
+import { SiteHeader } from "./site-header";
+import { UiShell } from "./ui-shell";
+import { DashboardPage } from "./dashboard-page";
+import { CreativePitchPage } from "./creative-pitch-page";
+import { HomePage } from "./home-page";
+import { OurFilmsPage } from "./our-films-page";
 
 const creativePitchEnabled = import.meta.env.VITE_ENABLE_CREATIVE_PITCH !== "false";
 

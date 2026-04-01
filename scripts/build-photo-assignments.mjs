@@ -3,11 +3,11 @@ import path from "path";
 import { spawnSync } from "child_process";
 
 const ROOT = process.cwd();
-const PICTURE_DIR = path.join(ROOT, "photos", "picture");
-const TEXTURE_DIR = path.join(ROOT, "photos", "texture");
-const COUNTRIES_DIR = path.join(ROOT, "content", "countries");
-const THEMES_DIR = path.join(ROOT, "content", "themes");
-const OUTPUT_PATH = path.join(ROOT, "content", "photo-assignments.json");
+const PICTURE_DIR = path.join(ROOT, "assets", "photos", "picture");
+const TEXTURE_DIR = path.join(ROOT, "assets", "photos", "texture");
+const COUNTRIES_DIR = path.join(ROOT, "data", "content", "countries");
+const THEMES_DIR = path.join(ROOT, "data", "content", "themes");
+const OUTPUT_PATH = path.join(ROOT, "data", "content", "media", "photo-assignments.json");
 const PHOTO_Y_OFFSET_SCRIPT_PATH = path.join(ROOT, "scripts", "estimate-photo-y-offsets.py");
 const DEFAULT_SEED = 3959268853;
 const RUNTIME_PICTURE_PREFIX = "/runtime/photos/picture/";
@@ -328,10 +328,10 @@ async function main() {
     .sort((a, b) => a.localeCompare(b));
 
   if (!pictures.length) {
-    throw new Error("No .webp files found in photos/picture");
+    throw new Error("No .webp files found in assets/photos/picture");
   }
   if (!textures.length) {
-    throw new Error("No .webp files found in photos/texture");
+    throw new Error("No .webp files found in assets/photos/texture");
   }
 
   const seed = resolveSeed();
@@ -410,6 +410,7 @@ async function main() {
     theme_media
   };
 
+  await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
   await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_PATH)} with seed ${seed}`);
 }

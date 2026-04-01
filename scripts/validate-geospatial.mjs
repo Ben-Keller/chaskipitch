@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const CONTENT = path.join(ROOT, "content");
+const CONTENT = path.join(ROOT, "data", "content");
 const COUNTRIES_DIR = path.join(CONTENT, "countries");
 const GEO_DIR = path.join(CONTENT, "geo");
 const WORLD_FOOTPRINT_PATH = path.join(GEO_DIR, "world-footprint.geojson");
@@ -79,7 +79,7 @@ async function main() {
 
   const worldFootprint = await readJson(WORLD_FOOTPRINT_PATH);
   if (worldFootprint.type !== "FeatureCollection") {
-    errors.push("content/geo/world-footprint.geojson is not a FeatureCollection");
+    errors.push("data/content/geo/world-footprint.geojson is not a FeatureCollection");
   }
 
   const worldFeatures = Array.isArray(worldFootprint.features) ? worldFootprint.features : [];
@@ -92,7 +92,7 @@ async function main() {
   try {
     const worldCountries = await readJson(WORLD_COUNTRIES_PATH);
     if (worldCountries.type !== "FeatureCollection") {
-      errors.push("content/geo/world-countries.geojson is not a FeatureCollection");
+      errors.push("data/content/geo/world-countries.geojson is not a FeatureCollection");
     }
     const worldCountryFeatures = Array.isArray(worldCountries.features) ? worldCountries.features : [];
     if (worldCountryFeatures.length < worldFeatures.length) {
@@ -106,7 +106,7 @@ async function main() {
 
   const seenIso = new Set();
   worldFeatures.forEach((feature, index) => {
-    const hint = `content/geo/world-footprint.geojson feature ${index}`;
+    const hint = `data/content/geo/world-footprint.geojson feature ${index}`;
     const iso3 = feature?.properties?.iso3;
 
     if (typeof iso3 !== "string") {
@@ -115,7 +115,7 @@ async function main() {
     }
 
     if (!countryIsoSet.has(iso3)) {
-      warnings.push(`${hint}: iso3 ${iso3} is not in content/countries`);
+      warnings.push(`${hint}: iso3 ${iso3} is not in data/content/countries`);
     }
 
     if (seenIso.has(iso3)) {
@@ -149,15 +149,15 @@ async function main() {
     }
 
     if (!country.geo_layers?.includes("boundary")) {
-      errors.push(`content/countries/${country.iso3}.json missing geo_layers boundary`);
+      errors.push(`data/content/countries/${country.iso3}.json missing geo_layers boundary`);
     }
 
     if (!country.geo_ref?.country_layers?.includes("boundary")) {
-      errors.push(`content/countries/${country.iso3}.json missing geo_ref.country_layers boundary`);
+      errors.push(`data/content/countries/${country.iso3}.json missing geo_ref.country_layers boundary`);
     }
 
     if (country.geo_ref?.geometry_quality === "placeholder") {
-      warnings.push(`content/countries/${country.iso3}.json still marked placeholder geometry quality`);
+      warnings.push(`data/content/countries/${country.iso3}.json still marked placeholder geometry quality`);
     }
   }
 
@@ -167,7 +167,7 @@ async function main() {
       warnings.push(`Unexpected CRS in provenance: ${provenance.input.crs}`);
     }
   } catch {
-    warnings.push("Missing content/geo/authoritative-provenance.json");
+    warnings.push("Missing data/content/geo/authoritative-provenance.json");
   }
 
   console.log("Geospatial validation summary");

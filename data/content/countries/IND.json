@@ -1,0 +1,260 @@
+{
+  "iso3": "IND",
+  "name": "India",
+  "status": "active",
+  "project_count": 3,
+  "region": "asia",
+  "thematics": [
+    "tenure-security",
+    "technology-mapping",
+    "women-youth-leadership",
+    "learning-exchange"
+  ],
+  "summary": "In India, partners are accelerating forest rights recognition through community-grounded mapping, digital claims support, and women-led enterprise work.",
+  "metrics": {
+    "project_count": 3,
+    "habitat_rights_hectares": 875680,
+    "communities_reached": 547,
+    "women_led_producer_groups": 24,
+    "forest_claims_target": 10000,
+    "source_page": [
+      13,
+      44,
+      47
+    ]
+  },
+  "partners": [
+    "Vasundhara",
+    "Indian School of Business (ISB)",
+    "Local tribal governance bodies"
+  ],
+  "featured_achievements": [
+    "Odisha recognised habitat rights for seven Particularly Vulnerable Tribal Groups across 875,680 hectares.",
+    "ISB’s JharFRA app supports a statewide target of at least 10,000 community forest rights claims.",
+    "24 women-led producer groups were registered under the Green Shakti Producer Company."
+  ],
+  "stories": [
+    {
+      "title": "Forest rights recognition in Odisha",
+      "summary": "Rights were secured for 547 communities across eight districts, including protected areas.",
+      "source_page": 13,
+      "source_refs": [
+        {
+          "source_page": 13,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "Digital claims and transparency",
+      "summary": "JharFRA replaced paper bottlenecks with trackable claims and shared accountability across communities and government.",
+      "source_page": 44,
+      "source_refs": [
+        {
+          "source_page": 44,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "Forest rights committees as governance infrastructure",
+      "summary": "Community Forest Rights Management Committees were expanded as critical local governance structures.",
+      "source_page": 41,
+      "source_refs": [
+        {
+          "source_page": 41,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "Transparency is at the heart of the app. Claims can be tracked by community members via a dashboard.",
+    "attribution": "ISB JharFRA initiative",
+    "source_page": 44
+  },
+  "media": {
+    "photos": [
+      "report-page-44.jpg",
+      "report-page-13.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 13
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 13,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 41,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 44,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "IND-IMP-001",
+      "project_name": "India Odisha Habitat Rights Recognition Programme",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "technology-mapping",
+        "women-youth-leadership"
+      ],
+      "partners": [
+        "Vasundhara",
+        "Indian School of Business (ISB)",
+        "Local tribal governance bodies"
+      ],
+      "summary": "Report-derived project record for India: india odisha habitat rights recognition programme aligned with documented outcomes in pages 13, 41.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 3,
+        "habitat_rights_hectares": 875680
+      },
+      "source_refs": [
+        {
+          "source_page": 13,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 41,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "IND-IMP-002",
+      "project_name": "India JharFRA Digital Claims and Transparency Platform",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "technology-mapping",
+        "women-youth-leadership"
+      ],
+      "partners": [
+        "Vasundhara",
+        "Indian School of Business (ISB)",
+        "Local tribal governance bodies"
+      ],
+      "summary": "Report-derived project record for India: india jharfra digital claims and transparency platform aligned with documented outcomes in pages 44.",
+      "metrics": {
+        "project_sequence": 2,
+        "project_count_country": 3,
+        "habitat_rights_hectares": 875680
+      },
+      "source_refs": [
+        {
+          "source_page": 44,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "IND-IMP-003",
+      "project_name": "India Women-led Producer Group and Enterprise Support",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "tenure-security",
+        "technology-mapping",
+        "women-youth-leadership"
+      ],
+      "partners": [
+        "Vasundhara",
+        "Indian School of Business (ISB)",
+        "Local tribal governance bodies"
+      ],
+      "summary": "Report-derived project record for India: india women-led producer group and enterprise support aligned with documented outcomes in pages 47, 50.",
+      "metrics": {
+        "project_sequence": 3,
+        "project_count_country": 3,
+        "habitat_rights_hectares": 875680
+      },
+      "source_refs": [
+        {
+          "source_page": 47,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 50,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

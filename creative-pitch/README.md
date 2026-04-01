@@ -7,7 +7,6 @@ This folder is the canonical source for the integrated scrollytelling experience
 - `story.json`: canonical authored control file
 - `assets/`: runtime visual assets referenced by `story.json`
 - `pipeline/config.json`: timing/framerate configuration used to build runtime story timing
-- `control/README.txt`: note about the consolidation to `story.json`
 
 ## Motion model
 

@@ -4,13 +4,13 @@ import { promisify } from "util";
 const execFileAsync = promisify(execFile);
 
 const GENERATED_PATHS = [
-  "content/country-signals",
-  "content/country-videos.json",
-  "content/photo-assignments.json",
-  "content/geo/world-footprint.geojson",
-  "content/geo/world-countries.geojson",
-  "content/geo/authoritative-provenance.json",
-  "content/manifest.json"
+  "data/content/signals",
+  "data/content/media/country-videos.json",
+  "data/content/media/photo-assignments.json",
+  "data/content/geo/world-footprint.geojson",
+  "data/content/geo/world-countries.geojson",
+  "data/content/geo/authoritative-provenance.json",
+  "data/content/manifest.json"
 ];
 
 async function main() {

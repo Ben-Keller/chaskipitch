@@ -2,7 +2,8 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const SRC = path.join(ROOT, "content");
+const CONTENT_SOURCE = path.join(ROOT, "data", "content");
+const STATIC_SOURCE_ROOT = path.join(ROOT, "assets", "static");
 const RUNTIME_ROOT = path.join(ROOT, "public", "runtime");
 const DEST = path.join(RUNTIME_ROOT, "content");
 const CREATIVE_PITCH_ASSET_SOURCE = path.join(ROOT, "creative-pitch", "assets");
@@ -11,14 +12,41 @@ const CREATIVE_PITCH_ASSET_DEST = path.join(CREATIVE_PITCH_PUBLIC_DIR, "assets")
 const CREATIVE_PITCH_STORY_SOURCE = path.join(ROOT, "creative-pitch", "story.json");
 const CREATIVE_PITCH_STORY_DEST = path.join(CREATIVE_PITCH_PUBLIC_DIR, "story.json");
 const CREATIVE_PITCH_PIPELINE_CONFIG = path.join(ROOT, "creative-pitch", "pipeline", "config.json");
-const PHOTOS_SOURCE = path.join(ROOT, "photos");
+const PHOTOS_SOURCE = path.join(ROOT, "assets", "photos");
 const PHOTOS_DEST = path.join(RUNTIME_ROOT, "photos");
-const CONTENT_MANIFEST_DEST = path.join(ROOT, "content", "manifest.json");
+const CONTENT_MANIFEST_DEST = path.join(ROOT, "data", "content", "manifest.json");
 const FRAME_FILE_RE = /^frame_(\d{4})\.webp$/i;
 const LEGACY_PUBLIC_PATHS = [
   path.join(ROOT, "public", "content"),
   path.join(ROOT, "public", "creative-pitch"),
   path.join(ROOT, "public", "photos")
+];
+const STATIC_PUBLIC_LINKS = [
+  {
+    source: path.join(STATIC_SOURCE_ROOT, "films"),
+    destination: path.join(ROOT, "public", "films"),
+    label: "Film static assets"
+  },
+  {
+    source: path.join(STATIC_SOURCE_ROOT, "home"),
+    destination: path.join(ROOT, "public", "home"),
+    label: "Home static assets"
+  },
+  {
+    source: path.join(STATIC_SOURCE_ROOT, "icons"),
+    destination: path.join(ROOT, "public", "icons"),
+    label: "Icon static assets"
+  },
+  {
+    source: path.join(STATIC_SOURCE_ROOT, "media"),
+    destination: path.join(ROOT, "public", "media"),
+    label: "Editorial media assets"
+  },
+  {
+    source: path.join(STATIC_SOURCE_ROOT, "report"),
+    destination: path.join(ROOT, "public", "report"),
+    label: "Report assets"
+  }
 ];
 const DEFAULT_CREATIVE_PITCH_CONFIG = {
   timing: {
@@ -483,7 +511,15 @@ async function writeFileIfChanged(filePath, content) {
 }
 
 async function listJsonBasenames(directoryPath) {
-  const entries = await fs.readdir(directoryPath, { withFileTypes: true });
+  let entries = [];
+  try {
+    entries = await fs.readdir(directoryPath, { withFileTypes: true });
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
   return entries
     .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(".json"))
     .map((entry) => entry.name.replace(/\.json$/i, ""))
@@ -491,13 +527,13 @@ async function listJsonBasenames(directoryPath) {
 }
 
 async function ensureContentManifest() {
-  const countries = (await listJsonBasenames(path.join(SRC, "countries"))).filter(
+  const countries = (await listJsonBasenames(path.join(CONTENT_SOURCE, "countries"))).filter(
     (slug) => slug.toLowerCase() !== "index"
   );
-  const themes = (await listJsonBasenames(path.join(SRC, "themes"))).filter(
+  const themes = (await listJsonBasenames(path.join(CONTENT_SOURCE, "themes"))).filter(
     (slug) => slug.toLowerCase() !== "index"
   );
-  const charts = (await listJsonBasenames(path.join(SRC, "charts"))).filter(
+  const charts = (await listJsonBasenames(path.join(CONTENT_SOURCE, "charts"))).filter(
     (slug) => slug.toLowerCase() !== "index"
   );
 
@@ -608,12 +644,26 @@ async function ensurePhotosAssets() {
   await ensureLinkedDirectory(PHOTOS_SOURCE, PHOTOS_DEST, "Photos");
 }
 
+async function ensureStaticPublicAssets() {
+  for (const asset of STATIC_PUBLIC_LINKS) {
+    try {
+      await fs.access(asset.source);
+    } catch {
+      console.warn(`${asset.label} were not found at ${path.relative(ROOT, asset.source)}`);
+      continue;
+    }
+    await ensureLinkedDirectory(asset.source, asset.destination, asset.label);
+  }
+}
+
 async function main() {
   await ensureContentManifest();
+  await fs.mkdir(path.join(ROOT, "public"), { recursive: true });
   await fs.mkdir(RUNTIME_ROOT, { recursive: true });
   await Promise.all(LEGACY_PUBLIC_PATHS.map((target) => fs.rm(target, { recursive: true, force: true })));
   await fs.rm(DEST, { recursive: true, force: true });
-  await copyDir(SRC, DEST);
+  await copyDir(CONTENT_SOURCE, DEST);
+  await ensureStaticPublicAssets();
   await ensureCreativePitchAssets();
   await ensureCreativePitchStory();
   await ensurePhotosAssets();

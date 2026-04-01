@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "random_seed": 3959268853,
+    "context_frame_aspect_ratio": 2.45,
+    "y_offset_limit": 45,
+    "note": "Country photo assignments preserved from existing curated mapping; theme media generated from remaining /photos assets; y_offset defaults estimated from image saliency."
+  },
+  "country_photos": {
+    "BFA": {
+      "image": "/runtime/photos/picture/tenure-113.webp",
+      "alt": "Country photo aligned to Burkina Faso report context (page 15)",
+      "y_offset": 18
+    },
+    "BLZ": {
+      "image": "/runtime/photos/picture/tenure-005.webp",
+      "alt": "Country photo aligned to Belize report context (page 25)",
+      "y_offset": 45
+    },
+    "BOL": {
+      "image": "/runtime/photos/picture/tenure-172.webp",
+      "alt": "Country photo aligned to Bolivia report context (page 54)",
+      "y_offset": 7
+    },
+    "BRA": {
+      "image": "/runtime/photos/picture/tenure-137.webp",
+      "alt": "Country photo aligned to Brazil report context (page 45)",
+      "y_offset": 5
+    },
+    "CMR": {
+      "image": "/runtime/photos/picture/tenure-048.webp",
+      "alt": "Country photo aligned to Cameroon report context (page 23)",
+      "y_offset": 30
+    },
+    "COD": {
+      "image": "/runtime/photos/picture/tenure-080.webp",
+      "alt": "Country photo aligned to Democratic Republic of the Congo report context (page 68)",
+      "y_offset": -24
+    },
+    "COG": {
+      "image": "/runtime/photos/picture/tenure-035.webp",
+      "alt": "Country photo aligned to Republic of Congo report context (page 53)",
+      "y_offset": 7
+    },
+    "COL": {
+      "image": "/runtime/photos/picture/tenure-102.webp",
+      "alt": "Country photo aligned to Colombia report context (page 12)",
+      "y_offset": -8
+    },
+    "ECU": {
+      "image": "/runtime/photos/picture/tenure-036.webp",
+      "alt": "Country photo aligned to Ecuador report context (page 47)",
+      "y_offset": -7
+    },
+    "GTM": {
+      "image": "/runtime/photos/picture/tenure-088.webp",
+      "alt": "Country photo aligned to Guatemala report context (page 47)",
+      "y_offset": 45
+    },
+    "GUY": {
+      "image": "/runtime/photos/picture/tenure-082.webp",
+      "alt": "Country photo aligned to Guyana report context (page 48)",
+      "y_offset": -45
+    },
+    "IDN": {
+      "image": "/runtime/photos/picture/tenure-045.webp",
+      "alt": "Country photo aligned to Indonesia report context (page 22)",
+      "y_offset": -19
+    },
+    "IND": {
+      "image": "/runtime/photos/picture/tenure-066.webp",
+      "alt": "Country photo aligned to India report context (page 44)",
+      "y_offset": 6
+    },
+    "KEN": {
+      "image": "/runtime/photos/picture/tenure-063.webp",
+      "alt": "Country photo aligned to Kenya report context (page 67)",
+      "y_offset": -1
+    },
+    "KHM": {
+      "image": "/runtime/photos/picture/tenure-025.webp",
+      "alt": "Country photo aligned to Cambodia report context (page 20)",
+      "y_offset": 6
+    },
+    "LBR": {
+      "image": "/runtime/photos/picture/tenure-121.webp",
+      "alt": "Country photo aligned to Liberia report context (page 49)",
+      "y_offset": -15
+    },
+    "MLI": {
+      "image": "/runtime/photos/picture/tenure-058.webp",
+      "alt": "Country photo aligned to Mali report context (page 31)",
+      "y_offset": 19
+    },
+    "MMR": {
+      "image": "/runtime/photos/picture/tenure-139.webp",
+      "alt": "Country photo aligned to Myanmar report context (page 25)",
+      "y_offset": -9
+    },
+    "NPL": {
+      "image": "/runtime/photos/picture/tenure-076.webp",
+      "alt": "Country photo aligned to Nepal report context (page 53)",
+      "y_offset": -2
+    },
+    "PAN": {
+      "image": "/runtime/photos/picture/tenure-026.webp",
+      "alt": "Country photo aligned to Panama report context (page 54)",
+      "y_offset": 0
+    },
+    "PER": {
+      "image": "/runtime/photos/picture/tenure-109.webp",
+      "alt": "Country photo aligned to Peru report context (page 12)",
+      "y_offset": 27
+    },
+    "SUR": {
+      "image": "/runtime/photos/picture/tenure-059.webp",
+      "alt": "Country photo aligned to Suriname report context (page 66)",
+      "y_offset": -35
+    }
+  },
+  "theme_media": {
+    "climate-biodiversity": {
+      "image": "/runtime/photos/picture/tenure-043.webp",
+      "texture": "/runtime/photos/texture/tenure-103.webp",
+      "alt": "Placeholder thematic image for climate biodiversity",
+      "y_offset": 37
+    },
+    "community-led-finance": {
+      "image": "/runtime/photos/picture/tenure-128.webp",
+      "texture": "/runtime/photos/texture/tenure-136.webp",
+      "alt": "Placeholder thematic image for community led finance",
+      "y_offset": 32
+    },
+    "learning-exchange": {
+      "image": "/runtime/photos/picture/tenure-000.webp",
+      "texture": "/runtime/photos/texture/tenure-143.webp",
+      "alt": "Placeholder thematic image for learning exchange",
+      "y_offset": 45
+    },
+    "policy-advocacy": {
+      "image": "/runtime/photos/picture/tenure-178.webp",
+      "texture": "/runtime/photos/texture/tenure-012.webp",
+      "alt": "Placeholder thematic image for policy advocacy",
+      "y_offset": 6
+    },
+    "technology-mapping": {
+      "image": "/runtime/photos/picture/tenure-084.webp",
+      "texture": "/runtime/photos/texture/tenure-040.webp",
+      "alt": "Placeholder thematic image for technology mapping",
+      "y_offset": 6
+    },
+    "tenure-security": {
+      "image": "/runtime/photos/picture/tenure-116.webp",
+      "texture": "/runtime/photos/texture/tenure-105.webp",
+      "alt": "Placeholder thematic image for tenure security",
+      "y_offset": -9
+    },
+    "territorial-governance": {
+      "image": "/runtime/photos/picture/tenure-138.webp",
+      "texture": "/runtime/photos/texture/tenure-098.webp",
+      "alt": "Placeholder thematic image for territorial governance",
+      "y_offset": 10
+    },
+    "women-youth-leadership": {
+      "image": "/runtime/photos/picture/tenure-124.webp",
+      "texture": "/runtime/photos/texture/tenure-095.webp",
+      "alt": "Placeholder thematic image for women youth leadership",
+      "y_offset": 8
+    }
+  }
+}

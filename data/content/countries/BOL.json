@@ -1,0 +1,144 @@
+{
+  "iso3": "BOL",
+  "name": "Bolivia",
+  "status": "active",
+  "project_count": 1,
+  "region": "latin_america",
+  "thematics": [
+    "territorial-governance",
+    "women-youth-leadership",
+    "learning-exchange"
+  ],
+  "summary": "Bolivia’s partners advanced Indigenous autonomous governments while convening women-focused learning and advocacy networks across Latin America.",
+  "metrics": {
+    "project_count": 1,
+    "autonomous_governments_hectares": 1400000,
+    "women_leaders_mobilised": 140,
+    "source_page": [
+      12,
+      47
+    ]
+  },
+  "partners": [
+    "CNAMIB",
+    "CEJIS",
+    "Indigenous autonomous authorities"
+  ],
+  "featured_achievements": [
+    "Support to autonomous Indigenous territorial governments approached formal recognition over nearly 1.4 million hectares.",
+    "CNAMIB mobilised 140 women leaders for the XI Pan-Amazon Social Forum."
+  ],
+  "stories": [
+    {
+      "title": "Women and territorial governance exchange",
+      "summary": "Indigenous women gathered to align strategies and build shared positions ahead of COP30.",
+      "source_page": 54,
+      "source_refs": [
+        {
+          "source_page": 54,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "To see women taking action on a global level strengthens me spiritually.",
+    "attribution": "Yanel Venado, COONAPIP",
+    "source_page": 54
+  },
+  "media": {
+    "photos": [
+      "report-page-54.jpg"
+    ],
+    "videos": []
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 12
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 12,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 47,
+      "source_type": "figure",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 54,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "BOL-IMP-001",
+      "project_name": "Bolivia Indigenous Autonomous Government Recognition Support",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "women-youth-leadership",
+        "learning-exchange"
+      ],
+      "partners": [
+        "CNAMIB",
+        "CEJIS",
+        "Indigenous autonomous authorities"
+      ],
+      "summary": "Report-derived project record for Bolivia: bolivia indigenous autonomous government recognition support aligned with documented outcomes in pages 12, 33.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 1,
+        "autonomous_governments_hectares": 1400000
+      },
+      "source_refs": [
+        {
+          "source_page": 12,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 33,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

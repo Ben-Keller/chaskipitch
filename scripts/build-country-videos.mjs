@@ -2,9 +2,9 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const INPUT_PATH = path.join(ROOT, "sources", "videos_full.json");
-const COUNTRIES_DIR = path.join(ROOT, "content", "countries");
-const OUTPUT_PATH = path.join(ROOT, "content", "country-videos.json");
+const INPUT_PATH = path.join(ROOT, "data", "source", "videos.json");
+const COUNTRIES_DIR = path.join(ROOT, "data", "content", "countries");
+const OUTPUT_PATH = path.join(ROOT, "data", "content", "media", "country-videos.json");
 
 const COUNTRY_ALIASES = {
   BFA: ["burkina faso", "burkina"],
@@ -190,12 +190,13 @@ async function main() {
     .slice(0, 12);
 
   const result = {
-    source_file: "sources/videos_full.json",
+    source_file: "data/source/videos.json",
     matching_notes: "Matched by country aliases in title and description. Scores: title +3, description +1.",
     global_recent: globalRecent,
     by_iso3: dedupedAndSorted
   };
 
+  await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
   await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(result, null, 2)}\n`, "utf8");
   console.log(`Wrote ${path.relative(ROOT, OUTPUT_PATH)}`);
 }

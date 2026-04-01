@@ -1,0 +1,325 @@
+{
+  "iso3": "BRA",
+  "name": "Brazil",
+  "status": "active",
+  "project_count": 4,
+  "region": "latin_america",
+  "thematics": [
+    "territorial-governance",
+    "women-youth-leadership",
+    "community-led-finance",
+    "climate-biodiversity"
+  ],
+  "summary": "Brazil combines territorial defence, autonomous governance, and women- and youth-led organising across Amazon and Quilombola territories.",
+  "metrics": {
+    "project_count": 4,
+    "ituna_itata_hectares": 152000,
+    "babassu_ecosystem_hectares": 18000000,
+    "source_page": [
+      12,
+      15,
+      42
+    ]
+  },
+  "partners": [
+    "CONAQ",
+    "MIQCB",
+    "APIB",
+    "Local Indigenous territorial organisations"
+  ],
+  "featured_achievements": [
+    "Government agencies removed intruders from the 152,000-hectare Ituna-Itata territory.",
+    "Quilombola youth and women leadership pipelines expanded through movement-building seminars.",
+    "Territorial fund strengthening advanced community-led finance in the Amazon and Babassu territories."
+  ],
+  "stories": [
+    {
+      "title": "Defending uncontacted territories in Ituna-Itata",
+      "summary": "Partners supported government action to remove illegal occupants from Ituna-Itata, a key uncontacted Indigenous territory.",
+      "source_page": 12,
+      "source_refs": [
+        {
+          "source_page": 12,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "Youth leadership in Quilombola movements",
+      "summary": "The first Quilombola Youth Seminar strengthened intergenerational organising for legal recognition and territorial autonomy.",
+      "source_page": 15,
+      "source_refs": [
+        {
+          "source_page": 15,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "COIAB territorial defence and monitoring in 2024",
+      "summary": "Partners advanced territorial expeditions and monitoring while engaging with public agencies on demarcation pathways.",
+      "source_page": 36,
+      "source_refs": [
+        {
+          "source_page": 36,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    },
+    {
+      "title": "COP30 mobilisation from Amazon territories",
+      "summary": "Brazil-based partners prepared tenure and climate priorities for the COP30 cycle in Belem.",
+      "source_page": 58,
+      "source_refs": [
+        {
+          "source_page": 58,
+          "source_type": "chapter",
+          "note": "Report-derived story source reference."
+        }
+      ]
+    }
+  ],
+  "quote": {
+    "text": "Without Indigenous peoples protecting the forests and rivers, we won’t be able to survive much longer on this land.",
+    "attribution": "Ana Kahyana, AIKATUK",
+    "source_page": 45
+  },
+  "media": {
+    "photos": [
+      "report-page-45.jpg",
+      "report-page-33.jpg"
+    ],
+    "videos": [
+      {
+        "title": "Tenure Facility 2024 Overview",
+        "url": "https://www.youtube.com/embed/X6f6C2rQ7oQ",
+        "source_page": 10
+      }
+    ]
+  },
+  "geo_layers": [
+    "territories",
+    "boundary"
+  ],
+  "primary_status": "active",
+  "status_tags": [
+    "active"
+  ],
+  "status_timeline": [
+    {
+      "status": "active",
+      "as_of_date": "2024-12-31",
+      "note": "Report timeline marker for status 'active'.",
+      "source_page": 12
+    }
+  ],
+  "source_refs": [
+    {
+      "source_page": 12,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 15,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 36,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 42,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 45,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    },
+    {
+      "source_page": 58,
+      "source_type": "chapter",
+      "note": "Report-derived source reference; verify against extraction workbook."
+    }
+  ],
+  "projects": [
+    {
+      "project_id": "BRA-IMP-001",
+      "project_name": "Brazil Ituna-Itata Territorial Protection",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "women-youth-leadership",
+        "community-led-finance"
+      ],
+      "partners": [
+        "CONAQ",
+        "MIQCB",
+        "APIB"
+      ],
+      "summary": "Report-derived project record for Brazil: brazil ituna-itata territorial protection aligned with documented outcomes in pages 12, 34.",
+      "metrics": {
+        "project_sequence": 1,
+        "project_count_country": 4,
+        "ituna_itata_hectares": 152000
+      },
+      "source_refs": [
+        {
+          "source_page": 12,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 34,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "BRA-IMP-002",
+      "project_name": "Brazil COIAB Territorial Monitoring and Demarcation Support",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "women-youth-leadership",
+        "community-led-finance"
+      ],
+      "partners": [
+        "CONAQ",
+        "MIQCB",
+        "APIB"
+      ],
+      "summary": "Report-derived project record for Brazil: brazil coiab territorial monitoring and demarcation support aligned with documented outcomes in pages 36.",
+      "metrics": {
+        "project_sequence": 2,
+        "project_count_country": 4,
+        "ituna_itata_hectares": 152000
+      },
+      "source_refs": [
+        {
+          "source_page": 36,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "BRA-IMP-003",
+      "project_name": "Brazil Quilombola Youth and Women Leadership Pathway",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "women-youth-leadership",
+        "community-led-finance"
+      ],
+      "partners": [
+        "CONAQ",
+        "MIQCB",
+        "APIB"
+      ],
+      "summary": "Report-derived project record for Brazil: brazil quilombola youth and women leadership pathway aligned with documented outcomes in pages 15, 51.",
+      "metrics": {
+        "project_sequence": 3,
+        "project_count_country": 4,
+        "ituna_itata_hectares": 152000
+      },
+      "source_refs": [
+        {
+          "source_page": 15,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        },
+        {
+          "source_page": 51,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    },
+    {
+      "project_id": "BRA-IMP-004",
+      "project_name": "Brazil Amazon-COP30 Policy and Advocacy Mobilisation",
+      "lifecycle_status": "implementation",
+      "implementation_status": "active",
+      "start_date_iso": "2024-01-01",
+      "themes": [
+        "territorial-governance",
+        "women-youth-leadership",
+        "community-led-finance"
+      ],
+      "partners": [
+        "CONAQ",
+        "MIQCB",
+        "APIB"
+      ],
+      "summary": "Report-derived project record for Brazil: brazil amazon-cop30 policy and advocacy mobilisation aligned with documented outcomes in pages 58.",
+      "metrics": {
+        "project_sequence": 4,
+        "project_count_country": 4,
+        "ituna_itata_hectares": 152000
+      },
+      "source_refs": [
+        {
+          "source_page": 58,
+          "source_type": "chapter",
+          "note": "Report-derived project source reference."
+        }
+      ],
+      "geo_ref": {
+        "layer_ids": [
+          "territories"
+        ],
+        "geometry_quality": "placeholder",
+        "geometry_source": "Supplemental GeoJSON prepared outside the PDF for storytelling"
+      },
+      "confidence": 0.72
+    }
+  ],
+  "geo_ref": {
+    "world_layer": "world_footprint_2024",
+    "country_layers": [
+      "territories",
+      "boundary"
+    ],
+    "geometry_quality": "mixed",
+    "geometry_source": "Country boundaries are authoritative from data/source/geo/countries_manifest.json; project territory layers are supplemental GeoJSON prepared outside the PDF."
+  },
+  "confidence": 0.72
+}

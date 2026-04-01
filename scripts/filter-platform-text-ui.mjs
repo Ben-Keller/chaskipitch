@@ -10,12 +10,12 @@ const outputPath = process.argv[3] ? path.resolve(ROOT, process.argv[3]) : DEFAU
 
 const UI_FILE_ALLOWLIST = new Set([
   "src/App.jsx",
-  "src/app/site-header.jsx",
-  "src/app/home-page.jsx",
-  "src/app/our-films-page.jsx",
-  "src/app/creative-pitch-page.jsx",
-  "src/app/story-experience.jsx",
-  "src/app/loading-panel.jsx"
+  "src/site-header.jsx",
+  "src/home-page.jsx",
+  "src/our-films-page.jsx",
+  "src/creative-pitch-page.jsx",
+  "src/story-experience.jsx",
+  "src/loading-panel.jsx"
 ]);
 
 const DASHBOARD_TEXT_ALLOWLIST = new Set([
@@ -43,7 +43,7 @@ function allowEntry(entry) {
     return true;
   }
 
-  if (file === "src/app/dashboard-page.jsx" && DASHBOARD_TEXT_ALLOWLIST.has(text)) {
+  if (file === "src/dashboard-page.jsx" && DASHBOARD_TEXT_ALLOWLIST.has(text)) {
     return true;
   }
 

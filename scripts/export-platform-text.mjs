@@ -7,7 +7,7 @@ const DEFAULT_OUTPUT = path.join(ROOT, "tmp", "platform-text-edits.json");
 const outputPath = process.argv[2] ? path.resolve(ROOT, process.argv[2]) : DEFAULT_OUTPUT;
 
 const CODE_ROOTS = [path.join(ROOT, "src")];
-const JSON_ROOTS = [path.join(ROOT, "content"), path.join(ROOT, "src", "config")];
+const JSON_ROOTS = [path.join(ROOT, "data", "content")];
 const CODE_EXTENSIONS = new Set([".js", ".jsx", ".ts", ".tsx"]);
 
 function toPosix(filePath) {

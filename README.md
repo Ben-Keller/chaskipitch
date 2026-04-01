@@ -1,12 +1,12 @@
-# Tenure Facility Annual Report 2024 Platform
+# Chaski Global Proposal Platform
 
-A React + JavaScript editorial data platform that converts the 2024 annual report PDF into a map-led storytelling dashboard.
+A React + JavaScript platform for the Tenure Facility 10-years proposal, combining impact mapping, creative scrollytelling, and film references.
 
 ## Stack
 
 - React + Vite
-- D3 for maps, geospatial overlays, and interactive charts
-- Structured JSON content layer (`/content`) for report data
+- D3 for maps and geospatial overlays
+- Structured JSON content layer (`data/content`) for report data
 
 ## Run
 
@@ -15,8 +15,8 @@ npm install
 npm run dev
 ```
 
-Before `dev`/`build`, content JSON is synced to `public/runtime/content` automatically.
-`public/runtime/content`, `public/runtime/creative-pitch/assets`, and `public/runtime/photos` are generated/symlinked artifacts and are not source-of-truth files.
+Before `dev`/`build`, project data and static assets are synced into `public/` automatically.
+`public/films`, `public/home`, `public/icons`, `public/media`, `public/report`, `public/runtime/content`, `public/runtime/creative-pitch/assets`, and `public/runtime/photos` are generated/symlinked artifacts and are not source-of-truth files.
 
 Creative pitch source-of-truth:
 
@@ -29,34 +29,40 @@ The runtime lives under `src/` only. The project is now a single-framework React
 
 ## Source Layout
 
-- `src/app/` UI runtime (pages + components)
-- `src/lib/` data-loading hooks and shared utilities
-- `sources/` raw upstream source datasets used by build scripts
-  - `sources/country-v4/`
-  - `sources/videos_full.json`
+- `src/` UI runtime, data loaders, and shared utilities
+- `data/source/` raw upstream datasets used by build scripts
+  - `data/source/countries-v4/`
+  - `data/source/geo/`
+  - `data/source/videos.json`
+- `data/content/` processed application data consumed by the runtime sync step
+- `assets/photos/` source photography and textures used by assignment/build scripts
+- `assets/static/` source static files mirrored into `public/` for the app
 
 ## Information architecture
 
-- `Impact` Global map, thematic filtering, KPI strips, evidence and video panels
-- `Evolution & Finance` Unified organizational evolution dashboard with interactive timeline, threads visualization, funding flow, institutional indicators, and methodology context
+- `Home` Entry page with proposal framing and navigation
+- `Tenure Facility` Global map, thematic filtering, KPI strips, evidence and video panels
 - `Creative Pitch` Story experience with sequenced visual layers
+- `Our Films` Vimeo-backed reference film experience
 
 ## Content schema
 
-- `content/global.json`
-- `content/countries/<ISO3>.json`
-- `content/themes/<slug>.json`
-- `content/charts/<slug>.json`
-- `content/media/index.json`
-- `content/quotes.json`
-- `content/country-signals/index.json`
-- `content/country-signals/<ISO3>.json`
-- `content/geo/world-footprint.geojson`
-- `content/geo/world-countries.geojson`
-- `content/geo/authoritative-provenance.json`
-- `content/geo/<ISO3>/territories.geojson`
-- `content/geo/<ISO3>/boundary.geojson`
-- `content/manifest.json` (generated slug/index manifest used by runtime loaders)
+- `data/content/global.json`
+- `data/content/countries/<ISO3>.json`
+- `data/content/evidence/<ISO3>.json`
+- `data/content/signals/index.json`
+- `data/content/signals/<ISO3>.json`
+- `data/content/themes/<slug>.json`
+- `data/content/media/index.json`
+- `data/content/media/quotes.json`
+- `data/content/media/country-videos.json`
+- `data/content/media/photo-assignments.json`
+- `data/content/geo/world-footprint.geojson`
+- `data/content/geo/world-countries.geojson`
+- `data/content/geo/authoritative-provenance.json`
+- `data/content/geo/<ISO3>/territories.geojson`
+- `data/content/geo/<ISO3>/boundary.geojson`
+- `data/content/manifest.json` (generated slug/index manifest used by runtime loaders)
 
 ## Phase 1 model upgrades
 
@@ -84,7 +90,7 @@ npm run pipeline:ci        # build artifacts + validate + build app + perf budge
 npm run repo:audit         # report large tracked files and top-level size usage
 ```
 
-Additional optional scripts are still available for targeted runs (`audit:v4`, `check:placeholders`, `enrich:phase5`).
+Additional targeted checks are available (`perf:budget`, `check:generated`, `repo:audit`).
 
 ## Text Editing UI
 
@@ -103,6 +109,8 @@ Optional: edit the full export file instead:
 npm run text:edit:all
 ```
 
+The editor itself lives in `tools/text-edit/`.
+
 Creative pitch sequence optimization:
 
 - Upscaled sequence frames (`frame_####.png`) are automatically converted to WebP during `predev`/`prebuild` and pipeline builds.
@@ -118,7 +126,7 @@ Creative pitch sequence optimization:
 - Disable creative pitch runtime (and avoid shipping sequence assets):
   - `VITE_ENABLE_CREATIVE_PITCH=false`
 - Use a hosted PDF instead of repository-local report binary:
-  - `VITE_REPORT_URL=https://.../tenure-facility-annual-report-2024.pdf`
+  - `VITE_REPORT_URL=https://.../ChaskiGlobal_TenureFacility10YearCelebration_Final_3.2026.pdf`
 - Audit tracked repository size before pushing:
   - `npm run repo:audit`
 
@@ -169,6 +177,6 @@ vercel --prod
 ## Notes
 
 - Values are extracted from visible report figures and chapter text.
-- Country geometry layers are supplemental storytelling GeoJSON prepared outside the PDF.
-- PDF is available in-app at `/report/tenure-facility-annual-report-2024.pdf`.
+- Country geometry layers are supplemental storytelling GeoJSON prepared from files under `data/source/geo/`.
+- Proposal PDF is available in-app at `/report/ChaskiGlobal_TenureFacility10YearCelebration_Final_3.2026.pdf`.
 - Scrollytelling run outputs and backups are intentionally excluded from this repo.

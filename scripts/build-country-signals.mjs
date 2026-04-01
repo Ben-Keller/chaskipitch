@@ -8,9 +8,9 @@ import {
 } from "./signal-mappings.mjs";
 
 const ROOT = process.cwd();
-const V4_DIR = path.join(ROOT, "sources", "country-v4", "countries");
-const LIVE_COUNTRIES_DIR = path.join(ROOT, "content", "countries");
-const OUTPUT_DIR = path.join(ROOT, "content", "country-signals");
+const V4_DIR = path.join(ROOT, "data", "source", "countries-v4");
+const LIVE_COUNTRIES_DIR = path.join(ROOT, "data", "content", "countries");
+const OUTPUT_DIR = path.join(ROOT, "data", "content", "signals");
 
 function cleanText(value) {
   if (typeof value !== "string") {
@@ -369,7 +369,7 @@ async function main() {
 
   const sortedCountries = [...countries].sort((left, right) => left.country_name.localeCompare(right.country_name));
   const indexPayload = {
-    source_folder: "sources/country-v4/countries",
+    source_folder: "data/source/countries-v4",
     countries: sortedCountries.map((country) => ({
       iso3: country.iso3,
       country_name: country.country_name,

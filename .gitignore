@@ -2,7 +2,18 @@
 node_modules/
 dist/
 
-# Generated runtime artifacts
+# Generated public artifacts
+public/films
+public/films/
+public/home
+public/home/
+public/icons
+public/icons/
+public/media
+public/media/
+public/report
+public/report/
+public/runtime
 public/runtime/
 
 # Scrollytelling pipeline runtime artifacts
@@ -34,3 +45,11 @@ creative-pitch/assets/**/*.avi
 
 # OS metadata
 .DS_Store
+
+# Editor checkpoints / local backups
+**/.ipynb_checkpoints/
+creative-pitch/story-old.json
+creative-pitch/assets copy/
+
+# Local text-edit working files
+tmp/platform-text-edits*.json

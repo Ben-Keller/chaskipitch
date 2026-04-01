@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 
 const ROOT = process.cwd();
-const CONTENT_DIR = path.join(ROOT, "content");
+const CONTENT_DIR = path.join(ROOT, "data", "content");
 
 async function readJson(...segments) {
   const filePath = path.join(CONTENT_DIR, ...segments);
@@ -12,7 +12,15 @@ async function readJson(...segments) {
 
 async function listJsonFiles(dir) {
   const absolute = path.join(CONTENT_DIR, dir);
-  const files = await fs.readdir(absolute);
+  let files = [];
+  try {
+    files = await fs.readdir(absolute);
+  } catch (error) {
+    if (error?.code === "ENOENT") {
+      return [];
+    }
+    throw error;
+  }
   return files.filter((file) => file.endsWith(".json"));
 }
 
