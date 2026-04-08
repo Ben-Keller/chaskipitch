@@ -22,23 +22,23 @@ const HOME_CARDS = [
       "Immersive narrative sequence for presenting the proposal as a visual story experience.",
     image: "home/creative-pitch.webp",
     scope: [
-      "Narrative scrollytelling presentation mode",
-      "Visual sequencing for proposal storytelling"
+      "Presenting the Rooted campaign",
+      "Campaign proposal for 10-years project"
     ],
-    status: "Narrative Mode",
+    status: "Narrative Journey",
   },
   {
     key: "films",
     tone: "films",
     title: "Our Films",
     description:
-      "Curated Vimeo references for related films developed by Chaski Global and partners.",
+      "Curated references for related films developed by Aesthetic Voyager Films.",
     image: "home/our-films.webp",
     scope: [
-      "Reference film library for story direction",
-      "Curated cinematic precedents tied to this proposal"
+      "Reference film library presenting documentary approach",
+      "Selected films and videos on land rights, Indigenous communities, and digital platforms"
     ],
-    status: "Reference Library",
+    status: "Selected Library",
   }
 ];
 
@@ -58,9 +58,9 @@ export function HomePage({ onNavigate, creativePitchEnabled = true }) {
                 href="https://chaskiglobal.com/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Visit Chaski Global website"
+                aria-label="not used"
               >
-                <img src={logoSrc} alt="Chaski Global logo" loading="lazy" decoding="async" />
+                <img src={logoSrc} alt="not used" loading="lazy" decoding="async" />
               </a>
               <div className="home-hero__title-block">
                 <h1 className="home-hero__title">Chaski Global Proposal</h1>
@@ -86,14 +86,14 @@ export function HomePage({ onNavigate, creativePitchEnabled = true }) {
         </div>
       </section>
 
-      <section className="home-entry-grid" aria-label="Project pages">
+      <section className="home-entry-grid" aria-label="not used">
         {HOME_CARDS.map((card) => {
           const isCreativeCard = card.key === "creative_pitch";
           const isAvailable = !isCreativeCard || creativePitchEnabled;
           const helperText = isAvailable
             ? card.status
-            : "Unavailable in this build";
-          const navLabel = isAvailable ? "View" : "Unavailable";
+            : "not used";
+          const navLabel = isAvailable ? "View" : "not used";
           const imageSrc = card.image ? withBasePath(card.image) : "";
           return (
             <button
@@ -127,7 +127,7 @@ export function HomePage({ onNavigate, creativePitchEnabled = true }) {
                     focusable="false"
                     aria-hidden="true"
                   >
-                    <path d="M3 8h9M8 3l5 5-5 5" />
+                    <path d="not used" />
                   </svg>
                 </span>
               </div>

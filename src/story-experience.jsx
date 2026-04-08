@@ -648,7 +648,7 @@ export function StoryExperience({ story }) {
           <div className="pitch-intro__panel">
             <p className="pitch-intro__kicker">{story?.projectTitle ?? "Creative Pitch"}</p>
             <h2 className="pitch-intro__title">Scroll down to start the journey</h2>
-            <p className="pitch-intro__hint">Or view the guided proposal of the creative concept</p>
+            <p className="pitch-intro__hint">Or play through the guided proposal of the creative concept</p>
             <button type="button" className="pitch-intro__button" onClick={handleStartJourney}>
               Start Journey
             </button>

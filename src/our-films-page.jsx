@@ -11,51 +11,51 @@ const FILMS = [
     poster: "films/kogi-land-reclamation.webp",
     titleClass: "films2-title-font--kogi",
     description:
-      "A grounded story of territory recovery and Indigenous leadership. It directly supports this proposal by showing how land rights are lived in practice, not only documented in policy language."
+      "A story of the Kogi people in the Sierra Nevada de Santa Marta in Colombia as they work to reclaim and restore their territory and share their message to the rest of the world, the younger brother, about how to act as stewards for the natural world."
   },
   {
     id: "pitukiska",
-    title: "Pitukiska",
-    subtitle: "The Andean New Year",
+    title: "The Andean New Year",
+    subtitle: "Pitukiska Community",
     vimeoId: "470478889",
     embed: "https://player.vimeo.com/video/470478889?h=44622bc319",
     poster: "films/pitukiska-andean-new-year.webp",
     titleClass: "films2-title-font--andean",
     description:
-      "Centers cultural continuity, ceremony, and intergenerational memory. For this project, it reinforces why tenure work must protect both territory and the knowledge systems tied to it."
+      "In the high Andes, a Quechuan community gathers for the Andean new year to celebrate the earth mother, and share how they are preserving their culture while the climate changes around them."
   },
   {
     id: "undp60",
     title: "UNDP60",
-    subtitle: "Celebrating 60 Years of UNDP",
+    subtitle: "United Nations Development Programme",
     vimeoId: "1178401210",
     embed: "https://player.vimeo.com/video/1178401210?h=a8d35734b2",
     poster: "films/undp60.webp",
     titleClass: "films2-title-font--undp",
     description:
-      "Demonstrates institutional storytelling at scale and clear impact communication. It is relevant to this proposal’s funding narrative and the need to translate complex outcomes for decision-makers."
+      "Presenting the development approach of UNDP after 60 years of progress, developed for the UNDP executive board meeting."
   },
   {
     id: "sustainable-energy-platform",
-    title: "UNDP Sustainable Energy Digital Intelligence Platform",
-    subtitle: "Data Systems for Inclusive Energy Planning",
+    title: "UNDP Sustainable Energy Digital Platform",
+    subtitle: "Sustainable Energy Academy",
     vimeoId: "1098670116",
     embed: "https://player.vimeo.com/video/1098670116?h=0155e6c87d",
     poster: "films/sustainable-energy.webp",
     titleClass: "films2-title-font--undp",
     description:
-      "A systems-focused piece on digital infrastructure for energy access and planning. For this proposal, it demonstrates how clear data architecture and visual storytelling can support policy alignment and implementation at scale."
+      "An innovative digital tool for driving system transformation through data-driven and integrated strategies to scale progress towards an inclusive and just sustainable energy transition."
   },
   {
     id: "floating-islands",
-    title: "Floating Islands",
-    subtitle: "Lake Titicaca, Peru",
+    title: "Floating Islands of Lake Titicaca",
+    subtitle: "Uros Community of Peru",
     vimeoId: "470476203",
     embed: "https://player.vimeo.com/video/470476203?h=18b362ab18",
     poster: "films/floating-islands.webp",
     titleClass: "films2-title-font--floating",
     description:
-      "Highlights the relationship between ecological adaptation and local governance in a fragile landscape. This aligns with the proposal’s climate-and-tenure lens in Andean and Amazonian contexts."
+      "An Uros family living on a floating island of reeds on the highest navigable lake in the world share the story of how they founded their community and are working to preserve their ancestral language."
   },
   {
     id: "sunflower-kids",
@@ -66,10 +66,10 @@ const FILMS = [
     poster: "films/sunflower-kids.webp",
     titleClass: "films2-title-font--sunflower",
     description:
-      "Shows community-centered development through youth, learning, and practical infrastructure. It connects to the proposal’s emphasis on long-term capacity, inclusion, and locally led change."
+      "A story of Moselanjta, a young girl in small village in the mountains of Lesotho, as a solar education project brings a library of resources to her school as she is working to decide her future."
   }
 ];
-const SHARED_FILM_TITLE_CLASS = "films2-title-font--sunflower";
+const SHARED_FILM_TITLE_CLASS = "films2-title-font--avenir";
 const VIMEO_PLAYER_ORIGIN = "https://player.vimeo.com";
 
 function toPlayerId(index) {
@@ -291,10 +291,10 @@ export function OurFilmsPage() {
         <p className="section-kicker">Aesthetic Voyager Films</p>
         <h1>Our Films</h1>
         <p>
-          We curated these films as the strongest editorial precedents for this proposal; together
-          they define our filmmaking approach for the Tenure Facility program through trusted local
-          perspective, place-based visual language, and narratives that make complex tenure,
-          climate, and funding outcomes legible to partners and funders.
+          We curated these films to define our filmmaking approach for the Tenure Facility
+          10-years project that demonstrate our approach co-creating films with Indigenous
+          communities, advancing messages on climate action and cultural conservation, and working
+          closely in partnership with international organizations.
         </p>
       </section>
 
@@ -359,7 +359,18 @@ export function OurFilmsPage() {
                 "--films2-layer": `${panelLayer}`
               }}
             >
-              {isActive && !isPlaying ? (
+              {isActive && !isVideoMode ? (
+                <button
+                  type="button"
+                  className="films2-panel__activate-hitbox"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    handlePlayRequest(index);
+                  }}
+                  aria-label={`Activate ${film.title}`}
+                />
+              ) : null}
+              {isActive && !isPlaying && !isVideoMode ? (
                 <button
                   type="button"
                   className="films2-panel__play-btn"
@@ -374,7 +385,7 @@ export function OurFilmsPage() {
               ) : null}
               {film.posterUrl ? (
                 <img
-                  className={`films2-panel__poster${isVideoVisible ? " is-hidden" : ""}`}
+                  className={`films2-panel__poster${isVideoMode ? " is-hidden" : ""}`}
                   src={film.posterUrl}
                   alt=""
                   aria-hidden="true"

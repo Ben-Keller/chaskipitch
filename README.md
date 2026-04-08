@@ -92,25 +92,6 @@ npm run repo:audit         # report large tracked files and top-level size usage
 
 Additional targeted checks are available (`perf:budget`, `check:generated`, `repo:audit`).
 
-## Text Editing UI
-
-Use the minimal local editor to update exported UI/page copy entry-by-entry and persist each save immediately:
-
-```bash
-npm run text:export:ui
-npm run text:edit
-```
-
-Open `http://localhost:4392`, edit `new_text`, and click `Save + Next` (writes to `tmp/platform-text-edits-ui.json` on every click).
-
-Optional: edit the full export file instead:
-
-```bash
-npm run text:edit:all
-```
-
-The editor itself lives in `tools/text-edit/`.
-
 Creative pitch sequence optimization:
 
 - Upscaled sequence frames (`frame_####.png`) are automatically converted to WebP during `predev`/`prebuild` and pipeline builds.

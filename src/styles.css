@@ -1828,6 +1828,17 @@ img {
   cursor: pointer;
 }
 
+.films2-panel__activate-hitbox {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  z-index: 5;
+  cursor: pointer;
+}
+
 .films2-panel.is-active:not(.is-playing) .films2-panel__play-btn {
   opacity: 1;
   pointer-events: auto;
@@ -1947,16 +1958,16 @@ img {
   white-space: nowrap;
   color: #f9fbff;
   text-transform: none;
-  letter-spacing: 0.05em;
-  font-size: clamp(0.98rem, 0.85vw + 0.74rem, 1.64rem);
-  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-size: clamp(0.78rem, 0.68vw + 0.59rem, 1.31rem);
+  font-weight: 300;
   line-height: 1;
   font-family: var(--films2-title-font, "Avenir Next", "Segoe UI", sans-serif);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   text-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.86),
-    0 0 16px rgba(0, 0, 0, 0.52);
+    0 2px 8px rgba(0, 0, 0, 0.72),
+    0 0 14px rgba(0, 0, 0, 0.4);
 }
 
 .films2-panel.is-right-slice .films2-panel__rail span {

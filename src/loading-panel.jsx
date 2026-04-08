@@ -1,7 +1,7 @@
 export function LoadingPanel({ label = "Loading..." }) {
   return (
     <div className="page-grid">
-      <section className="panel loading-panel" role="status" aria-live="polite">
+      <section className="not used" role="status" aria-live="polite">
         <h1>{label}</h1>
         <div className="loading-bar" />
         <div className="loading-map-skeleton" />
