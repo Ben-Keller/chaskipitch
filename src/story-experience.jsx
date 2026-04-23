@@ -440,6 +440,13 @@ export function StoryExperience({ story }) {
   }, [hasEntered, scenes, soundtrackSceneIndex, story?.introSoundtrack]);
 
   const effectiveAudioVolume = audioVolume * (hasEntered ? 1 : INTRO_AUDIO_VOLUME_MULTIPLIER);
+  const soundtrackStartOffsetSeconds = useMemo(() => {
+    const configuredOffset = Number(soundtrack?.startOffsetSeconds);
+    if (Number.isFinite(configuredOffset) && configuredOffset >= 0) {
+      return configuredOffset;
+    }
+    return AUDIO_START_OFFSET_SECONDS;
+  }, [soundtrack]);
 
   const scrollSecondsPerPx = useMemo(() => {
     const configured = Number(story?.playback?.scrollSecondsPer1000Px);
@@ -630,7 +637,7 @@ export function StoryExperience({ story }) {
     secondaryAudio.volume = 0;
     secondaryAudio.src = targetSrc;
     secondaryAudio.load();
-    secondaryAudio.currentTime = AUDIO_START_OFFSET_SECONDS;
+    secondaryAudio.currentTime = soundtrackStartOffsetSeconds;
     secondaryAudio.play().catch(() => {});
     const cancelFadeIn = fadeAudio(secondaryAudio, 0, effectiveAudioVolume, AUDIO_FADE_IN_MS);
     const cancelFadeOut = primaryAudio
@@ -653,14 +660,22 @@ export function StoryExperience({ story }) {
     };
     activeAudioIndexRef.current = secondaryIndex;
     currentAudioSrcRef.current = targetSrc;
-  }, [effectiveAudioVolume, hasEntered, isMuted, isReturningToStart, isWindowActive, soundtrack]);
+  }, [
+    effectiveAudioVolume,
+    hasEntered,
+    isMuted,
+    isReturningToStart,
+    isWindowActive,
+    soundtrack,
+    soundtrackStartOffsetSeconds
+  ]);
 
   useEffect(() => {
     if (!isReturningToStart) {
       return undefined;
     }
 
-    const cueSrc = story?.resetSoundtrack?.src ?? story?.introSoundtrack?.src ?? soundtrack?.src;
+    const cueSrc = currentAudioSrcRef.current || soundtrack?.src || story?.introSoundtrack?.src;
     if (!cueSrc || typeof window === "undefined") {
       setIsReturningToStart(false);
       return undefined;
@@ -741,7 +756,7 @@ export function StoryExperience({ story }) {
       localStop();
       stopResetCueRef.current = () => {};
     };
-  }, [audioVolume, isMuted, isReturningToStart, soundtrack?.src, story?.introSoundtrack?.src, story?.resetSoundtrack?.src]);
+  }, [audioVolume, isMuted, isReturningToStart, soundtrack?.src, story?.introSoundtrack?.src]);
 
   const cancelStepAnimation = () => {
     if (stepAnimationFrameRef.current !== null) {

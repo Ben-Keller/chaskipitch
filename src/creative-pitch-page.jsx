@@ -28,16 +28,16 @@ const MUSIC_TRACKS = [
     ).href
   },
   {
-    title: "Extrema Altura",
+    title: "Desierto del Pacifico",
     src: new URL(
-      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 10 Extrema Altura.mp3",
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 05 Desierto del Pacífico.mp3",
       import.meta.url
     ).href
   },
   {
-    title: "Desierto del Pacifico",
+    title: "Extrema Altura",
     src: new URL(
-      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 05 Desierto del Pacífico.mp3",
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 10 Extrema Altura.mp3",
       import.meta.url
     ).href
   },
@@ -56,18 +56,19 @@ const MUSIC_TRACKS = [
     ).href
   },
   {
-    title: "Valle Sagrado",
-    src: new URL(
-      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 08 Valle Sagrado.mp3",
-      import.meta.url
-    ).href
-  },
-  {
     title: "Mil Moray",
     src: new URL(
       "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 09 Mil Moray.mp3",
       import.meta.url
     ).href
+  },
+  {
+    title: "Valle Sagrado",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 08 Valle Sagrado.mp3",
+      import.meta.url
+    ).href,
+    startOffsetSeconds: 4
   },
   {
     title: "Extrema Altura",
@@ -108,7 +109,6 @@ function normalizeStory(story) {
     ...story,
     textStyles,
     introSoundtrack: MUSIC_TRACKS[0],
-    resetSoundtrack: MUSIC_TRACKS[0],
     scenes: (story?.scenes ?? []).map((scene, index) => ({
       ...scene,
       media: scene?.media
