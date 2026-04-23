@@ -28,7 +28,7 @@ creative-pitch/pipeline/.env
 creative-pitch/pipeline/.env.*
 !creative-pitch/pipeline/.env.template
 
-# Creative-pitch committed media policy (app uses WebP sequence frames)
+# Creative-pitch committed media policy (app uses validated MP4 scene videos)
 creative-pitch/assets/**/*.png
 creative-pitch/assets/**/*.jpg
 creative-pitch/assets/**/*.jpeg

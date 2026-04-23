@@ -14,7 +14,15 @@ const STEP_ANIMATION_MIN_MS = 240;
 const STEP_ANIMATION_MAX_MS = 760;
 const INTRO_RESTORE_THRESHOLD_SECONDS = 0.001;
 const END_RETURN_VISIBILITY_PROGRESS = 0.995;
-const SCENE_FADE_WINDOW = 0.18;
+const SCENE_FADE_WINDOW = 0.28;
+const TEXT_FADE_WINDOW = SCENE_FADE_WINDOW * 0.5;
+const AUDIO_FADE_IN_MS = 1400;
+const AUDIO_FADE_OUT_MS = 1800;
+const AUDIO_DEACTIVATE_FADE_MS = 900;
+const AUDIO_SCENE_FADE_OUT_DELAY_MS = 650;
+const AUDIO_START_OFFSET_SECONDS = 3;
+const TEXT_FADE_OUT_DELAY_SECONDS = 1;
+const DEFAULT_AUDIO_VOLUME = 0.58;
 const INTERACTIVE_SELECTOR = "button, a, input, select, textarea, [data-pitch-control]";
 
 function isInteractiveTarget(target) {
@@ -30,6 +38,11 @@ function resolveSceneVideoSrc(srcPattern) {
     "/mp4/$1/$2.mp4"
   );
   return replaced === srcPattern ? "" : replaced;
+}
+
+function easeInOut(progress) {
+  const value = clamp(progress, 0, 1);
+  return value * value * (3 - 2 * value);
 }
 
 function resolveSceneDurationSeconds(scene, fallbackFps) {
@@ -96,23 +109,25 @@ function computeTextOpacityMap(
 
   const safeDuration = Math.max(0.2, Number(sceneDurationSeconds) || 0.2);
   const baseFadeProgress = clamp((Number(textFadeSeconds) || 0) / safeDuration, 0.01, 0.45);
-  const sharedFadeInProgress = clamp(Math.max(baseFadeProgress, SCENE_FADE_WINDOW), 0.01, 0.45);
-  const sharedFadeOutProgress = clamp(Math.max(baseFadeProgress, SCENE_FADE_WINDOW), 0.01, 0.45);
+  const fadeOutDelayProgress = clamp(TEXT_FADE_OUT_DELAY_SECONDS / safeDuration, 0, 0.45);
+  const sharedFadeInProgress = clamp(Math.max(baseFadeProgress, TEXT_FADE_WINDOW), 0.01, 0.3);
+  const sharedFadeOutProgress = clamp(Math.max(baseFadeProgress, TEXT_FADE_WINDOW), 0.01, 0.3);
 
   textLayers.forEach((layer, index) => {
     const entryStart = clamp(Number(layer?.start ?? 0), 0, 1);
     const entryEnd = clamp(Number(layer?.end ?? 1), entryStart + 0.01, 1);
+    const effectiveEntryEnd = clamp(entryEnd + fadeOutDelayProgress, entryStart + 0.01, 1);
     const span = Math.max(0.01, entryEnd - entryStart);
     const fadeInProgress = Math.min(sharedFadeInProgress, span * 0.95);
     const fadeOutProgress = Math.min(sharedFadeOutProgress, span * 0.95);
     const fadeInEnd = Math.min(entryEnd, entryStart + fadeInProgress);
-    const fadeOutStart = Math.max(entryStart, entryEnd - fadeOutProgress);
+    const fadeOutStart = Math.max(entryStart, effectiveEntryEnd - fadeOutProgress);
 
     const fadeIn = clamp(
       (localProgress - entryStart) / Math.max(0.0001, fadeInEnd - entryStart)
     );
     const fadeOut = clamp(
-      (entryEnd - localProgress) / Math.max(0.0001, entryEnd - fadeOutStart)
+      (effectiveEntryEnd - localProgress) / Math.max(0.0001, effectiveEntryEnd - fadeOutStart)
     );
     const key = layer?.id ?? `text_${index}`;
     output[key] = Math.min(fadeIn, fadeOut);
@@ -185,6 +200,56 @@ function isLiveWindowActive() {
   return true;
 }
 
+function volumeIcon(volume, muted) {
+  if (muted || volume <= 0.001) {
+    return "\uD83D\uDD07";
+  }
+  if (volume < 0.45) {
+    return "\uD83D\uDD09";
+  }
+  return "\uD83D\uDD0A";
+}
+
+function fadeAudio(audio, from, to, durationMs, onComplete, delayMs = 0) {
+  if (!audio) {
+    onComplete?.();
+    return () => {};
+  }
+  const safeDuration = Math.max(1, durationMs);
+  const safeDelay = Math.max(0, delayMs);
+  const startValue = clamp(Number(from), 0, 1);
+  const endValue = clamp(Number(to), 0, 1);
+  const startTime = performance.now() + safeDelay;
+  let timeoutId = null;
+  let finalized = false;
+
+  const finalize = () => {
+    if (finalized) {
+      return;
+    }
+    finalized = true;
+    audio.volume = endValue;
+    onComplete?.();
+  };
+
+  const tick = () => {
+    const progress = clamp((performance.now() - startTime) / safeDuration, 0, 1);
+    audio.volume = startValue + (endValue - startValue) * progress;
+    if (progress < 1) {
+      timeoutId = window.setTimeout(tick, 40);
+      return;
+    }
+    finalize();
+  };
+
+  tick();
+  return () => {
+    if (timeoutId !== null) {
+      window.clearTimeout(timeoutId);
+    }
+  };
+}
+
 function ScrubbedSceneVideo({ src, alt, zoom, localProgress, preload = "metadata" }) {
   const videoRef = useRef(null);
   const [resolvedSrc, setResolvedSrc] = useState(src || "");
@@ -246,6 +311,13 @@ export function StoryExperience({ story }) {
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth : BASE_TEXT_LAYOUT_WIDTH
   );
+  const [audioVolume, setAudioVolume] = useState(DEFAULT_AUDIO_VOLUME);
+  const [isMuted, setIsMuted] = useState(false);
+  const [isWindowActive, setIsWindowActive] = useState(() => isLiveWindowActive());
+  const audioRefs = useRef([null, null]);
+  const activeAudioIndexRef = useRef(0);
+  const currentAudioSrcRef = useRef("");
+  const cancelAudioFadeRef = useRef(() => {});
 
   const scenes = useMemo(
     () =>
@@ -282,6 +354,15 @@ export function StoryExperience({ story }) {
     () => getSceneProgressLabel(scenes, currentSceneIndex),
     [scenes, currentSceneIndex]
   );
+
+  const soundtrack = useMemo(() => {
+    if (currentSceneIndex < 0 || currentSceneIndex >= scenes.length) {
+      return null;
+    }
+    const scene = scenes[currentSceneIndex];
+    const soundtrackValue = scene?.soundtrack;
+    return soundtrackValue && typeof soundtrackValue === "object" ? soundtrackValue : null;
+  }, [currentSceneIndex, scenes]);
 
   const scrollSecondsPerPx = useMemo(() => {
     const configured = Number(story?.playback?.scrollSecondsPer1000Px);
@@ -353,27 +434,141 @@ export function StoryExperience({ story }) {
   );
 
   useEffect(() => {
-    if (!isAutoplay || typeof window === "undefined" || typeof document === "undefined") {
+    if (typeof window === "undefined" || typeof document === "undefined") {
       return undefined;
     }
 
-    const pauseIfNotActive = () => {
-      if (!isLiveWindowActive()) {
-        setIsAutoplay(false);
-      }
+    const updateWindowActivity = () => {
+      setIsWindowActive(isLiveWindowActive());
     };
 
-    pauseIfNotActive();
-    document.addEventListener("visibilitychange", pauseIfNotActive);
-    window.addEventListener("blur", pauseIfNotActive);
-    window.addEventListener("pagehide", pauseIfNotActive);
+    updateWindowActivity();
+    document.addEventListener("visibilitychange", updateWindowActivity);
+    window.addEventListener("focus", updateWindowActivity);
+    window.addEventListener("blur", updateWindowActivity);
+    window.addEventListener("pageshow", updateWindowActivity);
+    window.addEventListener("pagehide", updateWindowActivity);
 
     return () => {
-      document.removeEventListener("visibilitychange", pauseIfNotActive);
-      window.removeEventListener("blur", pauseIfNotActive);
-      window.removeEventListener("pagehide", pauseIfNotActive);
+      document.removeEventListener("visibilitychange", updateWindowActivity);
+      window.removeEventListener("focus", updateWindowActivity);
+      window.removeEventListener("blur", updateWindowActivity);
+      window.removeEventListener("pageshow", updateWindowActivity);
+      window.removeEventListener("pagehide", updateWindowActivity);
     };
-  }, [isAutoplay]);
+  }, []);
+
+  useEffect(() => {
+    if (isAutoplay && !isWindowActive) {
+      setIsAutoplay(false);
+    }
+  }, [isAutoplay, isWindowActive]);
+
+  useEffect(
+    () => () => {
+      cancelAudioFadeRef.current?.();
+      audioRefs.current.forEach((audio) => {
+        if (!audio) {
+          return;
+        }
+        audio.pause();
+        audio.src = "";
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    const shouldPlayAudio =
+      hasEntered &&
+      isWindowActive &&
+      soundtrack?.src &&
+      !isMuted &&
+      audioVolume > 0.001;
+
+    const primaryAudio = audioRefs.current[activeAudioIndexRef.current];
+    const secondaryIndex = activeAudioIndexRef.current === 0 ? 1 : 0;
+    const secondaryAudio = audioRefs.current[secondaryIndex];
+    cancelAudioFadeRef.current?.();
+
+    if (!shouldPlayAudio) {
+      const audios = audioRefs.current.filter(Boolean);
+      if (!audios.length) {
+        return;
+      }
+      let remaining = audios.length;
+      const cancelFadeOut = audios.map((audio) =>
+        fadeAudio(
+          audio,
+          audio.volume || 0,
+          0,
+          AUDIO_DEACTIVATE_FADE_MS,
+          () => {
+            audio.pause();
+            audio.volume = 0;
+            remaining -= 1;
+            if (remaining <= 0) {
+              currentAudioSrcRef.current = "";
+            }
+          }
+        )
+      );
+      cancelAudioFadeRef.current = () => {
+        cancelFadeOut.forEach((cancelFade) => cancelFade?.());
+      };
+      return;
+    }
+
+    const targetSrc = soundtrack.src;
+    if (
+      primaryAudio &&
+      currentAudioSrcRef.current === targetSrc &&
+      primaryAudio.src === targetSrc
+    ) {
+      if (primaryAudio.paused) {
+        primaryAudio.play().catch(() => {});
+      }
+      cancelAudioFadeRef.current = fadeAudio(
+        primaryAudio,
+        primaryAudio.volume || 0,
+        audioVolume,
+        AUDIO_FADE_IN_MS
+      );
+      return;
+    }
+
+    if (!secondaryAudio) {
+      return;
+    }
+
+    secondaryAudio.src = targetSrc;
+    secondaryAudio.loop = true;
+    secondaryAudio.volume = 0;
+    secondaryAudio.currentTime = AUDIO_START_OFFSET_SECONDS;
+    secondaryAudio.play().catch(() => {});
+
+    const cancelFadeIn = fadeAudio(secondaryAudio, 0, audioVolume, AUDIO_FADE_IN_MS);
+    const cancelFadeOut = primaryAudio
+      ? fadeAudio(
+          primaryAudio,
+          primaryAudio.volume || 0,
+          0,
+          AUDIO_FADE_OUT_MS,
+          () => {
+            primaryAudio.pause();
+            primaryAudio.volume = 0;
+          },
+          AUDIO_SCENE_FADE_OUT_DELAY_MS
+        )
+      : () => {};
+
+    cancelAudioFadeRef.current = () => {
+      cancelFadeIn?.();
+      cancelFadeOut?.();
+    };
+    activeAudioIndexRef.current = secondaryIndex;
+    currentAudioSrcRef.current = targetSrc;
+  }, [audioVolume, hasEntered, isMuted, isWindowActive, soundtrack]);
 
   const cancelStepAnimation = () => {
     if (stepAnimationFrameRef.current !== null) {
@@ -681,8 +876,8 @@ export function StoryExperience({ story }) {
           const shouldMountVideo = Boolean(videoSrc) && (!hasEntered || Math.abs(index - currentSceneIndex) <= 1);
           const activeVideoSrc = shouldMountVideo ? videoSrc : "";
 
-          const fadeIn = clamp(local / SCENE_FADE_WINDOW);
-          const fadeOut = clamp((1 - local) / SCENE_FADE_WINDOW);
+          const fadeIn = easeInOut(clamp(local / SCENE_FADE_WINDOW));
+          const fadeOut = easeInOut(clamp((1 - local) / SCENE_FADE_WINDOW));
           const opacity = Math.min(fadeIn, fadeOut);
           const zoom = scene.gentleZoom ? 1 + local * 0.045 + timelineProgress * 0.01 : 1;
           const texts = scene.texts ?? [];
@@ -752,6 +947,8 @@ export function StoryExperience({ story }) {
           );
         })}
       </div>
+      <audio ref={(node) => { audioRefs.current[0] = node; }} preload="auto" />
+      <audio ref={(node) => { audioRefs.current[1] = node; }} preload="auto" />
       {hasEntered ? (
         <div className="pitch-controls" aria-label="Journey playback controls" data-pitch-control>
           <button
@@ -783,6 +980,37 @@ export function StoryExperience({ story }) {
           >
             &gt;
           </button>
+          <div className="pitch-controls__volume" data-pitch-control>
+            <button
+              type="button"
+              className="pitch-controls__btn"
+              data-pitch-control
+              onClick={() => setIsMuted((current) => !current)}
+              aria-label={isMuted ? "Unmute soundtrack" : "Mute soundtrack"}
+              title={soundtrack?.title ? `Track: ${soundtrack.title}` : "Soundtrack volume"}
+            >
+              <span className="pitch-controls__icon" aria-hidden="true">
+                {volumeIcon(audioVolume, isMuted)}
+              </span>
+            </button>
+            <input
+              className="pitch-controls__slider"
+              data-pitch-control
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={audioVolume}
+              aria-label="Soundtrack volume"
+              onChange={(event) => {
+                const nextVolume = clamp(Number(event.target.value), 0, 1);
+                setAudioVolume(nextVolume);
+                if (nextVolume > 0 && isMuted) {
+                  setIsMuted(false);
+                }
+              }}
+            />
+          </div>
         </div>
       ) : null}
       {isAtJourneyEnd ? (

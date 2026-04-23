@@ -4964,6 +4964,12 @@ kbd {
   backdrop-filter: blur(8px);
 }
 
+.pitch-controls__volume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
 .pitch-controls__btn {
   min-width: 34px;
   height: 34px;
@@ -5000,6 +5006,14 @@ kbd {
   display: inline-block;
   font-size: 0.94rem;
   line-height: 1;
+}
+
+.pitch-controls__slider {
+  width: 78px;
+  height: 4px;
+  margin: 0;
+  accent-color: rgba(184, 206, 167, 0.95);
+  cursor: pointer;
 }
 
 .pitch-controls__btn--primary:hover,
@@ -5123,11 +5137,19 @@ kbd {
     padding: 0.34rem;
   }
 
+  .pitch-controls__volume {
+    gap: 0.2rem;
+  }
+
   .pitch-controls__btn {
     min-width: 30px;
     height: 30px;
     padding: 0 0.5rem;
     font-size: 0.67rem;
+  }
+
+  .pitch-controls__slider {
+    width: 58px;
   }
 
   .pitch-controls__btn--primary {

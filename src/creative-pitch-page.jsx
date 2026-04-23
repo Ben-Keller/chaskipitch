@@ -5,6 +5,79 @@ import { getCreativePitchStory } from "./content";
 import { withBasePath } from "./paths";
 import { useAsyncData } from "./use-async-data";
 
+const MUSIC_TRACKS = [
+  {
+    title: "Suelo de Mar",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 01 Suelo de Mar.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Aires de Manglar",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 02 Aires de Manglar.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Bosque Seco",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 03 Bosque Seco.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Cuenca Amazonica",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 04 Cuenca Amazónica.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Desierto del Pacifico",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 05 Desierto del Pacífico.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Selva Montanosa",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 06 Selva Montañosa.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Bosque Nuboso",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 07 Bosque Nuboso.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Valle Sagrado",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 08 Valle Sagrado.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Mil Moray",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 09 Mil Moray.mp3",
+      import.meta.url
+    ).href
+  },
+  {
+    title: "Extrema Altura",
+    src: new URL(
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 10 Extrema Altura.mp3",
+      import.meta.url
+    ).href
+  }
+];
+
 function withAssetPrefix(pathValue) {
   if (typeof pathValue !== "string" || !pathValue.startsWith("/assets/")) {
     return pathValue;
@@ -34,7 +107,7 @@ function normalizeStory(story) {
   return {
     ...story,
     textStyles,
-    scenes: (story?.scenes ?? []).map((scene) => ({
+    scenes: (story?.scenes ?? []).map((scene, index) => ({
       ...scene,
       media: scene?.media
         ? {
@@ -42,6 +115,7 @@ function normalizeStory(story) {
             srcPattern: withAssetPrefix(scene.media.srcPattern)
           }
         : null,
+      soundtrack: MUSIC_TRACKS[index % MUSIC_TRACKS.length],
       texts: (scene?.texts ?? []).map((text) => resolveTextStyle(text, textStyles))
     }))
   };

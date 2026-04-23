@@ -59,15 +59,15 @@ const DEFAULT_CREATIVE_PITCH_CONFIG = {
     scene_padding_start_seconds: 0.22,
     scene_padding_end_seconds: 0.2,
     text_fade_seconds: 0.2,
-    scroll_seconds_per_1000px: 0.945,
-    drag_seconds_per_1000px: 1.773,
-    keyboard_step_seconds: 0.65
+    scroll_seconds_per_1000px: 0.662,
+    drag_seconds_per_1000px: 1.241,
+    keyboard_step_seconds: 0.455
   },
   defaults: {
     frame_count: 24,
     playback_fps: 24,
     min_scene_seconds: 0.4,
-    autoplay_speed_multiplier: 0.591
+    autoplay_speed_multiplier: 0.414
   },
   scene_overrides: {}
 };
