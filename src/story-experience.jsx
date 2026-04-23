@@ -22,6 +22,7 @@ const AUDIO_DEACTIVATE_FADE_MS = 900;
 const AUDIO_SCENE_FADE_OUT_DELAY_MS = 650;
 const AUDIO_START_OFFSET_SECONDS = 3;
 const INTRO_AUDIO_VOLUME_MULTIPLIER = 0.7;
+const AUDIO_TRANSITION_LEAD_PROGRESS = 0.14;
 const RETURN_TO_START_AUDIO_FADE_MS = 140;
 const RESET_CUE_FADE_IN_MS = 160;
 const RESET_CUE_FADE_OUT_MS = 1300;
@@ -404,18 +405,41 @@ export function StoryExperience({ story }) {
     [scenes, currentSceneIndex]
   );
 
+  const soundtrackSceneIndex = useMemo(() => {
+    if (!hasEntered) {
+      return -1;
+    }
+    if (currentSceneIndex < 0 || currentSceneIndex >= timelineSegments.length) {
+      return currentSceneIndex;
+    }
+
+    const segment = timelineSegments[currentSceneIndex];
+    const nextIndex = currentSceneIndex + 1;
+    if (!segment || nextIndex >= scenes.length) {
+      return currentSceneIndex;
+    }
+
+    const localProgress = clamp(
+      (timelineSeconds - segment.startSeconds) / Math.max(0.0001, segment.durationSeconds),
+      0,
+      1
+    );
+
+    return localProgress >= 1 - AUDIO_TRANSITION_LEAD_PROGRESS ? nextIndex : currentSceneIndex;
+  }, [currentSceneIndex, hasEntered, scenes.length, timelineSeconds, timelineSegments]);
+
   const soundtrack = useMemo(() => {
     if (!hasEntered) {
       const soundtrackValue = story?.introSoundtrack;
       return soundtrackValue && typeof soundtrackValue === "object" ? soundtrackValue : null;
     }
-    if (currentSceneIndex < 0 || currentSceneIndex >= scenes.length) {
+    if (soundtrackSceneIndex < 0 || soundtrackSceneIndex >= scenes.length) {
       return null;
     }
-    const scene = scenes[currentSceneIndex];
+    const scene = scenes[soundtrackSceneIndex];
     const soundtrackValue = scene?.soundtrack;
     return soundtrackValue && typeof soundtrackValue === "object" ? soundtrackValue : null;
-  }, [currentSceneIndex, hasEntered, scenes, story?.introSoundtrack]);
+  }, [hasEntered, scenes, soundtrackSceneIndex, story?.introSoundtrack]);
 
   const effectiveAudioVolume = audioVolume * (hasEntered ? 1 : INTRO_AUDIO_VOLUME_MULTIPLIER);
 

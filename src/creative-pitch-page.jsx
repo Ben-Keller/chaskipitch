@@ -28,9 +28,9 @@ const MUSIC_TRACKS = [
     ).href
   },
   {
-    title: "Cuenca Amazonica",
+    title: "Extrema Altura",
     src: new URL(
-      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 04 Cuenca Amazónica.mp3",
+      "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 10 Extrema Altura.mp3",
       import.meta.url
     ).href
   },
