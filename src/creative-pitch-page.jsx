@@ -68,7 +68,7 @@ const MUSIC_TRACKS = [
       "../assets/music/[Maribel Tafur] Mater Soundscapes of Peru - 08 Valle Sagrado.mp3",
       import.meta.url
     ).href,
-    startOffsetSeconds: 4
+    startOffsetSeconds: 7
   },
   {
     title: "Extrema Altura",

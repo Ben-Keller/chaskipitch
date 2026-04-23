@@ -24,9 +24,9 @@ const AUDIO_START_OFFSET_SECONDS = 1.5;
 const INTRO_AUDIO_VOLUME_MULTIPLIER = 0.7;
 const AUDIO_TRANSITION_LEAD_PROGRESS = 0.14;
 const RETURN_TO_START_AUDIO_FADE_MS = 140;
-const RESET_CUE_PLAYBACK_RATE = 1.75;
+const RESET_CUE_PLAYBACK_RATE = 1;
 const RESET_CUE_START_OFFSET_SECONDS = 2.4;
-const RESET_CUE_VOLUME_MULTIPLIER = 0.8;
+const RESET_CUE_VOLUME_MULTIPLIER = 0.56;
 const RESET_CUE_MIN_TOTAL_MS = 2200;
 const TEXT_FADE_OUT_DELAY_SECONDS = 1;
 const DEFAULT_AUDIO_VOLUME = 0.7;
@@ -257,41 +257,6 @@ function fadeAudio(audio, from, to, durationMs, onComplete, delayMs = 0) {
   };
 }
 
-async function getReversedAudioBuffer(audioContext, cacheRef, src) {
-  if (!src) {
-    return null;
-  }
-  if (cacheRef.current.has(src)) {
-    return cacheRef.current.get(src);
-  }
-
-  const promise = fetch(src)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Failed to fetch audio cue: ${response.status}`);
-      }
-      return response.arrayBuffer();
-    })
-    .then((arrayBuffer) => audioContext.decodeAudioData(arrayBuffer.slice(0)))
-    .then((decodedBuffer) => {
-      const reversedBuffer = audioContext.createBuffer(
-        decodedBuffer.numberOfChannels,
-        decodedBuffer.length,
-        decodedBuffer.sampleRate
-      );
-
-      for (let channel = 0; channel < decodedBuffer.numberOfChannels; channel += 1) {
-        const sourceData = decodedBuffer.getChannelData(channel);
-        reversedBuffer.getChannelData(channel).set(Array.from(sourceData).reverse());
-      }
-
-      return reversedBuffer;
-    });
-
-  cacheRef.current.set(src, promise);
-  return promise;
-}
-
 function ScrubbedSceneVideo({ src, alt, zoom, localProgress, preload = "metadata" }) {
   const videoRef = useRef(null);
   const [resolvedSrc, setResolvedSrc] = useState(src || "");
@@ -358,11 +323,11 @@ export function StoryExperience({ story }) {
   const [isWindowActive, setIsWindowActive] = useState(() => isLiveWindowActive());
   const [isReturningToStart, setIsReturningToStart] = useState(false);
   const audioRefs = useRef([null, null]);
+  const resetAudioRef = useRef(null);
   const activeAudioIndexRef = useRef(0);
   const currentAudioSrcRef = useRef("");
+  const currentAudioOffsetRef = useRef(AUDIO_START_OFFSET_SECONDS);
   const cancelAudioFadeRef = useRef(() => {});
-  const audioContextRef = useRef(null);
-  const reversedBufferCacheRef = useRef(new Map());
   const stopResetCueRef = useRef(() => {});
   const returnToStartTimerRef = useRef(null);
   const returnToIntroTimerRef = useRef(null);
@@ -565,6 +530,10 @@ export function StoryExperience({ story }) {
         audio.pause();
         audio.src = "";
       });
+      if (resetAudioRef.current) {
+        resetAudioRef.current.pause();
+        resetAudioRef.current.src = "";
+      }
     },
     []
   );
@@ -660,6 +629,7 @@ export function StoryExperience({ story }) {
     };
     activeAudioIndexRef.current = secondaryIndex;
     currentAudioSrcRef.current = targetSrc;
+    currentAudioOffsetRef.current = soundtrackStartOffsetSeconds;
   }, [
     effectiveAudioVolume,
     hasEntered,
@@ -675,85 +645,38 @@ export function StoryExperience({ story }) {
       return undefined;
     }
 
+    const cueAudio = resetAudioRef.current;
     const cueSrc = currentAudioSrcRef.current || soundtrack?.src || story?.introSoundtrack?.src;
     if (!cueSrc || typeof window === "undefined") {
       setIsReturningToStart(false);
       return undefined;
     }
 
-    let cancelled = false;
-    let localStop = () => {};
+    if (!cueAudio) {
+      setIsReturningToStart(false);
+      return undefined;
+    }
 
-    const playResetCue = async () => {
-      try {
-        const AudioContextCtor = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextCtor) {
-          setIsReturningToStart(false);
-          return;
-        }
+    const cueStartOffset = Math.max(
+      RESET_CUE_START_OFFSET_SECONDS,
+      Number(currentAudioOffsetRef.current) || AUDIO_START_OFFSET_SECONDS
+    );
+    cueAudio.pause();
+    cueAudio.loop = false;
+    cueAudio.playbackRate = RESET_CUE_PLAYBACK_RATE;
+    cueAudio.volume = isMuted ? 0 : audioVolume * RESET_CUE_VOLUME_MULTIPLIER;
+    cueAudio.src = cueSrc;
+    cueAudio.load();
+    cueAudio.currentTime = cueStartOffset;
+    cueAudio.play().catch(() => {});
 
-        if (!audioContextRef.current) {
-          audioContextRef.current = new AudioContextCtor();
-        }
-        const audioContext = audioContextRef.current;
-        if (audioContext.state === "suspended") {
-          await audioContext.resume();
-        }
-
-        const reversedBuffer = await getReversedAudioBuffer(audioContext, reversedBufferCacheRef, cueSrc);
-        if (!reversedBuffer || cancelled) {
-          return;
-        }
-
-        const source = audioContext.createBufferSource();
-        const gainNode = audioContext.createGain();
-        source.buffer = reversedBuffer;
-        source.playbackRate.value = RESET_CUE_PLAYBACK_RATE;
-        source.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-
-        const now = audioContext.currentTime;
-        const targetVolume = isMuted ? 0 : audioVolume * RESET_CUE_VOLUME_MULTIPLIER;
-        const offset = Math.min(
-          Math.max(0, RESET_CUE_START_OFFSET_SECONDS),
-          Math.max(0, reversedBuffer.duration - 0.1)
-        );
-        const availableDurationSeconds = Math.max(
-          0.35,
-          (reversedBuffer.duration - offset) / RESET_CUE_PLAYBACK_RATE
-        );
-        const playbackDuration = Math.min(RESET_CUE_MIN_TOTAL_MS / 1000, availableDurationSeconds);
-        const stopAt = now + playbackDuration;
-
-        gainNode.gain.setValueAtTime(targetVolume, now);
-
-        source.start(now, offset, playbackDuration);
-        source.stop(stopAt);
-        source.onended = () => {
-          gainNode.disconnect();
-          source.disconnect();
-        };
-
-        localStop = () => {
-          try {
-            source.stop();
-          } catch {
-            // Source may already be stopped.
-          }
-          gainNode.disconnect();
-          source.disconnect();
-        };
-        stopResetCueRef.current = localStop;
-      } catch {
-        setIsReturningToStart(false);
-      }
+    stopResetCueRef.current = () => {
+      cueAudio.pause();
+      cueAudio.currentTime = 0;
     };
 
-    playResetCue();
-
     return () => {
-      cancelled = true;
-      localStop();
+      stopResetCueRef.current?.();
       stopResetCueRef.current = () => {};
     };
   }, [audioVolume, isMuted, isReturningToStart, soundtrack?.src, story?.introSoundtrack?.src]);
@@ -1154,6 +1077,7 @@ export function StoryExperience({ story }) {
       </div>
       <audio ref={(node) => { audioRefs.current[0] = node; }} preload="auto" />
       <audio ref={(node) => { audioRefs.current[1] = node; }} preload="auto" />
+      <audio ref={resetAudioRef} preload="auto" />
       <div className={`pitch-controls${hasEntered ? "" : " pitch-controls--intro"}`} aria-label="Journey playback controls" data-pitch-control>
         {hasEntered ? (
           <>
