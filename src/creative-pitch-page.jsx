@@ -107,6 +107,8 @@ function normalizeStory(story) {
   return {
     ...story,
     textStyles,
+    introSoundtrack: MUSIC_TRACKS[0],
+    resetSoundtrack: MUSIC_TRACKS[0],
     scenes: (story?.scenes ?? []).map((scene, index) => ({
       ...scene,
       media: scene?.media
