@@ -20,12 +20,10 @@ const AUDIO_FADE_IN_MS = 1400;
 const AUDIO_FADE_OUT_MS = 1800;
 const AUDIO_DEACTIVATE_FADE_MS = 900;
 const AUDIO_SCENE_FADE_OUT_DELAY_MS = 650;
-const AUDIO_START_OFFSET_SECONDS = 3;
+const AUDIO_START_OFFSET_SECONDS = 1.5;
 const INTRO_AUDIO_VOLUME_MULTIPLIER = 0.7;
 const AUDIO_TRANSITION_LEAD_PROGRESS = 0.14;
 const RETURN_TO_START_AUDIO_FADE_MS = 140;
-const RESET_CUE_FADE_IN_MS = 160;
-const RESET_CUE_FADE_OUT_MS = 1300;
 const RESET_CUE_PLAYBACK_RATE = 1.75;
 const RESET_CUE_START_OFFSET_SECONDS = 2.4;
 const RESET_CUE_VOLUME_MULTIPLIER = 0.8;
@@ -628,12 +626,12 @@ export function StoryExperience({ story }) {
       return;
     }
 
-    secondaryAudio.src = targetSrc;
     secondaryAudio.loop = true;
     secondaryAudio.volume = 0;
+    secondaryAudio.src = targetSrc;
+    secondaryAudio.load();
     secondaryAudio.currentTime = AUDIO_START_OFFSET_SECONDS;
     secondaryAudio.play().catch(() => {});
-
     const cancelFadeIn = fadeAudio(secondaryAudio, 0, effectiveAudioVolume, AUDIO_FADE_IN_MS);
     const cancelFadeOut = primaryAudio
       ? fadeAudio(
@@ -701,27 +699,20 @@ export function StoryExperience({ story }) {
 
         const now = audioContext.currentTime;
         const targetVolume = isMuted ? 0 : audioVolume * RESET_CUE_VOLUME_MULTIPLIER;
-        const playbackDuration = Math.max(
-          0.35,
-          Math.min(
-            2.8,
-            (RESET_CUE_START_OFFSET_SECONDS / RESET_CUE_PLAYBACK_RATE) + (RESET_CUE_FADE_OUT_MS / 1000)
-          )
-        );
-        const fadeInEnd = now + RESET_CUE_FADE_IN_MS / 1000;
-        const fadeOutStart = Math.max(fadeInEnd, now + playbackDuration - RESET_CUE_FADE_OUT_MS / 1000);
-        const stopAt = fadeOutStart + RESET_CUE_FADE_OUT_MS / 1000;
         const offset = Math.min(
           Math.max(0, RESET_CUE_START_OFFSET_SECONDS),
           Math.max(0, reversedBuffer.duration - 0.1)
         );
+        const availableDurationSeconds = Math.max(
+          0.35,
+          (reversedBuffer.duration - offset) / RESET_CUE_PLAYBACK_RATE
+        );
+        const playbackDuration = Math.min(RESET_CUE_MIN_TOTAL_MS / 1000, availableDurationSeconds);
+        const stopAt = now + playbackDuration;
 
-        gainNode.gain.setValueAtTime(0, now);
-        gainNode.gain.linearRampToValueAtTime(targetVolume, fadeInEnd);
-        gainNode.gain.setValueAtTime(targetVolume, fadeOutStart);
-        gainNode.gain.linearRampToValueAtTime(0, stopAt);
+        gainNode.gain.setValueAtTime(targetVolume, now);
 
-        source.start(now, offset);
+        source.start(now, offset, playbackDuration);
         source.stop(stopAt);
         source.onended = () => {
           gainNode.disconnect();
