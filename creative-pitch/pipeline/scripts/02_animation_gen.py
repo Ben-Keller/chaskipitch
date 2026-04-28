@@ -25,7 +25,6 @@ from pipeline_core import (  # noqa: E402
     filter_jobs_by_scene_ids,
     load_manifest,
     parse_scene_ids,
-    production_end_path,
     production_start_path,
     rel_to_repo,
     run_id,
@@ -76,67 +75,34 @@ class RunwayVideoGenerator:
         model: str,
         prompt_text: str,
         first_frame_uri: str,
-        last_frame_uri: str,
         ratio: str,
         duration_seconds: int,
         seed: Optional[int],
         public_figure_threshold: str,
     ) -> Dict[str, Any]:
-        attempts = [
-            {"include_last": True, "include_seed": seed is not None},
-            {"include_last": False, "include_seed": seed is not None},
-            {"include_last": False, "include_seed": False},
-        ]
+        kwargs: Dict[str, Any] = {
+            "model": model,
+            "prompt_text": prompt_text,
+            "prompt_image": [{"uri": first_frame_uri, "position": "first"}],
+            "ratio": ratio,
+            "duration": duration_seconds,
+            "content_moderation": {"public_figure_threshold": public_figure_threshold},
+            "extra_headers": {"X-Runway-Version": self.api_version},
+        }
+        if seed is not None:
+            kwargs["seed"] = seed
 
-        output = None
-        last_exc: Exception | None = None
-        used_input_mode = "first+last"
-
-        for attempt in attempts:
-            kwargs: Dict[str, Any] = {
-                "model": model,
-                "prompt_text": prompt_text,
-                "prompt_image": [{"uri": first_frame_uri, "position": "first"}],
-                "ratio": ratio,
-                "duration": duration_seconds,
-                "content_moderation": {"public_figure_threshold": public_figure_threshold},
-                "extra_headers": {"X-Runway-Version": self.api_version},
-            }
-            if attempt["include_last"]:
-                kwargs["prompt_image"].append({"uri": last_frame_uri, "position": "last"})
-            if attempt["include_seed"] and seed is not None:
-                kwargs["seed"] = seed
-
-            try:
-                request = self.client.image_to_video.create(**kwargs)
-                output = request.wait_for_task_output(timeout=self.timeout_seconds)
-                used_input_mode = "first+last" if attempt["include_last"] else "first_only"
-                break
-            except Exception as exc:  # noqa: BLE001
-                last_exc = exc
-                message = str(exc)
-                prompt_image_rejected = (
-                    "promptImage" in message
-                    or "position" in message
-                    or "Too big: expected array to have <=1 items" in message
-                )
-                seed_rejected = "seed" in message and ("null" in message or "invalid_type" in message)
-
-                if attempt["include_last"] and prompt_image_rejected:
-                    continue
-                if attempt["include_seed"] and seed_rejected:
-                    continue
-
-                raise RunwayGenerationError(message) from exc
-
-        if output is None:
-            raise RunwayGenerationError(str(last_exc) if last_exc else "Runway generation failed.")
+        try:
+            request = self.client.image_to_video.create(**kwargs)
+            output = request.wait_for_task_output(timeout=self.timeout_seconds)
+        except Exception as exc:  # noqa: BLE001
+            raise RunwayGenerationError(str(exc)) from exc
 
         return {
             "task_id": output.id,
             "status": output.status,
             "output": list(output.output),
-            "input_mode": used_input_mode,
+            "input_mode": "first_only",
         }
 
 
@@ -193,7 +159,6 @@ def _generate_video_with_retries(
     model: str,
     prompt_text: str,
     first_frame_uri: str,
-    last_frame_uri: str,
     ratio: str,
     duration_seconds: int,
     seed: Optional[int],
@@ -207,7 +172,6 @@ def _generate_video_with_retries(
                 model=model,
                 prompt_text=prompt_text,
                 first_frame_uri=first_frame_uri,
-                last_frame_uri=last_frame_uri,
                 ratio=ratio,
                 duration_seconds=duration_seconds,
                 seed=seed,
@@ -339,14 +303,10 @@ def main() -> int:
             continue
 
         start_path = production_start_path(job)
-        end_path = production_end_path(job)
-
-        if not start_path.exists() or not end_path.exists():
+        if not start_path.exists():
             missing_parts: List[str] = []
             if not start_path.exists():
                 missing_parts.append(f"start missing ({rel_to_repo(start_path)})")
-            if not end_path.exists():
-                missing_parts.append(f"end missing ({rel_to_repo(end_path)})")
             skipped_missing_keyframes.append(
                 (
                     scene_id,
@@ -358,12 +318,10 @@ def main() -> int:
 
         job["startKeyframePath"] = str(start_path)
         job["startKeyframePathRel"] = rel_to_repo(start_path)
-        job["endKeyframePath"] = str(end_path)
-        job["endKeyframePathRel"] = rel_to_repo(end_path)
         needs_generation.append(job)
 
     if skipped_missing_keyframes:
-        print("animation_gen skipped scenes (missing validated production keyframes):")
+        print("animation_gen skipped scenes (missing validated production start keyframes):")
         for scene_id, reason in skipped_missing_keyframes:
             print(f"- {scene_id}: {reason}")
     if skipped_existing_outputs and not overwrite:
@@ -423,8 +381,6 @@ def main() -> int:
         sequence_slug = str(job.get("sequenceSlug") or "sequence")
 
         start_path = Path(str(job["startKeyframePath"]))
-        end_path = Path(str(job["endKeyframePath"]))
-
         runway_cfg = job.get("runway", {}) if isinstance(job.get("runway"), dict) else {}
         model = str(runway_cfg.get("model") or "gen4.5")
         ratio = str(runway_cfg.get("ratio") or "1280:720")
@@ -445,18 +401,11 @@ def main() -> int:
                 label=f"{scene_id} start keyframe",
                 max_attempts=3,
             )
-            last_uri = _upload_ephemeral_with_retries(
-                generator=generator,
-                local_path=end_path,
-                label=f"{scene_id} end keyframe",
-                max_attempts=3,
-            )
             result = _generate_video_with_retries(
                 generator=generator,
                 model=model,
                 prompt_text=prompt,
                 first_frame_uri=first_uri,
-                last_frame_uri=last_uri,
                 ratio=ratio,
                 duration_seconds=duration_seconds,
                 seed=seed,

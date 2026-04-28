@@ -44,7 +44,6 @@ GENERATED_ROOT = PIPELINE_ROOT / "generated"
 MANIFEST_PATH = GENERATED_ROOT / "manifests" / "sequence_jobs.json"
 PRODUCTION_KEYFRAMES_ROOT = PIPELINE_ROOT / "images" / "production"
 PRODUCTION_START_DIR = PRODUCTION_KEYFRAMES_ROOT / "start"
-PRODUCTION_END_DIR = PRODUCTION_KEYFRAMES_ROOT / "end"
 
 
 def utc_now_iso() -> str:
@@ -83,11 +82,6 @@ def production_start_path(job: Dict[str, Any]) -> Path:
     sequence_slug = str(job.get("sequenceSlug") or "sequence")
     return PRODUCTION_START_DIR / production_keyframe_name(scene_id, sequence_slug)
 
-
-def production_end_path(job: Dict[str, Any]) -> Path:
-    scene_id = str(job.get("sceneId") or "scene")
-    sequence_slug = str(job.get("sequenceSlug") or "sequence")
-    return PRODUCTION_END_DIR / production_keyframe_name(scene_id, sequence_slug)
 
 
 def active_video_path(job: Dict[str, Any]) -> Path:
@@ -213,6 +207,16 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
     scenes = story.get("scenes")
     if not isinstance(scenes, list):
         raise PipelineError("creative-pitch/story.json must include a scenes array.")
+    generation_defaults_raw = story.get("generationDefaults")
+    generation_defaults = (
+        generation_defaults_raw if isinstance(generation_defaults_raw, dict) else {}
+    )
+    default_openai = (
+        generation_defaults.get("openai") if isinstance(generation_defaults.get("openai"), dict) else {}
+    )
+    default_runway = (
+        generation_defaults.get("runway") if isinstance(generation_defaults.get("runway"), dict) else {}
+    )
 
     jobs: List[Dict[str, Any]] = []
     for scene_index, scene in enumerate(scenes):
@@ -238,8 +242,10 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
         generation = generation_raw if isinstance(generation_raw, dict) else {}
         openai_raw = generation.get("openai")
         runway_raw = generation.get("runway")
-        openai_cfg = openai_raw if isinstance(openai_raw, dict) else {}
-        runway_cfg = runway_raw if isinstance(runway_raw, dict) else {}
+        openai_scene_cfg = openai_raw if isinstance(openai_raw, dict) else {}
+        runway_scene_cfg = runway_raw if isinstance(runway_raw, dict) else {}
+        openai_cfg = {**default_openai, **openai_scene_cfg}
+        runway_cfg = {**default_runway, **runway_scene_cfg}
 
         frame_count = as_int(media.get("frameCount"), default_frame_count, minimum=2)
 
@@ -260,7 +266,6 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
             "manualKeyframeDir": str(keyframe_source_dir),
             "manualKeyframeDirRel": rel_to_repo(keyframe_source_dir),
             "startKeyframePath": None,
-            "endKeyframePath": None,
             "videoPath": None,
             "videoPathRel": None,
             "status": "pending",
@@ -270,7 +275,6 @@ def story_jobs(default_frame_count: int) -> List[Dict[str, Any]]:
                 "quality": _pick_first(openai_cfg, ["quality"], "low"),
                 "style": _pick_first(openai_cfg, ["style"], "natural"),
                 "startPrompt": _pick_first(openai_cfg, ["startPrompt", "start_prompt"]),
-                "delta": _pick_first(openai_cfg, ["delta"]),
             },
             "runway": {
                 "model": _pick_first(runway_cfg, ["model"], _pick_first(generation, ["runwayModel", "runway_model"], "gen4.5")),

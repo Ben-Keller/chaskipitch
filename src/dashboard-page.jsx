@@ -1065,30 +1065,45 @@ export function DashboardPage() {
                 </div>
 
                 <div className="atlas-theme-ribbon" role="group" aria-label="Theme mode filters">
-                  <div className="atlas-theme-grid">
-                    {orderedThemes.map((theme) => (
-                      <button
-                        key={theme.slug}
-                        type="button"
-                        className={[
-                          selectedThemeSlug === theme.slug ? "is-active" : "",
-                          hoveredThemeSlug === theme.slug ? "is-hovered" : "",
-                          selectedCountryThemes.has(theme.slug) ? "is-country-theme" : ""
-                        ]
-                          .filter(Boolean)
-                          .join(" ")}
-                        onMouseEnter={() => setHoveredThemeSlug(theme.slug)}
-                        onMouseLeave={() => setHoveredThemeSlug(null)}
-                        onClick={() => handleThemeSelect(theme.slug)}
-                        style={{
-                          "--theme-texture-url": selectedThemeTextureBySlug.get(theme.slug)
-                            ? `url(${selectedThemeTextureBySlug.get(theme.slug)})`
-                            : "none"
-                        }}
-                      >
-                        {theme.name}
-                      </button>
-                    ))}
+                  <div
+                    className={[
+                      "atlas-theme-grid",
+                      isAllThematicsOverview ? "atlas-theme-grid--all-thematics" : ""
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    {orderedThemes.map((theme) => {
+                      const isActiveTheme = selectedThemeSlug === theme.slug;
+                      const isCountryTheme = selectedCountryThemes.has(theme.slug);
+                      const isHighlighted = isActiveTheme || isCountryTheme;
+                      const shouldSubdueTheme = !isAllThematicsOverview && !isHighlighted;
+                      return (
+                        <button
+                          key={theme.slug}
+                          type="button"
+                          className={[
+                            shouldSubdueTheme ? "is-subdued" : "",
+                            isHighlighted ? "is-highlighted" : "",
+                            isActiveTheme ? "is-active" : "",
+                            hoveredThemeSlug === theme.slug ? "is-hovered" : "",
+                            isCountryTheme ? "is-country-theme" : ""
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                          onMouseEnter={() => setHoveredThemeSlug(theme.slug)}
+                          onMouseLeave={() => setHoveredThemeSlug(null)}
+                          onClick={() => handleThemeSelect(theme.slug)}
+                          style={{
+                            "--theme-texture-url": selectedThemeTextureBySlug.get(theme.slug)
+                              ? `url(${selectedThemeTextureBySlug.get(theme.slug)})`
+                              : "none"
+                          }}
+                        >
+                          {theme.name}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               </section>

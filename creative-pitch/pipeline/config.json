@@ -11,9 +11,7 @@
     "runway_duration_seconds": 2,
     "overwrite": true,
     "generate_start_frame": false,
-    "generate_end_frame": false,
-    "copy_start_to_production": false,
-    "copy_end_to_production": false
+    "copy_start_to_production": false
   },
   "timing": {
     "base_timing_seconds": 0.42,

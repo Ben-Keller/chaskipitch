@@ -40,9 +40,7 @@ DEFAULT_CONFIG: Dict[str, object] = {
         "runway_duration_seconds": 5,
         "overwrite": False,
         "generate_start_frame": True,
-        "generate_end_frame": False,
         "copy_start_to_production": False,
-        "copy_end_to_production": False,
     },
     "timing": {
         "base_timing_seconds": 0.42,
@@ -127,9 +125,7 @@ def _normalize_config(raw: Dict[str, object] | None) -> Dict[str, object]:
             ),
             "overwrite": bool(defaults_map.get("overwrite", False)),
             "generate_start_frame": bool(defaults_map.get("generate_start_frame", True)),
-            "generate_end_frame": bool(defaults_map.get("generate_end_frame", False)),
             "copy_start_to_production": bool(defaults_map.get("copy_start_to_production", False)),
-            "copy_end_to_production": bool(defaults_map.get("copy_end_to_production", False)),
         },
         "timing": {
             "base_timing_seconds": max(
@@ -304,15 +300,9 @@ def run_pipeline(
     env["PITCH_IMAGE_GEN_RUN_START"] = (
         "true" if bool(defaults_map.get("generate_start_frame", True)) else "false"
     )
-    env["PITCH_IMAGE_GEN_RUN_END"] = (
-        "true" if bool(defaults_map.get("generate_end_frame", False)) else "false"
-    )
     env["PITCH_OVERWRITE"] = "true" if bool(defaults_map.get("overwrite", False)) else "false"
     env["PITCH_COPY_START_TO_PRODUCTION"] = (
         "true" if bool(defaults_map.get("copy_start_to_production", False)) else "false"
-    )
-    env["PITCH_COPY_END_TO_PRODUCTION"] = (
-        "true" if bool(defaults_map.get("copy_end_to_production", False)) else "false"
     )
     env["PITCH_RUNWAY_DURATION_SECONDS"] = str(
         max(2, min(10, _coerce_num(defaults_map.get("runway_duration_seconds", 5), 5)))
@@ -327,10 +317,8 @@ def run_pipeline(
         f"Runtime settings: PITCH_SCENE_LIMIT={env['PITCH_SCENE_LIMIT']} "
         f"PITCH_SCENE_IDS={env['PITCH_SCENE_IDS'] or 'all'} "
         f"PITCH_IMAGE_GEN_RUN_START={env['PITCH_IMAGE_GEN_RUN_START']} "
-        f"PITCH_IMAGE_GEN_RUN_END={env['PITCH_IMAGE_GEN_RUN_END']} "
         f"PITCH_OVERWRITE={env['PITCH_OVERWRITE']} "
         f"PITCH_COPY_START_TO_PRODUCTION={env['PITCH_COPY_START_TO_PRODUCTION']} "
-        f"PITCH_COPY_END_TO_PRODUCTION={env['PITCH_COPY_END_TO_PRODUCTION']} "
         f"PITCH_RUNWAY_DURATION_SECONDS={env['PITCH_RUNWAY_DURATION_SECONDS']}",
     )
 

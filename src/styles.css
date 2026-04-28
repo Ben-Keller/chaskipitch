@@ -588,16 +588,16 @@ img {
   border: 1px solid rgba(228, 213, 189, 0.3);
   border-radius: 10px;
   padding: 0.34rem 0.4rem;
-  background-color: rgba(12, 34, 30, 0.74);
+  background-color: rgba(10, 28, 24, 0.58);
   background-image:
-    linear-gradient(160deg, rgba(6, 20, 17, 0.55), rgba(9, 27, 23, 0.49)),
-    linear-gradient(152deg, rgba(31, 86, 76, 0.24), rgba(20, 57, 50, 0.16)),
+    linear-gradient(160deg, rgba(6, 18, 15, 0.66), rgba(8, 24, 21, 0.58)),
+    linear-gradient(152deg, rgba(24, 66, 58, 0.16), rgba(15, 43, 38, 0.1)),
     var(--theme-texture-url, none);
   background-size: cover, cover, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, no-repeat, no-repeat;
   background-blend-mode: normal, soft-light, normal;
-  color: rgba(250, 244, 231, 0.96);
+  color: rgba(237, 227, 209, 0.78);
   font-size: 0.68rem;
   font-weight: 700;
   line-height: 1.2;
@@ -605,25 +605,64 @@ img {
   white-space: normal;
   overflow-wrap: anywhere;
   word-break: break-word;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.78);
   cursor: pointer;
+  opacity: 1;
+}
+
+.atlas-theme-grid button.is-subdued {
+  opacity: 0.72;
+}
+
+.atlas-theme-grid--all-thematics button:not(.is-highlighted) {
+  opacity: 1;
+  border-color: rgba(228, 213, 189, 0.38);
+  background-color: rgba(12, 34, 30, 0.74);
+  background-image:
+    linear-gradient(160deg, rgba(6, 20, 17, 0.55), rgba(9, 27, 23, 0.49)),
+    linear-gradient(152deg, rgba(31, 86, 76, 0.24), rgba(20, 57, 50, 0.16)),
+    var(--theme-texture-url, none);
+  background-blend-mode: normal, soft-light, normal;
+  color: rgba(250, 244, 231, 0.96);
+  box-shadow: none;
+}
+
+.atlas-theme-grid button.is-highlighted {
+  opacity: 1;
+  border-color: rgba(255, 223, 102, 1);
+  background-image:
+    linear-gradient(160deg, rgba(18, 14, 7, 0.34), rgba(28, 20, 9, 0.24)),
+    linear-gradient(152deg, rgba(255, 215, 110, 0.62), rgba(226, 154, 38, 0.52)),
+    var(--theme-texture-url, none);
+  background-blend-mode: normal, soft-light, normal;
+  color: #fffdf8;
+  font-weight: 700;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.92),
+    0 10px 24px rgba(188, 129, 24, 0.24),
+    inset 0 0 0 1px rgba(255, 239, 166, 0.78),
+    inset 0 1px 10px rgba(255, 236, 164, 0.24);
 }
 
 .atlas-theme-grid button.is-active {
-  border-color: rgba(255, 225, 112, 0.96);
+  opacity: 1;
+  border-color: rgba(255, 224, 108, 1);
   background-image:
-    linear-gradient(160deg, rgba(6, 20, 17, 0.51), rgba(9, 27, 23, 0.45)),
-    linear-gradient(152deg, rgba(226, 118, 60, 0.38), rgba(194, 89, 38, 0.3)),
+    linear-gradient(160deg, rgba(20, 15, 8, 0.28), rgba(30, 21, 9, 0.18)),
+    linear-gradient(152deg, rgba(255, 224, 122, 0.74), rgba(235, 163, 47, 0.62)),
     var(--theme-texture-url, none);
   background-blend-mode: normal, soft-light, normal;
-  color: #fffaf2;
+  color: #fffefb;
   font-weight: 700;
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.9),
-    inset 0 0 0 1px rgba(255, 233, 138, 0.46);
+    0 0 0 1px rgba(0, 0, 0, 0.94),
+    0 12px 28px rgba(194, 140, 33, 0.3),
+    inset 0 0 0 1px rgba(255, 243, 181, 0.88),
+    inset 0 1px 14px rgba(255, 238, 167, 0.34);
 }
 
-.atlas-theme-grid button.is-hovered {
+.atlas-theme-grid button.is-hovered:not(.is-highlighted) {
+  opacity: 0.84;
   border-color: rgba(255, 225, 112, 0.62);
   background-image:
     linear-gradient(160deg, rgba(6, 20, 17, 0.53), rgba(9, 27, 23, 0.47)),
@@ -634,31 +673,23 @@ img {
 }
 
 .atlas-theme-grid button.is-country-theme {
-  border-color: rgba(255, 225, 112, 0.96);
-  background-image:
-    linear-gradient(160deg, rgba(6, 20, 17, 0.49), rgba(9, 27, 23, 0.43)),
-    linear-gradient(152deg, rgba(226, 118, 60, 0.4), rgba(194, 89, 38, 0.33)),
-    var(--theme-texture-url, none);
-  background-blend-mode: normal, soft-light, normal;
-  color: #fffaf2;
-  font-weight: 700;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.9),
-    inset 0 0 0 1px rgba(255, 233, 138, 0.42);
+  border-color: rgba(255, 225, 112, 1);
 }
 
 .atlas-theme-grid button.is-active.is-country-theme {
-  border-color: rgba(255, 225, 112, 0.98);
+  border-color: rgba(255, 227, 115, 1);
   background-image:
-    linear-gradient(160deg, rgba(6, 20, 17, 0.47), rgba(9, 27, 23, 0.41)),
-    linear-gradient(150deg, rgba(230, 123, 63, 0.48), rgba(198, 92, 40, 0.4)),
+    linear-gradient(160deg, rgba(22, 16, 8, 0.22), rgba(32, 22, 10, 0.14)),
+    linear-gradient(150deg, rgba(255, 229, 132, 0.82), rgba(240, 171, 52, 0.68)),
     var(--theme-texture-url, none);
   background-blend-mode: normal, soft-light, normal;
-  color: #fffaf2;
+  color: #fffffc;
   font-weight: 700;
   box-shadow:
     0 0 0 2px rgba(0, 0, 0, 0.95),
-    inset 0 0 0 1px rgba(255, 233, 138, 0.5);
+    0 14px 32px rgba(201, 147, 36, 0.34),
+    inset 0 0 0 1px rgba(255, 245, 188, 0.94),
+    inset 0 1px 16px rgba(255, 241, 176, 0.4);
 }
 
 .atlas-search-region__actions {

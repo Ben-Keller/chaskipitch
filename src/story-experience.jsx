@@ -26,7 +26,7 @@ const AUDIO_TRANSITION_LEAD_PROGRESS = 0.14;
 const RETURN_TO_START_AUDIO_FADE_MS = 140;
 const RESET_CUE_PLAYBACK_RATE = 1;
 const RESET_CUE_START_OFFSET_SECONDS = 2.4;
-const RESET_CUE_VOLUME_MULTIPLIER = 0.56;
+const RESET_CUE_VOLUME_MULTIPLIER = 0.392;
 const RESET_CUE_MIN_TOTAL_MS = 2200;
 const TEXT_FADE_OUT_DELAY_SECONDS = 1;
 const DEFAULT_AUDIO_VOLUME = 0.7;
@@ -254,6 +254,63 @@ function fadeAudio(audio, from, to, durationMs, onComplete, delayMs = 0) {
     if (timeoutId !== null) {
       window.clearTimeout(timeoutId);
     }
+  };
+}
+
+function startAudioElementPlayback(audio, { src, offsetSeconds = 0, volume = 1, playbackRate = 1, loop = false }) {
+  if (!audio || !src) {
+    return () => {};
+  }
+
+  let cancelled = false;
+  const safeOffset = Math.max(0, Number(offsetSeconds) || 0);
+
+  const cleanup = () => {
+    audio.removeEventListener("loadedmetadata", handleReady);
+    audio.removeEventListener("canplay", handleReady);
+  };
+
+  const handleReady = () => {
+    if (cancelled) {
+      return;
+    }
+    cleanup();
+    const duration = Number(audio.duration);
+    const boundedOffset = Number.isFinite(duration) && duration > 0
+      ? Math.min(safeOffset, Math.max(0, duration - 0.1))
+      : safeOffset;
+
+    audio.loop = loop;
+    audio.playbackRate = playbackRate;
+    audio.volume = volume;
+
+    try {
+      audio.currentTime = boundedOffset;
+    } catch {
+      // Metadata is available but some browsers still reject the seek transiently.
+    }
+
+    audio.play().catch(() => {});
+  };
+
+  audio.pause();
+  audio.loop = loop;
+  audio.playbackRate = playbackRate;
+  audio.volume = volume;
+  audio.src = src;
+  audio.load();
+
+  if (audio.readyState >= 1) {
+    handleReady();
+  } else {
+    audio.addEventListener("loadedmetadata", handleReady, { once: true });
+    audio.addEventListener("canplay", handleReady, { once: true });
+  }
+
+  return () => {
+    cancelled = true;
+    cleanup();
+    audio.pause();
   };
 }
 
@@ -661,17 +718,16 @@ export function StoryExperience({ story }) {
       RESET_CUE_START_OFFSET_SECONDS,
       Number(currentAudioOffsetRef.current) || AUDIO_START_OFFSET_SECONDS
     );
-    cueAudio.pause();
-    cueAudio.loop = false;
-    cueAudio.playbackRate = RESET_CUE_PLAYBACK_RATE;
-    cueAudio.volume = isMuted ? 0 : audioVolume * RESET_CUE_VOLUME_MULTIPLIER;
-    cueAudio.src = cueSrc;
-    cueAudio.load();
-    cueAudio.currentTime = cueStartOffset;
-    cueAudio.play().catch(() => {});
+    const cancelResetCue = startAudioElementPlayback(cueAudio, {
+      src: cueSrc,
+      offsetSeconds: cueStartOffset,
+      volume: isMuted ? 0 : audioVolume * RESET_CUE_VOLUME_MULTIPLIER,
+      playbackRate: RESET_CUE_PLAYBACK_RATE,
+      loop: false
+    });
 
     stopResetCueRef.current = () => {
-      cueAudio.pause();
+      cancelResetCue?.();
       cueAudio.currentTime = 0;
     };
 

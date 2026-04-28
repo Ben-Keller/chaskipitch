@@ -39,7 +39,7 @@ Notebook UI:
   - stage toggles (`image_gen`, `animation_gen`)
   - direct prototype controls (`runway_duration_seconds`, `overwrite`)
   - scene checkboxes are generated from `story.json`
-  - image-gen controls (`generate_start_frame`, `generate_end_frame`, `copy_start_to_production`, `copy_end_to_production`)
+  - image-gen controls (`generate_start_frame`, `copy_start_to_production`)
   - `runway_duration_seconds` is constrained to valid API integer values (`2` to `10`)
 - Pipeline execution logic lives in Python files:
   - `creative-pitch/pipeline/pipeline_backend.py`
@@ -50,8 +50,8 @@ Notebook UI:
 - Stage commands are wired by default in `pipeline_backend.py` and mirrored in `pipeline/config.json`.
 - Prompt text is authored directly in `story.json`:
   - `scene.media.generation.openai.startPrompt`
-  - `scene.media.generation.openai.delta`
   - `scene.media.generation.runway.prompt`
+  - shared model defaults live in top-level `generationDefaults`
 
 Image keyframe handoff workflow:
 
@@ -60,14 +60,9 @@ Image keyframe handoff workflow:
   - optionally auto-copy to production when `copy_start_to_production=true`
   - otherwise manually validate and copy to:
     - `creative-pitch/pipeline/images/production/start/<scene_id>_<sequence_slug>.png`
-- End frame generation writes:
-  - provider run copy: `.../end.png` under `pipeline/runs/openai/<run-id>/images/...`
-  - optionally auto-copy to production when `copy_end_to_production=true`
-  - otherwise manually validate and copy to:
-    - `creative-pitch/pipeline/images/production/end/<scene_id>_<sequence_slug>.png`
-- `animation_gen` runs only for scenes with validated keyframes present in:
+- `animation_gen` runs only for scenes with a validated start keyframe present in:
   - `creative-pitch/pipeline/images/production/start`
-  - `creative-pitch/pipeline/images/production/end`
+- Runway generation is start-frame plus motion prompt only. The pipeline no longer depends on authored end frames or `delta` instructions.
 
 Pipeline hygiene policy:
 
@@ -78,6 +73,5 @@ Pipeline hygiene policy:
   - `creative-pitch/pipeline/runs/runway/...`
 - Manual keyframe handoff lives in:
   - `creative-pitch/pipeline/images/production/start`
-  - `creative-pitch/pipeline/images/production/end`
 - Clear `creative-pitch/pipeline/output/` after each run.
 - Keep only final active MP4 outputs under `creative-pitch/assets/mp4`.

@@ -31,24 +31,9 @@ def build_parser() -> argparse.ArgumentParser:
         help="Enable start frame generation in image_gen.",
     )
     parser.add_argument(
-        "--skip-end-frame",
-        action="store_true",
-        help="Disable end frame generation in image_gen.",
-    )
-    parser.add_argument(
-        "--run-end-frame",
-        action="store_true",
-        help="Enable end frame generation in image_gen.",
-    )
-    parser.add_argument(
         "--copy-start-to-production",
         action="store_true",
         help="After start generation, copy generated starts to production start folder.",
-    )
-    parser.add_argument(
-        "--copy-end-to-production",
-        action="store_true",
-        help="After end generation, copy generated ends to production end folder.",
     )
     parser.add_argument(
         "--overwrite",
@@ -71,14 +56,8 @@ def main() -> int:
         config.setdefault("defaults", {})["generate_start_frame"] = False
     if args.run_start_frame:
         config.setdefault("defaults", {})["generate_start_frame"] = True
-    if args.skip_end_frame:
-        config.setdefault("defaults", {})["generate_end_frame"] = False
-    if args.run_end_frame:
-        config.setdefault("defaults", {})["generate_end_frame"] = True
     if args.copy_start_to_production:
         config.setdefault("defaults", {})["copy_start_to_production"] = True
-    if args.copy_end_to_production:
-        config.setdefault("defaults", {})["copy_end_to_production"] = True
     if args.overwrite:
         config.setdefault("defaults", {})["overwrite"] = True
 
