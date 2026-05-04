@@ -1,51 +1,53 @@
-# Chaski Global Proposal Platform
+# Chaski Global Page
 
-A React + JavaScript platform for the Tenure Facility 10-years proposal, combining impact mapping, creative scrollytelling, and film references.
+This repository contains the Chaski Global interactive page: a React + Vite experience for exploring Tenure Facility work through global mapping, thematic filters, country context, KPIs, evidence, photography, and film references.
 
 ## Stack
 
-- React + Vite
-- D3 for maps and geospatial overlays
-- Structured JSON content layer (`data/content`) for report data
+- React
+- Vite
+- D3 for map rendering and geospatial overlays
+- Structured JSON content under `data/content`
 
-## Run
+## Local Run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Before `dev`/`build`, project data and static assets are synced into `public/` automatically.
-`public/films`, `public/home`, `public/icons`, `public/media`, `public/report`, `public/runtime/content`, `public/runtime/creative-pitch/assets`, and `public/runtime/photos` are generated/symlinked artifacts and are not source-of-truth files.
+For a production build:
 
-Creative pitch source-of-truth:
+```bash
+npm run build
+```
 
-- Story JSON: `creative-pitch/story.json` (authored control)
-- Timing config: `creative-pitch/pipeline/config.json` (frame-count defaults, render quality, stage commands)
-- Runtime story: `public/runtime/creative-pitch/story.json` (generated during sync)
-- Visual assets: `creative-pitch/assets` (symlinked to `public/runtime/creative-pitch/assets`)
+Before `dev` and `build`, the app syncs content and static assets into `public/` automatically.
 
-The runtime lives under `src/` only. The project is now a single-framework React + Vite app.
+## Project Scope
+
+This README is intentionally focused on the Chaski Global page only.
+
+The main runtime areas relevant to client handoff are:
+
+- `src/dashboard-page.jsx` — primary Chaski Global page experience
+- `src/global-map-d3.jsx` — map rendering and interaction logic
+- `src/dashboard-support.jsx` — dashboard helpers, defaults, and formatting
+- `src/content.js` — runtime content loading
+- `src/styles.css` — shared visual styling
 
 ## Source Layout
 
-- `src/` UI runtime, data loaders, and shared utilities
-- `data/source/` raw upstream datasets used by build scripts
-  - `data/source/countries-v4/`
-  - `data/source/geo/`
-  - `data/source/videos.json`
-- `data/content/` processed application data consumed by the runtime sync step
-- `assets/photos/` source photography and textures used by assignment/build scripts
-- `assets/static/` source static files mirrored into `public/` for the app
+- `src/` — frontend runtime and UI logic
+- `data/content/` — processed application content consumed by the frontend
+- `data/source/` — raw upstream source files used by build scripts
+- `assets/photos/` — source photography and textures
+- `assets/static/` — static assets mirrored into `public/`
+- `scripts/` — content sync and build helpers
 
-## Information architecture
+## Content Model
 
-- `Home` Entry page with proposal framing and navigation
-- `Tenure Facility` Global map, thematic filtering, KPI strips, evidence and video panels
-- `Creative Pitch` Story experience with sequenced visual layers
-- `Our Films` Vimeo-backed reference film experience
-
-## Content schema
+Key runtime content files:
 
 - `data/content/global.json`
 - `data/content/countries/<ISO3>.json`
@@ -62,102 +64,36 @@ The runtime lives under `src/` only. The project is now a single-framework React
 - `data/content/geo/authoritative-provenance.json`
 - `data/content/geo/<ISO3>/territories.geojson`
 - `data/content/geo/<ISO3>/boundary.geojson`
-- `data/content/manifest.json` (generated slug/index manifest used by runtime loaders)
+- `data/content/manifest.json`
 
-## Phase 1 model upgrades
-
-Country records now include:
+Country records include:
 
 - `primary_status`
 - `status_tags[]`
 - `status_timeline[]`
-- `projects[]` (project-level records)
+- `projects[]`
 - `source_refs[]`
 - `confidence`
 - `geo_ref`
 
-Global metadata now includes:
+Global records include:
 
 - `data_model_version`
 - `source_refs[]`
 
-## Unified Pipeline
+## Useful Commands
 
 ```bash
-npm run pipeline:build     # build derived content artifacts
-npm run pipeline:validate  # run all validators
-npm run pipeline:ci        # build artifacts + validate + build app + perf budget + generated-content check
-npm run repo:audit         # report large tracked files and top-level size usage
+npm run pipeline:build
+npm run pipeline:validate
+npm run pipeline:ci
+npm run repo:audit
 ```
 
-Additional targeted checks are available (`perf:budget`, `check:generated`, `repo:audit`).
-
-Creative pitch sequence optimization:
-
-- Upscaled sequence frames (`frame_####.png`) are automatically converted to WebP during `predev`/`prebuild` and pipeline builds.
-- Default behavior removes source PNG frames after successful conversion (`REMOVE_UPSCALED_PNG=false` keeps PNGs).
-- Optional quality override: `WEBP_QUALITY=<number>` (default `82`).
-- Pipeline cleanup policy is enforced during sequence build:
-  - In `creative-pitch/pipeline/runs` and `creative-pitch/pipeline/run_backups`, only OpenAI/Runway outputs are retained.
-  - `creative-pitch/pipeline/output` is cleared after runs.
-  - In `creative-pitch/assets`, only final exported sequence frames are kept (`frame_####.webp`).
-
-## Deployment Size Controls
-
-- Disable creative pitch runtime (and avoid shipping sequence assets):
-  - `VITE_ENABLE_CREATIVE_PITCH=false`
-- Use a hosted PDF instead of repository-local report binary:
-  - `VITE_REPORT_URL=https://.../ChaskiGlobal_TenureFacility10YearCelebration_Final_3.2026.pdf`
-- Audit tracked repository size before pushing:
-  - `npm run repo:audit`
-
-## Deploy To Vercel
-
-Vercel is a good fit for this app:
-
-- Static Vite output (`dist`) with no server runtime required
-- Automatic preview deploys per branch/PR
-- Fast CDN delivery for map/media assets
-
-This repo is preconfigured for Vercel via `vercel.json`:
-
-- Install: `npm ci`
-- Build: `npm run build` (includes runtime content sync via `prebuild`)
-- Output: `dist`
-
-### Dashboard setup (recommended)
-
-1. Push this repository to GitHub.
-2. In Vercel: **Add New Project** -> import the repository.
-3. Framework preset: **Vite**.
-4. Root Directory: project root (`/`).
-5. Confirm:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-6. Set environment variables (optional):
-   - `VITE_ENABLE_CREATIVE_PITCH=false` to reduce deployment size
-   - `VITE_REPORT_URL=https://...` if serving PDF from external storage
-7. Deploy.
-
-### CLI setup (optional)
-
-```bash
-npm i -g vercel
-vercel login
-vercel
-vercel --prod
-```
-
-### Post-deploy checks
-
-1. Load `/` and confirm the Impact map renders.
-2. Confirm `runtime/content` JSON requests return 200.
-3. Open a country context card and verify photos/videos resolve.
-4. If Creative Pitch is enabled, verify sequence frames load from `runtime/creative-pitch/assets`.
+These are useful when updating the content layer or verifying repository health.
 
 ## Notes
 
-- Values are extracted from visible report figures and chapter text.
-- Country geometry layers are supplemental storytelling GeoJSON prepared from files under `data/source/geo/`.
-- Proposal PDF is available in-app at `/report/ChaskiGlobal_TenureFacility10YearCelebration_Final_3.2026.pdf`.
-- Scrollytelling run outputs and backups are intentionally excluded from this repo.
+- Values are derived from the report data and supporting editorial/source materials.
+- Country geometry layers are supplemental storytelling GeoJSON prepared from files in `data/source/geo/`.
+- Runtime-generated content under `public/runtime/` is build output, not source of truth.
